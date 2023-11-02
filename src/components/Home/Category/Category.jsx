@@ -1,45 +1,45 @@
-import React from "react";
-
 const Category = () => {
   return (
     <section>
-     
+      <div className="app-category-filter-bar sticky top-16 z-20 flex min-h-[64px] w-full overflow-hidden border-b border-light-400 bg-light-100 px-4 py-4 dark:border-dark-300 dark:bg-dark-100 sm:top-[70px] sm:min-h-[70px] sm:px-5 sm:py-5 md:px-6 lg:px-7 3xl:px-8 text-white">
+        <div className="-mb-4 flex items-start overflow-hidden">
           <div className="-mb-7 flex w-full gap-3 overflow-x-auto scroll-smooth pb-7">
-            <button >
-                
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               All
             </button>
-            <button >
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               Free
             </button>
-            <button >
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               PHP Script
             </button>
-            <button >
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               HTML
             </button>
-            <button >
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               React
             </button>
-            <button >
-              Wordpress 
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+              WordPress Plugin
             </button>
-            <button >
-              Anguler
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+              WordPress Theme
             </button>
-            <button >
-              Free
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+              Angular
             </button>
-            <button >
-              Free
+            <button class="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+              CMS
             </button>
-            <button >
-              Free
+            <button class="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+              CMS
             </button>
-            <button >
-              Free
+            <button class="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+              CMS
             </button>
-            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
