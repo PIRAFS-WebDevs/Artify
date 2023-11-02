@@ -28,13 +28,13 @@ const Category = () => {
             <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               Angular
             </button>
-            <button class="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               CMS
             </button>
-            <button class="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               CMS
             </button>
-            <button class="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
+            <button className="h-[30px] shrink-0 !rounded-full border border-gray-500 py-1.5 px-3.5 text-xs font-medium outline-none bg-[#323232]">
               CMS
             </button>
           </div>

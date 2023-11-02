@@ -7,10 +7,10 @@ const layout = ({ children }) => {
     <main className="min-h-[100vh] bg-darkPrimary relative ">
 
       <Navbar />
-      <section className="grid grid-cols-6">
+      <section className="flex">
         <Sidebar />
-        <div className="col-span-5">
 
+        <div className="w-full mx-auto">
         {children}
         </div>
       </section>

@@ -5,7 +5,11 @@ const Card = () => {
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
-          <div className="w-full sm:max-w-[310px] h-[270px] text-white space-y-2">
+          <div
+            key={e}
+            // sm:max-w-[310px]
+            className="w-full h-[270px] text-white space-y-2 col-span-1"
+          >
             <div className="flex max-h-[206px] w-full">
               <img
                 src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F803%2Fconversions%2Fimage16-thumbnail.jpg&w=640&q=100"
