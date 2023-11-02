@@ -3,7 +3,7 @@ import Card from "./Card/Card";
 
 const Content = () => {
   return (
-    <section className="px-2 py-4">
+    <section className="p-4">
       <Card />
     </section>
   );
