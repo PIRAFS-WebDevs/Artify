@@ -6,6 +6,7 @@ const Category = () => {
      
           <div className="-mb-7 flex w-full gap-3 overflow-x-auto scroll-smooth pb-7">
             <button >
+                
               All
             </button>
             <button >
