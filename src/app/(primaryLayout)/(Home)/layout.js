@@ -4,7 +4,7 @@ import React from "react";
 
 const layout = ({ children }) => {
   return (
-    <main className="bg-darkPrimary min-h-[100vh] ">
+    <main className=" min-h-[100vh] bg-darkPrimary">
       <Navbar />
       <section className="grid grid-cols-6">
         <Sidebar />
