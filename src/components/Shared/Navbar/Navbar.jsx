@@ -4,7 +4,7 @@ import { FaMoon, FaUserCircle, FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center bg-[#252525] px-6 py-4 text-[#808080]">
+    <nav className="flex  justify-between items-center bg-[#252525] px-6 py-4 text-[#808080]">
       <div className="flex gap-4 items-center">
         <AiOutlineMenu size={"1.5rem"} />
         <h1 className="text-xl font-medium text-white">WareSun</h1>
@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
 
       {/* mobile nav */}
-      <div className="sm:hidden absolute bottom-0 left-0 right-0 flex justify-between px-6 py-4 bg-[#252525]">
+      <div className="sm:hidden sticky bottom-5 left-0 right-0 flex justify-between px-6 py-4 bg-[#252525]">
         <AiFillHome size={"1.5rem"} />
         <AiOutlineSearch size={"1.5rem"} />
         <div className="relative">
