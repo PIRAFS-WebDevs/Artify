@@ -1,6 +1,5 @@
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
-import React from "react";
 
 const layout = ({ children }) => {
   return (
@@ -8,7 +7,10 @@ const layout = ({ children }) => {
       <Navbar />
       <section className="grid grid-cols-6">
         <Sidebar />
+        <div className="col-span-5">
+
         {children}
+        </div>
       </section>
     </main>
   );
