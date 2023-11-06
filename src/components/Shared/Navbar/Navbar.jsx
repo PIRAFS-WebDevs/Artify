@@ -1,48 +1,59 @@
+"use client";
+
+import Login from "@/components/Login/Login";
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
+
+// icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaUserCircle, FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isShow, setIsShow] = useState(false);
+
   return (
-    <nav className="bg-[#252525] text-[#808080]">
-      <div className="flex justify-between items-center px-6 py-4">
-        <div className="flex gap-6 items-center">
+    <nav className="bg-darkSec text-darkNormal">
+      <div className="flex items-center justify-between px-6 py-4">
+        <div className="flex items-center gap-6">
           <AiOutlineMenu size={"1.5rem"} />
           <Link href={"/"} className="text-xl font-medium text-white">
             WareSun
           </Link>
         </div>
 
-        <div className="flex gap-6 md:gap-8 items-center">
+        <div className="flex items-center gap-6 md:gap-8">
           <AiOutlineSearch size={"1.5rem"} className="hidden md:block" />
           <FaMoon size={"1.2rem"} />
 
           <div className="relative hidden md:block">
             <FaShoppingBag size={"1.2rem"} />
-            <span className="absolute -top-2 -right-2 rounded-full bg-[#00b482] text-white text-sm px-1">
+            <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
               0
             </span>
           </div>
 
-          <Link
-            href={"/login"}
-            className="bg-[#00b482] text-white px-8 py-2 rounded-md hidden md:block hover:bg-[#00997d] transition-all"
+          <button
+            onClick={() => setIsShow(true)}
+            className="hidden px-8 py-2 text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec"
           >
             Login
-          </Link>
+          </button>
+
+          {/* modal */}
+          <Login isShow={isShow} setIsShow={setIsShow} />
+
           <FaUserCircle size={"1.5rem"} />
         </div>
       </div>
 
       {/* mobile nav */}
-      <div className="sm:hidden fixed z-50 bottom-0 left-0 right-0 flex justify-around py-4 bg-[#252525]">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 sm:hidden bg-darkSec">
         <AiFillHome size={"1.5rem"} />
         <AiOutlineSearch size={"1.5rem"} />
 
         <div className="relative">
           <FaShoppingBag size={"1.5rem"} />
-          <span className="absolute -top-2 -right-2 rounded-full bg-[#00b482] text-white text-sm px-1">
+          <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
             0
           </span>
         </div>

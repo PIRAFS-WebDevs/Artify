@@ -13,6 +13,8 @@ module.exports = {
       darkPrimary: "#181818",
       darkSec: "#252525",
       darkNormal: "#999999",
+      primary: "#00b482",
+      primarySec: "#00997d",
     },
     extend: {
       backgroundImage: {
