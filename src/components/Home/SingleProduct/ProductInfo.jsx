@@ -48,9 +48,9 @@ const ProductInfo = () => {
       <div>
         <p className="grid grid-cols-4">
           <span className="">
-            <div className=" flex items-center gap-5">
+            <span className=" flex items-center gap-5">
               <AiOutlineTag className="dark:text-darkNormal h-5 w-5" /> Tags:
-            </div>
+            </span>
           </span>
           <span className="font-semibold text-white col-span-3 flex flex-wrap gap-3 ">
             {tags.map((tag, index) => (
