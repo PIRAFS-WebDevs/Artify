@@ -1,16 +1,11 @@
-"use client";
-
-import Login from "@/components/Login/Login";
 import Link from "next/link";
-import { useState } from "react";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaUserCircle, FaShoppingBag } from "react-icons/fa";
+import LoginButton from "./LoginButton";
 
 const Navbar = () => {
-  const [isShow, setIsShow] = useState(false);
-
   return (
     <nav className="bg-darkSec text-darkNormal">
       <div className="flex items-center justify-between px-6 py-4">
@@ -32,15 +27,8 @@ const Navbar = () => {
             </span>
           </div>
 
-          <button
-            onClick={() => setIsShow(true)}
-            className="hidden px-8 py-2 text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec"
-          >
-            Login
-          </button>
-
-          {/* modal */}
-          <Login isShow={isShow} setIsShow={setIsShow} />
+          {/* login button */}
+          <LoginButton />
 
           <FaUserCircle size={"1.5rem"} />
         </div>

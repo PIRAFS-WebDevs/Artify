@@ -1,10 +1,7 @@
-"use client";
-
 import React from "react";
 import { motion as m, AnimatePresence } from "framer-motion";
-
-// icons
-import { AiOutlineClose } from "react-icons/ai";
+import CloseButton from "./CloseButton";
+import Link from "next/link";
 
 const Login = ({ isShow, setIsShow }) => {
   return (
@@ -26,20 +23,19 @@ const Login = ({ isShow, setIsShow }) => {
           >
             <div className="relative z-10 space-y-4">
               <div className="flex justify-end w-full">
-                <button
-                  onClick={() => setIsShow(false)}
-                  className="grid w-8 h-8 -mt-2 -mr-2 text-xl place-items-center"
-                >
-                  <AiOutlineClose />
-                </button>
+                <CloseButton setIsShow={setIsShow} />
               </div>
               <div className="relative pb-4 space-y-4 text-center">
                 <h1 className="text-xl font-medium">Welcome Back, Get Login</h1>
                 <p className="text-sm text-gray-300">
                   Join your account. Don’t have account?{" "}
-                  <span className="font-medium text-primary">
+                  {/* create account button */}
+                  <Link
+                    href={"/register"}
+                    className="font-medium text-primary hover:text-primarySec cursor-pointer"
+                  >
                     Create Account
-                  </span>
+                  </Link>
                 </p>
               </div>
               <div className="space-y-2">
@@ -73,16 +69,18 @@ const Login = ({ isShow, setIsShow }) => {
                     id="default-checkbox"
                     type="checkbox"
                     value=""
-                    className="w-4 h-4 accent-primary"
+                    className="w-4 h-4 accent-primary cursor-pointer"
                   />
                   <label
                     for="default-checkbox"
-                    className="ml-2 text-sm text-gray-300 select-none"
+                    className="ml-2 text-sm text-gray-300 select-none cursor-pointer"
                   >
                     Remember Me
                   </label>
                 </div>
-                <p className="text-sm text-primary">Forgot Password?</p>
+                <p className="text-sm text-primary hover:text-primarySec cursor-pointer">
+                  Forgot Password?
+                </p>
               </div>
               <div>
                 <button className="w-full bg-primary text-white px-8 py-3 rounded-md hidden md:block hover:bg-[#00997d] transition-all">
