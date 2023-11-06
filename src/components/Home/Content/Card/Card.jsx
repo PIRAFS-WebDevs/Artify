@@ -1,3 +1,6 @@
+import DetailsSvg from "@/app/assets/svg/DetailsSvg";
+import PreviewSvg from "@/app/assets/svg/PreviewSvg";
+import Link from "next/link";
 import React from "react";
 
 const Card = () => {
@@ -8,14 +11,33 @@ const Card = () => {
           <div
             key={e}
             // sm:max-w-[310px]
-            className="w-full h-[270px] text-white space-y-2 col-span-1"
+            className="w-full h-[270px] text-white  col-span-1 "
           >
-            <div className="flex max-h-[206px] w-full">
+            <div className="flex max-h-[206px] w-full relative  group">
               <img
                 src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F803%2Fconversions%2Fimage16-thumbnail.jpg&w=640&q=100"
                 alt=""
-                className="object-cover w-full"
+                className="object-cover w-full "
               />
+              <div className="hidden group-hover:block group-hover:bg-black opacity-70 w-full h-full absolute Z-10 top-0"></div>
+              <div className="absolute top-0 left-0 z-10 flex h-full w-full cursor-pointer items-center justify-center gap-9 bg-dark/60 p-4 opacity-0  backdrop-blur-sm transition-all group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/70">
+                <button class="text-center font-medium text-light text-xs">
+                  <div class="mb-2 flex items-center justify-center rounded-full bg-dark-800 text-light backdrop-blur-sm transition-all hover:bg-brand h-11 w-11">
+                    <PreviewSvg />
+                  </div>
+                  Preview
+                </button>
+                <Link
+                  href={`/products/${"111"}`}
+                  class="relative z-[11] text-center font-medium text-light text-xs"
+                >
+                  <div class="mb-2 flex items-center justify-center rounded-full bg-dark-800 text-light backdrop-blur-sm transition-all hover:bg-brand h-11 w-11">
+                    <DetailsSvg />
+                  </div>
+                  Details
+                </Link>
+              </div>
+              <div></div>
             </div>
 
             <div className="flex items-center justify-between gap-2">
@@ -24,6 +46,7 @@ const Card = () => {
                 alt=""
                 className="w-8 h-8 rounded-full"
               />
+
               <div className="space-y-1">
                 <h1 className="text-sm font-medium line-clamp-1">
                   Shoppie UI Kit PSD Ecommerce Design Template
