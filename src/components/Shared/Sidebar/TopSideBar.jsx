@@ -1,9 +1,7 @@
-import React from "react";
 import navData from "@/data/SideNavData";
 import Link from "next/link";
 
 const TopSideBar = () => {
-  console.log(navData);
   return (
     <div>
       {navData.map((data, index) => (
