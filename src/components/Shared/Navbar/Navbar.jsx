@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaUserCircle, FaShoppingBag } from "react-icons/fa";
@@ -8,7 +9,9 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-6 py-4">
         <div className="flex gap-6 items-center">
           <AiOutlineMenu size={"1.5rem"} />
-          <h1 className="text-xl font-medium text-white">WareSun</h1>
+          <Link href={"/"} className="text-xl font-medium text-white">
+            WareSun
+          </Link>
         </div>
 
         <div className="flex gap-6 md:gap-8 items-center">
@@ -22,9 +25,12 @@ const Navbar = () => {
             </span>
           </div>
 
-          <button className="bg-[#00b482] text-white px-8 py-2 rounded-md hidden md:block hover:bg-[#00997d] transition-all">
-            Sing In
-          </button>
+          <Link
+            href={"/login"}
+            className="bg-[#00b482] text-white px-8 py-2 rounded-md hidden md:block hover:bg-[#00997d] transition-all"
+          >
+            Login
+          </Link>
           <FaUserCircle size={"1.5rem"} />
         </div>
       </div>
