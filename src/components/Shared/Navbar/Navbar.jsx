@@ -1,9 +1,11 @@
 import Link from "next/link";
+import logo from '@/app/assets/logo/waresun.png'
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaUserCircle, FaShoppingBag } from "react-icons/fa";
 import LoginButton from "./LoginButton";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -11,8 +13,12 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-6">
           <AiOutlineMenu size={"1.5rem"} />
-          <Link href={"/"} className="text-xl font-medium text-white">
-            WareSun
+          <Link href={"/"}>
+          <Image
+            src={logo}
+            height={50}
+            weight={50}
+            />
           </Link>
         </div>
 

@@ -11,7 +11,7 @@ const Card = () => {
           <div
             key={e}
             // sm:max-w-[310px]
-            className="w-full h-[270px] text-white  col-span-1 "
+            className="w-full h-[270px] text-white space-y-2 col-span-1"
           >
             <div className="flex max-h-[206px] w-full relative  group">
               <img

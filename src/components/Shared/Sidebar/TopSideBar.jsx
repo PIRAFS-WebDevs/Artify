@@ -13,7 +13,7 @@ const TopSideBar = () => {
             <span className="text-xl dark:text-darkNormal group-hover:text-white">
               {data?.icon}
             </span>{" "}
-            <span className="text-sm hidden xl:inline-block  hover:text-white hover:bg-primary">
+            <span className="text-sm hidden xl:inline-block  hover:text-white">
               {data?.title}
             </span>
           </Link>
