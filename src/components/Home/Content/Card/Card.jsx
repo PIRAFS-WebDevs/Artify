@@ -6,7 +6,7 @@ import React from "react";
 const Card = () => {
   return (
     <section>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
           <div
             key={e}
@@ -53,7 +53,7 @@ const Card = () => {
                 </h1>
                 <p className="text-sm text-[#777777]">Temper studios</p>
               </div>
-              <p className="bg-[#2a2a2a] text-[#00b482] text-sm rounded-full px-2 py-1">
+              <p className="bg-[#2a2a2a] text-primary text-sm rounded-full px-2 py-1">
                 $69.00
               </p>
             </div>
@@ -63,7 +63,7 @@ const Card = () => {
 
       {/* load more button */}
       <div className="flex justify-center my-6">
-        <button className="bg-[#00b482] text-white font-semibold px-8 py-4 rounded-md hidden md:block hover:bg-[#00997d] transition-all">
+        <button className="bg-primary text-white font-semibold px-8 py-4 rounded-md hidden md:block hover:bg-[#00997d] transition-all">
           Load More
         </button>
       </div>
