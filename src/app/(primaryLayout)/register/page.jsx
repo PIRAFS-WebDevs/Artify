@@ -1,7 +1,9 @@
 "use client";
 
+import { registerUser } from "@/utils/api/user";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
 
 // icons
 import { BsFacebook } from "react-icons/bs";
@@ -15,13 +17,14 @@ const Register = () => {
   } = useForm();
 
   const formHandler = (data) => {
+    registerUser(data);
     reset();
     console.table(data);
   };
 
   return (
-    <div class="py-20">
-      <div class="max-w-screen-2xl px-4 md:px-8 flex justify-center lg:justify-between items-center gap-4 relative">
+    <div className="py-20">
+      <div className="max-w-screen-2xl px-4 md:px-8 flex justify-center lg:justify-between items-center gap-4 relative">
         <div className="lg:flex flex-col gap-40 hidden">
           {/* <img
               className="w-20"
@@ -35,8 +38,8 @@ const Register = () => {
                 alt=""
               /> */}
             <svg
-              class="w-40 -ml-32"
-              tabindex=""
+              className="w-40 -ml-32"
+              tabIndex=""
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 580 580"
               role="img"
@@ -50,8 +53,8 @@ const Register = () => {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stop-color="#f7bc28"></stop>
-                  <stop offset="100%" stop-color="#f93d66"></stop>
+                  <stop offset="0%" stopColor="#f7bc28"></stop>
+                  <stop offset="100%" stopColor="#f93d66"></stop>
                 </linearGradient>
               </defs>
               <path
@@ -84,8 +87,8 @@ const Register = () => {
                 alt=""
               /> */}
             <svg
-              class="w-20 rotate-45"
-              tabindex=""
+              className="w-20 rotate-45"
+              tabIndex=""
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 52 50"
               role="img"
@@ -99,8 +102,8 @@ const Register = () => {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stop-color="#6d47d9"></stop>
-                  <stop offset="100%" stop-color="#f93d66"></stop>
+                  <stop offset="0%" stopColor="#6d47d9"></stop>
+                  <stop offset="100%" stopColor="#f93d66"></stop>
                 </linearGradient>
               </defs>
               <path
@@ -116,11 +119,14 @@ const Register = () => {
           </div>
         </div>
 
-        <div class=" max-w-lg rounded-lg border">
-          <div class="flex flex-col gap-4 p-4 md:p-8">
-            <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base">
+        <div className=" max-w-lg rounded-lg border">
+          <div className="flex flex-col gap-4 p-4 md:p-8">
+            <button
+              onClick={() => signIn("google")}
+              className="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base"
+            >
               <svg
-                class="h-5 w-5 shrink-0"
+                className="h-5 w-5 shrink-0"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -146,7 +152,7 @@ const Register = () => {
               </svg>
               Continue with Google
             </button>
-            <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base">
+            <button className="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base">
               <BsFacebook className="text-blue-500 w-8 h-6" /> Continue with
               Facebook
             </button>
@@ -155,9 +161,9 @@ const Register = () => {
               onSubmit={handleSubmit(formHandler)}
               className="flex flex-col gap-4"
             >
-              <div class="relative flex items-center justify-center">
-                <span class="absolute inset-x-0 h-px bg-gray-300"></span>
-                <span class="relative bg-darkSec rounded px-4 text-sm text-gray-300">
+              <div className="relative flex items-center justify-center">
+                <span className="absolute inset-x-0 h-px bg-gray-300"></span>
+                <span className="relative bg-darkSec rounded px-4 text-sm text-gray-300">
                   or
                 </span>
               </div>
@@ -165,7 +171,7 @@ const Register = () => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    class="mb-2 inline-block text-sm text-white sm:text-base"
+                    className="mb-2 inline-block text-sm text-white sm:text-base"
                   >
                     First name
                   </label>
@@ -174,7 +180,7 @@ const Register = () => {
                       required: "First name is required",
                     })}
                     id="first-name"
-                    class={`w-full rounded border ${
+                    className={`w-full rounded border ${
                       errors.firstName && "border-red-400 focus:border-red-400"
                     } focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
                   />
@@ -187,21 +193,21 @@ const Register = () => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    class="mb-2 inline-block text-sm text-white sm:text-base"
+                    className="mb-2 inline-block text-sm text-white sm:text-base"
                   >
                     Last name
                   </label>
                   <input
-                    {...register("last-name")}
+                    {...register("lastName")}
                     id="last-name"
-                    class={`w-full rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                    className={`w-full rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
                   />
                 </div>
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  class="mb-2 inline-block text-sm text-white sm:text-base"
+                  className="mb-2 inline-block text-sm text-white sm:text-base"
                 >
                   Email
                 </label>
@@ -215,7 +221,7 @@ const Register = () => {
                   })}
                   id="email"
                   type="email"
-                  class={`w-full ${
+                  className={`w-full ${
                     errors.email && "border-red-400 focus:border-red-400"
                   } rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
                 />
@@ -228,7 +234,7 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="password"
-                  class="mb-2 inline-block text-sm text-white sm:text-base"
+                  className="mb-2 inline-block text-sm text-white sm:text-base"
                 >
                   Password
                 </label>
@@ -242,7 +248,7 @@ const Register = () => {
                   })}
                   id="password"
                   type="password"
-                  class={`w-full ${
+                  className={`w-full ${
                     errors.password && "border-red-400 focus:border-red-400"
                   } rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
                 />
@@ -254,26 +260,26 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                class="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold text-white outline-none transition duration-100 hover:bg-primarySec md:text-base"
+                className="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold text-white outline-none transition duration-100 hover:bg-primarySec md:text-base"
               >
                 Register
               </button>
             </form>
           </div>
 
-          <div class="flex items-center justify-center bg-transparent p-4 border-t">
+          <div className="flex items-center justify-center bg-transparent p-4 border-t">
             <p className="text-white text-center text-sm">
               By creating an account with WareSun, you agree to our{" "}
               <Link
                 href="/"
-                class="text-primary transition duration-100 hover:primarySec active:text-primary"
+                className="text-primary transition duration-100 hover:primarySec active:text-primary"
               >
                 Terms & Conditions
               </Link>{" "}
               and our{" "}
               <Link
                 href="/"
-                class="text-primary transition duration-100 hover:primarySec active:text-primary"
+                className="text-primary transition duration-100 hover:primarySec active:text-primary"
               >
                 Privacy Policy
               </Link>
