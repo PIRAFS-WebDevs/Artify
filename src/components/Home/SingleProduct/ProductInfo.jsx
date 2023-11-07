@@ -27,7 +27,7 @@ const ProductInfo = () => {
       <div>
         <p className="grid grid-cols-4">
           <span className="flex items-center gap-5 ">
-            <MdOutlineDateRange className="dark:text-darkNormal h-5 w-5" />{" "}
+            <MdOutlineDateRange className="dark:text-darkNormal h-5 w-5" />
             Published:
           </span>
           <span className="font-semibold text-white col-span-3">
