@@ -2,7 +2,7 @@
 import categoriesData from "@/data/categoriesData";
 const Category = () => {
   return (
-    <section className="fixed z-30 py-5  dark:bg-darkPrimary">
+    <section className=" z-30 py-5  dark:bg-darkPrimary">
       <div className="app-category-filter-bar z-20 flex  w-full overflow-hidden text-white ">
         <div className=" flex items-start overflow-hidden">
           <div className=" px-3 flex w-full gap-3 overflow-hidden whitespace-nowrap scroll-smooth ">

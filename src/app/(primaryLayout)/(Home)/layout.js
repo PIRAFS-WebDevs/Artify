@@ -1,3 +1,5 @@
+import HomeFooter from "@/components/Shared/Footer/HomeFooter";
+import Footer from "@/components/Shared/Footer/HomeFooter";
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
 
 const layout = ({ children }) => {
