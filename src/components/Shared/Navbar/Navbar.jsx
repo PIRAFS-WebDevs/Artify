@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <nav className="bg-darkSec text-darkNormal">
+    <nav className="bg-darkSec text-darkNormal z-50">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-6">
           <AiOutlineMenu size={"1.5rem"} />

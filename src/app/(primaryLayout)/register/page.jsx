@@ -13,11 +13,36 @@ const Register = () => {
               alt=""
             /> */}
             <div className="flex justify-between items-center">
-              <img
+              {/* <img
                 className="w-20"
                 src="/assets/images/shape/shape2.png"
                 alt=""
-              />
+              /> */}
+              <svg
+                class="w-40 -ml-32"
+                tabindex=""
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 580 580"
+                role="img"
+                aria-label="Circle"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient-orange-pink-horizontal"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#f7bc28"></stop>
+                    <stop offset="100%" stop-color="#f93d66"></stop>
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M290 0C129.8 0 0 129.8 0 290s129.8 290 290 290 290-129.8 290-290S450.2 0 290 0zm195.1 485.1c-25.4 25.4-54.9 45.3-87.7 59.2-34 14.4-70.2 21.7-107.4 21.7s-73.4-7.3-107.4-21.7c-32.9-13.9-62.4-33.8-87.7-59.2-25.3-25.4-45.3-54.9-59.2-87.7C21.3 363.4 14 327.3 14 290s7.3-73.4 21.7-107.4c13.9-32.9 33.8-62.4 59.2-87.7 25.4-25.3 54.9-45.3 87.7-59.2C216.6 21.3 252.7 14 290 14s73.4 7.3 107.4 21.7c32.9 13.9 62.4 33.8 87.7 59.2 25.4 25.4 45.3 54.9 59.2 87.7 14.4 34 21.7 70.2 21.7 107.4s-7.3 73.4-21.7 107.4c-13.9 32.9-33.8 62.4-59.2 87.7z"
+                  fill="url(#gradient-orange-pink-horizontal)"
+                ></path>
+              </svg>
               <img
                 className="w-20 -rotate-45"
                 src="/assets/images/shape/shape5.png"
@@ -37,11 +62,36 @@ const Register = () => {
             </div>
 
             <div className="flex justify-between items-center">
-              <img
+              {/* <img
                 className="w-20"
                 src="/assets/images/shape/shape3.png"
                 alt=""
-              />
+              /> */}
+              <svg
+                class="w-20 rotate-45"
+                tabindex=""
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 52 50"
+                role="img"
+                aria-label="Pentagon"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient-purple-pink-horizontal"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#6d47d9"></stop>
+                    <stop offset="100%" stop-color="#f93d66"></stop>
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M51.2,18l-24-17.6c-0.7-0.5-1.7-0.5-2.4,0L0.8,18c-0.7,0.5-1,1.4-0.7,2.2l9.2,28.4c0.3,0.8,1,1.4,1.9,1.4h29.7	c0.9,0,1.6-0.6,1.9-1.4l9.2-28.4C52.2,19.4,51.9,18.5,51.2,18z M39.4,46H12.6L4.3,20.3L26,4.5l21.7,15.8L39.4,46z"
+                  fill="url(#gradient-purple-pink-horizontal)"
+                ></path>
+              </svg>
               <img
                 className="w-20 rotate-90"
                 src="/assets/images/shape/shape4.png"
@@ -52,7 +102,7 @@ const Register = () => {
 
           <form class=" max-w-lg rounded-lg border">
             <div class="flex flex-col gap-4 p-4 md:p-8">
-              <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring active:bg-gray-200 md:text-base">
+              <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base">
                 <svg
                   class="h-5 w-5 shrink-0"
                   width="24"
@@ -80,7 +130,7 @@ const Register = () => {
                 </svg>
                 Continue with Google
               </button>
-              <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring active:bg-gray-200 md:text-base">
+              <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base">
                 <BsFacebook className="text-blue-500 w-8 h-6" /> Continue with
                 Facebook
               </button>
@@ -151,19 +201,6 @@ const Register = () => {
             </div>
 
             <div class="flex items-center justify-center bg-transparent p-4 border-t">
-              {/* <Link
-                href="/"
-                class="text-primary transition duration-100 hover:primarySec active:text-primary"
-              >
-                Terms & Conditions
-              </Link>
-              <span className="text-white px-4">&</span>
-              <Link
-                href="/"
-                class="text-primary transition duration-100 hover:primarySec active:text-primary"
-              >
-                Privacy Policy
-              </Link> */}
               <p className="text-white text-center text-sm">
                 By creating an account with WareSun, you agree to our{" "}
                 <Link
