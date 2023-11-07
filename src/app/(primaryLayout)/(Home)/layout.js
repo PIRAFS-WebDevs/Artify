@@ -1,5 +1,6 @@
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
+import Footer from "@/components/Shared/Footer/HomeFooter";
 
 const layout = ({ children }) => {
   return (
@@ -10,6 +11,7 @@ const layout = ({ children }) => {
 
         <div className="w-full mx-auto">{children}</div>
       </section>
+      <Footer/>
     </main>
   );
 };
