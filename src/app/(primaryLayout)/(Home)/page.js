@@ -8,7 +8,9 @@ const Home = () => {
   return (
     <section>
       <Category />
-      <Content />
+      <section>
+        <Content />
+      </section>
     </section>
   );
 };

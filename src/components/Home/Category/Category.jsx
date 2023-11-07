@@ -3,9 +3,9 @@ import categoriesData from "@/data/categoriesData";
 const Category = () => {
   return (
     <section>
-      <div className="app-category-filter-bar sticky top-16 z-20 flex min-h-[64px] w-full overflow-hidden text-white">
+      <div className="app-category-filter-bar z-20 flex min-h-[64px] w-full overflow-hidden text-white ">
         <div className="-mb-4 flex items-start overflow-hidden">
-          <div className="-mb-7 flex w-full gap-3 overflow-hidden whitespace-nowrap scroll-smooth pb-3">
+          <div className="-mb-7 mt-7 px-3 flex w-full gap-3 overflow-hidden whitespace-nowrap scroll-smooth pb-3">
             {categoriesData.map((data,index)=>(
               <div key={index} >
                 {index === 0 ?
