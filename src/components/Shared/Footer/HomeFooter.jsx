@@ -3,7 +3,7 @@ import footerdata from "@/data/footerData";
 
 const HomeFooter = () => {
   return (
-    <div className="grid sm:grid-cols-1 mt-auto text-sm py-8  dark:bg-darkPrimary md:grid-cols-2 lg:grid-cols-5 gap-10 ">
+    <div className="grid sm:grid-cols-1 mt-auto text-xs py-8  dark:bg-darkPrimary md:grid-cols-2 lg:grid-cols-5 gap-10 ">
       <div className="col-span-1"></div>
 
       {footerdata.map((categoryObj, index) => (
