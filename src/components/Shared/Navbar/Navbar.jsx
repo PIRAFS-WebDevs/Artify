@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 // icons
@@ -12,7 +13,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <AiOutlineMenu size={"1.5rem"} />
           <Link href={"/"} className="text-xl font-medium text-white">
-            WareSun
+            <Image/>
           </Link>
         </div>
 
