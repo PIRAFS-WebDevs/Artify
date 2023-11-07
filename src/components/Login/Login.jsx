@@ -3,6 +3,7 @@ import { motion as m, AnimatePresence } from "framer-motion";
 import CloseButton from "./CloseButton";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { loginUser } from "@/utils/api/user";
 
 const Login = ({ isShow, setIsShow }) => {
   const {
@@ -13,6 +14,7 @@ const Login = ({ isShow, setIsShow }) => {
   } = useForm();
 
   const formHandler = (data) => {
+    loginUser(data);
     reset();
     console.table(data);
   };
