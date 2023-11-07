@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <section>
       <Category />
-      <section>
+      <section className="absolute top-20">
         <Content />
       </section>
     </section>
