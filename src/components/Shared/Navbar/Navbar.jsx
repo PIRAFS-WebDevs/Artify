@@ -2,7 +2,7 @@ import Link from "next/link";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
-import { FaMoon, FaUserCircle, FaShoppingBag } from "react-icons/fa";
+import { FaMoon, FaShoppingBag } from "react-icons/fa";
 import LoginButton from "./LoginButton";
 import Image from "next/image";
 
@@ -13,7 +13,13 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <AiOutlineMenu size={"1.5rem"} />
           <Link href={"/"}>
-            <Image src="/assets/logo/waresun.png" height={50} width={120} />
+            <Image
+              src="/assets/logo/waresun.png"
+              height={50}
+              width={120}
+              alt="logo"
+              className="w-auto h-auto"
+            />
           </Link>
         </div>
 
