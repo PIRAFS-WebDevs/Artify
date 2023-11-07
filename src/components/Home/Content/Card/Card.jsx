@@ -1,5 +1,5 @@
-import DetailsSvg from "@/app/assets/svg/DetailsSvg";
-import PreviewSvg from "@/app/assets/svg/PreviewSvg";
+import DetailsSvg from "@/components/svg/DetailsSvg";
+import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
 import React from "react";
 

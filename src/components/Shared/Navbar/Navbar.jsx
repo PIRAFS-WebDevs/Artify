@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <AiOutlineMenu size={"1.5rem"} />
           <Link href={"/"}>
-            <Image src="/assets/logo/waresun.png" height={50} weight={50} />
+            <Image src="/assets/logo/waresun.png" height={50} width={120} />
           </Link>
         </div>
 

@@ -1,7 +1,7 @@
 import React from "react";
-import banner1 from "@/app/assets/images/branner/productsBanner1.jpg";
-import banner2 from "@/app/assets/images/branner/productsBanner2.jpg";
-import banner3 from "@/app/assets/images/branner/productsBanner3.jpg";
+import banner1 from "../../../../public/assets/images/branner/productsBanner1.jpg";
+import banner2 from "../../../../public/assets/images/branner/productsBanner2.jpg";
+import banner3 from "../../../../public/assets/images/branner/productsBanner3.jpg";
 import Image from "next/image";
 
 const ProductImages = () => {
