@@ -1,4 +1,3 @@
-import React from "react";
 import { motion as m, AnimatePresence } from "framer-motion";
 import CloseButton from "./CloseButton";
 import Link from "next/link";
