@@ -15,10 +15,10 @@ const ProductDetails = () => {
           <p>Share tis item:</p>
           <ShareBtn />
         </div>
+        <Ratings />
       </div>
       <div className="w-[45%] pl-16 ">
         <ProductInfo />
-        <Ratings/>
       </div>
     </section>
   );
