@@ -5,12 +5,18 @@ const Category = () => {
     <section>
       <div className="app-category-filter-bar sticky top-16 z-20 flex min-h-[64px] w-full overflow-hidden text-white">
         <div className="-mb-4 flex items-start overflow-hidden">
-          <div className="-mb-7 flex w-full gap-3 overflow-x-auto  scroll-smooth pb-7">
+          <div className="-mb-7 flex w-full gap-3 overflow-hidden whitespace-nowrap scroll-smooth pb-3">
             {categoriesData.map((data,index)=>(
               <div key={index} >
+                {index === 0 ?
                 <button className="h-[30px] shrink-0 !rounded-full border border-gray-700 py-1.5 px-3.5 text-xs font-medium outline-none bg-white text-black">
+                {data.name}
+              </button>
+              :
+              <button className="h-[30px] shrink-0 !rounded-full border border-gray-700 py-1.5 px-3.5 text-xs font-medium outline-non text-white hover:bg-warmGray-700">
               {data.name}
             </button>
+               }
                 </div>
 
             ))}
