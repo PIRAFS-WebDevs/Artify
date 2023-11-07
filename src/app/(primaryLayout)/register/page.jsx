@@ -4,15 +4,53 @@ import { BsFacebook } from "react-icons/bs";
 const Register = () => {
   return (
     <div>
-      <div class="py-6 sm:py-8 lg:py-12">
-        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div class="py-20">
+        <div class="max-w-screen-2xl px-4 md:px-8 flex justify-between items-center relative">
+          <div className="flex flex-col gap-40">
+            {/* <img
+              className="w-20"
+              src="/assets/images/shape/shape1.png"
+              alt=""
+            /> */}
+            <div className="flex justify-between items-center">
+              <img
+                className="w-20"
+                src="/assets/images/shape/shape2.png"
+                alt=""
+              />
+              <img
+                className="w-20 -rotate-45"
+                src="/assets/images/shape/shape5.png"
+                alt=""
+              />
+            </div>
 
-          <div className="relative">
-            <img src="" alt="" />
+            <div className="flex gap-4 items-center">
+              <img
+                className="w-20 -ml-10"
+                src="/assets/images/shape/shape6.png"
+                alt=""
+              />
+              <h1 className="text-6xl font-extralight text-white tracking-wide">
+                Great to have you back!
+              </h1>
+            </div>
 
+            <div className="flex justify-between items-center">
+              <img
+                className="w-20"
+                src="/assets/images/shape/shape3.png"
+                alt=""
+              />
+              <img
+                className="w-20 rotate-90"
+                src="/assets/images/shape/shape4.png"
+                alt=""
+              />
+            </div>
           </div>
 
-          <form class="mx-auto max-w-lg rounded-lg border">
+          <form class=" max-w-lg rounded-lg border">
             <div class="flex flex-col gap-4 p-4 md:p-8">
               <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring active:bg-gray-200 md:text-base">
                 <svg
@@ -113,19 +151,19 @@ const Register = () => {
             </div>
 
             <div class="flex items-center justify-center bg-transparent p-4 border-t">
-                <Link
-                  href="/"
-                  class="text-primary transition duration-100 hover:primarySec active:text-primary"
-                >
-                  Terms & Conditions
-                </Link>
-                <span className="text-white px-4">&</span>
-                <Link
-                  href="/"
-                  class="text-primary transition duration-100 hover:primarySec active:text-primary"
-                >
-                  Privacy Policy
-                </Link>
+              <Link
+                href="/"
+                class="text-primary transition duration-100 hover:primarySec active:text-primary"
+              >
+                Terms & Conditions
+              </Link>
+              <span className="text-white px-4">&</span>
+              <Link
+                href="/"
+                class="text-primary transition duration-100 hover:primarySec active:text-primary"
+              >
+                Privacy Policy
+              </Link>
             </div>
           </form>
         </div>

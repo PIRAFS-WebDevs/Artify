@@ -1,3 +1,4 @@
 {
-  "css.lint.unknownVendorSpecificProperties": "ignore"
+  "css.lint.unknownVendorSpecificProperties": "ignore",
+  "cSpell.words": ["extralight"]
 }
