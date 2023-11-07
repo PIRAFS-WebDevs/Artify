@@ -69,7 +69,9 @@ const Login = ({ isShow, setIsShow }) => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-gray-500 rounded outline-none focus:border-primary"
+                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-darkNormal rounded outline-none focus:border-primary ${
+                    errors.email && "border-red-400 focus:border-red-400"
+                  }`}
                 />
                 {errors.email && (
                   <p className="text-red-400 text-sm">
@@ -95,7 +97,9 @@ const Login = ({ isShow, setIsShow }) => {
                   type="password"
                   id="password"
                   name="password"
-                  className="w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-gray-500 rounded outline-none focus:border-primary"
+                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-darkNormal rounded outline-none focus:border-primary ${
+                    errors.password && "border-red-400 focus:border-red-400"
+                  }`}
                 />
                 {errors.password && (
                   <p className="text-red-400 text-sm">
