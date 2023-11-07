@@ -6,6 +6,12 @@ const Register = () => {
     <div>
       <div class="py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+
+          <div className="relative">
+            <img src="" alt="" />
+
+          </div>
+
           <form class="mx-auto max-w-lg rounded-lg border">
             <div class="flex flex-col gap-4 p-4 md:p-8">
               <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring active:bg-gray-200 md:text-base">
