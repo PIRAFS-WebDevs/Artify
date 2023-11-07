@@ -1,6 +1,5 @@
-//import Image from "next/image";
 import Link from "next/link";
-import logo from '@/app/assets/logo/waresun.png'
+import logo from "@/app/assets/logo/waresun.png";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
@@ -15,11 +14,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <AiOutlineMenu size={"1.5rem"} />
           <Link href={"/"}>
-          <Image
-            src={logo}
-            height={50}
-            weight={50}
-            />
+            <Image src={logo} height={50} weight={50} />
           </Link>
         </div>
 
