@@ -28,10 +28,15 @@ const Navbar = () => {
             </span>
           </div>
 
+          <Link
+            href={"/register"}
+            className="hidden px-8 py-2 text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec"
+          >
+            Register
+          </Link>
+
           {/* login button */}
           <LoginButton />
-
-          <FaUserCircle size={"1.5rem"} />
         </div>
       </div>
 

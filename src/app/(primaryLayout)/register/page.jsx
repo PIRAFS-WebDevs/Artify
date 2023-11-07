@@ -5,8 +5,8 @@ const Register = () => {
   return (
     <div>
       <div class="py-20">
-        <div class="max-w-screen-2xl px-4 md:px-8 flex justify-between items-center relative">
-          <div className="flex flex-col gap-40">
+        <div class="max-w-screen-2xl px-4 md:px-8 flex justify-center lg:justify-between items-center gap-4 relative">
+          <div className="lg:flex flex-col gap-40 hidden">
             {/* <img
               className="w-20"
               src="/assets/images/shape/shape1.png"
@@ -151,7 +151,7 @@ const Register = () => {
             </div>
 
             <div class="flex items-center justify-center bg-transparent p-4 border-t">
-              <Link
+              {/* <Link
                 href="/"
                 class="text-primary transition duration-100 hover:primarySec active:text-primary"
               >
@@ -163,7 +163,23 @@ const Register = () => {
                 class="text-primary transition duration-100 hover:primarySec active:text-primary"
               >
                 Privacy Policy
-              </Link>
+              </Link> */}
+              <p className="text-white text-center text-sm">
+                By creating an account with WareSun, you agree to our{" "}
+                <Link
+                  href="/"
+                  class="text-primary transition duration-100 hover:primarySec active:text-primary"
+                >
+                  Terms & Conditions
+                </Link>{" "}
+                and our{" "}
+                <Link
+                  href="/"
+                  class="text-primary transition duration-100 hover:primarySec active:text-primary"
+                >
+                  Privacy Policy
+                </Link>
+              </p>
             </div>
           </form>
         </div>
