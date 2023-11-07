@@ -1,6 +1,7 @@
 import BackBtn from "./BackBtn";
 import ProductDetails from "./ProductDetails";
 import ProductImages from "./ProductImages";
+import ProductsReviews from "./ProductsReviews";
 
 const SingleProduct = () => {
   return (
@@ -8,6 +9,7 @@ const SingleProduct = () => {
       <BackBtn />
       <ProductImages />
       <ProductDetails />
+      <ProductsReviews/>
       
     </section>
   );
