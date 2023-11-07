@@ -1,14 +1,16 @@
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiFillLike, AiFillAppstore } from "react-icons/ai";
 import {
-  MdContacts,
   MdExplore,
   MdFeedback,
-  MdSettingsApplications,
 } from "react-icons/md";
-import { SiJirasoftware } from "react-icons/si";
-import { BiSolidReceipt } from "react-icons/bi";
-import { TbHelpSquareFilled } from "react-icons/tb";
-import { BsBoxFill, BsFillChatLeftDotsFill } from "react-icons/bs";
+import {
+  BsBoxFill,
+  BsCodeSlash,
+  BsChatLeftTextFill,
+} from "react-icons/bs";
+import { BiSolidUserDetail } from "react-icons/bi";
+import { IoHelpOutline } from "react-icons/io5";
+
 const navData = [
   {
     title: "Home",
@@ -28,17 +30,17 @@ const navData = [
   {
     title: "Software",
     path: "/software",
-    icon: <SiJirasoftware />,
+    icon: <AiFillAppstore />,
   },
   {
-    title: "Application Solution",
-    path: "/applicationSolution",
-    icon: <MdSettingsApplications />,
+    title: "Application",
+    path: "/application",
+    icon: <BsCodeSlash />,
   },
   {
     title: "Recommendation",
     path: "/recommendation",
-    icon: <BiSolidReceipt />,
+    icon: <AiFillLike />,
   },
   {
     title: "Feed",
@@ -48,17 +50,17 @@ const navData = [
   {
     title: "Contact",
     path: "/contact",
-    icon: <MdContacts />,
+    icon: <BiSolidUserDetail />,
   },
   {
-    title: "Chatting",
-    path: "/chatting",
-    icon: <BsFillChatLeftDotsFill />,
+    title: "Chat",
+    path: "/chat",
+    icon: <BsChatLeftTextFill />,
   },
   {
     title: "Help",
     path: "/help",
-    icon: <TbHelpSquareFilled />,
+    icon: <IoHelpOutline />,
   },
 ];
 

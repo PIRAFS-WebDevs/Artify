@@ -11,7 +11,7 @@ const Card = () => {
           <div
             key={e}
             // sm:max-w-[310px]
-            className="w-full h-[270px] text-white  col-span-1 "
+            className="w-full h-[270px] text-white space-y-2 col-span-1"
           >
             <div className="flex max-h-[206px] w-full relative  group">
               <img
@@ -21,17 +21,17 @@ const Card = () => {
               />
               <div className="hidden group-hover:block group-hover:bg-black opacity-70 w-full h-full absolute Z-10 top-0"></div>
               <div className="absolute top-0 left-0 z-10 flex h-full w-full cursor-pointer items-center justify-center gap-9 bg-dark/60 p-4 opacity-0  backdrop-blur-sm transition-all group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/70">
-                <button class="text-center font-medium text-light text-xs">
-                  <div class="mb-2 flex items-center justify-center rounded-full bg-dark-800 text-light backdrop-blur-sm transition-all hover:bg-brand h-11 w-11">
+                <button className="text-center font-medium text-light text-xs">
+                  <div className="mb-2 flex items-center justify-center rounded-full bg-dark-800 text-light backdrop-blur-sm transition-all hover:bg-brand h-11 w-11">
                     <PreviewSvg />
                   </div>
                   Preview
                 </button>
                 <Link
                   href={`/products/${"111"}`}
-                  class="relative z-[11] text-center font-medium text-light text-xs"
+                  className="relative z-[11] text-center font-medium text-light text-xs"
                 >
-                  <div class="mb-2 flex items-center justify-center rounded-full bg-dark-800 text-light backdrop-blur-sm transition-all hover:bg-brand h-11 w-11">
+                  <div className="mb-2 flex items-center justify-center rounded-full bg-dark-800 text-light backdrop-blur-sm transition-all hover:bg-brand h-11 w-11">
                     <DetailsSvg />
                   </div>
                   Details
