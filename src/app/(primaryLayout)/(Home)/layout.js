@@ -6,7 +6,7 @@ import AllStateContext from "@/context/AllStateContext";
 import { useContext } from "react";
 
 const layout = ({ children }) => {
-  const { sideBarOpen } = useContext(AllStateContext);
+  const { sideBarOpen,  } = useContext(AllStateContext);
 
   return (
     <main className="min-h-screen bg-darkPrimary relative ">
