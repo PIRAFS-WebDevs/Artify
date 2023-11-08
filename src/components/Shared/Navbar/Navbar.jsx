@@ -10,7 +10,8 @@ import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
 
 const Navbar = () => {
-  const { sideBarOpen, setSideBarOpen } = useContext(AllStateContext);
+  const { sideBarOpen, setSideBarOpen, mobileView, setMobileView } =
+    useContext(AllStateContext);
 
   return (
     <nav className="bg-darkSec text-darkNormal sticky top-0 z-50">
@@ -74,7 +75,7 @@ const Navbar = () => {
 
         <button
           onClick={() => {
-            setSideBarOpen(!sideBarOpen);
+            setMobileView(!mobileView);
           }}
         >
           <AiOutlineMenu size={"1.5rem"} />

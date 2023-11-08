@@ -4,17 +4,28 @@ import TopSideBar from "./TopSideBar";
 import AllStateContext from "@/context/AllStateContext";
 
 const Sidebar = () => {
-  const { sideBarOpen} = useContext(AllStateContext);
+  const { sideBarOpen, mobileView } = useContext(AllStateContext);
   return (
-    <aside
-      className={`${
-        !sideBarOpen
-          ? "md:w-20 hidden  md:block  min-h-screen z-50 dark:bg-darkSec fixed"
-          : "md:w-[240px] hidden md:block  min-h-screen z-50 dark:bg-darkSec fixed"
-      }`}
-    >
-      <TopSideBar />
-    </aside>
+    <>
+      <aside
+        className={`${
+          !sideBarOpen
+            ? "md:w-20 hidden md:block   min-h-screen z-50 dark:bg-darkSec fixed"
+            : "md:w-[240px] hidden md:block min-h-screen z-50 dark:bg-darkSec fixed"
+        } `}
+      >
+        <TopSideBar />
+      </aside>
+      <aside
+        className={`${
+          mobileView
+            ? "right-0 w-[240px]   min-h-screen md:hidden z-20 dark:bg-darkSec fixed"
+            : "hidden "
+        }  `}
+      >
+        <TopSideBar />
+      </aside>
+    </>
   );
 };
 
