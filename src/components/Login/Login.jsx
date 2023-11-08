@@ -1,4 +1,3 @@
-import React from "react";
 import { motion as m, AnimatePresence } from "framer-motion";
 import CloseButton from "./CloseButton";
 import Link from "next/link";
@@ -131,7 +130,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-white px-8 py-3 rounded-md hidden md:block hover:bg-[#00997d] transition-all"
+                  className="w-full bg-primary text-white px-8 py-3 rounded-md hidden md:block hover:bg-[#00997d] transition-all active:scale-95"
                 >
                   Get Login
                 </button>

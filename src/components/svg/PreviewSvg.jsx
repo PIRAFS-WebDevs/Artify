@@ -1,9 +1,15 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
+import ProductModal from "../Home/ProductModal/ProductModal";
 
 const PreviewSvg = () => {
+  const [isShow, setIsShow] = useState(false);
+
   return (
     <>
       <svg
+        onClick={() => setIsShow(true)}
         viewBox="0 0 22 22"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +21,9 @@ const PreviewSvg = () => {
           stroke="currentColor"
         ></path>
       </svg>
+
+      {/* product details modal */}
+      <ProductModal isShow={isShow} setIsShow={setIsShow} />
     </>
   );
 };
