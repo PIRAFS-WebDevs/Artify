@@ -64,22 +64,22 @@ const ProductDetails = ({ setIsShow }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 bg-darkSec">
         {/* product carousel */}
-        <div className="space-y-4">
-          <div className="relative">
+        <div className="space-y-4 grid grid-rows-4">
+          <div className="relative row-span-3">
             <img
               src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F806%2Fimage16.png&w=2048&q=75"
               alt=""
-              className="max-h-[660px] w-full"
+              className="h-full w-full"
             />
             <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto border border-gray-100 text-darkPrimary rounded-full hover:bg-gray-200 shadow-md cursor-pointer p-2 mx-3" />
             <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto border border-gray-100 text-darkPrimary rounded-full hover:bg-gray-200 shadow-md cursor-pointer p-2 mx-3" />
           </div>
 
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-4 row-span-1">
             {[1, 2, 3, 4].map((e) => (
-              <div className="relative group cursor-pointer">
+              <div key={e} className="relative group cursor-pointer">
                 <img
-                  className=""
+                  className="w-full h-full object-cover"
                   src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F806%2Fimage16.png&w=2048&q=75"
                   alt=""
                 />
@@ -92,7 +92,7 @@ const ProductDetails = ({ setIsShow }) => {
 
         {/* product info */}
         <div className="space-y-4">
-          <p className="text-darkNormal">
+          <p className="text-darkNormal line-clamp-5">
             Along With Wordpress Themes & Plugins, We always try to use latest
             trending techs like React, Next Js, Gatsby Js, GraphQl, Shopify etc
             to make our products special. Our rich tech choice will help you to
@@ -100,7 +100,7 @@ const ProductDetails = ({ setIsShow }) => {
             great customer supports to our customers.
           </p>
 
-          <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 border-y py-4">
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 border-y border-[#3e3e3e] py-4">
             <p className="flex gap-2 items-center">
               <BsCart2 className="w-4 h-4" />
               <span>365 Sales</span>
@@ -152,26 +152,28 @@ const ProductDetails = ({ setIsShow }) => {
             </div>
           </div>
 
-          <div className="grid gap-4 grid-cols-2 xl:grid-cols-4 items-center border-t pt-4 pb-20">
-            <p className="text-darkNormal">Share this item:</p>
-            <div className="flex gap-2 items-center col-span-2 xl:col-span-3">
-              <BiLogoFacebook className="w-10 h-10 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer p-2" />
-              <BiLogoTwitter className="w-10 h-10 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer p-2" />
-              <BiLogoLinkedin className="w-10 h-10 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer p-2" />
-              <button className="flex items-center gap-2 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer py-2 px-3">
-                <AiOutlineLink className="w-4 h-4" />
-                copy link
+          <div className="space-y-20">
+            <div className="grid gap-4 grid-cols-2 xl:grid-cols-4 items-center border-t border-[#3e3e3e] pt-4">
+              <p className="text-darkNormal">Share this item:</p>
+              <div className="flex flex-wrap gap-2 items-center col-span-2 xl:col-span-3">
+                <BiLogoFacebook className="w-10 h-10 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer p-2" />
+                <BiLogoTwitter className="w-10 h-10 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer p-2" />
+                <BiLogoLinkedin className="w-10 h-10 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer p-2" />
+                <button className="flex items-center gap-2 border border-gray-600 rounded-full hover:bg-darkPrimary cursor-pointer py-2 px-3">
+                  <AiOutlineLink className="w-4 h-4" />
+                  copy link
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button className="bg-primary text-white font-semibold py-4 rounded-md hover:bg-[#00997d] transition-all active:scale-95">
+                Add to Cart $77.99
+              </button>
+              <button className="bg-transparent text-white font-semibold py-4 rounded-md border border-darkNormal hover:bg-darkPrimary transition-all active:scale-95">
+                Live Preview
               </button>
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button className="bg-primary text-white font-semibold py-4 rounded-md hover:bg-[#00997d] transition-all active:scale-95">
-              Add to Cart $77.99
-            </button>
-            <button className="bg-transparent text-white font-semibold py-4 rounded-md border border-darkNormal hover:bg-darkPrimary transition-all active:scale-95">
-              Live Preview
-            </button>
           </div>
         </div>
       </div>
