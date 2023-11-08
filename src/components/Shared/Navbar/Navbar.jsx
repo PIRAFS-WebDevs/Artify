@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 
 // icons
@@ -5,13 +6,26 @@ import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaShoppingBag } from "react-icons/fa";
 import LoginButton from "./LoginButton";
 import Image from "next/image";
+import { useContext } from "react";
+import AllStateContext from "@/context/AllStateContext";
 
 const Navbar = () => {
+  const { sideBarOpen, setSideBarOpen } = useContext(AllStateContext);
+
   return (
     <nav className="bg-darkSec text-darkNormal sticky top-0 z-50">
       <div className="flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-6">
-          <AiOutlineMenu size={"1.5rem"} />
+        <div className="flex items-center md:gap-6">
+          <button
+            onClick={() => {
+              setSideBarOpen(!sideBarOpen);
+            }}
+          >
+            <AiOutlineMenu
+              className="cursor-pointer hidden md:block"
+              size={"1.5rem"}
+            />
+          </button>
           <Link href={"/"}>
             <Image
               src="/assets/logo/waresun.png"
@@ -47,7 +61,7 @@ const Navbar = () => {
       </div>
 
       {/* mobile nav */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 sm:hidden bg-darkSec">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden bg-darkSec">
         <AiFillHome size={"1.5rem"} />
         <AiOutlineSearch size={"1.5rem"} />
 
@@ -58,7 +72,13 @@ const Navbar = () => {
           </span>
         </div>
 
-        <AiOutlineMenu size={"1.5rem"} />
+        <button
+          onClick={() => {
+            setSideBarOpen(!sideBarOpen);
+          }}
+        >
+          <AiOutlineMenu size={"1.5rem"} />
+        </button>
       </div>
     </nav>
   );
