@@ -4,7 +4,15 @@ import { useState } from "react";
 const AllStateProvider = ({ children }) => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [mobileView, setMobileView] = useState(false);
-  const value = { sideBarOpen, setSideBarOpen, mobileView, setMobileView };
+  const [cartOpen, setCartOpen] = useState(false);
+  const value = {
+    sideBarOpen,
+    setSideBarOpen,
+    mobileView,
+    setMobileView,
+    cartOpen,
+    setCartOpen,
+  };
 
   return (
     <AllStateContext.Provider value={value}>

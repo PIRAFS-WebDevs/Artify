@@ -24,7 +24,7 @@ const Category = () => {
         <div className="flex items-start overflow-hidden">
           <button
             onClick={scrollLeft}
-            className="z-20 w-10 h-8 sticky left-0"
+            className="z-10 w-10 h-8 sticky left-0"
           >
             <MdKeyboardArrowLeft className="text-2xl text-white" />
           </button>
@@ -48,7 +48,7 @@ const Category = () => {
 
           <button
             onClick={scrollRight}
-            className="z-20 w-10 h-8 sticky right-0"
+            className="z-10 w-10 h-8 sticky right-0"
           >
             <MdKeyboardArrowRight className="text-2xl text-white" />
           </button>

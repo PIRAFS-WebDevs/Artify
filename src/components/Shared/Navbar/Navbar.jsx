@@ -10,8 +10,14 @@ import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
 
 const Navbar = () => {
-  const { sideBarOpen, setSideBarOpen, mobileView, setMobileView } =
-    useContext(AllStateContext);
+  const {
+    sideBarOpen,
+    setSideBarOpen,
+    mobileView,
+    setMobileView,
+    cartOpen,
+    setCartOpen,
+  } = useContext(AllStateContext);
 
   return (
     <nav className="bg-darkSec text-darkNormal sticky top-0 z-50">
@@ -43,7 +49,10 @@ const Navbar = () => {
           <FaMoon size={"1.2rem"} />
 
           <div className="relative hidden md:block">
-            <FaShoppingBag size={"1.2rem"} />
+            <button onClick={() => setCartOpen(true)}>
+           
+              <FaShoppingBag size={"1.2rem"} />
+            </button>
             <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
               0
             </span>
