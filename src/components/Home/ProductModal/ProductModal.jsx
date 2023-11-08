@@ -1,5 +1,6 @@
 import { motion as m, AnimatePresence } from "framer-motion";
 import CloseButton from "./CloseButton";
+import ProductDetails from "./ProductDetails";
 
 const ProductModal = ({ isShow, setIsShow }) => {
   return (
@@ -20,11 +21,7 @@ const ProductModal = ({ isShow, setIsShow }) => {
               onClick={(e) => e.stopPropagation()}
               className="bg-darkSec text-white p-12 rounded-lg shadow-xl relative"
             >
-              <div className="">
-                <div className="flex justify-end w-full">
-                  <CloseButton setIsShow={setIsShow} />
-                </div>
-              </div>
+              <ProductDetails setIsShow={setIsShow}/>
             </m.div>
           </m.div>
         )}
