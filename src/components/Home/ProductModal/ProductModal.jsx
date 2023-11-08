@@ -2,8 +2,10 @@ import { motion as m, AnimatePresence } from "framer-motion";
 
 const ProductModal = ({ isShow, setIsShow }) => {
   return (
-    <AnimatePresence>
-      {/* <m.div
+    <>
+      {isShow && (
+        <AnimatePresence>
+          <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -15,10 +17,16 @@ const ProductModal = ({ isShow, setIsShow }) => {
           animate={{ scale: 1, rotate: "0deg" }}
           exit={{ scale: 0, rotate: "0deg" }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-[#2a2a2a] text-white p-12 rounded-lg max-w-2xl shadow-xl cursor-default relative"
-        ></m.div>
-      </m.div> */}
-    </AnimatePresence>
+          className="bg-[#2a2a2a] text-white p-12 rounded-lg w-[1900px] h-[1070px] shadow-xl cursor-default relative"
+        >
+
+
+
+        </m.div>
+      </m.div>
+        </AnimatePresence>
+      )}
+    </>
   );
 };
 

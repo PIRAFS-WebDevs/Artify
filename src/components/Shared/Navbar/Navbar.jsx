@@ -36,7 +36,7 @@ const Navbar = () => {
 
           <Link
             href={"/register"}
-            className="hidden px-8 py-2 text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec"
+            className="hidden px-8 py-2 text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec active:scale-95"
           >
             Register
           </Link>
