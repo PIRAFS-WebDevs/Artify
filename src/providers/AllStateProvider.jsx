@@ -5,6 +5,7 @@ const AllStateProvider = ({ children }) => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [mobileView, setMobileView] = useState(false);
   const [isShow, setIsShow] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const value = {
     sideBarOpen,
     setSideBarOpen,
@@ -12,6 +13,8 @@ const AllStateProvider = ({ children }) => {
     setMobileView,
     isShow,
     setIsShow,
+    cartOpen,
+    setCartOpen,
   };
 
   return (

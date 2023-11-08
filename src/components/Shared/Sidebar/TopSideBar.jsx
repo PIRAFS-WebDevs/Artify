@@ -10,7 +10,6 @@ const TopSideBar = () => {
     useContext(AllStateContext);
 
   return (
-    
     <div>
       {navData.map((data, index) => (
         <div key={index}>

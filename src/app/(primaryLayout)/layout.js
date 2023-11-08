@@ -1,5 +1,6 @@
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import HomeFooter from "@/components/Shared/Footer/HomeFooter";
+import Cart from "@/components/Home/Cart/Cart";
 
 const layout = ({ children }) => {
   return (
@@ -7,6 +8,7 @@ const layout = ({ children }) => {
       <Navbar />
       {children}
       <HomeFooter />
+      <Cart/>
     </main>
   );
 };
