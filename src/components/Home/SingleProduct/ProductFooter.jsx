@@ -30,7 +30,7 @@ export default function ProductFooter() {
                 </div>
 
             </div>
-            <div className='items-center flex gap-1 sm:mt-3'>
+            <div className='items-center flex gap-1 sm:mt-3 lg:mt-0'>
                 <button className='md:w-[250px] py-3 sm:w-1/2 border rounded-md border-darkSec bg-primary text-white'>Add to Cart</button>
                 <button className='md:w-[250px] py-3 sm:w-1/2 border rounded-md border-darkSec bg-primary text-white '>Live Preview</button>
             </div>
