@@ -5,13 +5,11 @@ import React, { useRef } from "react";
 const Category = () => {
   const scrollContainerRef = useRef(null);
   const scrollRight = () => {
-    console.log("clickes");
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollLeft += 100; // Adjust the scroll distance as needed
     }
   };
   const scrollLeft = () => {
-    console.log("clickes");
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollLeft -= 100; // Adjust the scroll distance as needed
     }
