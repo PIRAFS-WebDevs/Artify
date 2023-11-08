@@ -123,7 +123,7 @@ const Register = () => {
           <div className="flex flex-col gap-4 p-4 md:p-8">
             <button
               onClick={() => signIn("google")}
-              className="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base"
+              className="flex items-center justify-center gap-2 rounded-lg border border-darkNormal bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-darkNormal duration-100 hover:bg-darkSec focus-visible:ring md:text-base active:scale-95 transition-all"
             >
               <svg
                 className="h-5 w-5 shrink-0"
@@ -152,7 +152,7 @@ const Register = () => {
               </svg>
               Continue with Google
             </button>
-            <button className="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-darkSec focus-visible:ring md:text-base">
+            <button className="flex items-center justify-center gap-2 rounded-lg border border-darkNormal bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-darkNormal duration-100 hover:bg-darkSec focus-visible:ring md:text-base active:scale-95 transition-all">
               <BsFacebook className="text-blue-500 w-8 h-6" /> Continue with
               Facebook
             </button>
@@ -162,8 +162,8 @@ const Register = () => {
               className="flex flex-col gap-4"
             >
               <div className="relative flex items-center justify-center">
-                <span className="absolute inset-x-0 h-px bg-gray-300"></span>
-                <span className="relative bg-darkSec rounded px-4 text-sm text-gray-300">
+                <span className="absolute inset-x-0 h-px bg-darkNormal"></span>
+                <span className="relative bg-darkSec rounded px-4 text-sm text-darkNormal">
                   or
                 </span>
               </div>
@@ -260,7 +260,7 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                className="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold text-white outline-none transition duration-100 hover:bg-primarySec md:text-base"
+                className="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-base active:scale-95"
               >
                 Register
               </button>

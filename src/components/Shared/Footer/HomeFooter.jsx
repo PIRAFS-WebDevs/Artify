@@ -13,7 +13,7 @@ const HomeFooter = () => {
               <h2 className="font-bold pb-3">{categoryName}</h2>
               <ul>
                 {categoryObj[categoryName].map((subcategory, subIndex) => (
-                  <li key={subIndex} className="hover:text-gray-300 cursor-pointer">
+                  <li key={subIndex} className="hover:text-darkNormal cursor-pointer">
                     {subcategory.name}
                   </li>
                 ))}
