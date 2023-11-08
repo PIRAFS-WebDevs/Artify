@@ -50,12 +50,11 @@ const Navbar = () => {
 
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
-           
               <FaShoppingBag size={"1.2rem"} />
+              <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
+                0
+              </span>
             </button>
-            <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
-              0
-            </span>
           </div>
 
           <Link
@@ -76,10 +75,12 @@ const Navbar = () => {
         <AiOutlineSearch size={"1.5rem"} />
 
         <div className="relative">
-          <FaShoppingBag size={"1.5rem"} />
-          <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
-            0
-          </span>
+          <button onClick={() => setCartOpen(true)}>
+            <FaShoppingBag size={"1.2rem"} />
+            <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
+              0
+            </span>
+          </button>
         </div>
 
         <button
