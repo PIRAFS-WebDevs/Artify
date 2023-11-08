@@ -1,9 +1,18 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import TopSideBar from "./TopSideBar";
+import AllStateContext from "@/context/AllStateContext";
 
 const Sidebar = () => {
+  const { sideBarOpen} = useContext(AllStateContext);
   return (
-    <aside className="hidden xl:block xl:w-[240px] min-h-screen z-50 dark:bg-darkSec fixed">
+    <aside
+      className={`${
+        !sideBarOpen
+          ? "md:w-20 hidden  md:block  min-h-screen z-50 dark:bg-darkSec fixed"
+          : "md:w-[240px] hidden md:block  min-h-screen z-50 dark:bg-darkSec fixed"
+      }`}
+    >
       <TopSideBar />
     </aside>
   );
