@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import ProductModal from "../Home/ProductModal/ProductModal";
+import { useContext, useState } from "react";
+import AllStateContext from "@/context/AllStateContext";
 
 const PreviewSvg = () => {
-  const [isShow, setIsShow] = useState(false);
+  const { setIsShow } = useContext(AllStateContext);
 
   return (
     <>
@@ -21,9 +21,6 @@ const PreviewSvg = () => {
           stroke="currentColor"
         ></path>
       </svg>
-
-      {/* product details modal */}
-      <ProductModal isShow={isShow} setIsShow={setIsShow} />
     </>
   );
 };

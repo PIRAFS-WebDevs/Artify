@@ -9,7 +9,11 @@ const LoginButton = () => {
 
   return (
     <>
-      <FaUserCircle onClick={() => setIsShow(true)} size={"1.5rem"} className="cursor-pointer" />
+      <FaUserCircle
+        onClick={() => setIsShow(true)}
+        size={"1.5rem"}
+        className="cursor-pointer"
+      />
 
       {/* modal */}
       <Login isShow={isShow} setIsShow={setIsShow} />

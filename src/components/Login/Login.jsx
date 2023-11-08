@@ -26,24 +26,24 @@ const Login = ({ isShow, setIsShow }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsShow(false)}
-          className="fixed inset-0 z-50 grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center"
+          className="fixed inset-0 z-50 grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center p-4"
         >
           <m.div
             initial={{ scale: 0, rotate: "12.5deg" }}
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-[#2a2a2a] text-white p-12 rounded-lg max-w-2xl shadow-xl cursor-default relative"
+            className="bg-darkSec text-white p-12 rounded-lg max-w-2xl shadow-xl"
           >
             <form
               onSubmit={handleSubmit(formHandler)}
-              className="relative z-10 space-y-4"
+              className="space-y-4"
             >
               <div className="flex justify-end w-full">
                 <CloseButton reset={reset} setIsShow={setIsShow} />
               </div>
-              <div className="relative pb-4 space-y-4 text-center">
-                <h1 className="text-xl font-medium">Welcome Back, Get Login</h1>
+              <div className="pb-4 space-y-4 text-center">
+                <h1 className="text-lg font-medium">Welcome Back, Get Login</h1>
                 <p className="text-sm text-gray-300">
                   Join your account. Don’t have account?{" "}
                   {/* create account button */}
@@ -130,7 +130,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-white px-8 py-3 rounded-md hidden md:block hover:bg-[#00997d] transition-all active:scale-95"
+                  className="w-full text-sm bg-primary text-white px-8 py-3 rounded-md hidden md:block hover:bg-[#00997d] transition-all active:scale-95"
                 >
                   Get Login
                 </button>
