@@ -5,7 +5,7 @@ import ProgressRatings from "./ProgressRatings";
 const Ratings = () => {
   return (
     <section className="grid sm:grid-cols-3 md:grid-cols-4 my-8">
-      <div className="col-span-1 h-52 md:border-r  md:border-b-0 sm:border-b flex justify-center items-center">
+      <div className="col-span-1 h-52 md:border-r  md:border-b-0 sm:border-b border-gray-700 flex justify-center items-center">
         <div className="">
           <p className="flex items-center justify-center gap-3 bg-primary py-2 w-24 rounded-3xl text-white text-2xl">
             0
