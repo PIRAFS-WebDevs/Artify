@@ -6,6 +6,7 @@ const AllStateProvider = ({ children }) => {
   const [mobileView, setMobileView] = useState(false);
   const [isShow, setIsShow] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [theme, setTheme] = useState('dark');
   const value = {
     sideBarOpen,
     setSideBarOpen,
