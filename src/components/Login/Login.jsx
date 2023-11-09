@@ -33,18 +33,15 @@ const Login = ({ isShow, setIsShow }) => {
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-darkSec text-white p-12 rounded-lg max-w-2xl shadow-xl"
+            className="bg-dark-400 text-white p-12 rounded-lg max-w-2xl shadow-xl"
           >
-            <form
-              onSubmit={handleSubmit(formHandler)}
-              className="space-y-4"
-            >
+            <form onSubmit={handleSubmit(formHandler)} className="space-y-4">
               <div className="flex justify-end w-full">
                 <CloseButton reset={reset} setIsShow={setIsShow} />
               </div>
               <div className="pb-4 space-y-4 text-center">
                 <h1 className="text-lg font-medium">Welcome Back, Get Login</h1>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-dark-100">
                   Join your account. Don’t have account?{" "}
                   {/* create account button */}
                   <Link
@@ -70,7 +67,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="email"
                   id="email"
                   name="email"
-                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-darkNormal rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
                     errors.email && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -98,7 +95,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="password"
                   id="password"
                   name="password"
-                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-darkNormal rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
                     errors.password && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -118,7 +115,7 @@ const Login = ({ isShow, setIsShow }) => {
                   />
                   <label
                     htmlFor="default-checkbox"
-                    className="ml-2 text-sm text-gray-300 select-none cursor-pointer"
+                    className="ml-2 text-sm text-dark-100 select-none cursor-pointer"
                   >
                     Remember Me
                   </label>

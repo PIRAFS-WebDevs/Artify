@@ -17,7 +17,7 @@ const ProductInfo = () => {
       <div>
         <p className="grid grid-cols-4">
           <span className="flex items-center gap-5 ">
-            <RxUpdate className="dark:text-darkNormal h-5 w-5" /> Liquid:
+            <RxUpdate className="dark:text-dark-100 h-5 w-5" /> Liquid:
           </span>
           <span className="font-semibold text-white col-span-3">
             Mar 8, 2022
@@ -27,7 +27,7 @@ const ProductInfo = () => {
       <div>
         <p className="grid grid-cols-4">
           <span className="flex items-center gap-5 ">
-            <MdOutlineDateRange className="dark:text-darkNormal h-5 w-5" />
+            <MdOutlineDateRange className="dark:text-dark-100 h-5 w-5" />
             Published:
           </span>
           <span className="font-semibold text-white col-span-3">
@@ -39,7 +39,7 @@ const ProductInfo = () => {
         <p className="grid grid-cols-4">
           <span className="flex items-center gap-5 ">
             {" "}
-            <PiDrop className="dark:text-darkNormal h-5 w-5" />
+            <PiDrop className="dark:text-dark-100 h-5 w-5" />
             Layout:
           </span>
           <span className="font-semibold text-white col-span-3"> Liquid</span>
@@ -49,14 +49,14 @@ const ProductInfo = () => {
         <p className="grid grid-cols-4">
           <span className="">
             <span className=" flex items-center gap-5">
-              <AiOutlineTag className="dark:text-darkNormal h-5 w-5" /> Tags:
+              <AiOutlineTag className="dark:text-dark-100 h-5 w-5" /> Tags:
             </span>
           </span>
           <span className="font-semibold text-white col-span-3 flex flex-wrap gap-3 ">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="inline-block px-3 py-1 rounded text-xs font-medium text-white border border-darkSec dark:text-darkNormal "
+                className="inline-block px-3 py-1 rounded text-xs font-medium text-white border border-dark-400 dark:text-dark-100 "
               >
                 {tag}
               </span>

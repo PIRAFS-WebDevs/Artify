@@ -10,8 +10,8 @@ const Sidebar = () => {
       <aside
         className={`${
           !sideBarOpen
-            ? "md:w-20 hidden md:block   min-h-screen z-50 dark:bg-darkSec fixed"
-            : "md:w-[240px] hidden md:block min-h-screen z-50 dark:bg-darkSec fixed"
+            ? "md:w-20 hidden md:block   min-h-screen z-50 dark:bg-dark-400 fixed"
+            : "md:w-[240px] hidden md:block min-h-screen z-50 dark:bg-dark-400 fixed"
         } `}
       >
         <TopSideBar />
@@ -19,7 +19,7 @@ const Sidebar = () => {
       <aside
         className={`${
           mobileView
-            ? "right-0 w-[240px]   min-h-screen md:hidden z-20 dark:bg-darkSec fixed"
+            ? "right-0 w-[240px]   min-h-screen md:hidden z-20 dark:bg-dark-400 fixed"
             : "hidden "
         }  `}
       >

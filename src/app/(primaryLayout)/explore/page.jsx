@@ -15,7 +15,7 @@ const Explore = () => {
         <div className="p-8">
           <div className="relative overflow-hidden flex">
             <m.div
-              animate={{ x: `-${index * 20}%` }}
+              animate={{ x: `-${index * 25}%` }}
               transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
               className="flex gap-x-8"
             >
@@ -38,7 +38,7 @@ const Explore = () => {
                   whileHover={{ opacity: 1 }}
                   onClick={() => setIndex(index - 1)}
                 >
-                  <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto text-white rounded-full bg-darkSec hover:bg-darkPrimary shadow-md cursor-pointer p-2 mx-3" />
+                  <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
                 </button>
               )}
             </AnimatePresence>
@@ -52,7 +52,7 @@ const Explore = () => {
                   whileHover={{ opacity: 1 }}
                   onClick={() => setIndex(index + 1)}
                 >
-                  <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto text-white rounded-full bg-darkSec hover:bg-darkPrimary shadow-md cursor-pointer p-2 mx-3" />
+                  <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
                 </m.button>
               )}
             </AnimatePresence>
