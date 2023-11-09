@@ -35,7 +35,7 @@ const ImageCarousel = () => {
                 whileHover={{ opacity: 1 }}
                 onClick={() => setIndex(index - 1)}
               >
-                <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto border border-gray-100 text-darkPrimary rounded-full hover:bg-gray-200 shadow-md cursor-pointer p-2 mx-3" />
+                <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto border border-dark-200 text-dark-500 rounded-full hover:b1-dark-200 shadow-md cursor-pointer p-2 mx-3" />
               </button>
             )}
           </AnimatePresence>
@@ -49,7 +49,7 @@ const ImageCarousel = () => {
                 whileHover={{ opacity: 1 }}
                 onClick={() => setIndex(index + 1)}
               >
-                <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto border border-gray-100 text-darkPrimary rounded-full hover:bg-gray-200 shadow-md cursor-pointer p-2 mx-3" />
+                <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto border border-dark-200 text-dark-500 rounded-full hover:bg-dark-100 shadow-md cursor-pointer p-2 mx-3" />
               </m.button>
             )}
           </AnimatePresence>
@@ -68,7 +68,7 @@ const ImageCarousel = () => {
             >
               <img className="h-full object-cover" src={e} alt="" />
 
-              <div className="hidden group-hover:block bg-gray-500 opacity-60 absolute w-full h-full inset-0 z-10"></div>
+              <div className="hidden group-hover:block bg-dark-300 opacity-50 absolute w-full h-full inset-0 z-10"></div>
             </div>
           ))}
         </div>

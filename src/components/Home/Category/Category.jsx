@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useRef } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import categoriesData from "@/data/categoriesData";
@@ -19,13 +19,10 @@ const Category = () => {
   };
 
   return (
-    <section className="py-5 dark:bg-darkPrimary">
+    <section className="py-4 border-y border-dark-300 dark:bg-dark-500">
       <div className="app-category-filter-bar z-20 flex w-full overflow-hidden text-white">
         <div className="flex items-start overflow-hidden">
-          <button
-            onClick={scrollLeft}
-            className="z-10 w-10 h-8 sticky left-0"
-          >
+          <button onClick={scrollLeft} className="z-10 w-10 h-8 sticky left-0">
             <MdKeyboardArrowLeft className="text-2xl text-white" />
           </button>
 
@@ -36,8 +33,10 @@ const Category = () => {
             {categoriesData.map((data, index) => (
               <div key={index}>
                 <button
-                  className={`h-[30px] shrink-0 !rounded-full border border-gray-700 py-1.5 px-3.5 text-xs font-medium outline-none ${
-                    index === 0 ? "bg-white text-black" : "text-white hover:bg-warmGray-700"
+                  className={`h-[30px] shrink-0 !rounded-full border border-dark-300 py-1.5 px-3.5 text-xs font-medium outline-none ${
+                    index === 0
+                      ? "bg-white text-black"
+                      : "text-white hover:bg-dark-300"
                   }`}
                 >
                   {data.name}

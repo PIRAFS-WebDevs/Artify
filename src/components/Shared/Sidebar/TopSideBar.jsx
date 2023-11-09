@@ -15,9 +15,9 @@ const TopSideBar = () => {
         <div key={index}>
           <Link
             href={data?.path}
-            className="w-full py-5 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal dark:hover:text-white text-warmGray-300 hover:text-white hover:bg-darkPrimary"
+            className="w-full py-5 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal dark:hover:text-white text-dark-100 hover:text-white hover:bg-dark-500"
           >
-            <span className="text-xl dark:text-darkNormal group-hover:text-white">
+            <span className="text-xl dark:text-dark-100 group-hover:text-white">
               {data?.icon}
             </span>
             <span

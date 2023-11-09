@@ -10,9 +10,11 @@ module.exports = {
   theme: {
     colors: {
       ...colors,
-      darkPrimary: "#181818",
-      darkSec: "#252525",
-      darkNormal: "#999999",
+      "dark-100": "#999999",
+      "dark-200": "#3e3e3e",
+      "dark-300": "#323232",
+      "dark-400": "#252525",
+      "dark-500": "#181818",
       primary: "#00b482",
       primarySec: "#00997d",
     },

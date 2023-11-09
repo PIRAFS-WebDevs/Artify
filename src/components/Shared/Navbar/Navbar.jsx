@@ -20,7 +20,7 @@ const Navbar = () => {
   } = useContext(AllStateContext);
 
   return (
-    <nav className="bg-darkSec text-darkNormal sticky top-0 z-50">
+    <nav className="bg-dark-400 text-dark-100 sticky top-0 z-50">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center md:gap-6">
           <button
@@ -72,7 +72,7 @@ const Navbar = () => {
       </div>
 
       {/* mobile nav */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden bg-darkSec">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden bg-dark-400">
         <AiFillHome size={"1.5rem"} />
         <AiOutlineSearch size={"1.5rem"} />
 

@@ -7,7 +7,7 @@ const ModalHeader = ({ setIsShow }) => {
   const [like, setLike] = useState(false);
 
   return (
-    <div className="flex justify-between gap-4 items-start lg:items-center bg-darkPrimary p-8">
+    <div className="flex justify-between gap-4 items-start lg:items-center bg-dark-500 p-8">
       <div className="flex items-center flex-wrap gap-x-6">
         <h1
           className="text-lg md:text-xl hover:text-primary cursor-pointer line-clamp-1"
@@ -21,7 +21,7 @@ const ModalHeader = ({ setIsShow }) => {
             alt=""
             className="w-6 h-6 rounded-full"
           />
-          <p className="text-darkNormal text-sm">Qubitron Solutions</p>
+          <p className="text-dark-100 text-sm">Qubitron Solutions</p>
 
           {like ? (
             <button onClick={() => setLike(false)}>
