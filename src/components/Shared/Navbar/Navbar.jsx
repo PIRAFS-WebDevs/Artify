@@ -3,7 +3,7 @@ import Link from "next/link";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
-import { FaMoon, FaShoppingBag } from "react-icons/fa";
+import { FaMoon, FaShoppingBag, FaSun } from "react-icons/fa";
 import LoginButton from "./LoginButton";
 import Image from "next/image";
 import { useContext } from "react";
@@ -17,8 +17,6 @@ const Navbar = () => {
     setMobileView,
     cartOpen,
     setCartOpen,
-    theme,
-    setTheme,
   } = useContext(AllStateContext);
 
   return (
@@ -48,7 +46,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-6 md:gap-8">
           <AiOutlineSearch size={"1.5rem"} className="hidden md:block" />
-          <button onClick={() => setTheme("light")}>
+          <button>
             <FaMoon size={"1.2rem"} />
           </button>
 
