@@ -4,7 +4,7 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { AnimatePresence, motion as m, MotionConfig } from "framer-motion";
 import { useState } from "react";
 
-const ImageCarousel = () => {
+const Explore = () => {
   const [index, setIndex] = useState(0);
 
   return (
@@ -14,14 +14,14 @@ const ImageCarousel = () => {
           <m.div
             animate={{ x: `-${index * 100}%` }}
             transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-            className="flex"
+            className="flex gap-4"
           >
             {images.map((e, i) => (
               <img
                 key={i}
                 src={e}
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-full h-[360px] object-cover"
               />
             ))}
           </m.div>
@@ -54,30 +54,12 @@ const ImageCarousel = () => {
             )}
           </AnimatePresence>
         </div>
-
-        <div className="grid grid-cols-4 gap-4 row-span-1">
-          {images.map((e, i) => (
-            <div
-              onClick={() => setIndex(i)}
-              initial={false}
-              whileHover={{ opacity: 1 }}
-              key={i}
-              className={`relative group cursor-pointer ${
-                i === index && "border-2 border-primary"
-              }`}
-            >
-              <img className="h-full object-cover" src={e} alt="" />
-
-              <div className="hidden group-hover:block bg-gray-500 opacity-60 absolute w-full h-full inset-0 z-10"></div>
-            </div>
-          ))}
-        </div>
       </div>
     </MotionConfig>
   );
 };
 
-export default ImageCarousel;
+export default Explore;
 
 const images = [
   "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F806%2Fimage16.png&w=2048&q=75",

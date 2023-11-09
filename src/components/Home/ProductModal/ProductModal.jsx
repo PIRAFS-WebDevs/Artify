@@ -13,9 +13,14 @@ const ProductModal = ({ isShow, setIsShow }) => {
           className="fixed inset-0 z-50 grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center p-4 overflow-y-auto"
         >
           <m.div
-            initial={{ scale: 0, rotate: "12.5deg" }}
-            animate={{ scale: 1, rotate: "0deg" }}
-            exit={{ scale: 0, rotate: "0deg" }}
+            initial={{ scale: 0 }}
+            animate={{
+              scale: 1,
+              transition: {
+                duration: 0.3,
+              },
+            }}
+            exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
             className="bg-darkSec text-white rounded-lg shadow-xl max-w-7xl cursor-default"
           >
