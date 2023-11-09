@@ -24,7 +24,7 @@ const navData = [
   },
   {
     title: "Popular Products",
-    path: "/popularProducts",
+    path: "/popular-products",
     icon: <BsBoxFill />,
   },
   {
