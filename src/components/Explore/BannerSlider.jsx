@@ -32,7 +32,7 @@ const BannerSlider = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
-                whileHover={{ opacity: 1 }}
+                whilehover={{ opacity: 1 }}
                 onClick={() => setIndex(index - 1)}
               >
                 <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
@@ -46,7 +46,7 @@ const BannerSlider = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
-                whileHover={{ opacity: 1 }}
+                whilehover={{ opacity: 1 }}
                 onClick={() => setIndex(index + 1)}
               >
                 <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
