@@ -6,7 +6,7 @@ const FilterByPrice = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <div className="dark:text-white flex items-center justify-between border-b pb-5 border-darkNormal">
+      <div className="dark:text-white flex items-center justify-between border-b pb-5 border-gray-700">
         <p>Product Reviews</p>
         <div
           onClick={() => {

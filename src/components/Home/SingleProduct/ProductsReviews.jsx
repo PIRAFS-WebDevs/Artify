@@ -8,7 +8,7 @@ const ProductsReviews = () => {
     <section className="mb-8 min-h-screen ">
       <FilterByPrice />
       <div>
-        <div className="py-8 border-b border-darkNormal">
+        <div className="py-8 border-b border-gray-700">
           <div className="flex items-center  gap-10 ">
             <p className="bg-green-500 w-8 h-8 rounded-full"></p>
             <p className="text-white font-semibold">customers</p>

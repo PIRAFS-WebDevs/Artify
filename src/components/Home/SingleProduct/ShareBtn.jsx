@@ -6,7 +6,7 @@ import { ImLinkedin } from "react-icons/im";
 const ShareBtn = () => {
   return (
     <div className=" flex justify-between items-center gap-10">
-      <button className="w-10 h-10 text-black hover:dark:bg-gray-600 border border-gray-800 flex justify-center items-center rounded-full">
+      <button className="w-10 h-10 text-black hover:dark:bg-gray-600 border border-darkSec flex justify-center items-center rounded-full">
         <BiLogoFacebook className="h-5 w-5 text-white  " />
       </button>
       <button className="w-10 h-10 text-black hover:dark:bg-gray-600 border border-darkSec flex justify-center items-center rounded-full">
