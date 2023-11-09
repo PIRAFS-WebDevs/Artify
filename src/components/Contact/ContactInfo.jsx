@@ -4,10 +4,10 @@ import WebSvg from "../svg/WebSvg";
 
 const ContactInfo = () => {
   return (
-    <div className="w-[40%] px-5 py-10 dark:text-white space-y-10">
+    <div className="w-[40%] px-5 py-10 dark:text-white space-y-10 bg-dark-400">
       <div className="space-y-5">
         <h4 className="text-lg font-semibold">Contact Information</h4>
-        <p className=" dark:text-darkNormal text-sm">
+        <p className=" dark:text-dark-100 text-sm">
           <span>Fill out the form and our team will get back to</span>
           <br />
           <span>you within 24 hours.</span>
@@ -19,7 +19,7 @@ const ContactInfo = () => {
           <LocationSvg />
           <p>
             Office Location <br />
-            <span className="dark:text-darkNormal text-sm">
+            <span className="dark:text-dark-100 text-sm">
               Urban-Loritz-Platz, 1070 Wien, Austria
             </span>
           </p>
@@ -29,7 +29,7 @@ const ContactInfo = () => {
           <ContactSvg />
           <p>
             Call us anytime <br />
-            <span className="dark:text-darkNormal text-sm">
+            <span className="dark:text-dark-100 text-sm">
               +161649646591, +5454645431
             </span>
           </p>
@@ -39,7 +39,7 @@ const ContactInfo = () => {
           <WebSvg />
           <p>
             Visit Website <br />
-            <span className="dark:text-darkNormal text-sm">
+            <span className="dark:text-dark-100 text-sm">
               https://warnsun.com
             </span>
           </p>

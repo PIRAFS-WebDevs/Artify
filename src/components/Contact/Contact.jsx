@@ -9,11 +9,11 @@ const Contact = () => {
           <h4 className="text-2xl font-semibold dark:text-white">
             Need help? Contact us
           </h4>
-          <p className="dark:text-darkNormal">
+          <p className="dark:text-dark-100">
             Looking for help? Drop your contact details here
           </p>
         </div>
-        <section className="w-[80%] mx-auto flex p-5 dark:bg-darkSec rounded" >
+        <section className="w-[80%] mx-auto flex p-5  rounded">
           <ContactInfo />
           <ContactFrom />
         </section>
