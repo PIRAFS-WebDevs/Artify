@@ -9,7 +9,7 @@ const ProductDetails = ({ setIsShow }) => {
       {/* product title */}
       <ModalHeader setIsShow={setIsShow} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 bg-darkSec">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 bg-dark-400">
         {/* product carousel */}
         <ImageCarousel />
 

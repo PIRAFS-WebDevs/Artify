@@ -123,7 +123,7 @@ const Register = () => {
           <div className="flex flex-col gap-4 p-4 md:p-8">
             <button
               onClick={() => signIn("google")}
-              className="flex items-center justify-center gap-2 rounded-lg border border-darkNormal bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-darkNormal duration-100 hover:bg-darkSec focus-visible:ring md:text-base active:scale-95 transition-all"
+              className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-dark-100 duration-100 hover:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
             >
               <svg
                 className="h-5 w-5 shrink-0"
@@ -152,7 +152,7 @@ const Register = () => {
               </svg>
               Continue with Google
             </button>
-            <button className="flex items-center justify-center gap-2 rounded-lg border border-darkNormal bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-darkNormal duration-100 hover:bg-darkSec focus-visible:ring md:text-base active:scale-95 transition-all">
+            <button className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-dark-100 duration-100 hover:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all">
               <BsFacebook className="text-blue-500 w-8 h-6" /> Continue with
               Facebook
             </button>
@@ -162,8 +162,8 @@ const Register = () => {
               className="flex flex-col gap-4"
             >
               <div className="relative flex items-center justify-center">
-                <span className="absolute inset-x-0 h-px bg-darkNormal"></span>
-                <span className="relative bg-darkSec rounded px-4 text-sm text-darkNormal">
+                <span className="absolute inset-x-0 h-px bg-dark-100"></span>
+                <span className="relative bg-dark-400 rounded px-4 text-sm text-dark-100">
                   or
                 </span>
               </div>

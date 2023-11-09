@@ -10,7 +10,7 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             5 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-darkNormal rounded-3xl">
+          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
@@ -25,7 +25,7 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             4 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-darkNormal rounded-3xl">
+          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
@@ -40,7 +40,7 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             3 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-darkNormal rounded-3xl">
+          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
@@ -55,7 +55,7 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             2 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-darkNormal rounded-3xl">
+          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
@@ -70,7 +70,7 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             1 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-darkNormal rounded-3xl">
+          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
