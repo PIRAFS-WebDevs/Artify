@@ -1,15 +1,9 @@
 import { AiFillHome, AiFillLike, AiFillAppstore } from "react-icons/ai";
-import {
-  MdExplore,
-  MdFeedback,
-} from "react-icons/md";
-import {
-  BsBoxFill,
-  BsCodeSlash,
-  BsChatLeftTextFill,
-} from "react-icons/bs";
+import { MdExplore, MdFeedback } from "react-icons/md";
+import { BsBoxFill, BsCodeSlash, BsChatLeftTextFill } from "react-icons/bs";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { IoHelpOutline } from "react-icons/io5";
+import { FaOpencart } from "react-icons/fa";
 
 const navData = [
   {
@@ -24,7 +18,7 @@ const navData = [
   },
   {
     title: "Popular Products",
-    path: "/popularProducts",
+    path: "/popular-products",
     icon: <BsBoxFill />,
   },
   {
@@ -36,6 +30,11 @@ const navData = [
     title: "Application",
     path: "/application",
     icon: <BsCodeSlash />,
+  },
+  {
+    title: "Market Place",
+    path: "/market-place",
+    icon: <FaOpencart />,
   },
   {
     title: "Recommendation",
