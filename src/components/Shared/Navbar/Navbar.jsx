@@ -17,6 +17,8 @@ const Navbar = () => {
     setMobileView,
     cartOpen,
     setCartOpen,
+    theme,
+    setTheme,
   } = useContext(AllStateContext);
 
   return (
@@ -46,7 +48,9 @@ const Navbar = () => {
 
         <div className="flex items-center gap-6 md:gap-8">
           <AiOutlineSearch size={"1.5rem"} className="hidden md:block" />
-          <FaMoon size={"1.2rem"} />
+          <button onClick={() => setTheme("light")}>
+            <FaMoon size={"1.2rem"} />
+          </button>
 
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
