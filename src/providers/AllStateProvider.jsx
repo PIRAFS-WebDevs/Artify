@@ -2,7 +2,7 @@ import AllStateContext from "@/context/AllStateContext";
 import { useState } from "react";
 
 const AllStateProvider = ({ children }) => {
-  const [sideBarOpen, setSideBarOpen] = useState(false);
+  const [sideBarOpen, setSideBarOpen] = useState(true);
   const [mobileView, setMobileView] = useState(false);
   const [isShow, setIsShow] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
