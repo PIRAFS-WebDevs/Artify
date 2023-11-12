@@ -6,7 +6,7 @@ const Terms = () => {
     <div className="space-y-10">
       {termsData?.map((data) => (
         <div key={data?.title} className="space-y-5">
-          <p className="text-white">{data?.title}</p>
+          <p className="dark:text-white">{data?.title}</p>
           <p>{data?.details}</p>
 
           <ul className="list-decimal space-y-2 ml-10">

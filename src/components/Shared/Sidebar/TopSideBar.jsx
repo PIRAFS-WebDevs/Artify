@@ -15,15 +15,15 @@ const TopSideBar = () => {
         <div key={index}>
           <Link
             href={data?.path}
-            className="w-full py-5 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal dark:hover:text-white text-dark-100 hover:text-white hover:bg-dark-500"
+            className="w-full py-5 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal dark:hover:dark:text-white dark:text-dark-100 hover:dark:text-white hover:dark:bg-dark-500"
           >
-            <span className="text-xl dark:text-dark-100 group-hover:text-white">
+            <span className="text-xl dark:text-dark-100 group-hover:dark:text-white">
               {data?.icon}
             </span>
             <span
               className={`${
                 sideBarOpen
-                  ? "text-sm hidden md:inline-block  hover:text-white"
+                  ? "text-sm hidden md:inline-block  hover:dark:text-white"
                   : "hidden"
               } ${mobileView && "inline-block"}`}
             >
@@ -32,7 +32,7 @@ const TopSideBar = () => {
             <span
               className={`${
                 mobileView
-                  ? "text-sm  inline-block md:hidden hover:text-white"
+                  ? "text-sm  inline-block md:hidden hover:dark:text-white"
                   : "hidden"
               } `}
             >

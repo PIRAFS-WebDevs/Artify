@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme={"dark"}>
       <Providers>
-        <body className={`${inter.className} bg-dark-500`}>
+        <body className={`${inter.className} dark:bg-dark-500`}>
           {children}
           <Toaster />
         </body>

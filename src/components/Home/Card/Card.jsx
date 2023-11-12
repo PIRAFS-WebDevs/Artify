@@ -11,7 +11,7 @@ const Card = () => {
           <div
             key={e}
             // sm:max-w-[310px]
-            className="w-full h-[270px] text-white space-y-2 col-span-1"
+            className="w-full h-[270px] dark:text-white space-y-2 col-span-1"
           >
             <div className="flex max-h-[206px] w-full relative  group">
               <img
@@ -63,7 +63,7 @@ const Card = () => {
 
       {/* load more button */}
       <div className="flex justify-center my-6">
-        <button className="bg-primary text-white font-semibold px-8 py-4 rounded-md hover:bg-[#00997d] transition-all active:scale-95">
+        <button className="bg-primary dark:text-white font-semibold px-8 py-4 rounded-md hover:bg-[#00997d] transition-all active:scale-95">
           Load More
         </button>
       </div>

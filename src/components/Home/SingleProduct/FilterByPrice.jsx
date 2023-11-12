@@ -6,7 +6,7 @@ const FilterByPrice = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <div className="dark:text-white flex items-center justify-between border-b pb-5 border-dark-300">
+      <div className="dark:dark:text-white flex items-center justify-between border-b pb-5 border-dark-300">
         <p>Product Reviews</p>
         <div
           onClick={() => {
@@ -23,13 +23,13 @@ const FilterByPrice = () => {
                 : "visible absolute  top-10 right-0 z-20 rounded-sm border border-dark-100 "
             }`}
           >
-            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:bg-dark-500 border-b border-dark-100">
+            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 border-b border-dark-100">
               Recent
             </li>
-            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:bg-dark-500 border border-dark-100 ">
+            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 border border-dark-100 ">
               Ratings: Low to High
             </li>
-            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:bg-dark-500 border border-dark-100 ">
+            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 border border-dark-100 ">
               Ratings: High to Low
             </li>
           </ul>

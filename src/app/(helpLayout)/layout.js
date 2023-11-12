@@ -3,7 +3,7 @@ import Navbar from "@/components/Shared/Navbar/Navbar";
 
 const layout = ({ children }) => {
   return (
-    <main className="min-h-screen bg-dark-500 relative text-dark-100 text-sm  ">
+    <main className="min-h-screen dark:bg-dark-500 relative dark:text-dark-100 text-sm  ">
       <Navbar />
 
       <section className="mt-14">{children}</section>

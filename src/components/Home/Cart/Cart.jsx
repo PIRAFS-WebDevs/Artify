@@ -11,7 +11,7 @@ const Cart = () => {
       <section
         className={`${
           cartOpen
-            ? "fixed right-0 top-0 z-[60]    w-[500px] min-h-screen dark:bg-dark-400 text-white text-sm p-5 font-semibold "
+            ? "fixed right-0 top-0 z-[60]    w-[500px] min-h-screen dark:bg-dark-400 dark:text-white text-sm p-5 font-semibold "
             : "hidden"
         }   
       `}
@@ -19,7 +19,7 @@ const Cart = () => {
         <div className="flex justify-between ">
           <p>Shopping Cart</p>
           <button onClick={() => setCartOpen(false)} className="text-xl">
-            <AiOutlineClose className="text-dark-100 font-semibold text-sm" />
+            <AiOutlineClose className="dark:text-dark-100 font-semibold text-sm" />
           </button>
         </div>
 

@@ -75,7 +75,7 @@ const Register = () => {
               src="/assets/images/shape/shape6.png"
               alt=""
             />
-            <h1 className="text-6xl font-extralight text-white tracking-wide">
+            <h1 className="text-6xl font-extralight dark:text-white tracking-wide">
               Great to have you back!
             </h1>
           </div>
@@ -123,7 +123,7 @@ const Register = () => {
           <div className="flex flex-col gap-4 p-4 md:p-8">
             <button
               onClick={() => signIn("google")}
-              className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-dark-100 duration-100 hover:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
+              className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
             >
               <svg
                 className="h-5 w-5 shrink-0"
@@ -152,7 +152,7 @@ const Register = () => {
               </svg>
               Continue with Google
             </button>
-            <button className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-dark-100 duration-100 hover:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all">
+            <button className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all">
               <BsFacebook className="text-blue-500 w-8 h-6" /> Continue with
               Facebook
             </button>
@@ -162,8 +162,8 @@ const Register = () => {
               className="flex flex-col gap-4"
             >
               <div className="relative flex items-center justify-center">
-                <span className="absolute inset-x-0 h-px bg-dark-100"></span>
-                <span className="relative bg-dark-400 rounded px-4 text-sm text-dark-100">
+                <span className="absolute inset-x-0 h-px dark:bg-dark-100"></span>
+                <span className="relative dark:bg-dark-400 rounded px-4 text-sm dark:text-dark-100">
                   or
                 </span>
               </div>
@@ -171,7 +171,7 @@ const Register = () => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="mb-2 inline-block text-sm text-white sm:text-base"
+                    className="mb-2 inline-block text-sm dark:text-white sm:text-base"
                   >
                     First name
                   </label>
@@ -182,7 +182,7 @@ const Register = () => {
                     id="first-name"
                     className={`w-full rounded border ${
                       errors.firstName && "border-red-400 focus:border-red-400"
-                    } focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                    } focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
                   />
                   {errors.firstName && (
                     <p className="text-red-400 text-sm mt-1">
@@ -193,21 +193,21 @@ const Register = () => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="mb-2 inline-block text-sm text-white sm:text-base"
+                    className="mb-2 inline-block text-sm dark:text-white sm:text-base"
                   >
                     Last name
                   </label>
                   <input
                     {...register("lastName")}
                     id="last-name"
-                    className={`w-full rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                    className={`w-full rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
                   />
                 </div>
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-2 inline-block text-sm text-white sm:text-base"
+                  className="mb-2 inline-block text-sm dark:text-white sm:text-base"
                 >
                   Email
                 </label>
@@ -223,7 +223,7 @@ const Register = () => {
                   type="email"
                   className={`w-full ${
                     errors.email && "border-red-400 focus:border-red-400"
-                  } rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                  } rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
                 />
                 {errors.email && (
                   <p className="text-red-400 text-sm mt-1">
@@ -234,7 +234,7 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="password"
-                  className="mb-2 inline-block text-sm text-white sm:text-base"
+                  className="mb-2 inline-block text-sm dark:text-white sm:text-base"
                 >
                   Password
                 </label>
@@ -250,7 +250,7 @@ const Register = () => {
                   type="password"
                   className={`w-full ${
                     errors.password && "border-red-400 focus:border-red-400"
-                  } rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                  } rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
                 />
                 {errors.password && (
                   <p className="text-red-400 text-sm mt-1">
@@ -260,7 +260,7 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                className="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-base active:scale-95"
+                className="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-base active:scale-95"
               >
                 Register
               </button>
@@ -268,7 +268,7 @@ const Register = () => {
           </div>
 
           <div className="flex items-center justify-center bg-transparent p-4 border-t">
-            <p className="text-white text-center text-sm">
+            <p className="dark:text-white text-center text-sm">
               By creating an account with WareSun, you agree to our{" "}
               <Link
                 href="/"

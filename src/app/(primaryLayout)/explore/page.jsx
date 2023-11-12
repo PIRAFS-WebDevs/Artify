@@ -38,7 +38,7 @@ const Explore = () => {
                   whileHover={{ opacity: 1 }}
                   onClick={() => setIndex(index - 1)}
                 >
-                  <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
+                  <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto dark:text-white rounded-full dark:bg-dark-400 hover:dark:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
                 </button>
               )}
             </AnimatePresence>
@@ -52,7 +52,7 @@ const Explore = () => {
                   whileHover={{ opacity: 1 }}
                   onClick={() => setIndex(index + 1)}
                 >
-                  <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
+                  <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto dark:text-white rounded-full dark:bg-dark-400 hover:dark:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
                 </m.button>
               )}
             </AnimatePresence>

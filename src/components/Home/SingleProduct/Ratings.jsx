@@ -7,17 +7,17 @@ const Ratings = () => {
     <section className="grid sm:grid-cols-3 md:grid-cols-4 my-8">
       <div className="col-span-1 h-52 md:border-r  md:border-b-0 sm:border-b border-dark-300 flex justify-center items-center">
         <div className="">
-          <p className="flex items-center justify-center gap-3 bg-primary py-2 w-24 rounded-3xl text-white text-2xl">
+          <p className="flex items-center justify-center gap-3 bg-primary py-2 w-24 rounded-3xl dark:text-white text-2xl">
             0
             <span>
               <AiFillStar />
             </span>
           </p>
-          <p className="text-center mt-3">{'0'} Reviews</p>
+          <p className="text-center mt-3">{"0"} Reviews</p>
         </div>
       </div>
       <div className="sm:col-span-2 md:col-span-3 h-52 flex justify-center items-center">
-        <ProgressRatings/>
+        <ProgressRatings />
       </div>
     </section>
   );
