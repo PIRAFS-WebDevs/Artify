@@ -9,7 +9,7 @@ const CartItems = () => {
     <div className="mt-5">
       <div className="flex gap-3 items-center">
         <button className="text-xl">
-          <AiOutlineClose className="text-dark-100 font-semibold text-sm" />
+          <AiOutlineClose className="dark:text-dark-100 font-semibold text-sm" />
         </button>
         <div className="h-24  w-40 flex">
           <Image

@@ -4,7 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 const ProgressRatings = () => {
   const dynamicWidth = "20%";
   return (
-    <div className="w-full h-full flex items-center dark:text-white">
+    <div className="w-full h-full flex items-center dark:dark:text-white">
       <div className="space-y-5 w-full ml-8">
         <div className="flex gap-3 items-center ">
           <p className={"flex items-center gap-2 justify-center"}>

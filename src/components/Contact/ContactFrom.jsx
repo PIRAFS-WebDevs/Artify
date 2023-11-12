@@ -11,13 +11,13 @@ const ContactFrom = () => {
   } = useForm();
 
   return (
-    <div className=" w-[60%] p-10 text-xs bg-dark-350">
+    <div className=" w-[60%] p-10 text-xs dark:bg-dark-350">
       <form className="flex flex-col gap-4  ">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label
               htmlFor="name"
-              className="mb-2 inline-block text-sm text-dark-100 sm:text-sm"
+              className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
             >
               Name
             </label>
@@ -28,7 +28,7 @@ const ContactFrom = () => {
               id="name"
               className={`w-full rounded border ${
                 errors.name && "border-red-400 focus:border-red-400"
-              } focus:border-primary bg-transparent border-dark-200 px-3 py-4 text-dark-100 outline-none transition duration-100`}
+              } focus:border-primary bg-transparent border-dark-200 px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
             />
             {errors.name && (
               <p className="text-red-400 text-sm mt-1">
@@ -39,7 +39,7 @@ const ContactFrom = () => {
           <div>
             <label
               htmlFor="email"
-              className="mb-2 inline-block text-sm text-dark-100 sm:text-sm"
+              className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
             >
               Email
             </label>
@@ -55,7 +55,7 @@ const ContactFrom = () => {
               type="email"
               className={`w-full ${
                 errors.email && "border-red-400 focus:border-red-400"
-              } rounded border focus:border-primary  border-dark-200 bg-transparent px-3 py-4 text-dark-100 outline-none transition duration-100`}
+              } rounded border focus:border-primary  border-dark-200 bg-transparent px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
             />
             {errors.email && (
               <p className="text-red-400 text-sm mt-1">
@@ -67,7 +67,7 @@ const ContactFrom = () => {
         <div>
           <label
             htmlFor="subject"
-            className="mb-2 inline-block text-sm text-dark-100 sm:text-sm"
+            className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
           >
             Subject
           </label>
@@ -79,7 +79,7 @@ const ContactFrom = () => {
             type="subject"
             className={`w-full ${
               errors.subject && "border-red-400 focus:border-red-400"
-            } rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-4 text-dark-100 outline-none transition duration-100`}
+            } rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
           />
           {errors.subject && (
             <p className="text-red-400 text-sm mt-1">
@@ -90,7 +90,7 @@ const ContactFrom = () => {
         <div>
           <label
             htmlFor="message"
-            className="mb-2 inline-block text-sm text-dark-100 sm:text-sm"
+            className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
           >
             Message
           </label>
@@ -103,7 +103,7 @@ const ContactFrom = () => {
             type=""
             className={`w-full ${
               errors.message && "border-red-400 focus:border-red-400"
-            } rounded border focus:border-primary border-dark-200 bg-transparent px-3 py-4 text-dark-100 outline-none transition duration-100`}
+            } rounded border focus:border-primary border-dark-200 bg-transparent px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
           />
           {errors.message && (
             <p className="text-red-400 text-sm mt-1">
@@ -114,7 +114,7 @@ const ContactFrom = () => {
         <div>
           <button
             type="submit"
-            className="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-semibold text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-sm active:scale-95"
+            className="block rounded-lg bg-primary px-5 py-3 text-center text-sm font-semibold dark:text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-sm active:scale-95"
           >
             Contact us
           </button>

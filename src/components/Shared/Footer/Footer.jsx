@@ -10,7 +10,7 @@ const Footer = () => {
       {/* {sideBarOpen?<div className="col-span-1"></div> : <div className="col-s"></div>} */}
 
       {footerdata.map((categoryObj, index) => (
-        <div key={index} className=" text-white">
+        <div key={index} className=" dark:text-white">
           {Object.keys(categoryObj).map((categoryName, categoryIndex) => (
             <div key={categoryName}>
               <h2 className="text-xl font-bold pb-3">{categoryName}</h2>
@@ -18,7 +18,7 @@ const Footer = () => {
                 {categoryObj[categoryName].map((subcategory, subIndex) => (
                   <li
                     key={subIndex}
-                    className="hover:text-dark-100 cursor-pointer"
+                    className="hover:dark:text-dark-100 cursor-pointer"
                   >
                     {subcategory.name}
                   </li>

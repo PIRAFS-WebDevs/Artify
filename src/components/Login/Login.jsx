@@ -33,7 +33,7 @@ const Login = ({ isShow, setIsShow }) => {
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-dark-400 text-white p-12 rounded-lg max-w-2xl shadow-xl"
+            className="dark:bg-dark-400 dark:text-white p-12 rounded-lg max-w-2xl shadow-xl"
           >
             <form onSubmit={handleSubmit(formHandler)} className="space-y-4">
               <div className="flex justify-end w-full">
@@ -41,7 +41,7 @@ const Login = ({ isShow, setIsShow }) => {
               </div>
               <div className="pb-4 space-y-4 text-center">
                 <h1 className="text-lg font-medium">Welcome Back, Get Login</h1>
-                <p className="text-sm text-dark-100">
+                <p className="text-sm dark:text-dark-100">
                   Join your account. Don’t have account?{" "}
                   {/* create account button */}
                   <Link
@@ -53,7 +53,10 @@ const Login = ({ isShow, setIsShow }) => {
                 </p>
               </div>
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm leading-7 text-white">
+                <label
+                  htmlFor="email"
+                  className="text-sm leading-7 dark:text-white"
+                >
                   Email
                 </label>
                 <input
@@ -67,7 +70,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="email"
                   id="email"
                   name="email"
-                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-2 leading-8 dark:text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
                     errors.email && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -80,7 +83,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div className="space-y-2">
                 <label
                   htmlFor="password"
-                  className="text-sm leading-7 text-white"
+                  className="text-sm leading-7 dark:text-white"
                 >
                   Password
                 </label>
@@ -95,7 +98,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="password"
                   id="password"
                   name="password"
-                  className={`w-full px-4 py-2 leading-8 text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-2 leading-8 dark:text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
                     errors.password && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -115,7 +118,7 @@ const Login = ({ isShow, setIsShow }) => {
                   />
                   <label
                     htmlFor="default-checkbox"
-                    className="ml-2 text-sm text-dark-100 select-none cursor-pointer"
+                    className="ml-2 text-sm dark:text-dark-100 select-none cursor-pointer"
                   >
                     Remember Me
                   </label>
@@ -127,7 +130,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div>
                 <button
                   type="submit"
-                  className="w-full text-sm bg-primary text-white px-8 py-3 rounded-md hidden md:block hover:bg-[#00997d] transition-all active:scale-95"
+                  className="w-full text-sm bg-primary dark:text-white px-8 py-3 rounded-md hidden md:block hover:bg-primarySec transition-all active:scale-95"
                 >
                   Get Login
                 </button>

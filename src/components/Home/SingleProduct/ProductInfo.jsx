@@ -19,7 +19,7 @@ const ProductInfo = () => {
           <span className="flex items-center gap-5 ">
             <RxUpdate className="dark:text-dark-100 h-5 w-5" /> Liquid:
           </span>
-          <span className="font-semibold text-white col-span-3">
+          <span className="font-semibold dark:text-white col-span-3">
             Mar 8, 2022
           </span>
         </p>
@@ -30,7 +30,7 @@ const ProductInfo = () => {
             <MdOutlineDateRange className="dark:text-dark-100 h-5 w-5" />
             Published:
           </span>
-          <span className="font-semibold text-white col-span-3">
+          <span className="font-semibold dark:text-white col-span-3">
             Jan 27, 2022
           </span>
         </p>
@@ -42,7 +42,10 @@ const ProductInfo = () => {
             <PiDrop className="dark:text-dark-100 h-5 w-5" />
             Layout:
           </span>
-          <span className="font-semibold text-white col-span-3"> Liquid</span>
+          <span className="font-semibold dark:text-white col-span-3">
+            {" "}
+            Liquid
+          </span>
         </p>
       </div>
       <div>
@@ -52,11 +55,11 @@ const ProductInfo = () => {
               <AiOutlineTag className="dark:text-dark-100 h-5 w-5" /> Tags:
             </span>
           </span>
-          <span className="font-semibold text-white col-span-3 flex flex-wrap gap-3 ">
+          <span className="font-semibold dark:text-white col-span-3 flex flex-wrap gap-3 ">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="inline-block px-3 py-1 rounded text-xs font-medium text-white border border-dark-400 dark:text-dark-100 "
+                className="inline-block px-3 py-1 rounded text-xs font-medium dark:text-white border border-dark-400 dark:text-dark-100 "
               >
                 {tag}
               </span>

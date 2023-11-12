@@ -10,7 +10,7 @@ import AllStateContext from "@/context/AllStateContext";
 const layout = ({ children }) => {
   const { sideBarOpen, isShow, setIsShow } = useContext(AllStateContext);
   return (
-    <main className="min-h-screen bg-dark-500 relative ">
+    <main className="min-h-screen dark:bg-dark-500 relative ">
       <Navbar />
       <Sidebar />
       <section className={`${!sideBarOpen ? "md:ml-20" : "md:ml-[240px]"}`}>

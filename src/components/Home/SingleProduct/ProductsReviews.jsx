@@ -11,10 +11,10 @@ const ProductsReviews = () => {
         <div className="py-8 border-b border-dark-300">
           <div className="flex items-center  gap-10 ">
             <p className="bg-green-500 w-8 h-8 rounded-full"></p>
-            <p className="text-white font-semibold">customers</p>
+            <p className="dark:text-white font-semibold">customers</p>
             <p
               className={
-                "flex items-center gap-2 bg-primary justify-center w-12 text-white rounded-3xl py-1  "
+                "flex items-center gap-2 bg-primary justify-center w-12 dark:text-white rounded-3xl py-1  "
               }
             >
               4 <AiFillStar />

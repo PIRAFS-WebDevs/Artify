@@ -22,7 +22,7 @@ const ProductModal = ({ isShow, setIsShow }) => {
             }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-dark-400 text-white rounded-lg shadow-xl max-w-7xl cursor-default"
+            className="dark:bg-dark-400 dark:text-white rounded-lg shadow-xl max-w-7xl cursor-default"
           >
             <ProductDetails setIsShow={setIsShow} />
           </m.div>

@@ -5,11 +5,11 @@ import ModalHeader from "./ModalHeader";
 
 const ProductDetails = ({ setIsShow }) => {
   return (
-    <div className="text-white text-sm">
+    <div className="dark:text-white text-sm">
       {/* product title */}
       <ModalHeader setIsShow={setIsShow} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 bg-dark-400">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 dark:bg-dark-400">
         {/* product carousel */}
         <ImageCarousel />
 

@@ -6,7 +6,7 @@ const Contact = () => {
     <>
       <section className="my-16   ">
         <div className="text-center mb-10">
-          <h4 className="text-2xl font-semibold dark:text-white">
+          <h4 className="text-2xl font-semibold dark:dark:text-white">
             Need help? Contact us
           </h4>
           <p className="dark:text-dark-100">

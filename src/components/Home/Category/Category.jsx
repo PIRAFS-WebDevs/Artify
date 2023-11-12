@@ -20,10 +20,10 @@ const Category = () => {
 
   return (
     <section className="py-4 border-y border-dark-300 dark:bg-dark-500">
-      <div className="app-category-filter-bar z-20 flex w-full overflow-hidden text-white">
+      <div className="app-category-filter-bar z-20 flex w-full overflow-hidden dark:text-white">
         <div className="flex items-start overflow-hidden">
           <button onClick={scrollLeft} className="z-10 w-10 h-8 sticky left-0">
-            <MdKeyboardArrowLeft className="text-2xl text-white" />
+            <MdKeyboardArrowLeft className="text-2xl dark:text-white" />
           </button>
 
           <div
@@ -36,7 +36,7 @@ const Category = () => {
                   className={`h-[30px] shrink-0 !rounded-full border border-dark-300 py-1.5 px-3.5 text-xs font-medium outline-none ${
                     index === 0
                       ? "bg-white text-black"
-                      : "text-white hover:bg-dark-300"
+                      : "dark:text-white hover:dark:bg-dark-300"
                   }`}
                 >
                   {data.name}
@@ -49,7 +49,7 @@ const Category = () => {
             onClick={scrollRight}
             className="z-10 w-10 h-8 sticky right-0"
           >
-            <MdKeyboardArrowRight className="text-2xl text-white" />
+            <MdKeyboardArrowRight className="text-2xl dark:text-white" />
           </button>
         </div>
       </div>

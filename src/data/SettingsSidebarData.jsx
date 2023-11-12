@@ -13,30 +13,37 @@ export const settingsSidebarData = [
   {
     name: "Profile",
     icon: <FaUserCircle size={"1.25rem"} />,
+    path: "/profile",
   },
   {
     name: "Purchases",
     icon: <HiShoppingBag size={"1.25rem"} />,
+    path: "/purchase",
   },
   {
     name: "My Cards",
     icon: <FaWallet size={"1.25rem"} />,
+    path: "/my-cards",
   },
   {
     name: "My Wishlist",
     icon: <AiFillHeart size={"1.25rem"} />,
+    path: "/wishlist",
   },
   {
     name: "My Reports",
     icon: <BiErrorCircle size={"1.25rem"} />,
+    path: "/reports",
   },
   {
     name: "My Question",
     icon: <BiMessageRoundedError size={"1.25rem"} />,
+    path: "/question",
   },
   {
     name: "Password",
     icon: <BiSolidLock size={"1.25rem"} />,
+    path: "/password",
   },
   {
     name: "Logout",

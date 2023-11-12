@@ -20,7 +20,7 @@ const Navbar = () => {
   } = useContext(AllStateContext);
 
   return (
-    <nav className="bg-dark-400 text-dark-100 sticky top-0 z-50">
+    <nav className="dark:bg-dark-400 dark:text-dark-100 bg-white sticky top-0 z-50">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center md:gap-6">
           <button
@@ -37,7 +37,8 @@ const Navbar = () => {
             <Image
               src="/assets/logo/waresun.png"
               height={50}
-              width={120}
+              width={80}
+              priority={true}
               alt="logo"
               className="w-auto h-auto"
             />
@@ -53,7 +54,7 @@ const Navbar = () => {
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
               <FaShoppingBag size={"1.2rem"} />
-              <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
+              <span className="absolute px-1 text-sm dark:text-white rounded-full -top-2 -right-2 bg-primary">
                 0
               </span>
             </button>
@@ -61,7 +62,7 @@ const Navbar = () => {
 
           <Link
             href={"/register"}
-            className="hidden px-8 py-2 text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec active:scale-95"
+            className="hidden px-8 py-2 dark:text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec active:scale-95"
           >
             Register
           </Link>
@@ -72,14 +73,14 @@ const Navbar = () => {
       </div>
 
       {/* mobile nav */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden bg-dark-400">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400">
         <AiFillHome size={"1.5rem"} />
         <AiOutlineSearch size={"1.5rem"} />
 
         <div className="relative">
           <button onClick={() => setCartOpen(true)}>
             <FaShoppingBag size={"1.2rem"} />
-            <span className="absolute px-1 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
+            <span className="absolute px-1 text-sm dark:text-white rounded-full -top-2 -right-2 bg-primary">
               0
             </span>
           </button>
