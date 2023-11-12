@@ -10,7 +10,7 @@ const settingLayout = ({ children }) => {
       <section className="px-4 py-6 md:py-10">
         <div className="bg-dark-400 text-white max-w-6xl min-h-[600px] flex flex-col md:flex-row mx-auto">
           <Sidebar />
-          <div className="p-10 w-full">{children}</div>
+          <div className="md:p-8 p-4 w-full">{children}</div>
         </div>
       </section>
       <Footer />

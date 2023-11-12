@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { BiSolidDownload } from "react-icons/bi";
 import Dropdown from "./Dropdown";
+
 const Purchase = () => {
   return (
     <div className="flex gap-6 flex-col">
@@ -12,7 +12,7 @@ const Purchase = () => {
         {[1, 2, 3, 4, 5, 6].map((e, i) => (
           <div
             key={i}
-            className="flex flex-col md:flex-row justify-between items-center py-4"
+            className="flex flex-col gap-4 lg:flex-row justify-between lg:items-center py-4"
           >
             <div className="flex gap-4">
               <img
@@ -22,17 +22,17 @@ const Purchase = () => {
               />
 
               <div className="space-y-2">
-                <p className="text-dark-100 text-sm">
+                <p className="text-dark-100 text-xs">
                   Purchased on Sep 7, 2023
                 </p>
-                <p className="text-white text-sm font-medium hover:text-primary cursor-pointer">
+                <p className="text-white text-sm font-medium hover:text-primary cursor-pointer line-clamp-2">
                   Temprador WooCommerce Landing Page Theme
                 </p>
                 <p className="text-primary text-sm cursor-pointer">Preview</p>
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 self-end">
               <button className="bg-transparent text-primary text-xs font-medium p-3 rounded border border-dark-200 hover:bg-dark-200 transition-all active:scale-95">
                 Update Preview
               </button>
