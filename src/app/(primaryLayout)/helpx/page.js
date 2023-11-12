@@ -1,4 +1,4 @@
-import Help from "@/components/Home/Help/Help";
+import Help from "@/components/Help/Help";
 import React from "react";
 
 const helpPage = () => {
