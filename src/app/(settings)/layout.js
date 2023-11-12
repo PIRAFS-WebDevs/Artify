@@ -8,9 +8,9 @@ const settingLayout = ({ children }) => {
     <>
       <Navbar />
       <section className="px-4 py-8">
-        <div className="bg-dark-400 text-white max-w-6xl flex flex-col md:flex-row mx-auto">
+        <div className="bg-dark-400 text-white max-w-6xl min-h-[600px] flex flex-col md:flex-row mx-auto">
           <Sidebar />
-          <div className="p-8">{children}</div>
+          <div className="p-10">{children}</div>
         </div>
       </section>
       <Footer />
