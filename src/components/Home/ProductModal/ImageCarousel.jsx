@@ -32,7 +32,7 @@ const ImageCarousel = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
-                whileHover={{ opacity: 1 }}
+                whilehover={{ opacity: 1 }}
                 onClick={() => setIndex(index - 1)}
               >
                 <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto border border-dark-200 dark:text-dark-500 rounded-full hover:b1-dark-200 shadow-md cursor-pointer p-2 mx-3" />
@@ -46,7 +46,7 @@ const ImageCarousel = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
-                whileHover={{ opacity: 1 }}
+                whilehover={{ opacity: 1 }}
                 onClick={() => setIndex(index + 1)}
               >
                 <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto border border-dark-200 dark:text-dark-500 rounded-full hover:dark:bg-dark-100 shadow-md cursor-pointer p-2 mx-3" />
@@ -60,7 +60,7 @@ const ImageCarousel = () => {
             <div
               onClick={() => setIndex(i)}
               initial={false}
-              whileHover={{ opacity: 1 }}
+              whilehover={{ opacity: 1 }}
               key={i}
               className={`relative group cursor-pointer ${
                 i === index && "border-2 border-primary"
