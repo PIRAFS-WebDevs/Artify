@@ -35,7 +35,7 @@ const ImageCarousel = () => {
                 whilehover={{ opacity: 1 }}
                 onClick={() => setIndex(index - 1)}
               >
-                <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto border border-dark-200 text-dark-500 rounded-full hover:b1-dark-200 shadow-md cursor-pointer p-2 mx-3" />
+                <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto border border-dark-200 text-dark-500 rounded-full hover:bg-dark-100 shadow-md cursor-pointer p-2 mx-3" />
               </button>
             )}
           </AnimatePresence>

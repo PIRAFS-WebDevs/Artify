@@ -93,7 +93,7 @@ const ProductInfo = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <button className="bg-primary text-white font-semibold py-4 rounded-md hover:bg-[#00997d] transition-all active:scale-95">
+          <button className="bg-primary text-white font-semibold py-4 rounded-md hover:bg-primarySec transition-all active:scale-95">
             Add to Cart $77.99
           </button>
           <button className="bg-transparent text-white font-semibold py-4 rounded-md border border-dark-100 hover:bg-dark-500 transition-all active:scale-95">
