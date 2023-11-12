@@ -8,9 +8,7 @@ const Footer = () => {
 
   return (
     <div
-      className={`grid sm:grid-cols-1 mt-auto text-sm py-8  dark:bg-dark-500 md:grid-cols-2 lg:grid-cols-4 ${
-        sideBarOpen ? "ml-[300px]" : "ml-[150px]"
-      } gap-10 `}
+      className={`grid sm:grid-cols-1 mt-auto text-sm py-8  dark:bg-dark-500 md:grid-cols-2 lg:grid-cols-4 ml-[100px]  gap-10 `}
     >
       {/* {sideBarOpen?<div className="col-span-1"></div> : <div className="col-s"></div>} */}
 
