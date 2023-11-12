@@ -1,10 +1,7 @@
-"use client";
 import React, { useContext } from "react";
 import footerdata from "@/data/footerData";
-import AllStateContext from "@/context/AllStateContext";
 
 const Footer = () => {
-  const { sideBarOpen, setSideBarOpen } = useContext(AllStateContext);
 
   return (
     <div
