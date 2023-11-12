@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import footerdata from "@/data/footerData";
 import AllStateContext from "@/context/AllStateContext";
 
-const HomeFooter = () => {
+const Footer = () => {
   const { sideBarOpen, setSideBarOpen } = useContext(AllStateContext);
 
   return (
@@ -37,4 +37,4 @@ const HomeFooter = () => {
   );
 };
 
-export default HomeFooter;
+export default Footer;

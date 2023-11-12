@@ -1,10 +1,8 @@
-
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Providers from "../providers/Providers";
 import Toaster from "@/components/Shared/Toaster/Toaster";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +12,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
-    <html lang="en" data-theme={'dark'}>
+    <html lang="en" data-theme={"dark"}>
       <Providers>
-        <body className={inter.className}>
+        <body className={`${inter.className} bg-dark-500`}>
           {children}
           <Toaster />
         </body>

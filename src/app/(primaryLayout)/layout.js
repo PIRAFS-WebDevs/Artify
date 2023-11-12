@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/Shared/Navbar/Navbar";
-import HomeFooter from "@/components/Shared/Footer/HomeFooter";
+import HomeFooter from "@/components/Shared/Footer/Footer";
 import Cart from "@/components/Home/Cart/Cart";
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
 import ProductModal from "@/components/Home/ProductModal/ProductModal";
