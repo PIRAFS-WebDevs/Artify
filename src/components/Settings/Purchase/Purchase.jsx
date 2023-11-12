@@ -3,7 +3,7 @@ import Dropdown from "./Dropdown";
 
 const Purchase = () => {
   return (
-    <div className="flex gap-6 flex-col">
+    <div className="space-y-4">
       <p>
         My Purchase List <span className="text-dark-100">({10})</span>
       </p>
