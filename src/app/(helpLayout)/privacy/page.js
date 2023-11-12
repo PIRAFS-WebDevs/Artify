@@ -12,7 +12,7 @@ const privacyPage = () => {
       />
       <section className="w-[80%] mx-auto flex p-5 dark:bg-dark-500  rounded mb-10">
         <HelpBar />
-        <section className="w-[70%] dark:bg-dark-350 px-5 py-10">
+        <section className="w-[70%] dark:bg-dark-350 px-5 py-10 dark:text-dark-100">
           <Privacy />
         </section>
       </section>
