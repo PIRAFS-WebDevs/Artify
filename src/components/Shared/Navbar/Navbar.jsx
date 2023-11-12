@@ -37,7 +37,8 @@ const Navbar = () => {
             <Image
               src="/assets/logo/waresun.png"
               height={50}
-              width={120}
+              width={80}
+              priority={true}
               alt="logo"
               className="w-auto h-auto"
             />
