@@ -30,18 +30,14 @@ const SideNavLink = ({
           <span className="text-xl ">{icon}</span>
           <span
             className={`${
-              sideBarOpen
-                ? "text-sm hidden md:inline-block  "
-                : "hidden"
+              sideBarOpen ? "text-sm hidden md:inline-block  " : "hidden"
             } ${mobileView && "inline-block"}`}
           >
             {title}
           </span>
           <span
             className={`${
-              mobileView
-                ? "text-sm  inline-block md:hidden"
-                : "hidden"
+              mobileView ? "text-sm  inline-block md:hidden" : "hidden"
             } `}
           >
             {title}

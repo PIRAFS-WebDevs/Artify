@@ -1,10 +1,14 @@
+
 import Image from "next/image";
 import iamges from "../../../../public/assets/images/branner/productsBanner1.jpg";
 import { AiOutlineClose } from "react-icons/ai";
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
 
+
 const CartItems = () => {
+  
+
   return (
     <div className="mt-5">
       <div className="flex gap-3 items-center">
