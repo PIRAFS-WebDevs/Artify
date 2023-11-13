@@ -3,7 +3,7 @@
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Dropdown from "./Dropdown";
+import SettingsDropdown from "./SettingsDropdown";
 import { BiLogOut } from "react-icons/bi";
 import { useContext } from "react";
 import AuthContext from "@/context/AuthContext";
@@ -41,7 +41,7 @@ const SettingsSidebar = () => {
       </button>
 
       <div className="md:hidden block">
-        <Dropdown />
+        <SettingsDropdown />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { BiSolidDownload } from "react-icons/bi";
-import Dropdown from "./Dropdown";
+import PurchaseDropdown from "./PurchaseDropdown";
 
 const Purchase = () => {
   return (
@@ -45,7 +45,7 @@ const Purchase = () => {
               </button>
 
               {/* dropdown */}
-              <Dropdown />
+              <PurchaseDropdown />
             </div>
           </div>
         ))}

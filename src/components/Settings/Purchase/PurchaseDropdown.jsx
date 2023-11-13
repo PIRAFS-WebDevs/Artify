@@ -4,7 +4,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const Dropdown = () => {
+const PurchaseDropdown = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -35,7 +35,7 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+export default PurchaseDropdown;
 
 const wrapperVariants = {
   open: {

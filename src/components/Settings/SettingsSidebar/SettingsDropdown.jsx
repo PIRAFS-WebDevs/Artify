@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
 
-const DropDown = () => {
+const SettingsDropdown = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
@@ -54,7 +54,7 @@ const DropDown = () => {
   );
 };
 
-export default DropDown;
+export default SettingsDropdown;
 
 const wrapperVariants = {
   open: {

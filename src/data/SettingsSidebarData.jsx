@@ -20,11 +20,11 @@ export const settingsSidebarData = [
     icon: <HiShoppingBag size={"1.25rem"} />,
     path: "/purchase",
   },
-  {
-    name: "My Cards",
-    icon: <FaWallet size={"1.25rem"} />,
-    path: "/my-cards",
-  },
+  // {
+  //   name: "My Cards",
+  //   icon: <FaWallet size={"1.25rem"} />,
+  //   path: "/my-cards",
+  // },
   {
     name: "My Wishlist",
     icon: <AiFillHeart size={"1.25rem"} />,
@@ -35,11 +35,11 @@ export const settingsSidebarData = [
     icon: <AiFillBank size={"1.25rem"} />,
     path: "/deposit",
   },
-  {
-    name: "My Reports",
-    icon: <BiErrorCircle size={"1.25rem"} />,
-    path: "/reports",
-  },
+  // {
+  //   name: "My Reports",
+  //   icon: <BiErrorCircle size={"1.25rem"} />,
+  //   path: "/reports",
+  // },
   {
     name: "My Question",
     icon: <BiMessageRoundedError size={"1.25rem"} />,
