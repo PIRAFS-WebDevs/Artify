@@ -43,6 +43,7 @@ const AuthProvider = ({ children }) => {
           displayName: displayName,
         });
 
+        console.log(userCredential.user);
         toast.success("User registered successfully");
       }
     } catch (error) {
@@ -55,7 +56,12 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(userCredential.user);
       toast.success("User login successfully");
     } catch (error) {
       console.error(error.message);
@@ -68,7 +74,8 @@ const AuthProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
 
     try {
-      await signInWithPopup(auth, provider);
+      const userCredential = await signInWithPopup(auth, provider);
+      console.log(userCredential.user);
       toast.success("Google signed in successfully");
     } catch (error) {
       toast.error("Google sign in failed");

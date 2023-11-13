@@ -41,10 +41,10 @@ const Login = ({ isShow, setIsShow }) => {
             onClick={(e) => e.stopPropagation()}
             className="dark:bg-dark-400 dark:text-white p-12 rounded-lg max-w-2xl shadow-xl"
           >
+            <div className="flex justify-end w-full">
+              <CloseButton reset={reset} setIsShow={setIsShow} />
+            </div>
             <form onSubmit={handleSubmit(formHandler)} className="space-y-4">
-              <div className="flex justify-end w-full">
-                <CloseButton reset={reset} setIsShow={setIsShow} />
-              </div>
               <div className="pb-4 space-y-4 text-center">
                 <h1 className="text-lg font-medium">Welcome Back, Get Login</h1>
                 <p className="text-sm dark:text-dark-100">

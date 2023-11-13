@@ -10,8 +10,7 @@ import AuthContext from "@/context/AuthContext";
 
 const SettingsSidebar = () => {
   const pathname = usePathname();
-  const { logout, user } = useContext(AuthContext);
-  console.log(user);
+  const { logout } = useContext(AuthContext);
 
   return (
     <div className="w-full md:w-[280px] md:border-r border-dark-200">

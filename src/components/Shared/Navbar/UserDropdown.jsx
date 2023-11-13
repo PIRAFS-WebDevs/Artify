@@ -12,22 +12,32 @@ import AuthContext from "@/context/AuthContext";
 const UserDropdown = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const { logout } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
 
   return (
     <div>
       <motion.div animate={open ? "open" : "closed"} className="relative z-10">
-        <FaUserCircle
-          onClick={() => setOpen((pv) => !pv)}
-          size={"1.5rem"}
-          className="cursor-pointer"
-        />
+        {user ? (
+          <p
+            onClick={() => setOpen((pv) => !pv)}
+            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+          >
+            {user.displayName[0]}
+          </p>
+        ) : (
+          <FaUserCircle
+            onClick={() => setOpen((pv) => !pv)}
+            size={"1.5rem"}
+            className="cursor-pointer"
+          />
+        )}
 
         <motion.ul
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 p-2 rounded bg-dark-400 text-white border border-dark-100 shadow absolute top-[150%] left-[-250%] w-48 overflow-hidden"
+          className="flex flex-col gap-2 p-2 rounded bg-dark-400 text-white border border-dark-100 shadow absolute top-[150%] left-[-200%] w-48 overflow-hidden"
         >
           {settingsSidebarData.map((e, i) => (
             <Link href={`${e.path}`} key={i}>
