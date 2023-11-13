@@ -10,7 +10,7 @@ const SocialButton = () => {
       {/* google */}
       <button
         onClick={() => googleSignIn()}
-        className="flex items-center justify-center gap-2 rounded bg-dark-300 px-8 py-3 text-center text-xs font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
+        className="flex items-center justify-center gap-2 rounded bg-dark-300 px-8 py-4 text-center text-xs dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
       >
         <svg
           className="w-6 h-5 shrink-0"
