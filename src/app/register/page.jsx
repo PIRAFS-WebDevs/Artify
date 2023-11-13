@@ -1,14 +1,17 @@
 "use client";
 
-import { registerUser } from "@/utils/api/user";
+import AuthContext from "@/context/AuthContext";
+import { saveUser } from "@/utils/api/user";
 import Link from "next/link";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
 
 // icons
 import { BsFacebook } from "react-icons/bs";
 
 const Register = () => {
+  const { registerUser } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
@@ -17,7 +20,12 @@ const Register = () => {
   } = useForm();
 
   const formHandler = (data) => {
-    registerUser(data);
+    const { firstName, lastName, email, password } = data;
+    const displayName = firstName + " " + lastName;
+
+    registerUser(email, password, displayName);
+
+    saveUser(data);
     reset();
     console.table(data);
   };
@@ -121,10 +129,7 @@ const Register = () => {
 
         <div className=" max-w-lg rounded-lg border">
           <div className="flex flex-col gap-4 p-4 md:p-8">
-            <button
-              onClick={() => signIn("google")}
-              className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
-            >
+            <button className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all">
               <svg
                 className="h-5 w-5 shrink-0"
                 width="24"
