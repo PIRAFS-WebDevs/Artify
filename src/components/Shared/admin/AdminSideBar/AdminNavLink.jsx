@@ -25,9 +25,9 @@ const AdminSideNavLink = ({
     <div className="dark:hover:text-white dark:hover:bg-dark-200 dark:text-dark-100">
       <Link href={href} {...props}>
         <div
-          className={`w-full py-5 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal  `}
+          className={`w-full py-3 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal  `}
         >
-          <span className="text-xl ">{icon}</span>
+          <span className="text-xm ">{icon}</span>
           <span className={``}>{title}</span>
         </div>
       </Link>
