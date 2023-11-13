@@ -17,14 +17,14 @@ export default function Password() {
     } = useForm();
     return (
         <div>
-            <div>Change Password</div>
+            <div className='dark:text-dark-100'>Change Password</div>
 
             <form className='flex flex-grow flex-col '>
                 <div className="grid grid-cols-2 gap-4 mt-5">
                     <div>
                         <label
                             htmlFor="Current-Password"
-                            className="mb-2 inline-block text-sm text-white sm:text-base"
+                            className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-base"
                         >
                             Current Password
                         </label>
@@ -35,7 +35,7 @@ export default function Password() {
                                 })}
                                 id="Current Password"
                                 className={`w-full rounded border ${errors.currentPassword && "border-red-400 focus:border-red-400"
-                                    } focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                                    } focus:border-primary bg-transparent px-3 py-2 dark:text-dark-100 outline-none transition duration-100`}
                             />
                             <p
                                 className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"
@@ -90,7 +90,7 @@ export default function Password() {
                     <div>
                         <label
                             htmlFor="New-Password"
-                            className="mb-2 inline-block text-sm text-white sm:text-base"
+                            className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-base"
                         >
                             New Password
                         </label>
@@ -98,7 +98,7 @@ export default function Password() {
                         <input type={isNewPasswordVisible ? 'text' : 'password'}
                             {...register("newPassword")}
                             id="New-Password"
-                            className={`w-full rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                            className={`w-full rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-dark-100 outline-none transition duration-100`}
                         />
                          <p
                                 className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600"
@@ -151,7 +151,7 @@ export default function Password() {
                     <div >
                         <label
                             htmlFor="Confirm-Password"
-                            className="mb-2 inline-block text-sm text-white sm:text-base"
+                            className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-base"
                         >
                             Confirm Password
                         </label>
@@ -163,7 +163,7 @@ export default function Password() {
                             id="Confirm-Password"
                             type={isConfrimPasswordVisible ? 'text' : 'password'}
                             className={`w-full ${errors.confirmPassword && "border-red-400 focus:border-red-400"
-                                } rounded border focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition duration-100`}
+                                } rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-dark-100 outline-none transition duration-100`}
                         />
                         {errors.confirmPassword && (
                             <p className="text-red-400 text-sm mt-1">
@@ -221,13 +221,13 @@ export default function Password() {
                 <div className='flex items-center gap-4 justify-end mt-[250px]'>
                     <button
                         type="submit"
-                        className="block rounded-lg border border-dark-200 px-8 py-3 text-center text-sm font-semibold text-white outline-none transition-all duration-100 hover:bg-gray-700 md:text-base active:scale-95"
+                        className="block rounded-lg border border-dark-200 px-8 py-3 text-center text-sm font-semibold dark:text-dark-100 outline-none transition-all duration-100 hover:bg-gray-700 md:text-base active:scale-95"
                     >
                         Cancel
                     </button>
                     <button
                         type="submit"
-                        className="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-base active:scale-95"
+                        className="block rounded-lg bg-primary px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-base active:scale-95"
                     >
                         Save Changes
                     </button>
