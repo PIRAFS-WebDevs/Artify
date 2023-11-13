@@ -32,7 +32,7 @@ const navData = [
     icon: <BsCodeSlash />,
   },
   {
-    title: "Market Place",
+    title: "Marketplace",
     path: "/market-place",
     icon: <FaOpencart />,
   },
