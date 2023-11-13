@@ -1,4 +1,6 @@
-export function setCookie(cname, cvalue) {
+"use server";
+import { cookies } from "next/headers";
+/* export function setCookie(cname, cvalue) {
   document.cookie = cname + "=" + cvalue + ";" + ";path=/";
 }
 
@@ -27,4 +29,22 @@ export function checkCookie() {
       setCookie("username", user, 365);
     }
   }
-}
+} */
+
+export const AddToCart = async (data) => {
+  const cookieStore = cookies();
+  const existingCartItems = cookieStore.get("cart");
+
+  let finalData = [];
+  if (existingCartItems) {
+    const checkCookie = JSON.parse(existingCartItems.value);
+    finalData = [...checkCookie];
+  }
+  finalData.push(data);
+
+  const newData = JSON.stringify(finalData);
+
+  let done = cookieStore.set("cart", newData);
+
+  console.log("🚀 ~ file: AddToCart.js:10 ~ AddToCart ~ done:", done);
+};

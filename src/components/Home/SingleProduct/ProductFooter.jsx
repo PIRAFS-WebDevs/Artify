@@ -1,13 +1,16 @@
 "use client";
-import AddToCart, { getCookie, setCookie } from "@/utils/addToCart/AddToCart";
+
+import { AddToCart } from "@/utils/addToCart/AddToCart";
 import React from "react";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { IoMdDownload } from "react-icons/io";
 export default function ProductFooter() {
-  const data = [{id: 1, quantity: 1}]
-  const data2 =JSON.stringify(data)
-  
-  console.log(getCookie("cart"));
+  const data = { id: 5, quantity: 1 };
+
+  const handelCart = async (cart) => {
+    await AddToCart(cart);
+  };
+
   return (
     <div className="md:sticky bottom-0 dark:bg-dark-500 py-4">
       <div className="lg:flex justify-between ">
@@ -39,9 +42,7 @@ export default function ProductFooter() {
         <div className="items-center flex gap-1 sm:mt-3 lg:mt-0">
           <button
             className="md:w-[250px] py-3 sm:w-1/2 border rounded-md border-dark-400 bg-primary dark:text-white"
-            onClick={async () =>
-              await setCookie("cart", data2)
-            }
+            onClick={() => handelCart(data)}
           >
             Add to Cart
           </button>
