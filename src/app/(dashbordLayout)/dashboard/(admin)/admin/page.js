@@ -1,4 +1,5 @@
 import AdminChart from "@/components/Dashboard/Admin/AdminChart";
+import RecentActivity from "@/components/Dashboard/Admin/RecentActivity";
 import Stats from "@/components/Dashboard/Admin/Stats";
 import React from "react";
 
@@ -7,6 +8,7 @@ const page = () => {
     <>
       <Stats />
       <AdminChart />
+      <RecentActivity />
     </>
   );
 };
