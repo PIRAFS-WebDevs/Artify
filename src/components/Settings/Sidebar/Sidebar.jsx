@@ -8,7 +8,7 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="w-[280px] md:border-r border-dark-200">
+    <div className="w-[280px] md:border-r border-dark-200 hidden md:block">
       {settingsSidebarData.map((data, i) => {
         const { name, icon, path } = data;
 

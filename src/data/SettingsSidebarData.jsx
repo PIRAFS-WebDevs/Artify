@@ -1,7 +1,7 @@
 // icons
 import { FaUserCircle, FaWallet } from "react-icons/fa";
 import { HiShoppingBag } from "react-icons/hi2";
-import { AiFillHeart } from "react-icons/ai";
+import { AiFillBank, AiFillHeart } from "react-icons/ai";
 import {
   BiErrorCircle,
   BiMessageRoundedError,
@@ -16,7 +16,7 @@ export const settingsSidebarData = [
     path: "/profile",
   },
   {
-    name: "Purchases",
+    name: "Purchase",
     icon: <HiShoppingBag size={"1.25rem"} />,
     path: "/purchase",
   },
@@ -29,6 +29,11 @@ export const settingsSidebarData = [
     name: "My Wishlist",
     icon: <AiFillHeart size={"1.25rem"} />,
     path: "/wishlist",
+  },
+  {
+    name: "Deposit",
+    icon: <AiFillBank size={"1.25rem"} />,
+    path: "/deposit",
   },
   {
     name: "My Reports",
