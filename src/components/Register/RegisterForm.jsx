@@ -38,7 +38,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className=" max-w-lg rounded-lg border">
+    <div className=" max-w-lg rounded border border-dark-200">
       <div className="flex flex-col gap-4 p-4 md:p-8">
         {/* social login button */}
         <SocialButton />
@@ -48,7 +48,7 @@ const RegisterForm = () => {
           className="flex flex-col gap-4"
         >
           <div className="relative flex items-center justify-center">
-            <span className="absolute inset-x-0 h-px dark:bg-dark-100"></span>
+            <span className="absolute inset-x-0 h-px dark:bg-dark-200"></span>
             <span className="relative dark:bg-dark-400 rounded px-4 text-sm dark:text-dark-100">
               or
             </span>
@@ -66,7 +66,7 @@ const RegisterForm = () => {
                   required: "First name is required",
                 })}
                 id="first-name"
-                className={`w-full rounded border ${
+                className={`w-full rounded border border-dark-200 ${
                   errors.firstName && "border-red-400 focus:border-red-400"
                 } focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
               />
@@ -86,7 +86,7 @@ const RegisterForm = () => {
               <input
                 {...register("lastName")}
                 id="last-name"
-                className={`w-full rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+                className={`w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ const RegisterForm = () => {
               type="email"
               className={`w-full ${
                 errors.email && "border-red-400 focus:border-red-400"
-              } rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+              } rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
             />
             {errors.email && (
               <p className="text-red-400 text-sm mt-1">
@@ -136,7 +136,7 @@ const RegisterForm = () => {
               type="password"
               className={`w-full ${
                 errors.password && "border-red-400 focus:border-red-400"
-              } rounded border focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+              } rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
             />
             {errors.password && (
               <p className="text-red-400 text-sm mt-1">
@@ -153,7 +153,7 @@ const RegisterForm = () => {
         </form>
       </div>
 
-      <div className="flex items-center justify-center bg-transparent p-4 border-t">
+      <div className="flex items-center justify-center bg-transparent p-4 border-t border-dark-200">
         <p className="dark:text-white text-center text-sm">
           By creating an account with WareSun, you agree to our{" "}
           <Link

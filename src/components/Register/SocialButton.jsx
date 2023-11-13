@@ -10,10 +10,10 @@ const SocialButton = () => {
       {/* google */}
       <button
         onClick={() => googleSignIn()}
-        className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
+        className="flex items-center justify-center gap-2 rounded bg-dark-300 px-8 py-3 text-center text-xs font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
       >
         <svg
-          className="h-5 w-5 shrink-0"
+          className="w-6 h-5 shrink-0"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -41,9 +41,9 @@ const SocialButton = () => {
       </button>
 
       {/* facebook */}
-      <button className="flex items-center justify-center gap-2 rounded-lg border border-dark-100 bg-transparent px-8 py-3 text-center text-sm font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all">
-        <BsFacebook className="text-blue-500 w-8 h-6" /> Continue with Facebook
-      </button>
+      {/* <button className="flex items-center justify-center gap-2 rounded bg-dark-300 px-8 py-3 text-center text-xs font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all">
+        <BsFacebook className="text-blue-500 w-6 h-5" /> Continue with Facebook
+      </button> */}
     </>
   );
 };
