@@ -1,5 +1,6 @@
 "use server";
 import { cookies } from "next/headers";
+
 /* export function setCookie(cname, cvalue) {
   document.cookie = cname + "=" + cvalue + ";" + ";path=/";
 }
@@ -47,4 +48,14 @@ export const AddToCart = async (data) => {
   let done = cookieStore.set("cart", newData);
 
   console.log("🚀 ~ file: AddToCart.js:10 ~ AddToCart ~ done:", done);
+};
+export const GetDataCart = async () => {
+  const cookieStore = cookies();
+  let finalData = [];
+  const existingCartItems = cookieStore.get("cart");
+  if (existingCartItems) {
+    const checkCookie = JSON.parse(existingCartItems.value);
+    finalData = [...checkCookie];
+  }
+  return finalData;
 };

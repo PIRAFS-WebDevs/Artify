@@ -1,14 +1,32 @@
 "use client";
 
-import { AddToCart } from "@/utils/addToCart/AddToCart";
+import { AddToCart, GetDataCart } from "@/utils/addToCart/AddToCart";
+import { addToCart } from "@/utils/api/user";
+import api from "@/utils/axios";
 import React from "react";
+import toast from "react-hot-toast";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { IoMdDownload } from "react-icons/io";
 export default function ProductFooter() {
-  const data = { id: 5, quantity: 1 };
+  const data = { id: "65505ac851bb3ddefa917875", quantity: 25 };
+
+  /* (async () => {
+    const cartData = await GetDataCart();
+    const data = {
+      userId: "6550be4ba5a5eb3ede9b34f7",
+      items: cartData,
+    };
+    console.log(
+      "🚀 ~ file: ProductFooter.jsx:11 ~ ProductFooter ~ cartData:",
+      cartData
+    );
+    addToCart(data);
+  })(); */
 
   const handelCart = async (cart) => {
     await AddToCart(cart);
+    toast.success("product added on the cart");
+
   };
 
   return (
