@@ -2,9 +2,13 @@ import { motion as m, AnimatePresence } from "framer-motion";
 import CloseButton from "./CloseButton";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { loginUser } from "@/utils/api/user";
+import { useContext } from "react";
+import AuthContext from "@/context/AuthContext";
 
 const Login = ({ isShow, setIsShow }) => {
+  const { loginUser, user } = useContext(AuthContext);
+  console.log(user);
+
   const {
     register,
     handleSubmit,
@@ -13,7 +17,10 @@ const Login = ({ isShow, setIsShow }) => {
   } = useForm();
 
   const formHandler = (data) => {
-    loginUser(data);
+    const { email, password } = data;
+
+    loginUser(email, password);
+
     reset();
     console.table(data);
   };
