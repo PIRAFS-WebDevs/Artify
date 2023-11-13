@@ -2,7 +2,7 @@ import { AiFillHome, AiFillLike, AiFillAppstore } from "react-icons/ai";
 import { MdExplore, MdFeedback } from "react-icons/md";
 import { BsBoxFill, BsCodeSlash, BsChatLeftTextFill } from "react-icons/bs";
 import { BiSolidUserDetail } from "react-icons/bi";
-import { IoHelpOutline } from "react-icons/io5";
+import { IoHelpOutline, IoSettingsSharp } from "react-icons/io5";
 import { FaOpencart } from "react-icons/fa";
 
 const navData = [
@@ -60,6 +60,11 @@ const navData = [
     title: "Help",
     path: "/help",
     icon: <IoHelpOutline />,
+  },
+  {
+    title: "Settings",
+    path: "/profile",
+    icon: <IoSettingsSharp />,
   },
 ];
 

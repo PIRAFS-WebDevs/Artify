@@ -4,9 +4,14 @@ import { settingsSidebarData } from "@/data/SettingsSidebarData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Dropdown from "./Dropdown";
+import { BiLogOut } from "react-icons/bi";
+import { useContext } from "react";
+import AuthContext from "@/context/AuthContext";
 
-const Sidebar = () => {
+const SettingsSidebar = () => {
   const pathname = usePathname();
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
 
   return (
     <div className="w-full md:w-[280px] md:border-r border-dark-200">
@@ -26,6 +31,15 @@ const Sidebar = () => {
           </Link>
         );
       })}
+
+      <button
+        onClick={() => logout()}
+        className="hidden md:flex items-center gap-4 py-4 px-6 text-dark-100 hover:text-white cursor-pointer w-full select-none"
+      >
+        <BiLogOut size={"1.25rem"} />
+        <p className="text-sm">Logout</p>
+      </button>
+
       <div className="md:hidden block">
         <Dropdown />
       </div>
@@ -33,4 +47,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SettingsSidebar;

@@ -3,11 +3,13 @@ import Link from "next/link";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
-import { FaMoon, FaShoppingBag, FaSun } from "react-icons/fa";
+import { FaMoon, FaShoppingBag } from "react-icons/fa";
 import LoginButton from "./LoginButton";
 import Image from "next/image";
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
+import AuthContext from "@/context/AuthContext";
+import UserDropdown from "./UserDropdown";
 
 const Navbar = () => {
   const {
@@ -15,9 +17,9 @@ const Navbar = () => {
     setSideBarOpen,
     mobileView,
     setMobileView,
-    cartOpen,
     setCartOpen,
   } = useContext(AllStateContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <nav className="dark:bg-dark-400 dark:text-dark-100 bg-white sticky top-0 z-50">
@@ -68,7 +70,7 @@ const Navbar = () => {
           </Link>
 
           {/* login button */}
-          <LoginButton />
+          {user ? <UserDropdown /> : <LoginButton />}
         </div>
       </div>
 

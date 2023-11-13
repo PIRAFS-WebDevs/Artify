@@ -50,8 +50,4 @@ export const settingsSidebarData = [
     icon: <BiSolidLock size={"1.25rem"} />,
     path: "/password",
   },
-  {
-    name: "Logout",
-    icon: <BiLogOut size={"1.25rem"} />,
-  },
 ];
