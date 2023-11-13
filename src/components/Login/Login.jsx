@@ -6,8 +6,7 @@ import { useContext } from "react";
 import AuthContext from "@/context/AuthContext";
 
 const Login = ({ isShow, setIsShow }) => {
-  const { loginUser, user } = useContext(AuthContext);
-  console.log(user);
+  const { loginUser } = useContext(AuthContext);
 
   const {
     register,

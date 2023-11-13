@@ -14,6 +14,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const auth = getAuth(app);
 
@@ -30,15 +31,23 @@ const AuthProvider = ({ children }) => {
         email,
         password
       );
-      setUser({
-        ...userCredential.user,
-        email,
-        displayName,
-      });
 
-      await updateProfile(userCredential.user, { displayName: displayName });
+      if (userCredential && userCredential.user) {
+        setUser({
+          ...userCredential.user,
+          email,
+          displayName,
+        });
+
+        await updateProfile(userCredential.user, {
+          displayName: displayName,
+        });
+
+        toast.success("User registered successfully");
+      }
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
+      toast.error("User registration failed");
     }
   };
 
@@ -47,8 +56,10 @@ const AuthProvider = ({ children }) => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      toast.success("User login successfully");
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
+      toast.error("User login failed");
     }
   };
 
@@ -58,8 +69,10 @@ const AuthProvider = ({ children }) => {
 
     try {
       await signInWithPopup(auth, provider);
+      toast.success("Google signed in successfully");
     } catch (error) {
-      console.error(error);
+      toast.error("Google sign in failed");
+      console.error(error.message);
     }
   };
 
@@ -68,8 +81,10 @@ const AuthProvider = ({ children }) => {
 
     try {
       await signOut(auth);
+      toast.success("Signed out successfully");
     } catch (error) {
-      console.error(error);
+      toast.error("Sign out failed");
+      console.error(error.message);
     }
   };
 
@@ -79,7 +94,7 @@ const AuthProvider = ({ children }) => {
     try {
       await sendPasswordResetEmail(auth, email);
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   };
 
