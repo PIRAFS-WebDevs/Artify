@@ -3,7 +3,7 @@ import SharedComp from "@/components/Shared/admin/SharedComp";
 const CurrentLayouts = () => {
     return (
         <div>
-            <SharedComp/>
+            <SharedComp type={'Layouts Type'} AddType={"Add Layout"}/>
         </div>
     );
 };
