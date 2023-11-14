@@ -3,9 +3,9 @@ import React from "react";
 
 const QuestionPage = () => {
   return (
-    <div>
+    <>
       <Question />
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/Shared/Navbar/Navbar";
-import HomeFooter from "@/components/Shared/Footer/Footer";
+import Footer from "@/components/Shared/Footer/Footer";
 import Cart from "@/components/Home/Cart/Cart";
 import Sidebar from "@/components/Shared/Sidebar/Sidebar";
 import ProductModal from "@/components/Home/ProductModal/ProductModal";
@@ -16,7 +16,7 @@ const layout = ({ children }) => {
       <section className={`${!sideBarOpen ? "md:ml-20" : "md:ml-[240px]"}`}>
         {children}
         <ProductModal isShow={isShow} setIsShow={setIsShow} />
-        <HomeFooter />
+        <Footer />
         <Cart />
       </section>
     </main>
