@@ -4,7 +4,7 @@ import ShareBtn from "./ShareBtn";
 
 const ProductDetails = () => {
   return (
-    <section className="w-full lg:flex mb-4">
+    <section className="w-full xl:flex mb-4 lg:grid">
       <div className="lg:w-[55%] ">
         <p className="mb-8  ">
           {`Along With Wordpress Themes & Plugins, We always try to use latest trending techs like React, Next Js, Gatsby Js, GraphQl, Shopify etc to make our products special. Our rich tech choice will help you to build high performance applications. We are also known to provide great customer supports to our customers.`}
@@ -16,7 +16,7 @@ const ProductDetails = () => {
         </div>
         <Ratings />
       </div>
-      <div className="lg:w-[45%] pl-16 ">
+      <div className="xl:w-[45%] pl-16 ">
         <ProductInfo />
       </div>
     </section>
