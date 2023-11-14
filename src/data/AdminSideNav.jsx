@@ -1,5 +1,13 @@
-import { AiOutlineShop, AiTwotoneShop } from "react-icons/ai";
-import {  RiDashboardLine } from "react-icons/ri";
+import { AiOutlineShop, AiOutlineTags, AiTwotoneShop } from "react-icons/ai";
+import { BsBox, BsBox2, BsBoxes, BsQuestionSquare } from "react-icons/bs";
+import { FiUsers } from "react-icons/fi";
+import { IoSettingsOutline } from "react-icons/io5";
+import { MdOutlineReviews, MdPublishedWithChanges } from "react-icons/md";
+import {
+  RiDashboardLine,
+  RiLayoutFill,
+  RiSecurePaymentLine,
+} from "react-icons/ri";
 
 const adminSideNav = [
   {
@@ -20,57 +28,57 @@ const adminSideNav = [
   {
     title: "Products",
     path: "/dashboard/products",
-    icon: <RiDashboardLine />,
+    icon: <BsBox />,
   },
   {
     title: "Layouts Type",
     path: "/dashboard/layouts-type",
-    icon: <RiDashboardLine />,
+    icon: <RiLayoutFill />,
   },
   {
     title: "Categories",
     path: "/dashboard/categories",
-    icon: <RiDashboardLine />,
+    icon: <BsBoxes />,
   },
   {
     title: "Tags",
     path: "/dashboard/tags",
-    icon: <RiDashboardLine />,
+    icon: <AiOutlineTags />,
   },
   {
     title: "Orders",
     path: "/dashboard/orders",
-    icon: <RiDashboardLine />,
+    icon: <BsBox2 />,
   },
   {
     title: "Users",
     path: "/dashboard/users",
-    icon: <RiDashboardLine />,
+    icon: <FiUsers />,
   },
   {
     title: "Taxes",
     path: "/dashboard/taxes",
-    icon: <RiDashboardLine />,
+    icon: <RiSecurePaymentLine />,
   },
   {
     title: "Withdrawals",
     path: "/dashboard/withdrawals",
-    icon: <RiDashboardLine />,
+    icon: <MdPublishedWithChanges />,
   },
   {
     title: "Questions",
     path: "/dashboard/questions",
-    icon: <RiDashboardLine />,
+    icon: <BsQuestionSquare />,
   },
   {
     title: "Reviews",
     path: "/dashboard/reviews",
-    icon: <RiDashboardLine />,
+    icon: <MdOutlineReviews />,
   },
   {
     title: "Settings",
     path: "/dashboard/settings",
-    icon: <RiDashboardLine />,
+    icon: <IoSettingsOutline />,
   },
 ];
 
