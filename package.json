@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@firebase/app": "^0.9.23",
+    "@firebase/auth": "^1.4.0",
+    "@firebase/storage": "^0.11.2",
     "axios": "^1.6.0",
     "firebase": "^10.6.0",
     "framer-motion": "^10.16.4",
