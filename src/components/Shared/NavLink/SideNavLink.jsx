@@ -25,19 +25,19 @@ const SideNavLink = ({
     <div className="dark:hover:text-white dark:hover:bg-dark-200 dark:text-dark-100">
       <Link href={href} {...props}>
         <div
-          className={`w-full py-5 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal  `}
+          className={`w-full py-4 flex xl:pl-6 gap-5 pl-6 group items-center justify-normal  `}
         >
-          <span className="text-xl ">{icon}</span>
+          <span>{icon}</span>
           <span
             className={`${
-              sideBarOpen ? "text-sm hidden md:inline-block  " : "hidden"
+              sideBarOpen ? "text-sm hidden md:inline-block" : "hidden"
             } ${mobileView && "inline-block"}`}
           >
             {title}
           </span>
           <span
             className={`${
-              mobileView ? "text-sm  inline-block md:hidden" : "hidden"
+              mobileView ? "text-sm inline-block md:hidden" : "hidden"
             } `}
           >
             {title}

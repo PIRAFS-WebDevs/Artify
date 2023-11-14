@@ -1,9 +1,8 @@
 import { AiFillHeart } from "react-icons/ai";
-import { BiSolidDownload } from "react-icons/bi";
 
 const Wishlist = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <p>
         My Wishlist <span className="text-dark-100">({10})</span>
       </p>

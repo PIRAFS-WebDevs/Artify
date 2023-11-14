@@ -13,7 +13,6 @@ const UserDropdown = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { logout, user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <div>
