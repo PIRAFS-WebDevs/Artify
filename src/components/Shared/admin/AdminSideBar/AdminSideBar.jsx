@@ -16,8 +16,8 @@ const AdminSideBar = () => {
     <aside
       className={`${
         !adminBarOpen
-          ? "  hidden lg:block  min-h-screen "
-          : " min-h-screen  z-50 dark:bg-dark-400 fixed"
+          ? "  hidden lg:block  top-[3.9rem] z-50 bottom-0  overflow-y-auto"
+          : "   z-50 dark:bg-dark-400 fixed top-[3.9rem] bottom-0  pr-5 overflow-y-auto"
       } `}
     >
       <div>

@@ -1,3 +1,4 @@
+import { AiOutlineShop, AiTwotoneShop } from "react-icons/ai";
 import {  RiDashboardLine } from "react-icons/ri";
 
 const adminSideNav = [
@@ -9,12 +10,12 @@ const adminSideNav = [
   {
     title: "Shops",
     path: "/dashboard/shops",
-    icon: <RiDashboardLine />,
+    icon: <AiOutlineShop />,
   },
   {
     title: "My Shops",
     path: "/dashboard/my-shops",
-    icon: <RiDashboardLine />,
+    icon: <AiTwotoneShop />,
   },
   {
     title: "Products",

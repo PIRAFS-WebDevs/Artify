@@ -27,8 +27,8 @@ const AdminSideNavLink = ({
         <div
           className={`w-full py-3 flex xl:pl-6 gap-5 pl-6 group items-center  justify-normal  `}
         >
-          <span className="text-xm ">{icon}</span>
-          <span className={``}>{title}</span>
+          <span className="text-sm ">{icon}</span>
+          <span className={`text-sm`}>{title}</span>
         </div>
       </Link>
     </div>
