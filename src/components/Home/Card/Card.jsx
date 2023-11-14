@@ -6,13 +6,11 @@ import React from "react";
 const Card = () => {
   return (
     <section className="p-8">
-    
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
           <div
             key={e}
-            // sm:max-w-[310px]
-            className="w-full h-[270px] dark:text-white space-y-2 col-span-1"
+            className="max-w-[320px] sm:max-w-full h-[270px] dark:text-white space-y-2 col-span-1"
           >
             <div className="flex max-h-[206px] w-full relative  group">
               <img

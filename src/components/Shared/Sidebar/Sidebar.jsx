@@ -19,7 +19,7 @@ const Sidebar = () => {
       <aside
         className={`${
           mobileView
-            ? "right-0 w-[240px]   min-h-screen md:hidden z-20 dark:bg-dark-400 fixed"
+            ? "right-0 w-[240px] min-h-screen md:hidden z-20 dark:bg-dark-400 fixed"
             : "hidden "
         }  `}
       >
