@@ -1,7 +1,7 @@
-import AdminChart from "@/components/Dashboard/Admin/AdminChart";
-import BestProducts from "@/components/Dashboard/Admin/BestProducts";
-import RecentActivity from "@/components/Dashboard/Admin/RecentActivity";
-import Stats from "@/components/Dashboard/Admin/Stats";
+import AdminChart from "@/components/Dashboard/Admin/AdminDashboard/AdminChart";
+import BestProducts from "@/components/Dashboard/Admin/AdminDashboard/BestProducts";
+import RecentActivity from "@/components/Dashboard/Admin/AdminDashboard/RecentActivity";
+import Stats from "@/components/Dashboard/Admin/AdminDashboard/Stats";
 import React from "react";
 
 const page = () => {
