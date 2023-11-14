@@ -88,7 +88,10 @@ const AdminChart = () => {
   ];
 
   return (
-    <div className="h-[500px] dark:bg-dark-400 my-10 rounded border dark:border-dark-300 pt-10">
+    <div
+      className="lg:h-[500px] h-[300px] dark:bg-dark-400 my-5
+     rounded border dark:border-dark-300 pt-10 text-xs md:text-base"
+    >
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={500}
