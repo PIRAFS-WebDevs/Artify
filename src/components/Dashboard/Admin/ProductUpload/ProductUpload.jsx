@@ -3,6 +3,7 @@ import GalleryImages from "@/components/Dashboard/Admin/ProductUpload/GalleryIma
 import LayoutCategories from "@/components/Dashboard/Admin/ProductUpload/layoutCategories";
 import Description from "./Description";
 import SimpleProductInfo from "./SimpleProductInfo";
+import ProductUploadButton from "./ProductUploadButton";
 
 const ProductUpload = () => {
   return (
@@ -23,6 +24,9 @@ const ProductUpload = () => {
 
       {/* product info */}
       <SimpleProductInfo />
+
+      {/* product upload button */}
+      <ProductUploadButton />
     </div>
   );
 };
