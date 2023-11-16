@@ -3,19 +3,17 @@ import Image from "next/image";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const Questions = () => {
+const Reviews = () => {
   return (
     <>
-      <SharedComp type={"Questions"} />
-
-      {/*  */}
+      <SharedComp type={"Reviews"} />
       <div className=" dark:bg-dark-400 p-5 mb-5 rounded border text-start dark:border-dark-300 mt-5 w-auto overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="h-12 dark:bg-dark-200 w-auto rounded border-dark-300 border text-xs md:text-base text-start">
               <th>Image</th>
-              <th className="text-start">Question & Answer</th>
-              <th className="text-start">Customer Name</th>
+              <th className="text-start">Customer Review</th>
+              <th className="text-start">Ratings</th>
               <th>Products</th>
               <th>Reports</th>
               <th>Date</th>
@@ -38,27 +36,22 @@ const Questions = () => {
               </td>
 
               <td>
-                <div className="w-[300px] ">
-                  <p>
-                    Q: <spna>Is it gutenberg based or elementor based?</spna>
-                  </p>
-                  <p>
-                    A: <spna>It is gutenberg based.</spna>
-                  </p>
+                <div className="w-[400px] ">
+                  <p>Is it gutenberg based or elementor based?</p>
                 </div>
               </td>
               <td>
-                <p>Customer</p>
+                <p className=" ">Customer</p>
               </td>
 
               <td>
-                <p>ChawkBazar Laravel Flutter Mobile App</p>
+                <p className=" ">ChawkBazar Laravel Flutter Mobile App</p>
               </td>
               <td>
-                <p>feedback</p>
+                <p className=" ">feedback</p>
               </td>
               <td>
-                <p>dates</p>
+                <p className=" ">dates</p>
               </td>
               <td>
                 <div className="flex  p-3 justify-center items-center gap-1 md:gap-5">
@@ -74,4 +67,4 @@ const Questions = () => {
   );
 };
 
-export default Questions;
+export default Reviews;

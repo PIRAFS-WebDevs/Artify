@@ -7,10 +7,6 @@ import AllStateContext from "@/context/AllStateContext";
 
 const AdminSideBar = () => {
   const { adminBarOpen, setAdminBarOpen } = useContext(AllStateContext);
-  console.log(
-    "🚀 ~ file: AdminSideBar.jsx:10 ~ AdminSideBar ~ adminBarOpen:",
-    adminBarOpen
-  );
 
   return (
     <aside

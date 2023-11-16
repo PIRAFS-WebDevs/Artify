@@ -30,9 +30,7 @@ const CurrentLayouts = () => {
                 </p>
               </td>
               <td>
-                <p >
-                  icon
-                </p>
+                <p>icon</p>
               </td>
               <td>
                 <div className="flex justify-center items-center gap-1 md:gap-5">

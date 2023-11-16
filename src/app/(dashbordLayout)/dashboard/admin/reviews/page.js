@@ -1,11 +1,12 @@
-import React from 'react';
+import Reviews from "@/components/Dashboard/Admin/Reviews/Reviews";
+import React from "react";
 
 const reviewsPage = () => {
-    return (
-        <div>
-           reviews 
-        </div>
-    );
+  return (
+    <>
+      <Reviews />
+    </>
+  );
 };
 
 export default reviewsPage;
