@@ -4,7 +4,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 const CurrentLayouts = () => {
   return (
-    <div>
+    <>
       <SharedComp
         type={"Layouts Type"}
         AddType={"Add Layout"}
@@ -44,7 +44,7 @@ const CurrentLayouts = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 };
 
