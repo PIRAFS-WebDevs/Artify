@@ -13,10 +13,6 @@ const page = () => {
         {/* feature image */}
         <LayoutDescription />
 
-        {/* gallery images */}
-
-        {/* layout & categories */}
-        <LayoutCategories />
       </section>
     </>
   );
