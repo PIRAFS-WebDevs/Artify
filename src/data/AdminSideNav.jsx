@@ -47,7 +47,7 @@ const adminSideNav = [
   },
   {
     title: "Orders",
-    path: "/dashboard/orders",
+    path: "/dashboard/admin/orders",
     icon: <BsBox2 />,
   },
   {
