@@ -23,7 +23,9 @@ const HelpNavLink = ({
     <div className="cursor-pointer hover:dark:text-white block">
       <Link href={href} {...props}>
         <p className="flex gap-2 items-center ">
-          <span className={`${active ? "visible" : "invisible"} `}><BsDot className="text-primary text-2xl"/></span>
+          <span className={`${active ? "visible" : "invisible"} `}>
+            <BsDot className="text-primary text-2xl" />
+          </span>
           <span className="col-span-4">{title}</span>
         </p>
       </Link>

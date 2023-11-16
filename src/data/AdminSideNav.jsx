@@ -17,32 +17,32 @@ const adminSideNav = [
   },
   {
     title: "Shops",
-    path: "/dashboard/shops",
+    path: "/dashboard/admin/shops",
     icon: <AiOutlineShop />,
   },
   {
     title: "My Shops",
-    path: "/dashboard/my-shops",
+    path: "/dashboard/admin/my-shops",
     icon: <AiTwotoneShop />,
   },
   {
     title: "Products",
-    path: "/dashboard/products",
+    path: "/dashboard/admin/products",
     icon: <BsBox />,
   },
   {
     title: "Layouts Type",
-    path: "/dashboard/layouts-type",
+    path: "/dashboard/admin/layouts-type",
     icon: <RiLayoutFill />,
   },
   {
     title: "Categories",
-    path: "/dashboard/categories",
+    path: "/dashboard/admin/categories",
     icon: <BsBoxes />,
   },
   {
     title: "Tags",
-    path: "/dashboard/tags",
+    path: "/dashboard/admin/tags",
     icon: <AiOutlineTags />,
   },
   {
@@ -52,32 +52,32 @@ const adminSideNav = [
   },
   {
     title: "Users",
-    path: "/dashboard/users",
+    path: "/dashboard/admin/users",
     icon: <FiUsers />,
   },
   {
     title: "Taxes",
-    path: "/dashboard/taxes",
+    path: "/dashboard/admin/taxes",
     icon: <RiSecurePaymentLine />,
   },
   {
     title: "Withdrawals",
-    path: "/dashboard/withdrawals",
+    path: "/dashboard/admin/withdrawals",
     icon: <MdPublishedWithChanges />,
   },
   {
     title: "Questions",
-    path: "/dashboard/questions",
+    path: "/dashboard/admin/questions",
     icon: <BsQuestionSquare />,
   },
   {
     title: "Reviews",
-    path: "/dashboard/reviews",
+    path: "/dashboard/admin/reviews",
     icon: <MdOutlineReviews />,
   },
   {
     title: "Settings",
-    path: "/dashboard/settings",
+    path: "/dashboard/admin/settings",
     icon: <IoSettingsOutline />,
   },
 ];
