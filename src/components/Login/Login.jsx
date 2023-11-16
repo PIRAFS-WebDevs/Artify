@@ -18,9 +18,8 @@ const Login = ({ isShow, setIsShow }) => {
   const formHandler = (data) => {
     const { email, password } = data;
 
-    loginUser(email, password);
+    loginUser(email, password, reset);
 
-    reset();
     console.table(data);
   };
 
@@ -39,7 +38,7 @@ const Login = ({ isShow, setIsShow }) => {
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="dark:bg-dark-400 dark:text-white p-12 rounded-lg max-w-2xl shadow-xl"
+            className="dark:bg-dark-400 dark:text-white p-12 rounded-lg max-w-2xl shadow-xl cursor-default"
           >
             <div className="flex justify-end w-full">
               <CloseButton reset={reset} setIsShow={setIsShow} />
@@ -61,7 +60,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div className="space-y-2">
                 <label
                   htmlFor="email"
-                  className="text-sm leading-7 dark:text-white"
+                  className="text-sm leading-7 dark:text-dark-100"
                 >
                   Email
                 </label>
@@ -89,7 +88,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div className="space-y-2">
                 <label
                   htmlFor="password"
-                  className="text-sm leading-7 dark:text-white"
+                  className="text-sm leading-7 dark:text-dark-100"
                 >
                   Password
                 </label>

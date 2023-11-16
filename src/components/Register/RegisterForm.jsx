@@ -29,11 +29,9 @@ const RegisterForm = () => {
       displayName = firstName;
     }
 
-    registerUser(email, password, displayName);
+    registerUser(email, password, displayName, reset);
 
     saveUser(data);
-    reset();
-
     console.table(data);
   };
 

@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const registerUser = async (email, password, displayName) => {
+  const registerUser = async (email, password, displayName, reset) => {
     setLoading(true);
 
     try {
@@ -43,6 +43,8 @@ const AuthProvider = ({ children }) => {
           displayName: displayName,
         });
 
+        reset();
+
         console.log(userCredential.user);
         toast.success("User registered successfully");
       }
@@ -52,7 +54,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const loginUser = async (email, password) => {
+  const loginUser = async (email, password, reset) => {
     setLoading(true);
 
     try {
@@ -61,6 +63,9 @@ const AuthProvider = ({ children }) => {
         email,
         password
       );
+
+      reset();
+
       console.log(userCredential.user);
       toast.success("User login successfully");
     } catch (error) {
