@@ -4,7 +4,7 @@ import LayoutCategories from "@/components/Dashboard/Admin/ProductUpload/layoutC
 
 const ProductUpload = () => {
   return (
-    <div className="divide-y divide-dark-200">
+    <section className="divide-y divide-dark-200">
       <h1 className="text-white font-medium text-lg pb-6">Product Upload</h1>
 
       {/* feature image */}
@@ -15,7 +15,7 @@ const ProductUpload = () => {
 
       {/* layout & categories */}
       <LayoutCategories />
-    </div>
+    </section>
   );
 };
 

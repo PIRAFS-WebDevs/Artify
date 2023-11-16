@@ -5,7 +5,11 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 const CurrentLayouts = () => {
   return (
     <div>
-      <SharedComp type={"Layouts Type"} AddType={"Add Layout"} />
+      <SharedComp
+        type={"Layouts Type"}
+        AddType={"Add Layout"}
+        link={"/dashboard/admin/layouts-type/create-layout"}
+      />
       <div className=" dark:bg-dark-400 p-5 mb-5 rounded border text-center dark:border-dark-300 mt-5 ">
         <table className="w-full ">
           <thead>
