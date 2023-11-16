@@ -15,7 +15,7 @@ const adminSideNav = [
     path: "/dashboard/admin",
     icon: <RiDashboardLine />,
   },
-  {
+  /*  {
     title: "Shops",
     path: "/dashboard/admin/shops",
     icon: <AiOutlineShop />,
@@ -24,7 +24,7 @@ const adminSideNav = [
     title: "My Shops",
     path: "/dashboard/admin/my-shops",
     icon: <AiTwotoneShop />,
-  },
+  }, */
   {
     title: "Products",
     path: "/dashboard/admin/products",
@@ -55,11 +55,11 @@ const adminSideNav = [
     path: "/dashboard/admin/users",
     icon: <FiUsers />,
   },
-  {
+  /* {
     title: "Taxes",
     path: "/dashboard/admin/taxes",
     icon: <RiSecurePaymentLine />,
-  },
+  }, */
   {
     title: "Withdrawals",
     path: "/dashboard/admin/withdraws",
@@ -75,11 +75,11 @@ const adminSideNav = [
     path: "/dashboard/admin/reviews",
     icon: <MdOutlineReviews />,
   },
-  {
+  /* {
     title: "Settings",
     path: "/dashboard/admin/settings",
     icon: <IoSettingsOutline />,
-  },
+  }, */
 ];
 
 export default adminSideNav;

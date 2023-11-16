@@ -8,7 +8,7 @@ const Users = () => {
   return (
     <>
       <SharedComp type={"Customers"} search />
-      <div className=" dark:bg-dark-400 p-5 mb-5 rounded border dark:border-dark-300 mt-5 w-auto overflow-x-auto">
+      <div className=" dark:bg-dark-400 p-5 mb-5 rounded border dark:border-dark-300 mt-5 w-auto overflow-x-auto scrollbar">
         <table className="w-full text-center">
           <thead>
             <tr className="h-12 dark:bg-dark-200 w-auto rounded border-dark-300 border text-xs md:text-base ">

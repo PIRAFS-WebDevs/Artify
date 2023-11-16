@@ -134,7 +134,7 @@ const Dropdown = () => {
         <div className="relative w-full">
           <ul
             ref={listboxRef}
-            className="absolute w-full mt-3 overflow-y-auto bg-white border rounded-md shadow-sm max-h-64"
+            className="absolute w-full mt-3 overflow-y-auto scrollbar bg-white border rounded-md shadow-sm max-h-64"
             role="listbox"
           >
             <li

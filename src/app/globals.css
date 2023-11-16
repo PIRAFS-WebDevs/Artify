@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .progressGreen::-webkit-progress-value {
+    background-color: #999999; /* Change the progress bar color */
+  }
+  .scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #252525;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #999999;
+    border-radius: 100vh;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #3e3e3e;
+  }
+}

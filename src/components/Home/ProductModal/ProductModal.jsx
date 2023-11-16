@@ -10,7 +10,7 @@ const ProductModal = ({ isShow, setIsShow }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsShow(false)}
-          className="fixed inset-0 z-50 grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center p-4 overflow-y-auto"
+          className="fixed inset-0 z-50 grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center p-4 overflow-y-auto scrollbar"
         >
           <m.div
             initial={{ scale: 0 }}

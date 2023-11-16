@@ -8,7 +8,7 @@ const adminLayout = ({ children }) => {
       <AdminNavbar />
 
       <section className="lg:flex ">
-        <section className=" lg:w-[15%] dark:bg-dark-400 z-50 bottom-0 top-[4.5rem] fixed overflow-y-auto text-xs">
+        <section className=" lg:w-[15%] dark:bg-dark-400 z-50 bottom-0 top-[4.5rem] fixed overflow-y-auto scrollbar text-xs">
           <AdminSideBar />
         </section>
         <section className="lg:w-[85%] w-full min-h-screen p-6 lg:ml-[15%]">
