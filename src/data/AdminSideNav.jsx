@@ -62,7 +62,7 @@ const adminSideNav = [
   },
   {
     title: "Withdrawals",
-    path: "/dashboard/admin/withdrawals",
+    path: "/dashboard/admin/withdraws",
     icon: <MdPublishedWithChanges />,
   },
   {
