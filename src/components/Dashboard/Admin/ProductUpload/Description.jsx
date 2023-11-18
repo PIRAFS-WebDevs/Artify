@@ -74,11 +74,11 @@ const Description = () => {
         <div className="w-full">
           <p className="mb-2 inline-block text-sm dark:text-white">Status</p>
           <div className="flex gap-2 items-center">
-            <input name="radio" type="radio" id="published" />
+            <input name="status" type="radio" id="published" />
             <label htmlFor="published">Published</label>
           </div>
           <div className="flex gap-2 items-center">
-            <input name="radio" type="radio" id="draft" />
+            <input name="status" type="radio" id="draft" />
             <label htmlFor="draft">Draft</label>
           </div>
         </div>
