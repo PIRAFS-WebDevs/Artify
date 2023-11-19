@@ -24,9 +24,6 @@ const LayoutCategories = () => {
             id="layout"
             className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
           >
-            <option disabled selected className="text-white bg-dark-300">
-              Please select
-            </option>
             {layouts.map((layout, i) => (
               <option key={i} value={layout} className="text-white bg-dark-300">
                 {layout}
@@ -43,14 +40,14 @@ const LayoutCategories = () => {
           >
             Category
           </label>
+
+          {/* categories list */}
+
           <select
             name="category"
             id="category"
             className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
           >
-            <option disabled selected className="text-white bg-dark-300">
-              Please select
-            </option>
             {categories.map((category, i) => (
               <option
                 key={i}
@@ -75,9 +72,6 @@ const LayoutCategories = () => {
             id="tags"
             className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
           >
-            <option disabled selected className="text-white bg-dark-300">
-              Please select
-            </option>
             {tags.map((tag, i) => (
               <option key={i} value={tag} className="text-white bg-dark-300">
                 {tag}

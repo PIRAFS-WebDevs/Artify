@@ -1,6 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
 const FeatureImage = () => {
+  const [image, setImage] = useState();
+
+  const handleImage = (e) => {
+    const targetImage = e.target.files[0];
+    setImage(URL.createObjectURL(targetImage));
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
       <div className="space-y-2">
@@ -23,16 +33,15 @@ const FeatureImage = () => {
             drop PNG, JPG
           </p>
 
-          <input id="dropzone-file" type="file" className="hidden w-full" />
+          <input
+            onChange={handleImage}
+            id="dropzone-file"
+            type="file"
+            className="hidden w-full"
+          />
         </label>
         <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-          {[1, 2, 3].map((e, i) => (
-            <img
-              key={i}
-              src="https://pixer-admin.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F477%2Fconversions%2Fimage12-thumbnail.jpg&w=2048&q=75"
-              alt=""
-            />
-          ))}
+          <img src={image} alt="" />
         </div>
       </div>
     </div>
