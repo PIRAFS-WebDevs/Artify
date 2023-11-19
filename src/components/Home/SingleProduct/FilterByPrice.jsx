@@ -20,16 +20,16 @@ const FilterByPrice = () => {
             className={`${
               !isOpen
                 ? "hidden"
-                : "visible absolute  top-10 right-0 z-20 rounded-sm border border-dark-100 "
+                : "visible absolute  top-10 right-0 z-20 rounded-sm  "
             }`}
           >
-            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 border-b border-dark-100">
+            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 ">
               Recent
             </li>
-            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 border border-dark-100 ">
+            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500  ">
               Ratings: Low to High
             </li>
-            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 border border-dark-100 ">
+            <li className="py-3 px-5 dark:bg-dark-400 dark:hover:dark:bg-dark-500 ">
               Ratings: High to Low
             </li>
           </ul>
