@@ -49,7 +49,7 @@ const Card = () => {
                 <h1 className="text-sm font-medium line-clamp-1">
                   Shoppie UI Kit PSD Ecommerce Design Template
                 </h1>
-                <p className="text-sm text-[#777777]">Temper studios</p>
+                <p className="text-[#777777] text-sm ">Temper studios</p>
               </div>
               <p className="bg-[#2a2a2a] text-primary text-sm rounded-full px-2 py-1">
                 $69.00
