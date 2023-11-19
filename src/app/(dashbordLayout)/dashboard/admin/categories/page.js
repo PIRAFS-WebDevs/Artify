@@ -1,7 +1,11 @@
-import React from "react";
+import Category from "@/components/Home/Category/Category";
 
 const Categories = () => {
-  return <div>Categories</div>;
+  return (
+    <>
+      <Category />
+    </>
+  );
 };
 
 export default Categories;

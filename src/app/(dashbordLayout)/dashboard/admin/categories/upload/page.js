@@ -1,7 +1,11 @@
-import React from "react";
+import CategoryUpload from "@/components/Dashboard/Admin/CategoryUpload/CategoryUpload";
 
 const CategoryUploadPage = () => {
-  return <div>CategoryUploadPage</div>;
+  return (
+    <div>
+      <CategoryUpload />
+    </div>
+  );
 };
 
 export default CategoryUploadPage;

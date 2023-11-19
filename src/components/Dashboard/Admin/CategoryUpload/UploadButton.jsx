@@ -1,4 +1,4 @@
-const ProductUploadButton = () => {
+const UploadButton = () => {
   return (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
       <div></div>
@@ -14,7 +14,7 @@ const ProductUploadButton = () => {
             type="submit"
             className="px-6 py-4 text-sm font-semibold text-white transition-all rounded-md bg-primary hover:bg-primarySec active:scale-95"
           >
-            Upload Product
+            Upload Category
           </button>
         </div>
       </div>
@@ -22,4 +22,4 @@ const ProductUploadButton = () => {
   );
 };
 
-export default ProductUploadButton;
+export default UploadButton;

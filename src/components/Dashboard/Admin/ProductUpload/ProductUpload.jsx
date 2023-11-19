@@ -2,12 +2,12 @@
 
 import FeatureImage from "@/components/Dashboard/Admin/ProductUpload/FeatureImage";
 import GalleryImages from "@/components/Dashboard/Admin/ProductUpload/GalleryImages";
-import Description from "./Description";
 import SimpleProductInfo from "./SimpleProductInfo";
-import ProductUploadButton from "./ProductUploadButton";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { saveProduct } from "@/utils/api/product";
+import Description from "./Description";
+import UploadButton from "./UploadButton";
 
 const ProductUpload = () => {
   const [featuredImage, setFeaturedImage] = useState();
@@ -58,7 +58,7 @@ const ProductUpload = () => {
         <SimpleProductInfo register={register} errors={errors} />
 
         {/* product upload button */}
-        <ProductUploadButton />
+        <UploadButton />
       </form>
     </div>
   );
