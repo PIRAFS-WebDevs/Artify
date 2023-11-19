@@ -22,7 +22,7 @@ const DelItemsModal = ({ isDelOpen, setDelOpen }) => {
             }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="rounded-lg shadow-xl  w-1/4 col-span-1 cursor-default min-h-[300px] h-auto p-5 dark:bg-dark-400 border dark:border-dark-300 flex flex-col justify-between"
+            className="rounded-lg shadow-xl  lg:w-1/4 md:2/4 4/3 col-span-1 cursor-default min-h-[300px] h-auto p-5 dark:bg-dark-400 border dark:border-dark-300 flex flex-col justify-between"
           >
             <>
               {/* productinfo */}
