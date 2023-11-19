@@ -21,18 +21,15 @@ const RegisterForm = () => {
 
   const formHandler = (data) => {
     const { firstName, lastName, email, password } = data;
-    let displayName = "";
+    let name = "";
 
     if (lastName != "") {
-      displayName = firstName + " " + lastName;
+      name = firstName + " " + lastName;
     } else {
-      displayName = firstName;
+      name = firstName;
     }
 
-    registerUser(email, password, displayName, reset);
-
-    saveUser(data);
-    console.table(data);
+    registerUser(email, password, name, reset);
   };
 
   return (

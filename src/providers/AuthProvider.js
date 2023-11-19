@@ -2,6 +2,7 @@
 
 import app from "@/config/firebaseConfig";
 import AuthContext from "@/context/AuthContext";
+import { saveUser } from "@/utils/api/user";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -40,11 +41,17 @@ const AuthProvider = ({ children }) => {
         });
 
         await updateProfile(userCredential.user, {
-          displayName: displayName,
+          displayName,
         });
 
-        reset();
+        const data = {
+          name: userCredential.user.displayName,
+          email: userCredential.user.email,
+          photoURL: userCredential.user.photoURL,
+        };
 
+        reset();
+        saveUser(data);
         console.log(userCredential.user);
         toast.success("User registered successfully");
       }
@@ -65,7 +72,6 @@ const AuthProvider = ({ children }) => {
       );
 
       reset();
-
       console.log(userCredential.user);
       toast.success("User login successfully");
     } catch (error) {
@@ -80,6 +86,14 @@ const AuthProvider = ({ children }) => {
 
     try {
       const userCredential = await signInWithPopup(auth, provider);
+
+      const data = {
+        name: userCredential.user.displayName,
+        email: userCredential.user.email,
+        photoURL: userCredential.user.photoURL,
+      };
+
+      saveUser(data);
       console.log(userCredential.user);
       toast.success("Google signed in successfully");
     } catch (error) {
