@@ -1,6 +1,6 @@
 const LayoutCategories = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
+    <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
         <h1 className="text-white">Layout & Categories</h1>
         <p className="text-dark-100">
@@ -8,19 +8,19 @@ const LayoutCategories = () => {
         </p>
       </div>
 
-      <div className="md:col-span-2 w-full bg-dark-350 rounded p-8 space-y-4">
+      <div className="w-full p-8 space-y-4 rounded md:col-span-2 bg-dark-350">
         {/* layout */}
         <div className="w-full">
           <label
             htmlFor="layout"
-            className="mb-2 inline-block text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-white"
           >
             Layout
           </label>
           <select
             {...register("layout")}
             id="layout"
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
           >
             {layouts.map((layout, i) => (
               <option key={i} value={layout} className="text-white bg-dark-300">
@@ -34,7 +34,7 @@ const LayoutCategories = () => {
         <div className="w-full">
           <label
             htmlFor="category"
-            className="mb-2 inline-block text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-white"
           >
             Category
           </label>
@@ -43,7 +43,7 @@ const LayoutCategories = () => {
           <select
             {...register("category")}
             id="category"
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
           >
             {categories.map((category, i) => (
               <option
@@ -61,13 +61,13 @@ const LayoutCategories = () => {
         <div className="w-full">
           <label
             htmlFor="tags"
-            className="mb-2 inline-block text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-white"
           >
             Tags
           </label>
           <select
             {...register("tags")}
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
           >
             {tags.map((tag, i) => (
               <option key={i} value={tag} className="text-white bg-dark-300">

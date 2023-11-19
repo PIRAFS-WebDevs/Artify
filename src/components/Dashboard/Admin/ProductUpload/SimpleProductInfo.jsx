@@ -61,9 +61,7 @@ const SimpleProductInfo = ({ register, errors }) => {
             Preview URL
           </label>
           <input
-            {...register("preview_url", {
-              required: "preview url is required",
-            })}
+            {...register("preview_url")}
             type="text"
             id="preview_url"
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
