@@ -46,6 +46,7 @@ export default function Home() {
 
   const handleFileChange = (event) => {
     const files = event.target.files;
+    console.log(files);
     uploadFiles(Array.from(files));
   };
 

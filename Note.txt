@@ -4,3 +4,27 @@ Save user data
 2. Email
 3. PhotoURL
 
+
+Product Upload Info
+
+1. Featured Image - 1 / featuredImage
+2. Gallery - 3[] / galleryImage 
+
+Layout & Categories
+
+1. Layout
+2. Categories[]
+3. Tags[]
+
+Description
+
+1. Name
+2. Slug
+3. Description
+4. Status
+
+Simple Product Information
+
+1. Price
+2. Sale Price
+3. Preview URL

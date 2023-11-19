@@ -1,14 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
-const FeatureImage = () => {
-  const [image, setImage] = useState();
-
+const FeatureImage = ({ featuredImage, setFeaturedImage }) => {
   const handleImage = (e) => {
     const targetImage = e.target.files[0];
-    setImage(URL.createObjectURL(targetImage));
+    setFeaturedImage(targetImage);
+
+    e.target.value = null;
   };
 
   return (
@@ -41,7 +38,10 @@ const FeatureImage = () => {
           />
         </label>
         <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-          <img src={image} alt="" />
+          <img
+            src={featuredImage ? URL.createObjectURL(featuredImage) : null}
+            alt=""
+          />
         </div>
       </div>
     </div>
