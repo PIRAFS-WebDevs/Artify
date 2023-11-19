@@ -7,6 +7,7 @@ import SimpleProductInfo from "./SimpleProductInfo";
 import ProductUploadButton from "./ProductUploadButton";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { saveProduct } from "@/utils/api/product";
 
 const ProductUpload = () => {
   const [featuredImage, setFeaturedImage] = useState();
@@ -26,6 +27,7 @@ const ProductUpload = () => {
       ...data,
     };
 
+    saveProduct(productData);
     console.table(productData);
   };
 
@@ -107,7 +109,7 @@ const LayoutCategories = ({ register }) => {
 
           {/* categories list */}
           <select
-            {...register("category")}
+            {...register("categories")}
             id="category"
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
           >

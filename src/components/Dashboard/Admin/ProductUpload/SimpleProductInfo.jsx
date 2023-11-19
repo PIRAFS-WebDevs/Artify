@@ -27,6 +27,9 @@ const SimpleProductInfo = ({ register, errors }) => {
             id="price"
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
+          {errors.price && (
+            <p className="text-sm text-red-400">*{errors.price.message}</p>
+          )}
         </div>
 
         {/* sell price */}
@@ -46,8 +49,8 @@ const SimpleProductInfo = ({ register, errors }) => {
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
           {errors.sell_price && (
-            <p className="text-xs text-red-500 dark:text-red-400">
-              {errors.sell_price.message}
+            <p className="text-sm text-red-500 dark:text-red-400">
+              *{errors.sell_price.message}
             </p>
           )}
         </div>

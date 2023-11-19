@@ -41,7 +41,7 @@ const Description = ({ register, errors }) => {
             {...register("slug", { required: "slug is required" })}
             type="text"
             id="slug"
-            className={`w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 ${
+            className={`w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 block ${
               errors.slug && "border-red-400 focus:border-red-400"
             }`}
           />
@@ -64,7 +64,7 @@ const Description = ({ register, errors }) => {
             })}
             id="description"
             rows={5}
-            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white ${
+            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white resize-none ${
               errors.description && "border-red-400 focus:border-red-400"
             }`}
           ></textarea>
@@ -84,7 +84,7 @@ const Description = ({ register, errors }) => {
               name="status"
               type="radio"
               id="published"
-              value="published"
+              value="Published"
               defaultChecked
             />
             <label htmlFor="published">Published</label>
@@ -95,7 +95,7 @@ const Description = ({ register, errors }) => {
               name="status"
               type="radio"
               id="draft"
-              value="draft"
+              value="Draft"
             />
             <label htmlFor="draft">Draft</label>
           </div>
