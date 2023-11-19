@@ -1,16 +1,23 @@
+"use client";
 import SharedComp from "@/components/Shared/admin/SharedComp";
 import Image from "next/image";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import AllStateContext from "@/context/AllStateContext";
+import { useContext, useState } from "react";
+import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 
 const Reviews = () => {
+  const [isOpen, setOpen] = useState(false);
+
+  const { setIsShow, isShow } = useContext(AllStateContext);
   return (
-    <>
+    <div className="relative">
       <SharedComp type={"Reviews"} />
-      <div className=" dark:bg-dark-400 p-5 mb-5 rounded border text-start dark:border-dark-300 mt-5 w-auto overflow-x-auto scrollbar">
+      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded dark:bg-dark-400 text-start dark:border-dark-300 scrollbar">
         <table className="w-full">
           <thead>
-            <tr className="h-12 dark:bg-dark-200 w-auto rounded border-dark-300 border text-xs md:text-base text-start">
+            <tr className="w-auto h-12 text-xs border rounded dark:bg-dark-200 border-dark-300 md:text-base text-start">
               <th>Image</th>
               <th className="text-start">Customer Review</th>
               <th className="text-start">Ratings</th>
@@ -22,9 +29,9 @@ const Reviews = () => {
           </thead>
           {/* body */}
           <tbody>
-            <tr className=" text-xs md:text-base text-start h-20   ">
+            <tr className="h-20 text-xs md:text-base text-start">
               <td className="w-[110px]">
-                <div className="h-12 w-20 ">
+                <div className="w-20 h-12 ">
                   <Image
                     className="rounded"
                     src={"/assets/images/branner/productsBanner2.jpg"}
@@ -41,29 +48,40 @@ const Reviews = () => {
                 </div>
               </td>
               <td>
-                <p className=" ">Customer</p>
+                <p className="">Customer</p>
               </td>
 
               <td>
-                <p className=" ">ChawkBazar Laravel Flutter Mobile App</p>
+                <p className="">ChawkBazar Laravel Flutter Mobile App</p>
               </td>
               <td>
-                <p className=" ">feedback</p>
+                <p className="">feedback</p>
               </td>
               <td>
-                <p className=" ">dates</p>
+                <p className="">dates</p>
               </td>
               <td>
-                <div className="flex  p-3 justify-center items-center gap-1 md:gap-5">
-                  <RiDeleteBin6Line className="text-red-400" />
-                  <FaRegEdit className="text-green-500" />
+                <div className="flex items-center justify-center gap-1 p-3 md:gap-5">
+                  <RiDeleteBin6Line
+                    onClick={() => setOpen(true)}
+                    className="text-red-400 cursor-pointer"
+                  />
+                  <FaRegEdit
+                    onClick={() => setIsShow(true)}
+                    className="text-green-500 cursor-pointer"
+                  />
                 </div>
+
+                <>
+                  <DelItemsModal isOpen={isOpen} setOpen={setOpen} />
+                </>
+                {/* qustion modul */}
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

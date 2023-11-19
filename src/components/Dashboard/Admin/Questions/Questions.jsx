@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import AnsModal from "./AnsModal";
-import DelQus from "./DelQus";
+import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 
 const Questions = () => {
   const [isOpen, setOpen] = useState(false);
@@ -19,10 +19,10 @@ const Questions = () => {
 
       {/*  */}
       <>
-        <div className=" dark:bg-dark-400   p-5 mb-5 rounded border text-start dark:border-dark-300 mt-5 w-auto overflow-x-auto scrollbar">
+        <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded dark:bg-dark-400 text-start dark:border-dark-300 scrollbar">
           <table className="w-full">
             <thead>
-              <tr className="h-12 dark:bg-dark-200 w-auto rounded border-dark-300 border text-xs md:text-base text-start">
+              <tr className="w-auto h-12 text-xs border rounded dark:bg-dark-200 border-dark-300 md:text-base text-start">
                 <th>Image</th>
                 <th className="text-start">Question & Answer</th>
                 <th className="text-start">Customer Name</th>
@@ -34,9 +34,9 @@ const Questions = () => {
             </thead>
             {/* body */}
             <tbody>
-              <tr className=" text-xs md:text-base text-start h-20   ">
+              <tr className="h-20 text-xs md:text-base text-start">
                 <td className="w-[110px]">
-                  <div className="h-12 w-20 ">
+                  <div className="w-20 h-12 ">
                     <Image
                       className="rounded"
                       src={"/assets/images/branner/productsBanner2.jpg"}
@@ -71,7 +71,7 @@ const Questions = () => {
                   <p>dates</p>
                 </td>
                 <td>
-                  <div className="flex  p-3 justify-center items-center gap-1 md:gap-5">
+                  <div className="flex items-center justify-center gap-1 p-3 md:gap-5">
                     <RiDeleteBin6Line
                       onClick={() => setOpen(true)}
                       className="text-red-400 cursor-pointer"
@@ -84,7 +84,7 @@ const Questions = () => {
                   {/* qustion modul */}
                   <>
                     <AnsModal isShow={isShow} setIsShow={setIsShow} />
-                    <DelQus isOpen={isOpen} setOpen={setOpen} />
+                    <DelItemsModal isOpen={isOpen} setOpen={setOpen} />
                   </>
                   {/* qustion modul */}
                 </td>

@@ -1,8 +1,7 @@
-import { IoCloseCircle } from "react-icons/io5";
 import { motion as m, AnimatePresence } from "framer-motion";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { FaLessThanEqual } from "react-icons/fa6";
-const DelQus = ({ isOpen, setOpen }) => {
+
+const DelItemsModal = ({ isOpen, setOpen }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -61,4 +60,4 @@ const DelQus = ({ isOpen, setOpen }) => {
   );
 };
 
-export default DelQus;
+export default DelItemsModal;
