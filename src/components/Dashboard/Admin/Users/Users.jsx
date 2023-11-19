@@ -56,7 +56,12 @@ const Users = () => {
                   />
                   <FaRegEdit className="text-green-500 cursor-pointer" />
                 </div>
-                <DelItemsModal isDelOpen={isDelOpen} setDelOpen={setDelOpen} />
+                <>
+                  <DelItemsModal
+                    isDelOpen={isDelOpen}
+                    setDelOpen={setDelOpen}
+                  />
+                </>
               </td>
             </tr>
           </tbody>
