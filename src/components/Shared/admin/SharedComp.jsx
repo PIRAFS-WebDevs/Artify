@@ -9,13 +9,9 @@ const SharedComp = ({ type, AddType, link, search }) => {
         <p className="text-xl text-center md:text-start">{type && type}</p>
       </div>
       <form className=" md:w-1/2  ">
-        <div
-          className={`
-             "md:flex gap-1 items-center justify-between" 
-          `}
-        >
+        <div className="md:flex gap-1 items-center justify-between">
           <div
-            className={`${search ? " relative mb-5 md:mb-0" : "hidden"} ${
+            className={`${search ? " relative mb-5 md:mb-0" : "invisible"} ${
               link ? "md:w-8/12" : "md:w-full"
             }`}
           >

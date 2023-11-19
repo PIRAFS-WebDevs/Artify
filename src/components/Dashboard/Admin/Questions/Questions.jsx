@@ -62,8 +62,8 @@ const Questions = () => {
               </td>
               <td>
                 <div className="flex  p-3 justify-center items-center gap-1 md:gap-5">
-                  <RiDeleteBin6Line />
-                  <FaRegEdit />
+                  <RiDeleteBin6Line className="text-red-500" />
+                  <FaRegEdit className="text-green-500" />
                 </div>
               </td>
             </tr>

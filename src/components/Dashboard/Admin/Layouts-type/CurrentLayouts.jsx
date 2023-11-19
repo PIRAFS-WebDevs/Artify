@@ -8,6 +8,7 @@ const CurrentLayouts = () => {
       <SharedComp
         type={"Layouts Type"}
         AddType={"Add Layout"}
+        search={true}
         link={"/dashboard/admin/layouts-type/create-layout"}
       />
       <div className=" dark:bg-dark-400 p-5 mb-5 rounded border text-center dark:border-dark-300 mt-5 ">
@@ -34,8 +35,8 @@ const CurrentLayouts = () => {
               </td>
               <td>
                 <div className="flex justify-center items-center gap-1 md:gap-5">
-                  <RiDeleteBin6Line />
-                  <FaRegEdit />
+                  <RiDeleteBin6Line className="text-red-500" />
+                  <FaRegEdit className="text-green-500" />
                 </div>
               </td>
             </tr>
