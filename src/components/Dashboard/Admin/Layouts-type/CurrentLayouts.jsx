@@ -35,7 +35,7 @@ const CurrentLayouts = () => {
               </td>
               <td>
                 <div className="flex justify-center items-center gap-1 md:gap-5">
-                  <RiDeleteBin6Line className="text-red-500" />
+                  <RiDeleteBin6Line className="text-red-400" />
                   <FaRegEdit className="text-green-500" />
                 </div>
               </td>

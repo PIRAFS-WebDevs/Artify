@@ -6,11 +6,13 @@ import { useContext, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import AnsModal from "./AnsModal";
+import DelQus from "./DelQus";
 
 const Questions = () => {
-  // const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   const { setIsShow, isShow } = useContext(AllStateContext);
+
   return (
     <div className="relative">
       <SharedComp type={"Questions"} />
@@ -70,7 +72,10 @@ const Questions = () => {
                 </td>
                 <td>
                   <div className="flex  p-3 justify-center items-center gap-1 md:gap-5">
-                    <RiDeleteBin6Line className="text-red-500" />
+                    <RiDeleteBin6Line
+                      onClick={() => setOpen(true)}
+                      className="text-red-400 cursor-pointer"
+                    />
                     <FaRegEdit
                       onClick={() => setIsShow(true)}
                       className="text-green-500 cursor-pointer"
@@ -79,6 +84,7 @@ const Questions = () => {
                   {/* qustion modul */}
                   <>
                     <AnsModal isShow={isShow} setIsShow={setIsShow} />
+                    <DelQus isOpen={isOpen} setOpen={setOpen} />
                   </>
                   {/* qustion modul */}
                 </td>

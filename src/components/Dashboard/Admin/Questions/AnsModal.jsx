@@ -1,6 +1,5 @@
-import AllStateContext from "@/context/AllStateContext";
 import Image from "next/image";
-import React, { useContext } from "react";
+
 import { IoCloseCircle } from "react-icons/io5";
 import { motion as m, AnimatePresence } from "framer-motion";
 
@@ -66,7 +65,7 @@ const AnsModal = ({ isShow, setIsShow }) => {
               {/* close btn */}
               <IoCloseCircle
                 onClick={() => setIsShow(false)}
-                className="text-red-500 absolute -top-3 -right-3 text-3xl cursor-pointer"
+                className="text-red-400 absolute -top-3 -right-3 text-3xl cursor-pointer"
               />
             </>
           </m.div>
