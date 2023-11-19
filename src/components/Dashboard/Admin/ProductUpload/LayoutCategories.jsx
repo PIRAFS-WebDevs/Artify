@@ -33,7 +33,7 @@ const LayoutCategories = () => {
         {/* categories */}
         <div className="w-full">
           <label
-            htmlFor="category"
+            htmlFor="categories"
             className="inline-block mb-2 text-sm dark:text-white"
           >
             Category
@@ -41,8 +41,8 @@ const LayoutCategories = () => {
 
           {/* categories list */}
           <select
-            {...register("category")}
-            id="category"
+            {...register("categories")}
+            id="categories"
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
           >
             {categories.map((category, i) => (
@@ -67,6 +67,7 @@ const LayoutCategories = () => {
           </label>
           <select
             {...register("tags")}
+            id="tags"
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
           >
             {tags.map((tag, i) => (
