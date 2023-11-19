@@ -1,8 +1,14 @@
+"use client";
 import SharedComp from "@/components/Shared/admin/SharedComp";
+import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
+import AllStateContext from "@/context/AllStateContext";
+import { useContext } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const CurrentLayouts = () => {
+  const { setIsShow, isShow, isDelOpen, setDelOpen } =
+    useContext(AllStateContext);
   return (
     <>
       <SharedComp
@@ -11,10 +17,10 @@ const CurrentLayouts = () => {
         search={true}
         link={"/dashboard/admin/layouts-type/create-layout"}
       />
-      <div className=" dark:bg-dark-400 p-5 mb-5 rounded border text-center dark:border-dark-300 mt-5 ">
+      <div className="p-5 mt-5 mb-5 text-center border rounded dark:bg-dark-400 dark:border-dark-300">
         <table className="w-full ">
           <thead>
-            <tr className="h-12 dark:bg-dark-200 rounded border-dark-300 border text-xs md:text-base text-start">
+            <tr className="h-12 text-xs border rounded dark:bg-dark-200 border-dark-300 md:text-base text-start">
               <th>id</th>
               <th className="text-start">Name</th>
               <th className="text-start">Icon</th>
@@ -22,7 +28,7 @@ const CurrentLayouts = () => {
             </tr>
           </thead>
           <tbody className="">
-            <tr className=" text-xs md:text-base text-start h-12">
+            <tr className="h-12 text-xs md:text-base text-start">
               <td>1</td>
 
               <td>
@@ -34,10 +40,19 @@ const CurrentLayouts = () => {
                 <p>icon</p>
               </td>
               <td>
-                <div className="flex justify-center items-center gap-1 md:gap-5">
-                  <RiDeleteBin6Line className="text-red-400" />
-                  <FaRegEdit className="text-green-500" />
+                <div className="flex items-center justify-center gap-1 p-3 md:gap-5">
+                  <RiDeleteBin6Line
+                    onClick={() => setDelOpen(true)}
+                    className="text-red-400 cursor-pointer"
+                  />
+                  <FaRegEdit className="text-green-500 cursor-pointer" />
                 </div>
+                <>
+                  <DelItemsModal
+                    isDelOpen={isDelOpen}
+                    setDelOpen={setDelOpen}
+                  />
+                </>
               </td>
             </tr>
           </tbody>
