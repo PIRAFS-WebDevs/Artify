@@ -1,17 +1,22 @@
+"use client";
 import SharedComp from "@/components/Shared/admin/SharedComp";
+import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
+import AllStateContext from "@/context/AllStateContext";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Users = () => {
+  const { setIsShow, isShow, isDelOpen, setDelOpen } =
+    useContext(AllStateContext);
   return (
-    <>
+    <div className="relative">
       <SharedComp type={"Customers"} search />
-      <div className=" dark:bg-dark-400 p-5 mb-5 rounded border dark:border-dark-300 mt-5 w-auto overflow-x-auto scrollbar">
+      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
         <table className="w-full text-center">
           <thead>
-            <tr className="h-12 dark:bg-dark-200 w-auto rounded border-dark-300 border text-xs md:text-base ">
+            <tr className="w-auto h-12 text-xs border rounded dark:bg-dark-200 border-dark-300 md:text-base ">
               <th>Avatar</th>
               <th className="">Name</th>
               <th className="">Email</th>
@@ -22,9 +27,9 @@ const Users = () => {
           </thead>
           {/* body */}
           <tbody>
-            <tr className=" text-xs md:text-base h-20   ">
+            <tr className="h-20 text-xs md:text-base">
               <td>
-                <div className="h-12 w-12 rounded-full flex bg-primary "></div>
+                <div className="flex w-12 h-12 rounded-full bg-primary "></div>
               </td>
 
               <td>
@@ -33,27 +38,31 @@ const Users = () => {
                 </div>
               </td>
               <td>
-                <p className=" ">SAgor@gmailcom</p>
+                <p className="">SAgor@gmailcom</p>
               </td>
 
               <td>
-                <p className=" ">Admin</p>
+                <p className="">Admin</p>
               </td>
               <td>
-                <p className=" ">Active</p>
+                <p className="">Active</p>
               </td>
 
               <td>
-                <div className="flex  p-3 justify-center items-center gap-1 md:gap-5">
-                  <RiDeleteBin6Line />
-                  <FaRegEdit />
+                <div className="flex items-center justify-center gap-1 p-3 md:gap-5">
+                  <RiDeleteBin6Line
+                    onClick={() => setDelOpen(true)}
+                    className="text-red-400 cursor-pointer"
+                  />
+                  <FaRegEdit className="text-green-500 cursor-pointer" />
                 </div>
+                <DelItemsModal isDelOpen={isDelOpen} setDelOpen={setDelOpen} />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

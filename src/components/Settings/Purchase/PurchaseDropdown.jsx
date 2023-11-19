@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const PurchaseDropdown = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setDelOpen] = useState(false);
 
   return (
     <div className="flex items-center justify-center text-dark-100">
       <motion.div animate={open ? "open" : "closed"} className="relative">
         <button
-          onClick={() => setOpen((pv) => !pv)}
+          onClick={() => setDelOpen((pv) => !pv)}
           className="p-3 rounded text-dark-100 border border-dark-200"
         >
           <BsThreeDots size={"1.25rem"} />
@@ -24,7 +24,7 @@ const PurchaseDropdown = () => {
           className="flex flex-col gap-2 p-2 rounded bg-dark-200 shadow absolute top-[120%] left-[-100%] w-48 overflow-hidden"
         >
           <motion.li
-            onClick={() => setOpen(false)}
+            onClick={() => setDelOpen(false)}
             className="flex items-center gap-2 w-full p-2 text-xs rounded hover:bg-dark-300 text-white transition-all cursor-pointer"
           >
             <span>Order Details</span>

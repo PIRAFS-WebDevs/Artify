@@ -8,14 +8,14 @@ import { usePathname } from "next/navigation";
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
 
 const SettingsDropdown = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setDelOpen] = useState(false);
   const pathname = usePathname();
 
   return (
     <div className="px-4 py-2">
       <motion.div animate={open ? "open" : "closed"} className="relative z-10">
         <button
-          onClick={() => setOpen((pv) => !pv)}
+          onClick={() => setDelOpen((pv) => !pv)}
           className="flex items-center justify-between py-2 px-4 rounded-md text-white bg-transparent border border-dark-100 transition-all w-full"
         >
           <span className="font-medium text-sm capitalize">
@@ -36,7 +36,7 @@ const SettingsDropdown = () => {
             <Link href={`${e.path}`} key={i}>
               <motion.li
                 variants={itemVariants}
-                onClick={() => setOpen(false)}
+                onClick={() => setDelOpen(false)}
                 className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
                   pathname === e.path && "text-white bg-dark-200"
                 }`}

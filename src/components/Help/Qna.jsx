@@ -1,7 +1,7 @@
 import { qnaData } from "@/data/QnaData";
 
 const Qna = () => {
-  //   const [openAns, setOpenAns] = useState(false);
+  //   const [openAns, setDelOpenAns] = useState(false);
   return (
     <>
       <div className="space-y-4">
