@@ -9,9 +9,10 @@ import AnsModal from "./AnsModal";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 
 const Questions = () => {
-  const [isOpen, setOpen] = useState(false);
+  // const [isDelOpen, setDelOpen] = useState(false);
 
-  const { setIsShow, isShow } = useContext(AllStateContext);
+  const { setIsShow, isShow, isDelOpen, setDelOpen } =
+    useContext(AllStateContext);
 
   return (
     <div className="relative">
@@ -73,7 +74,7 @@ const Questions = () => {
                 <td>
                   <div className="flex items-center justify-center gap-1 p-3 md:gap-5">
                     <RiDeleteBin6Line
-                      onClick={() => setOpen(true)}
+                      onClick={() => setDelOpen(true)}
                       className="text-red-400 cursor-pointer"
                     />
                     <FaRegEdit
@@ -84,7 +85,10 @@ const Questions = () => {
                   {/* qustion modul */}
                   <>
                     <AnsModal isShow={isShow} setIsShow={setIsShow} />
-                    <DelItemsModal isOpen={isOpen} setOpen={setOpen} />
+                    <DelItemsModal
+                      isDelOpen={isDelOpen}
+                      setDelOpen={setDelOpen}
+                    />
                   </>
                   {/* qustion modul */}
                 </td>

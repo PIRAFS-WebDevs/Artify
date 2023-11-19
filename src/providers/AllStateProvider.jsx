@@ -8,6 +8,8 @@ const AllStateProvider = ({ children }) => {
   const [isShow, setIsShow] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
+  const [isDelOpen, setDelOpen] = useState(false);
+
   const value = {
     sideBarOpen,
     setSideBarOpen,
@@ -19,6 +21,8 @@ const AllStateProvider = ({ children }) => {
     setCartOpen,
     adminBarOpen,
     setAdminBarOpen,
+    isDelOpen,
+    setDelOpen,
   };
 
   return (

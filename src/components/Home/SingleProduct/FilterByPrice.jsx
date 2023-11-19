@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 const FilterByPrice = () => {
-  const [isOpen, setOpen] = useState(false);
+  const [isDelOpen, setDelOpen] = useState(false);
   return (
     <>
       <div className="dark:dark:text-white flex items-center justify-between border-b pb-5 border-dark-300">
         <p>Product Reviews</p>
         <div
           onClick={() => {
-            setOpen(!isOpen);
+            setDelOpen(!isDelOpen);
           }}
           className="flex justify-center items-center gap-32 relative"
         >
@@ -18,7 +18,7 @@ const FilterByPrice = () => {
           <IoIosArrowDown />
           <ul
             className={`${
-              !isOpen
+              !isDelOpen
                 ? "hidden"
                 : "visible absolute  top-10 right-0 z-20 rounded-sm  "
             }`}

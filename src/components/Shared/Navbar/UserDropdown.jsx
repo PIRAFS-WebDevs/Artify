@@ -10,7 +10,7 @@ import { BiLogOut } from "react-icons/bi";
 import AuthContext from "@/context/AuthContext";
 
 const UserDropdown = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setDelOpen] = useState(false);
   const pathname = usePathname();
   const { logout, user } = useContext(AuthContext);
 
@@ -18,14 +18,14 @@ const UserDropdown = () => {
     <motion.div animate={open ? "open" : "closed"} className="relative z-10">
       {user ? (
         <p
-          onClick={() => setOpen((pv) => !pv)}
+          onClick={() => setDelOpen((pv) => !pv)}
           className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
         >
           {user.displayName[0]}
         </p>
       ) : (
         <FaUserCircle
-          onClick={() => setOpen((pv) => !pv)}
+          onClick={() => setDelOpen((pv) => !pv)}
           size={"1.5rem"}
           className="cursor-pointer"
         />
@@ -41,7 +41,7 @@ const UserDropdown = () => {
           <Link href={`${e.path}`} key={i}>
             <motion.li
               variants={itemVariants}
-              onClick={() => setOpen(false)}
+              onClick={() => setDelOpen(false)}
               className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
                 pathname === e.path && "text-white bg-dark-200"
               }`}

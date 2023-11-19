@@ -8,9 +8,10 @@ import { useContext, useState } from "react";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 
 const Reviews = () => {
-  const [isOpen, setOpen] = useState(false);
+  // const [isDelOpen, setDelOpen] = useState(false);
 
-  const { setIsShow, isShow } = useContext(AllStateContext);
+  const { setIsShow, isShow, isDelOpen, setDelOpen } =
+    useContext(AllStateContext);
   return (
     <div className="relative">
       <SharedComp type={"Reviews"} />
@@ -63,17 +64,20 @@ const Reviews = () => {
               <td>
                 <div className="flex items-center justify-center gap-1 p-3 md:gap-5">
                   <RiDeleteBin6Line
-                    onClick={() => setOpen(true)}
+                    onClick={() => setDelOpen(true)}
                     className="text-red-400 cursor-pointer"
                   />
-                  <FaRegEdit
+                  {/*  <FaRegEdit
                     onClick={() => setIsShow(true)}
                     className="text-green-500 cursor-pointer"
-                  />
+                  /> */}
                 </div>
 
                 <>
-                  <DelItemsModal isOpen={isOpen} setOpen={setOpen} />
+                  <DelItemsModal
+                    isDelOpen={isDelOpen}
+                    setDelOpen={setDelOpen}
+                  />
                 </>
                 {/* qustion modul */}
               </td>

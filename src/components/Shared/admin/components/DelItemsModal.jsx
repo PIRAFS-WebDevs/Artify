@@ -1,15 +1,15 @@
 import { motion as m, AnimatePresence } from "framer-motion";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const DelItemsModal = ({ isOpen, setOpen }) => {
+const DelItemsModal = ({ isDelOpen, setDelOpen }) => {
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isDelOpen && (
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={() => setOpen(false)}
+          onClick={() => setDelOpen(false)}
           className="fixed inset-0 z-50 grid p-4 overflow-y-auto cursor-pointer bg-slate-900/20 backdrop-blur place-items-center scrollbar"
         >
           <m.div
@@ -37,13 +37,13 @@ const DelItemsModal = ({ isOpen, setOpen }) => {
               {/* ans */}
               <div className="flex gap-5">
                 <button
-                  onClick={() => setOpen(false)}
+                  onClick={() => setDelOpen(false)}
                   className="w-1/2 py-3 font-semibold rounded bg-primary"
                 >
                   Cancel
                 </button>
                 <button
-                  onClick={() => setOpen(false)}
+                  onClick={() => setDelOpen(false)}
                   className={
                     "w-1/2 bg-red-400 hove:bg-red-600 py-3 rounded font-semibold"
                   }
