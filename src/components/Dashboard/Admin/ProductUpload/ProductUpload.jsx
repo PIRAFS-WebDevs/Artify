@@ -7,19 +7,33 @@ import Description from "./Description";
 import SimpleProductInfo from "./SimpleProductInfo";
 import ProductUploadButton from "./ProductUploadButton";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const ProductUpload = () => {
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
 
-  const productData = {
-    featuredImage,
-    galleryImage,
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const formHandler = (data) => {
+    const {} = data;
+
+    const productData = {
+      featuredImage,
+      galleryImage,
+    };
+
+    console.table(data);
   };
 
   return (
     <div className="divide-y divide-dark-200">
-      <h1 className="text-white font-medium text-lg pb-6">Product Upload</h1>
+      <h1 className="pb-6 text-lg font-medium text-white">Product Upload</h1>
 
       {/* feature image */}
       <FeatureImage
@@ -33,17 +47,19 @@ const ProductUpload = () => {
         setGalleryImage={setGalleryImage}
       />
 
-      {/* layout & categories */}
-      <LayoutCategories />
+      <form onSubmit={handleSubmit(formHandler)}>
+        {/* layout & categories */}
+        <LayoutCategories register={register} errors={errors} />
 
-      {/* description */}
-      <Description />
+        {/* description */}
+        <Description register={register} errors={errors} />
 
-      {/* product info */}
-      <SimpleProductInfo />
+        {/* product info */}
+        <SimpleProductInfo register={register} errors={errors} />
 
-      {/* product upload button */}
-      <ProductUploadButton />
+        {/* product upload button */}
+        <ProductUploadButton />
+      </form>
     </div>
   );
 };

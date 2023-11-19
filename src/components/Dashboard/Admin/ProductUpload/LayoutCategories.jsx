@@ -1,5 +1,3 @@
-"use client";
-
 const LayoutCategories = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
@@ -20,7 +18,7 @@ const LayoutCategories = () => {
             Layout
           </label>
           <select
-            name="layout"
+            {...register("layout")}
             id="layout"
             className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
           >
@@ -42,9 +40,8 @@ const LayoutCategories = () => {
           </label>
 
           {/* categories list */}
-
           <select
-            name="category"
+            {...register("category")}
             id="category"
             className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
           >
@@ -69,7 +66,7 @@ const LayoutCategories = () => {
             Tags
           </label>
           <select
-            id="tags"
+            {...register("tags")}
             className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
           >
             {tags.map((tag, i) => (

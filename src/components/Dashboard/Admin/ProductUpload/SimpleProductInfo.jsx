@@ -1,9 +1,8 @@
-import React from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
-const SimpleProductInfo = () => {
+const SimpleProductInfo = ({ register, errors }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
+    <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
         <h1 className="text-white">Simple Product Information</h1>
         <p className="text-dark-100">
@@ -11,19 +10,22 @@ const SimpleProductInfo = () => {
           here
         </p>
       </div>
-      <div className="md:col-span-2 w-full bg-dark-350 rounded p-8 space-y-4">
+      <div className="w-full p-8 space-y-4 rounded md:col-span-2 bg-dark-350">
         {/* price */}
         <div className="w-full">
           <label
             htmlFor="price"
-            className="mb-2 inline-block text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-white"
           >
             Price
           </label>
           <input
-            type="text"
+            {...register("price", {
+              required: "price is required",
+            })}
+            type="number"
             id="price"
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
         </div>
 
@@ -31,68 +33,52 @@ const SimpleProductInfo = () => {
         <div className="w-full">
           <label
             htmlFor="sell_price"
-            className="mb-2 inline-block text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-white"
           >
             Sell Price
           </label>
           <input
-            type="text"
+            {...register("sell_price", {
+              required: "sell price is required",
+            })}
+            type="number"
             id="sell_price"
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
-        </div>
-
-        {/* quantity */}
-        <div className="w-full">
-          <label
-            htmlFor="quantity"
-            className="mb-2 inline-block text-sm dark:text-white"
-          >
-            Quantity
-          </label>
-          <input
-            type="text"
-            id="quantity"
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
-          />
-        </div>
-
-        {/* SKU */}
-
-        <div className="w-full">
-          <label
-            htmlFor="sku"
-            className="mb-2 inline-block text-sm dark:text-white"
-          >
-            SKU
-          </label>
-          <input
-            type="text"
-            id="sku"
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
-          />
+          {errors.sell_price && (
+            <p className="text-xs text-red-500 dark:text-red-400">
+              {errors.sell_price.message}
+            </p>
+          )}
         </div>
 
         {/* preview url */}
-
         <div className="w-full">
           <label
             htmlFor="preview_url"
-            className="mb-2 inline-block text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-white"
           >
             Preview URL
           </label>
           <input
+            {...register("preview_url", {
+              required: "preview url is required",
+            })}
             type="text"
             id="preview_url"
-            className="w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
           />
+          {errors.preview_url && (
+            <p className="text-xs text-red-500 dark:text-red-400">
+              {errors.preview_url.message}
+            </p>
+          )}
         </div>
 
         {/* digital file upload */}
-        <label
+        {/* <label
           htmlFor="dropzone-file"
-          className="grid place-items-center gap-2 px-8 py-16 text-center border border-dark-100 border-dashed rounded cursor-pointer"
+          className="grid gap-2 px-8 py-16 text-center border border-dashed rounded cursor-pointer place-items-center border-dark-100"
         >
           <FaCloudUploadAlt className="w-8 h-8 text-dark-200" />
 
@@ -102,7 +88,7 @@ const SimpleProductInfo = () => {
           </p>
 
           <input id="dropzone-file" type="file" className="hidden w-full" />
-        </label>
+        </label> */}
       </div>
     </div>
   );
