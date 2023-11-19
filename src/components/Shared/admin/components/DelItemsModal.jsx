@@ -38,14 +38,14 @@ const DelItemsModal = ({ isDelOpen, setDelOpen }) => {
               <div className="flex gap-5">
                 <button
                   onClick={() => setDelOpen(false)}
-                  className="w-1/2 py-3 font-semibold rounded bg-primary"
+                  className="w-1/2 py-3 font-semibold rounded bg-primary hover:bg-primarySec"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={() => setDelOpen(false)}
                   className={
-                    "w-1/2 bg-red-400 hove:bg-red-600 py-3 rounded font-semibold"
+                    "w-1/2 bg-red-400 hover:bg-red-500 py-3 rounded font-semibold "
                   }
                 >
                   Delete

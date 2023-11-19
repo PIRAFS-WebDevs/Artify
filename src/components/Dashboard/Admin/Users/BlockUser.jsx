@@ -1,15 +1,15 @@
 import { motion as m, AnimatePresence } from "framer-motion";
+import { GoBlocked } from "react-icons/go";
 import { MdAdminPanelSettings } from "react-icons/md";
-
-const SetUserRole = ({ isShow, setIsShow }) => {
+const BlockUser = ({ setBlockModal, blockModal }) => {
   return (
     <AnimatePresence>
-      {isShow && (
+      {blockModal && (
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={() => setIsShow(false)}
+          onClick={() => setBlockModal(false)}
           className="fixed inset-0 z-50 grid p-4 overflow-y-auto cursor-pointer bg-slate-900/20 backdrop-blur place-items-center scrollbar"
         >
           <m.div
@@ -28,20 +28,20 @@ const SetUserRole = ({ isShow, setIsShow }) => {
               {/* productinfo */}
               <div className="space-y-5 text-center">
                 <div className="flex items-center justify-center">
-                  <MdAdminPanelSettings className="text-center text-green-400 cursor-pointer text-7xl" />
+                  <GoBlocked className="text-center text-red-400 cursor-pointer text-7xl" />
                 </div>
-                <p className="text-2xl font-semibold">Admin</p>
-                <p>Are you sure, you want make admin?</p>
+                <p className="text-2xl font-semibold">Block</p>
+                <p>Are you sure, you want Block user?</p>
               </div>
               {/* productinfo */}
               {/* ans */}
               <div className="flex gap-5">
-                <button className="w-1/2 py-3 font-semibold rounded bg-primary hover:bg-primarySec">
+                <button className="w-1/2 py-3 font-semibold rounded bg-primary hover:bg-primarySec ">
                   Cancel
                 </button>
                 <button
                   className={
-                    "w-1/2 bg-green-400 hover:bg-green-500 py-3 rounded font-semibold"
+                    "w-1/2 bg-red-400  hover:bg-red-500 py-3 rounded font-semibold"
                   }
                 >
                   Confirm
@@ -56,4 +56,4 @@ const SetUserRole = ({ isShow, setIsShow }) => {
   );
 };
 
-export default SetUserRole;
+export default BlockUser;

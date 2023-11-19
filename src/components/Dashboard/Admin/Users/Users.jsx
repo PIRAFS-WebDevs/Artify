@@ -3,14 +3,16 @@ import SharedComp from "@/components/Shared/admin/SharedComp";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 import AllStateContext from "@/context/AllStateContext";
 import { GoBlocked } from "react-icons/go";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import SetUserRole from "./SetUserRole";
+import BlockUser from "./BlockUser";
 
 const Users = () => {
   const { setIsShow, isShow, isDelOpen, setDelOpen } =
     useContext(AllStateContext);
+  const [blockModal, setBlockModal] = useState(false);
   return (
     <div className="relative">
       <SharedComp type={"Customers"} search />
@@ -60,7 +62,7 @@ const Users = () => {
                     className="text-green-500 cursor-pointer"
                   />
                   <GoBlocked
-                    onClick={() => setDelOpen(true)}
+                    onClick={() => setBlockModal(true)}
                     className="cursor-pointer text-sky-400"
                   />
                 </div>
@@ -69,6 +71,10 @@ const Users = () => {
                   <DelItemsModal
                     isDelOpen={isDelOpen}
                     setDelOpen={setDelOpen}
+                  />
+                  <BlockUser
+                    blockModal={blockModal}
+                    setBlockModal={setBlockModal}
                   />
                 </>
               </td>
