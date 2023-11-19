@@ -20,7 +20,7 @@ const Category = () => {
       setIsLeft(scrollContainerRef.current.scrollLeft); // Adjust the scroll distance as needed
     }
   };
-  console.log(scrollContainerRef.current?.scrollLeft);
+ 
 
   return (
     <section className="py-4 border-y border-dark-300 dark:bg-dark-500">
