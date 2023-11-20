@@ -27,10 +27,10 @@ const Category = () => {
         <div className="flex items-start overflow-hidden">
           <button
             onClick={scrollLeft}
-            className={`${
+            className={` ${
               !isLeft
                 ? "invisible z-10 w-10 h-8 sticky left-0"
-                : "z-10 w-10 h-8 sticky left-0"
+                : "z-10 w-10 h-8 sticky left-5 bg-dark-500"
             }`}
           >
             <MdKeyboardArrowLeft className="text-2xl dark:text-white" />
@@ -43,10 +43,10 @@ const Category = () => {
             {categoriesData.map((data, index) => (
               <div key={index}>
                 <button
-                  className={`h-[30px] shrink-0 !rounded-full border border-dark-300 py-1.5 px-3.5 text-xs font-medium outline-none ${
+                  className={`h-[30px] shrink-0 !rounded-full border border-dark-300 px-3.5 text-xs font-medium outline-none ${
                     index === 0
-                      ? "bg-white text-black"
-                      : "dark:text-white hover:dark:bg-dark-300"
+                      ? "bg-white text-black "
+                      : "dark:text-white hover:dark:bg-dark-300 py-1.5"
                   }`}
                 >
                   {data.name}
@@ -57,7 +57,7 @@ const Category = () => {
 
           <button
             onClick={scrollRight}
-            className="z-10 w-10 h-8 sticky right-0"
+            className="z-10 w-10 h-8 sticky right-4 bg-dark-500"
           >
             <MdKeyboardArrowRight className="text-2xl dark:text-white" />
           </button>
