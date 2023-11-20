@@ -13,7 +13,11 @@ const layout = ({ children }) => {
     <main className="relative min-h-screen dark:bg-dark-500 ">
       <Navbar />
       <Sidebar />
-      <section className={`${!sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"}`}>
+      <section
+        className={` relative ${
+          !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
+        }`}
+      >
         {children}
         <ProductModal isShow={isShow} setIsShow={setIsShow} />
         <Footer />

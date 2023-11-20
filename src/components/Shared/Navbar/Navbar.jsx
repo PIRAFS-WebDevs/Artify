@@ -12,6 +12,7 @@ import { getUserByEmail } from "@/utils/api/user";
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaShoppingBag } from "react-icons/fa";
+import SearchButton from "./SearchButton";
 
 const Navbar = () => {
   const [FindUser, setFindUser] = useState([]);
@@ -62,11 +63,13 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-6 md:gap-8">
-          <AiOutlineSearch size={"1.5rem"} className="hidden md:block" />
-          <button>
+        <div className="flex items-center gap-6 md:gap-10">
+          {/* search button */}
+          <SearchButton />
+
+          {/* <button>
             <FaMoon size={"1.2rem"} />
-          </button>
+          </button> */}
 
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
@@ -113,7 +116,7 @@ const Navbar = () => {
         <div className="relative">
           <button onClick={() => setCartOpen(true)}>
             <FaShoppingBag size={"1.2rem"} />
-            <span className="absolute px-1 text-sm rounded-full dark:text-white -top-2 -right-2 bg-primary">
+            <span className="absolute px-1 text-sm rounded-full select-none dark:text-white -top-2 -right-2 bg-primary">
               0
             </span>
           </button>
