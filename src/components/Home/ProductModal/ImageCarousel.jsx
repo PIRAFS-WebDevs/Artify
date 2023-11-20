@@ -21,7 +21,7 @@ const ImageCarousel = () => {
                 key={i}
                 src={e}
                 alt=""
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full"
               />
             ))}
           </m.div>
@@ -32,10 +32,9 @@ const ImageCarousel = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
-                whilehover={{ opacity: 1 }}
                 onClick={() => setIndex(index - 1)}
               >
-                <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto border border-dark-200 dark:text-dark-500 rounded-full hover:bg-dark-100 shadow-md cursor-pointer p-2 mx-3" />
+                <AiOutlineLeft className="absolute inset-y-0 left-0 p-2 mx-3 my-auto bg-white rounded-full shadow-2xl cursor-pointer w-9 h-9 text-dark-500 hover:text-primary" />
               </button>
             )}
           </AnimatePresence>
@@ -46,29 +45,27 @@ const ImageCarousel = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
-                whilehover={{ opacity: 1 }}
                 onClick={() => setIndex(index + 1)}
               >
-                <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto border border-dark-200 dark:text-dark-500 rounded-full hover:dark:bg-dark-100 shadow-md cursor-pointer p-2 mx-3" />
+                <AiOutlineRight className="absolute inset-y-0 right-0 p-2 mx-3 my-auto bg-white rounded-full shadow-2xl cursor-pointer w-9 h-9 text-dark-500 hover:text-primary" />
               </m.button>
             )}
           </AnimatePresence>
         </div>
 
-        <div className="grid grid-cols-4 gap-4 row-span-1">
+        <div className="grid grid-cols-4 row-span-1 gap-4">
           {images.map((e, i) => (
             <div
               onClick={() => setIndex(i)}
               initial={false}
-              whilehover={{ opacity: 1 }}
               key={i}
               className={`relative group cursor-pointer ${
                 i === index && "border-2 border-primary"
               }`}
             >
-              <img className="h-full object-cover" src={e} alt="" />
+              <img className="object-cover h-full" src={e} alt="" />
 
-              <div className="hidden group-hover:block dark:bg-dark-300 opacity-50 absolute w-full h-full inset-0 z-10"></div>
+              <div className="absolute inset-0 z-10 hidden w-full h-full opacity-50 group-hover:block dark:bg-dark-300"></div>
             </div>
           ))}
         </div>

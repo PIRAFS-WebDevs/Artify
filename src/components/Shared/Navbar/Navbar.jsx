@@ -1,15 +1,16 @@
 "use client";
-import Link from "next/link";
 
-// icons
-import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
-import { FaMoon, FaShoppingBag } from "react-icons/fa";
+import Link from "next/link";
 import LoginButton from "./LoginButton";
 import Image from "next/image";
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
 import AuthContext from "@/context/AuthContext";
 import UserDropdown from "./UserDropdown";
+
+// icons
+import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
+import { FaMoon, FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
   const {
@@ -22,7 +23,7 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <nav className="dark:bg-dark-400 dark:text-dark-100 bg-white sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center md:gap-6">
           <button
@@ -31,7 +32,7 @@ const Navbar = () => {
             }}
           >
             <AiOutlineMenu
-              className="cursor-pointer hidden md:block"
+              className="hidden cursor-pointer md:block"
               size={"1.5rem"}
             />
           </button>
@@ -56,18 +57,27 @@ const Navbar = () => {
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
               <FaShoppingBag size={"1.2rem"} />
-              <span className="absolute px-1 text-sm dark:text-white rounded-full -top-2 -right-2 bg-primary">
+              <span className="absolute px-1 text-sm rounded-full dark:text-white -top-2 -right-2 bg-primary">
                 0
               </span>
             </button>
           </div>
 
-          <Link
-            href={"/register"}
-            className="hidden px-8 py-2 dark:text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec active:scale-95"
-          >
-            Register
-          </Link>
+          {user ? (
+            <Link
+              href={"/dashboard/admin"}
+              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+            >
+              Dashboard
+            </Link>
+          ) : (
+            <Link
+              href={"/register"}
+              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+            >
+              Register
+            </Link>
+          )}
 
           {/* login button */}
           {user ? <UserDropdown /> : <LoginButton />}
@@ -82,7 +92,7 @@ const Navbar = () => {
         <div className="relative">
           <button onClick={() => setCartOpen(true)}>
             <FaShoppingBag size={"1.2rem"} />
-            <span className="absolute px-1 text-sm dark:text-white rounded-full -top-2 -right-2 bg-primary">
+            <span className="absolute px-1 text-sm rounded-full dark:text-white -top-2 -right-2 bg-primary">
               0
             </span>
           </button>

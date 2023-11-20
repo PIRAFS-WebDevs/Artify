@@ -53,7 +53,7 @@ const UserDropdown = () => {
         ))}
         <button
           onClick={() => logout()}
-          className="flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer select-none"
+          className="flex items-center w-full gap-2 p-2 text-sm font-medium transition-all rounded cursor-pointer select-none whitespace-nowrap hover:bg-dark-200 text-dark-100 hover:text-white"
         >
           <BiLogOut size={"1.25rem"} />
           <p className="text-sm">Logout</p>
