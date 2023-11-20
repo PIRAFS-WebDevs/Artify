@@ -14,6 +14,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -22,6 +23,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const registerUser = async (email, password, displayName, reset) => {
     setLoading(true);
@@ -51,6 +53,7 @@ const AuthProvider = ({ children }) => {
         };
 
         reset();
+        router.push("/");
         saveUser(data);
         console.log(userCredential.user);
         toast.success("User registered successfully");
@@ -72,6 +75,7 @@ const AuthProvider = ({ children }) => {
       );
 
       reset();
+      router.push("/");
       console.log(userCredential.user);
       toast.success("User login successfully");
     } catch (error) {
@@ -92,8 +96,8 @@ const AuthProvider = ({ children }) => {
         email: userCredential.user.email,
         photoURL: userCredential.user.photoURL,
       };
-
       saveUser(data);
+      router.push("/");
       console.log(userCredential.user);
       toast.success("Google signed in successfully");
     } catch (error) {
@@ -107,6 +111,7 @@ const AuthProvider = ({ children }) => {
 
     try {
       await signOut(auth);
+      router.push("/");
       toast.success("Signed out successfully");
     } catch (error) {
       toast.error("Sign out failed");
