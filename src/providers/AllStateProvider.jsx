@@ -1,5 +1,7 @@
 import AllStateContext from "@/context/AllStateContext";
-import { useState } from "react";
+import AuthContext from "@/context/AuthContext";
+import { getUserByEmail } from "@/utils/api/user";
+import { useContext, useEffect, useState } from "react";
 
 const AllStateProvider = ({ children }) => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
@@ -9,7 +11,18 @@ const AllStateProvider = ({ children }) => {
   const [cartOpen, setCartOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
   const [isDelOpen, setDelOpen] = useState(false);
-
+  const [FindUser, setFindUser] = useState([]);
+  const { user } = useContext(AuthContext);
+  useEffect(() => {
+    if (user?.email) {
+      (async () => {
+        const data = await getUserByEmail(user?.email);
+        setFindUser(data.data);
+      })();
+    } else {
+      console.log("no email found");
+    }
+  }, [user]);
   const value = {
     sideBarOpen,
     setSideBarOpen,
@@ -23,6 +36,7 @@ const AllStateProvider = ({ children }) => {
     setAdminBarOpen,
     isDelOpen,
     setDelOpen,
+    FindUser,
   };
 
   return (

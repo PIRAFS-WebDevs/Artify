@@ -10,8 +10,8 @@ const TopSideBar = () => {
       {navData.map((data, index) => (
         <div key={index}>
           <SideNavLink
-            exact={data?.path === "/"}
-            activeClassName="text-white"
+            exact={"/"}
+            activeClassName="text-white "
             href={data?.path}
             icon={data?.icon}
             title={data?.title}

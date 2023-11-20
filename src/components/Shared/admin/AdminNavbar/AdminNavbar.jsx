@@ -2,31 +2,28 @@
 
 import AllStateContext from "@/context/AllStateContext";
 import { useContext } from "react";
-import {
-  AiFillHome,
-  AiOutlineFileSearch,
-  AiOutlineMenu,
-  AiOutlineSearch,
-} from "react-icons/ai";
-import { FaMoon, FaShoppingBag } from "react-icons/fa";
-import LoginButton from "../../Navbar/LoginButton";
+import { AiOutlineMenu } from "react-icons/ai";
+import { FaMoon, FaUserCircle } from "react-icons/fa";
+
 import Link from "next/link";
 import Image from "next/image";
+import AuthContext from "@/context/AuthContext";
 
 const AdminNavbar = () => {
   const { adminBarOpen, setAdminBarOpen } = useContext(AllStateContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">
       <div className="flex items-center justify-between px-6 py-4">
-        <div className="flex items-center md:gap-6">
+        <div className="flex items-center ">
           <button
             onClick={() => {
               setAdminBarOpen(!adminBarOpen);
             }}
           >
             <AiOutlineMenu
-              className="cursor-pointer lg:hidden"
+              className="mr-5 cursor-pointer lg:hidden "
               size={"1.5rem"}
             />
           </button>
@@ -48,7 +45,21 @@ const AdminNavbar = () => {
           </button>
 
           {/* login button */}
-          <LoginButton />
+
+          {user ? (
+            user.photoURL ? (
+              <img
+                src={user.photoURL}
+                className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+              />
+            ) : (
+              <p className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none">
+                {user.displayName[0]}
+              </p>
+            )
+          ) : (
+            <FaUserCircle size={"1.5rem"} className="cursor-pointer" />
+          )}
         </div>
       </div>
     </nav>

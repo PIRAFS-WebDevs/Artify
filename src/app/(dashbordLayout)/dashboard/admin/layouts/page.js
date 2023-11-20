@@ -1,12 +1,12 @@
-import CurrentLayouts from '@/components/Dashboard/Admin/Layouts-type/CurrentLayouts';
-import React from 'react';
+import CurrentLayouts from "@/components/Dashboard/Admin/Layouts/CurrentLayouts";
+import React from "react";
 
 const page = () => {
-    return (
-        <>
-            <CurrentLayouts/>
-        </>
-    );
+  return (
+    <>
+      <CurrentLayouts />
+    </>
+  );
 };
 
 export default page;
