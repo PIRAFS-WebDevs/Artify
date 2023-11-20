@@ -70,7 +70,7 @@ const UserDropdown = () => {
             <motion.li
               variants={itemVariants}
               onClick={() => setOpen(false)}
-              className={`flex items-center gap-2 w-full px-2 py-3 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
+              className={`flex items-center gap-2 w-full p-4 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
                 pathname === e.path && "text-white bg-dark-200"
               }`}
             >
@@ -81,7 +81,7 @@ const UserDropdown = () => {
         ))}
         <button
           onClick={() => logout()}
-          className="flex items-center w-full gap-2 p-2 text-sm font-medium transition-all rounded cursor-pointer select-none whitespace-nowrap hover:bg-dark-200 text-dark-100 hover:text-white"
+          className="flex items-center w-full gap-2 p-4 text-sm font-medium transition-all rounded cursor-pointer select-none whitespace-nowrap hover:bg-dark-200 text-dark-100 hover:text-white"
         >
           <BiLogOut size={"1.25rem"} />
           <p className="text-sm">Logout</p>
