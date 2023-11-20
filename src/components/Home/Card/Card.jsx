@@ -6,18 +6,17 @@ import React from "react";
 const Card = () => {
   return (
     <section className="p-6">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
           <div
             key={e}
-            className="
-             w-full max-w-[22rem] max-h-[270px] dark:text-white space-y-2 col-span-1"
+            className="w-full max-w-md col-span-1 space-y-2 min-h-fit dark:text-white"
           >
             <div className="relative flex w-full group">
               <img
                 src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F803%2Fconversions%2Fimage16-thumbnail.jpg&w=640&q=100"
                 alt=""
-                className="h-full md:h-[200px] w-full object-fill"
+                className="object-fill w-full h-full"
               />
               <div className="absolute top-0 hidden w-full h-full group-hover:block group-hover:bg-black opacity-70 Z-10"></div>
               <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/60 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/70">
@@ -57,7 +56,7 @@ const Card = () => {
       </div>
 
       {/* load more button */}
-      <div className="flex justify-center mt-16">
+      <div className="flex justify-center my-12">
         <button className="px-8 py-4 text-sm font-semibold transition-all rounded-md bg-primary dark:text-white hover:bg-primarySec active:scale-95">
           Load More
         </button>

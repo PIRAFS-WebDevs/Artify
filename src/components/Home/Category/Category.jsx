@@ -22,8 +22,8 @@ const Category = () => {
   };
 
   return (
-    <section className="py-4 border-y border-dark-300 dark:bg-dark-500">
-      <div className="app-category-filter-bar z-20 flex w-full overflow-hidden dark:text-white">
+    <section className="sticky inset-x-0 py-4 top-[72.5px] border-y border-dark-300 dark:bg-dark-500 z-40">
+      <div className="z-20 flex w-full overflow-hidden dark:text-white">
         <div className="flex items-start overflow-hidden">
           <button
             onClick={scrollLeft}
@@ -38,7 +38,7 @@ const Category = () => {
 
           <div
             ref={scrollContainerRef}
-            className="flex gap-3 overflow-hidden whitespace-nowrap scroll-smooth relative"
+            className="relative flex gap-3 overflow-hidden whitespace-nowrap scroll-smooth"
           >
             {categoriesData.map((data, index) => (
               <div key={index}>
@@ -57,7 +57,7 @@ const Category = () => {
 
           <button
             onClick={scrollRight}
-            className="z-10 w-10 h-8 sticky right-4 bg-dark-500"
+            className="sticky z-10 w-10 h-8 right-4 bg-dark-500"
           >
             <MdKeyboardArrowRight className="text-2xl dark:text-white" />
           </button>

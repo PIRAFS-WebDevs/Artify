@@ -2,7 +2,7 @@
 
 import { FaUserCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
@@ -10,22 +10,42 @@ import { BiLogOut } from "react-icons/bi";
 import AuthContext from "@/context/AuthContext";
 
 const UserDropdown = () => {
-  const [open, setDelOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { logout, user } = useContext(AuthContext);
 
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handler);
+
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  });
+
   return (
-    <motion.div animate={open ? "open" : "closed"} className="relative z-10">
+    <motion.div
+      ref={dropdownRef}
+      animate={open ? "open" : "closed"}
+      className="relative z-10"
+    >
       {user ? (
         user.photoURL ? (
           <img
             src={user.photoURL}
-            onClick={() => setDelOpen((pv) => !pv)}
+            onClick={() => setOpen((pv) => !pv)}
             className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
           />
         ) : (
           <p
-            onClick={() => setDelOpen((pv) => !pv)}
+            onClick={() => setOpen((pv) => !pv)}
             className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
           >
             {user.displayName[0]}
@@ -33,7 +53,7 @@ const UserDropdown = () => {
         )
       ) : (
         <FaUserCircle
-          onClick={() => setDelOpen((pv) => !pv)}
+          onClick={() => setOpen((pv) => !pv)}
           size={"1.5rem"}
           className="cursor-pointer"
         />
@@ -43,14 +63,14 @@ const UserDropdown = () => {
         initial={wrapperVariants.closed}
         variants={wrapperVariants}
         style={{ originY: "top", translateX: "-50%" }}
-        className="flex flex-col gap-2 p-2 rounded bg-dark-400 text-white shadow absolute top-[150%] left-[-200%] w-48 overflow-hidden"
+        className="flex flex-col rounded bg-dark-300 text-white shadow absolute top-[150%] left-[-200%] w-48 overflow-hidden"
       >
         {settingsSidebarData.map((e, i) => (
           <Link href={`${e.path}`} key={i}>
             <motion.li
               variants={itemVariants}
-              onClick={() => setDelOpen(false)}
-              className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
+              onClick={() => setOpen(false)}
+              className={`flex items-center gap-2 w-full p-4 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
                 pathname === e.path && "text-white bg-dark-200"
               }`}
             >
@@ -61,7 +81,7 @@ const UserDropdown = () => {
         ))}
         <button
           onClick={() => logout()}
-          className="flex items-center w-full gap-2 p-2 text-sm font-medium transition-all rounded cursor-pointer select-none whitespace-nowrap hover:bg-dark-200 text-dark-100 hover:text-white"
+          className="flex items-center w-full gap-2 p-4 text-sm font-medium transition-all rounded cursor-pointer select-none whitespace-nowrap hover:bg-dark-200 text-dark-100 hover:text-white"
         >
           <BiLogOut size={"1.25rem"} />
           <p className="text-sm">Logout</p>

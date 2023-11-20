@@ -57,7 +57,7 @@ const ImageCarousel = () => {
           {images.map((e, i) => (
             <div
               onClick={() => setIndex(i)}
-              initial={false}
+              initial={"false"}
               key={i}
               className={`relative group cursor-pointer ${
                 i === index && "border-2 border-primary"

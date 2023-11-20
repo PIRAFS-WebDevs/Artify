@@ -9,8 +9,9 @@ const SocialButton = () => {
     <>
       {/* google */}
       <button
+        type="button"
         onClick={() => googleSignIn()}
-        className="flex items-center justify-center gap-2 rounded bg-dark-300 px-8 py-4 text-center text-xs dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all"
+        className="flex items-center justify-center w-full gap-2 px-8 py-4 text-xs text-center transition-all duration-100 rounded outline-none bg-dark-300 dark:text-white hover:dark:bg-dark-350 md:text-base active:scale-95"
       >
         <svg
           className="w-6 h-5 shrink-0"
@@ -41,8 +42,8 @@ const SocialButton = () => {
       </button>
 
       {/* facebook */}
-      {/* <button className="flex items-center justify-center gap-2 rounded bg-dark-300 px-8 py-3 text-center text-xs font-semibold dark:text-white outline-none ring-dark-100 duration-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95 transition-all">
-        <BsFacebook className="text-blue-500 w-6 h-5" /> Continue with Facebook
+      {/* <button className="flex items-center justify-center gap-2 px-8 py-3 text-xs font-semibold text-center transition-all duration-100 rounded outline-none bg-dark-300 dark:text-white ring-dark-100 hover:dark:bg-dark-400 focus-visible:ring md:text-base active:scale-95">
+        <BsFacebook className="w-6 h-5 text-blue-500" /> Continue with Facebook
       </button> */}
     </>
   );

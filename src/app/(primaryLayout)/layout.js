@@ -10,10 +10,14 @@ import AllStateContext from "@/context/AllStateContext";
 const layout = ({ children }) => {
   const { sideBarOpen, isShow, setIsShow } = useContext(AllStateContext);
   return (
-    <main className="min-h-screen dark:bg-dark-500 relative ">
+    <main className="relative min-h-screen dark:bg-dark-500 ">
       <Navbar />
       <Sidebar />
-      <section className={`${!sideBarOpen ? "md:ml-20" : "md:ml-[240px]"}`}>
+      <section
+        className={` relative ${
+          !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
+        }`}
+      >
         {children}
         <ProductModal isShow={isShow} setIsShow={setIsShow} />
         <Footer />

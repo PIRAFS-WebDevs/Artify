@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import AuthContext from "@/context/AuthContext";
+import SocialButton from "../Register/SocialButton";
 
 const Login = ({ isShow, setIsShow }) => {
   const { loginUser } = useContext(AuthContext);
@@ -31,14 +32,14 @@ const Login = ({ isShow, setIsShow }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsShow(false)}
-          className="fixed inset-0 z-50 grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center p-4"
+          className="fixed inset-0 z-50 grid p-4 cursor-pointer bg-slate-900/20 backdrop-blur place-items-center"
         >
           <m.div
             initial={{ scale: 0, rotate: "12.5deg" }}
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="dark:bg-dark-400 dark:text-white p-12 rounded-lg max-w-2xl shadow-xl cursor-default"
+            className="p-12 rounded-lg shadow-xl cursor-default w-[32rem] dark:bg-dark-400 dark:text-white"
           >
             <div className="flex justify-end w-full">
               <CloseButton reset={reset} setIsShow={setIsShow} />
@@ -51,12 +52,16 @@ const Login = ({ isShow, setIsShow }) => {
                   {/* create account button */}
                   <Link
                     href={"/register"}
-                    className="font-medium text-primary hover:text-primarySec cursor-pointer"
+                    className="font-medium cursor-pointer text-primary hover:text-primarySec"
                   >
                     Create Account
                   </Link>
                 </p>
               </div>
+
+              {/* social button */}
+              <SocialButton />
+
               <div className="space-y-2">
                 <label
                   htmlFor="email"
@@ -80,7 +85,7 @@ const Login = ({ isShow, setIsShow }) => {
                   }`}
                 />
                 {errors.email && (
-                  <p className="text-red-400 text-sm">
+                  <p className="text-sm text-red-400">
                     *{errors.email.message}
                   </p>
                 )}
@@ -108,7 +113,7 @@ const Login = ({ isShow, setIsShow }) => {
                   }`}
                 />
                 {errors.password && (
-                  <p className="text-red-400 text-sm">
+                  <p className="text-sm text-red-400">
                     *{errors.password.message}
                   </p>
                 )}
@@ -119,23 +124,23 @@ const Login = ({ isShow, setIsShow }) => {
                     id="default-checkbox"
                     type="checkbox"
                     value=""
-                    className="w-4 h-4 accent-primary cursor-pointer"
+                    className="w-4 h-4 cursor-pointer accent-primary"
                   />
                   <label
                     htmlFor="default-checkbox"
-                    className="ml-2 text-sm dark:text-dark-100 select-none cursor-pointer"
+                    className="ml-2 text-sm cursor-pointer select-none dark:text-dark-100"
                   >
                     Remember Me
                   </label>
                 </div>
-                <p className="text-sm text-primary hover:text-primarySec cursor-pointer">
+                <p className="text-sm cursor-pointer text-primary hover:text-primarySec">
                   Forgot Password?
                 </p>
               </div>
               <div>
                 <button
                   type="submit"
-                  className="w-full text-sm bg-primary dark:text-white px-8 py-3 rounded-md hidden md:block hover:bg-primarySec transition-all active:scale-95"
+                  className="hidden w-full px-8 py-3 text-sm transition-all rounded-md bg-primary dark:text-white md:block hover:bg-primarySec active:scale-95"
                 >
                   Get Login
                 </button>
