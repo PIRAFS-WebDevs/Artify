@@ -10,6 +10,8 @@ export const saveUser = async (data) => {
     console.error(error);
   }
 };
+
+// get all users
 export const getUser = async () => {
   try {
     const res = await api.get("/admin/user/all-user");
@@ -19,11 +21,13 @@ export const getUser = async () => {
     console.error(error);
   }
 };
-// get api
+
+// get user by email
 export const getUserByEmail = async (email) => {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/v1/auth/admin/user/single-user/${email}`
+      `http://localhost:5000/api/v1/auth/admin/user/single-user/${email}`,
+      { next: { revalidate: 3 } }
     );
     return res.json();
   } catch (error) {

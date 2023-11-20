@@ -1,7 +1,6 @@
 "use client";
 
 import AuthContext from "@/context/AuthContext";
-import { saveUser } from "@/utils/api/user";
 import Link from "next/link";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";

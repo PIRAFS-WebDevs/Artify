@@ -5,7 +5,7 @@ import { AiFillDislike, AiFillLike, AiFillStar } from "react-icons/ai";
 
 const ProductsReviews = () => {
   return (
-    <section className="mb-8 min-h-screen ">
+    <section className="mb-4 ">
       <FilterByPrice />
       <div>
         <div className="py-8 border-b border-dark-300">

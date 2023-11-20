@@ -17,12 +17,20 @@ const UserDropdown = () => {
   return (
     <motion.div animate={open ? "open" : "closed"} className="relative z-10">
       {user ? (
-        <p
-          onClick={() => setDelOpen((pv) => !pv)}
-          className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
-        >
-          {user.displayName[0]}
-        </p>
+        user.photoURL ? (
+          <img
+            src={user.photoURL}
+            onClick={() => setDelOpen((pv) => !pv)}
+            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+          />
+        ) : (
+          <p
+            onClick={() => setDelOpen((pv) => !pv)}
+            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+          >
+            {user.displayName[0]}
+          </p>
+        )
       ) : (
         <FaUserCircle
           onClick={() => setDelOpen((pv) => !pv)}
@@ -53,7 +61,7 @@ const UserDropdown = () => {
         ))}
         <button
           onClick={() => logout()}
-          className="flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer select-none"
+          className="flex items-center w-full gap-2 p-2 text-sm font-medium transition-all rounded cursor-pointer select-none whitespace-nowrap hover:bg-dark-200 text-dark-100 hover:text-white"
         >
           <BiLogOut size={"1.25rem"} />
           <p className="text-sm">Logout</p>
