@@ -31,8 +31,8 @@ const adminSideNav = [
     icon: <BsBox />,
   },
   {
-    title: "Layouts Type",
-    path: "/dashboard/admin/layouts-type",
+    title: "Layouts",
+    path: "/dashboard/admin/layouts",
     icon: <RiLayoutFill />,
   },
   /* {

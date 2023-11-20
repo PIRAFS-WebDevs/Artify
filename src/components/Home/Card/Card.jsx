@@ -5,7 +5,7 @@ import React from "react";
 
 const Card = () => {
   return (
-    <section className="p-8">
+    <section className="p-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
           <div
@@ -57,8 +57,8 @@ const Card = () => {
       </div>
 
       {/* load more button */}
-      <div className="flex justify-center my-6">
-        <button className="px-8 py-4 font-semibold transition-all rounded-md bg-primary dark:text-white hover:bg-primarySec active:scale-95">
+      <div className="flex justify-center mt-16">
+        <button className="px-8 py-4 text-sm font-semibold transition-all rounded-md bg-primary dark:text-white hover:bg-primarySec active:scale-95">
           Load More
         </button>
       </div>
