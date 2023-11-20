@@ -33,7 +33,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className=" max-w-lg rounded border border-dark-200">
+    <div className="max-w-lg border rounded  border-dark-200">
       <div className="flex flex-col gap-4 p-4 md:p-8">
         {/* social login button */}
         <SocialButton />
@@ -44,7 +44,7 @@ const RegisterForm = () => {
         >
           <div className="relative flex items-center justify-center">
             <span className="absolute inset-x-0 h-px dark:bg-dark-200"></span>
-            <span className="relative dark:bg-dark-400 rounded px-4 text-sm dark:text-dark-100">
+            <span className="relative px-4 text-sm rounded dark:bg-dark-400 dark:text-dark-100">
               or
             </span>
           </div>
@@ -52,7 +52,7 @@ const RegisterForm = () => {
             <div>
               <label
                 htmlFor="first-name"
-                className="mb-2 inline-block text-sm dark:text-white sm:text-base"
+                className="inline-block mb-2 text-sm dark:text-white sm:text-base"
               >
                 First name
               </label>
@@ -66,7 +66,7 @@ const RegisterForm = () => {
                 } focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
               />
               {errors.firstName && (
-                <p className="text-red-400 text-sm mt-1">
+                <p className="mt-1 text-sm text-red-400">
                   *{errors.firstName.message}
                 </p>
               )}
@@ -74,7 +74,7 @@ const RegisterForm = () => {
             <div>
               <label
                 htmlFor="last-name"
-                className="mb-2 inline-block text-sm dark:text-white sm:text-base"
+                className="inline-block mb-2 text-sm dark:text-white sm:text-base"
               >
                 Last name
               </label>
@@ -88,7 +88,7 @@ const RegisterForm = () => {
           <div>
             <label
               htmlFor="email"
-              className="mb-2 inline-block text-sm dark:text-white sm:text-base"
+              className="inline-block mb-2 text-sm dark:text-white sm:text-base"
             >
               Email
             </label>
@@ -107,7 +107,7 @@ const RegisterForm = () => {
               } rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
             />
             {errors.email && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="mt-1 text-sm text-red-400">
                 *{errors.email.message}
               </p>
             )}
@@ -115,7 +115,7 @@ const RegisterForm = () => {
           <div>
             <label
               htmlFor="password"
-              className="mb-2 inline-block text-sm dark:text-white sm:text-base"
+              className="inline-block mb-2 text-sm dark:text-white sm:text-base"
             >
               Password
             </label>
@@ -134,33 +134,33 @@ const RegisterForm = () => {
               } rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
             />
             {errors.password && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="mt-1 text-sm text-red-400">
                 *{errors.password.message}
               </p>
             )}
           </div>
           <button
             type="submit"
-            className="block rounded-lg bg-primary px-8 py-4 text-center text-sm font-semibold dark:text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-base active:scale-95"
+            className="block px-8 py-4 text-sm font-semibold text-center transition-all duration-100 rounded-lg outline-none bg-primary dark:text-white hover:bg-primarySec md:text-base active:scale-95"
           >
             Register
           </button>
         </form>
       </div>
 
-      <div className="flex items-center justify-center bg-transparent p-4 border-t border-dark-200">
-        <p className="dark:text-white text-center text-sm">
+      <div className="flex items-center justify-center p-4 bg-transparent border-t border-dark-200">
+        <p className="text-sm text-center dark:text-white">
           By creating an account with WareSun, you agree to our{" "}
           <Link
             href="/"
-            className="text-primary transition duration-100 hover:primarySec active:text-primary"
+            className="transition duration-100 text-primary hover:primarySec active:text-primary"
           >
             Terms & Conditions
           </Link>{" "}
           and our{" "}
           <Link
             href="/"
-            className="text-primary transition duration-100 hover:primarySec active:text-primary"
+            className="transition duration-100 text-primary hover:primarySec active:text-primary"
           >
             Privacy Policy
           </Link>
