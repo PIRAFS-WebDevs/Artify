@@ -10,7 +10,7 @@ const Sidebar = () => {
       <aside
         className={`${
           !sideBarOpen
-            ? "md:w-20 hidden md:block   min-h-screen z-50 dark:bg-dark-400 fixed"
+            ? "md:w-16 hidden md:block   min-h-screen z-50 dark:bg-dark-400 fixed"
             : "md:w-[240px] hidden md:block min-h-screen z-50 dark:bg-dark-400 fixed"
         } `}
       >
