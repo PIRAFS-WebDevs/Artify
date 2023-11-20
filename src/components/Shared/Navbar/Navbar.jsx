@@ -84,7 +84,7 @@ const Navbar = () => {
             >
               Register
             </Link>
-          ) : FindUser.role === "admin" ? (
+          ) : FindUser?.role === "admin" ? (
             <Link
               href={"/dashboard/admin"}
               className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"

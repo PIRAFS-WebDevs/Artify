@@ -17,12 +17,20 @@ const UserDropdown = () => {
   return (
     <motion.div animate={open ? "open" : "closed"} className="relative z-10">
       {user ? (
-        <p
-          onClick={() => setDelOpen((pv) => !pv)}
-          className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
-        >
-          {user.displayName[0]}
-        </p>
+        user.photoURL ? (
+          <img
+            src={user.photoURL}
+            onClick={() => setDelOpen((pv) => !pv)}
+            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+          />
+        ) : (
+          <p
+            onClick={() => setDelOpen((pv) => !pv)}
+            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+          >
+            {user.displayName[0]}
+          </p>
+        )
       ) : (
         <FaUserCircle
           onClick={() => setDelOpen((pv) => !pv)}

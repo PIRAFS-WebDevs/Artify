@@ -48,7 +48,7 @@ const Card = () => {
                 </h1>
                 <p className="text-xs text-dark-100">Temper studios</p>
               </div>
-              <p className="p-1 text-xs rounded-full bg-dark-200 text-primary">
+              <p className="px-2 py-1 text-xs text-white rounded-full bg-dark-200">
                 $69.00
               </p>
             </div>

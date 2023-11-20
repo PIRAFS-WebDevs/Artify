@@ -10,6 +10,8 @@ export const saveUser = async (data) => {
     console.error(error);
   }
 };
+
+// get all users
 export const getUser = async () => {
   try {
     const res = await api.get("/admin/user/all-user");
@@ -19,7 +21,8 @@ export const getUser = async () => {
     console.error(error);
   }
 };
-// get api
+
+// get user by email
 export const getUserByEmail = async (email) => {
   try {
     const res = await fetch(
