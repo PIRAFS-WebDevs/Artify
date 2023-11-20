@@ -23,7 +23,8 @@ export const getUser = async () => {
 export const getUserByEmail = async (email) => {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/v1/auth/admin/user/single-user/${email}`
+      `http://localhost:5000/api/v1/auth/admin/user/single-user/${email}`,
+      { next: { revalidate: 3 } }
     );
     return res.json();
   } catch (error) {
