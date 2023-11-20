@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import AllStateContext from "@/context/AllStateContext";
 import AuthContext from "@/context/AuthContext";
 import UserDropdown from "./UserDropdown";
-import { getUserByEmail, getUser } from "@/utils/api/user";
+import { getUserByEmail } from "@/utils/api/user";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
@@ -15,7 +15,6 @@ import { FaMoon, FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
   const [FindUser, setFindUser] = useState([]);
-  console.log("🚀 ~ file: Navbar.jsx:17 ~ Navbar ~ FindUser:", FindUser);
 
   const {
     sideBarOpen,
@@ -25,12 +24,7 @@ const Navbar = () => {
     setCartOpen,
   } = useContext(AllStateContext);
   const { user } = useContext(AuthContext);
-  console.log("🚀 ~ file: Navbar.jsx:27 ~ Navbar ~ user:", user?.email);
 
-  /*  (async () => {
-    const getUser = await GetUser();
-    setFindUser(getUser);
-  })(); */
   useEffect(() => {
     if (user?.email) {
       (async () => {
@@ -83,12 +77,28 @@ const Navbar = () => {
             </button>
           </div>
 
-          <Link
-            href={"/register"}
-            className="hidden px-8 py-2 transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
-          >
-            Register
-          </Link>
+          {!user ? (
+            <Link
+              href={"/register"}
+              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+            >
+              Register
+            </Link>
+          ) : FindUser.role === "admin" ? (
+            <Link
+              href={"/dashboard/admin"}
+              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+            >
+              Dashboard
+            </Link>
+          ) : (
+            <Link
+              href={"/dashboard/user"}
+              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+            >
+              Dashboard
+            </Link>
+          )}
 
           {/* login button */}
           {user ? <UserDropdown /> : <LoginButton />}
