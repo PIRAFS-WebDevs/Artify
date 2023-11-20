@@ -17,7 +17,7 @@ const AdminNavbar = () => {
   const { adminBarOpen, setAdminBarOpen } = useContext(AllStateContext);
 
   return (
-    <nav className="dark:bg-dark-400 dark:text-dark-100 bg-white sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center md:gap-6">
           <button
@@ -43,17 +43,9 @@ const AdminNavbar = () => {
         </div>
 
         <div className="flex items-center gap-6 md:gap-8">
-          <AiOutlineSearch size={"1.5rem"} className="hidden md:block" />
           <button>
             <FaMoon size={"1.2rem"} />
           </button>
-
-          <Link
-            href={"/register"}
-            className="hidden px-8 py-2 dark:text-white transition-all rounded-md bg-primary md:block hover:bg-primarySec active:scale-95"
-          >
-            Register
-          </Link>
 
           {/* login button */}
           <LoginButton />
