@@ -10,3 +10,13 @@ export const saveProduct = async (data) => {
     console.error(error.message);
   }
 };
+
+export const getProduct = async () => {
+  try {
+    const res = await api.get("/admin/product/all-product");
+    console.log(res);
+    return res.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};

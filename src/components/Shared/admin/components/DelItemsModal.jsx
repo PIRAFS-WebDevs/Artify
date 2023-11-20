@@ -1,7 +1,20 @@
+import api from "@/utils/axios";
 import { motion as m, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const DelItemsModal = ({ isDelOpen, setDelOpen }) => {
+const DelItemsModal = ({ isDelOpen, setDelOpen, path }) => {
+  const router = useRouter();
+  const delateItem = async () => {
+    try {
+      const res = await api.delete(path);
+      router.refresh();
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
   return (
     <AnimatePresence>
       {isDelOpen && (
@@ -43,7 +56,9 @@ const DelItemsModal = ({ isDelOpen, setDelOpen }) => {
                   Cancel
                 </button>
                 <button
-                  onClick={() => setDelOpen(false)}
+                  onClick={() => {
+                    setDelOpen(false), delateItem();
+                  }}
                   className={
                     "w-1/2 bg-red-400 hover:bg-red-500 py-3 rounded font-semibold "
                   }
