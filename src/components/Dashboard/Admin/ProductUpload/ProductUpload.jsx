@@ -67,6 +67,33 @@ const ProductUpload = () => {
 export default ProductUpload;
 
 const LayoutCategories = ({ register }) => {
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+
+  const handleCategoryChange = (event) => {
+    const selectedCategory = event.target.value;
+    if (!selectedCategories.includes(selectedCategory)) {
+      setSelectedCategories([...selectedCategories, selectedCategory]);
+    }
+  };
+
+  const handleTagChange = (event) => {
+    const selectedTag = event.target.value;
+    if (!selectedTags.includes(selectedTag)) {
+      setSelectedTags([...selectedTags, selectedTag]);
+    }
+  };
+
+  const removeCategory = (category) => {
+    const updatedCategories = selectedCategories.filter((c) => c !== category);
+    setSelectedCategories(updatedCategories);
+  };
+
+  const removeTag = (tag) => {
+    const updatedTags = selectedTags.filter((t) => t !== tag);
+    setSelectedTags(updatedTags);
+  };
+
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
@@ -97,22 +124,34 @@ const LayoutCategories = ({ register }) => {
             ))}
           </select>
         </div>
-
         {/* categories */}
-        <div className="w-full">
-          <label
-            htmlFor="category"
-            className="inline-block mb-2 text-sm dark:text-white"
-          >
-            Category
+        <div className="w-full space-y-2">
+          <label className="inline-block text-sm dark:text-white">
+            Selected Categories:
           </label>
-
-          {/* categories list */}
+          <div className="flex flex-wrap gap-2">
+            {selectedCategories.map((category, i) => (
+              <div key={i} className="relative">
+                <span className="px-2 py-1 text-white rounded bg-dark-300">
+                  {category}
+                </span>
+                <span
+                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-white -top-2 -right-2 bg-primary"
+                  onClick={() => removeCategory(category)}
+                >
+                  x
+                </span>
+              </div>
+            ))}
+          </div>
           <select
-            {...register("categories")}
             id="category"
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
+            onChange={handleCategoryChange}
           >
+            <option value="" disabled selected>
+              Select a category
+            </option>
             {categories.map((category, i) => (
               <option
                 key={i}
@@ -124,19 +163,34 @@ const LayoutCategories = ({ register }) => {
             ))}
           </select>
         </div>
-
         {/* tags */}
-        <div className="w-full">
-          <label
-            htmlFor="tags"
-            className="inline-block mb-2 text-sm dark:text-white"
-          >
-            Tags
+        <div className="w-full space-y-2">
+          <label className="inline-block text-sm dark:text-white">
+            Selected Tags:
           </label>
+          <div className="flex flex-wrap gap-2">
+            {selectedTags.map((tag, i) => (
+              <div key={i} className="relative">
+                <span className="px-2 py-1 text-white rounded bg-dark-300">
+                  {tag}
+                </span>
+                <span
+                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-white -top-2 -right-2 bg-primary"
+                  onClick={() => removeTag(tag)}
+                >
+                  x
+                </span>
+              </div>
+            ))}
+          </div>
           <select
-            {...register("tags")}
+            id="tags"
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
+            onChange={handleTagChange}
           >
+            <option value="" disabled selected>
+              Select a tag
+            </option>
             {tags.map((tag, i) => (
               <option key={i} value={tag} className="text-white bg-dark-300">
                 {tag}
