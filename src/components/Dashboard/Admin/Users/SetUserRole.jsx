@@ -2,13 +2,20 @@ import { setUserRole } from "@/utils/api/user";
 import { motion as m, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { FaUserAlt } from "react-icons/fa";
 import { MdAdminPanelSettings } from "react-icons/md";
 
 const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
+  if (isShow) {
+    console.log(
+      "🚀 ~ file: SetUserRole.jsx:9 ~ SetUserRole ~ preRole:",
+      preRole
+    );
+  }
   const router = useRouter();
 
-  const setRole = async (_id, newRole) => {
-    const res = await setUserRole(_id, newRole);
+  const setRole = async (id, newRole) => {
+    const res = await setUserRole(id, newRole);
 
     console.log("🚀 ~ file: SetUserRole.jsx:8 ~ setROle ~ res:", res);
 
@@ -17,6 +24,7 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
       toast.success(`Role is now ${newRole}`);
     }
   };
+
   return (
     <AnimatePresence>
       {isShow && (
@@ -40,16 +48,31 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
             className="rounded-lg shadow-xl  w-1/4 col-span-1 cursor-default min-h-[300px] h-auto p-5 dark:bg-dark-400 border dark:border-dark-300 flex flex-col justify-between"
           >
             <>
-              {/* productinfo */}
-              <div className="space-y-5 text-center">
-                <div className="flex items-center justify-center">
-                  <MdAdminPanelSettings className="text-center text-green-400 cursor-pointer text-7xl" />
+              {/*make admin and user*/}
+
+              {/*make admin*/}
+              {preRole === "user" ? (
+                <div className="space-y-5 text-center">
+                  <div className="flex items-center justify-center">
+                    <MdAdminPanelSettings className="text-center text-green-400 cursor-pointer text-7xl" />
+                  </div>
+                  <p className="text-2xl font-semibold">Admin</p>
+                  <p>Are you sure, you want make admin?</p>
+                  <p>{preRole}</p>
+                  <p>{_id}</p>
                 </div>
-                <p className="text-2xl font-semibold">Admin</p>
-                <p>Are you sure, you want make admin?</p>
-              </div>
-              {/* productinfo */}
-              {/* ans */}
+              ) : (
+                /*make user*/ <div className="space-y-5 text-center">
+                  <div className="flex items-center justify-center">
+                    <FaUserAlt className="text-center text-green-400 cursor-pointer text-7xl" />
+                  </div>
+                  <p className="text-2xl font-semibold">User</p>
+                  <p>Are you sure, you want make user?</p>
+                  <p>{preRole}</p>
+                  <p>{_id}</p>
+                </div>
+              )}
+              {/*make admin and user*/}
               <div className="flex gap-5">
                 <button className="w-1/2 py-3 font-semibold rounded bg-primary hover:bg-primarySec">
                   Cancel

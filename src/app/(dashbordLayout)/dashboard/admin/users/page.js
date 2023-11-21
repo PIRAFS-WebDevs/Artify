@@ -6,7 +6,7 @@ const usersPage = async () => {
   const user = await getUser();
   return (
     <>
-      <Users user={user.data.data} />
+      <Users users={user?.data?.data} />
     </>
   );
 };

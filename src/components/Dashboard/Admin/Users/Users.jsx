@@ -9,10 +9,18 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import SetUserRole from "./SetUserRole";
 import BlockUser from "./BlockUser";
 
-const Users = ({ user }) => {
-  const { setIsShow, isShow, isDelOpen, setDelOpen } =
-    useContext(AllStateContext);
+const Users = ({ users }) => {
+  const { isDelOpen, setDelOpen } = useContext(AllStateContext);
+
+  const [userModals, setUserModals] = useState({});
   const [blockModal, setBlockModal] = useState(false);
+
+  const toggleUserModal = (userId) => {
+    setUserModals((prevModals) => ({
+      ...prevModals,
+      [userId]: !prevModals[userId],
+    }));
+  };
 
   return (
     <div className="relative">
@@ -31,10 +39,20 @@ const Users = ({ user }) => {
           </thead>
           {/* body */}
           <tbody>
-            {user?.map((user) => (
-              <tr key={user?._id} className="h-20 text-xs md:text-base">
-                <td>
-                  <div className="flex w-12 h-12 rounded-full bg-primary "></div>
+            {users?.map((user, i) => (
+              <tr key={i} className="h-20 text-xs md:text-base text-center">
+                <td className="flex justify-center items-center h-20">
+                  {!user?.imgURL ? (
+                    <div className="flex w-12 h-12 rounded-full justify-center items-center bg-primary text-2xl ">
+                      {user?.name[0]}
+                    </div>
+                  ) : (
+                    <img
+                      src={user?.imgURL}
+                      alt={user?.name + "Profile Image"}
+                      className="object-cover w-12 h-12 rounded-full "
+                    />
+                  )}
                 </td>
 
                 <td>
@@ -43,7 +61,7 @@ const Users = ({ user }) => {
                   </div>
                 </td>
                 <td>
-                  <p className="">{user?.email}</p>
+                  <p>{user?.email}</p>
                 </td>
 
                 <td>
@@ -60,7 +78,7 @@ const Users = ({ user }) => {
                       className="text-red-400 cursor-pointer"
                     />
                     <FaRegEdit
-                      onClick={() => setIsShow(true)}
+                      onClick={() => toggleUserModal(user._id)}
                       className="text-green-500 cursor-pointer"
                     />
                     <GoBlocked
@@ -69,12 +87,14 @@ const Users = ({ user }) => {
                     />
                   </div>
                   <>
-                    <SetUserRole
-                      isShow={isShow}
-                      setIsShow={setIsShow}
-                      _id={user?._id}
-                      preRole={user?._role}
-                    />
+                    {userModals[user._id] && (
+                      <SetUserRole
+                        isShow={userModals[user._id]}
+                        setIsShow={() => toggleUserModal(user._id)}
+                        _id={user?._id}
+                        preRole={user?.role}
+                      />
+                    )}
                     <DelItemsModal
                       isDelOpen={isDelOpen}
                       setDelOpen={setDelOpen}
