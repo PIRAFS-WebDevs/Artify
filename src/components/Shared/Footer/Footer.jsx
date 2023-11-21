@@ -6,8 +6,8 @@ import { BsYoutube } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div className="px-6 py-8 text-sm">
-      <div className="grid gap-8 pb-8 border-b lg:grid-cols-2 xl:grid-cols-4 border-dark-200">
+    <div className="p-6 text-sm">
+      <div className="grid gap-6 pb-6 border-b lg:grid-cols-2 xl:grid-cols-4 border-dark-200">
         {footerData.map((categoryObj, index) => (
           <div key={index} className=" dark:text-dark-100">
             {Object.keys(categoryObj).map((categoryName, categoryIndex) => (
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-between gap-2 pt-8 text-xs lg:flex-row dark:text-dark-100 mb-[60px] md:mb-0">
+      <div className="flex flex-col justify-between gap-2 pt-6 text-xs lg:flex-row dark:text-dark-100 mb-[60px] md:mb-0">
         <div className="flex flex-col gap-2 lg:items-center lg:flex-row">
           <img src="/assets/logo/waresun.png" alt="logo" className="w-32" />
           <p>© The waresun Limited. 2017-2023</p>

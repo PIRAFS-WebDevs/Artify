@@ -17,8 +17,8 @@ const Card = () => {
                 alt=""
                 className="object-fill w-full h-full"
               />
-              <div className="absolute top-0 hidden w-full h-full group-hover:block group-hover:bg-black opacity-70 Z-10"></div>
-              <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/60 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/70">
+              <div className="absolute top-0 hidden w-full h-full opacity-50 group-hover:block group-hover:bg-black Z-10"></div>
+              <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/50 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/50">
                 <PreviewSvg />
                 <Link
                   href={`/products/${"111"}`}
