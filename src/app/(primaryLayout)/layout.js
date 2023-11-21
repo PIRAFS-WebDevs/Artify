@@ -18,7 +18,7 @@ const layout = ({ children }) => {
           !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
         }`}
       >
-        {children}
+        <div className="px-6">{children}</div>
         <ProductModal isShow={isShow} setIsShow={setIsShow} />
         <Footer />
         <Cart />
