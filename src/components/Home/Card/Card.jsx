@@ -1,16 +1,15 @@
 import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
-import React from "react";
 
 const Card = () => {
   return (
-    <section className="p-6">
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
+    <>
+      <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
           <div
             key={e}
-            className="w-full max-w-md col-span-1 space-y-2 min-h-fit dark:text-white"
+            className="w-full col-span-1 space-y-2 min-h-fit dark:text-white"
           >
             <div className="relative flex w-full group">
               <img
@@ -18,8 +17,8 @@ const Card = () => {
                 alt=""
                 className="object-fill w-full h-full"
               />
-              <div className="absolute top-0 hidden w-full h-full group-hover:block group-hover:bg-black opacity-70 Z-10"></div>
-              <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/60 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/70">
+              <div className="absolute top-0 hidden w-full h-full opacity-50 group-hover:block group-hover:bg-black Z-10"></div>
+              <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/50 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/50">
                 <PreviewSvg />
                 <Link
                   href={`/products/${"111"}`}
@@ -41,11 +40,11 @@ const Card = () => {
                 className="w-8 h-8 rounded-full"
               />
 
-              <div className="space-y-1">
-                <h1 className="text-sm font-medium line-clamp-1">
+              <div className="space-y-1 text-sm">
+                <h1 className="font-medium line-clamp-1">
                   Shoppie UI Kit PSD Ecommerce Design Template
                 </h1>
-                <p className="text-xs text-dark-100">Temper studios</p>
+                <p className="text-dark-100">Temper studios</p>
               </div>
               <p className="px-2 py-1 text-xs text-white rounded-full bg-dark-200">
                 $69.00
@@ -61,7 +60,7 @@ const Card = () => {
           Load More
         </button>
       </div>
-    </section>
+    </>
   );
 };
 
