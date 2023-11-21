@@ -3,17 +3,26 @@ import SharedComp from "@/components/Shared/admin/SharedComp";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 import AllStateContext from "@/context/AllStateContext";
 import { GoBlocked } from "react-icons/go";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import SetUserRole from "./SetUserRole";
 import BlockUser from "./BlockUser";
+import { getUser } from "@/utils/api/user";
 
-const Users = ({ users }) => {
+const Users = () => {
   const { isDelOpen, setDelOpen } = useContext(AllStateContext);
-
+  const [searchText, SetSearchText] = useState(null);
   const [userModals, setUserModals] = useState({});
   const [blockModal, setBlockModal] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const allUser = await getUser(searchText);
+      setUsers(allUser?.user);
+    })();
+  }, [searchText]);
 
   const toggleUserModal = (userId) => {
     setUserModals((prevModals) => ({
@@ -24,7 +33,7 @@ const Users = ({ users }) => {
 
   return (
     <div className="relative">
-      <SharedComp type={"Customers"} search />
+      <SharedComp type={"Customers"} search SetSearchText={SetSearchText} />
       <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
         <table className="w-full text-center">
           <thead>

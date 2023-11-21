@@ -11,10 +11,17 @@ export const saveUser = async (data) => {
 };
 
 // get all users
-export const getUser = async () => {
+export const getUser = async (text) => {
   try {
-    const res = await api.get("/admin/user/all-user");
-    return res;
+    const res = await fetch(
+      `http://localhost:5000/api/v1/auth/admin/user/all-user/${text}`,
+      {
+        next: {
+          revalidate: 10,
+        },
+      }
+    );
+    return res.json();
   } catch (error) {
     console.error(error);
   }

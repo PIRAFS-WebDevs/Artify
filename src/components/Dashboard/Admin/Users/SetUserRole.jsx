@@ -58,8 +58,6 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
                   </div>
                   <p className="text-2xl font-semibold">Admin</p>
                   <p>Are you sure, you want make admin?</p>
-                  <p>{preRole}</p>
-                  <p>{_id}</p>
                 </div>
               ) : (
                 /*make user*/ <div className="space-y-5 text-center">
@@ -68,8 +66,6 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
                   </div>
                   <p className="text-2xl font-semibold">User</p>
                   <p>Are you sure, you want make user?</p>
-                  <p>{preRole}</p>
-                  <p>{_id}</p>
                 </div>
               )}
               {/*make admin and user*/}

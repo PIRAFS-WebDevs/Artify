@@ -2,7 +2,12 @@ import Link from "next/link";
 import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
-const SharedComp = ({ type, AddType, link, search }) => {
+const SharedComp = ({ type, AddType, link, search, SetSearchText }) => {
+  const handelSearchText = () => {
+    const searchText = document.getElementById("search").value;
+
+    SetSearchText(searchText);
+  };
   return (
     <div className="md:h-24 py-5 md:py-0 md:flex px-5 rounded border dark:border-dark-300 justify-center items-center dark:bg-dark-400 w-full md:mb-0">
       <div className="md:w-1/2 mb-5 md:mb-0 ">
@@ -18,8 +23,10 @@ const SharedComp = ({ type, AddType, link, search }) => {
             <IoSearchOutline className="absolute dark:text-gray-400 top-5 left-4" />
             <input
               type="text"
+              onChange={handelSearchText}
               className="bg-transparent h-14 w-full px-12 rounded dark:text-white border focus:outline-dark-300 "
-              name=""
+              name="search"
+              id="search"
             />
           </div>
 
