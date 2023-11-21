@@ -1,17 +1,38 @@
 "use client";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import AnsModal from "../Questions/AnsModal";
 import AllStateContext from "@/context/AllStateContext";
 import { RiCheckboxIndeterminateLine, RiDeleteBin6Line } from "react-icons/ri";
+import SharedComp from "@/components/Shared/admin/SharedComp";
+import { getProduct, getSearchProduct } from "@/utils/api/product";
 
-const ProductsTable = ({ product }) => {
+const ProductsTable = () => {
   const { setIsShow, isShow, isDelOpen, setDelOpen } =
     useContext(AllStateContext);
+  const [searchText, SetSearchText] = useState("");
+  const [products, SetProducts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const allProducts = await getSearchProduct(searchText);
+
+      SetProducts(allProducts?.products);
+    })();
+  }, [searchText]);
+
   return (
     <>
+      <SharedComp
+        type={"Products"}
+        search
+        AddType={"Add Product"}
+        SetSearchText={SetSearchText}
+        link={"/dashboard/admin/products/upload"}
+      />
+
       <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto scrollbar text-center border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
         <table className="w-full ">
           <thead>
@@ -28,7 +49,7 @@ const ProductsTable = ({ product }) => {
           </thead>
           {/* body */}
           <tbody>
-            {product.map((product) => (
+            {products?.map((product) => (
               <tr
                 key={product?._id}
                 className="h-20 text-xs text-center md:text-base space-x-10"
