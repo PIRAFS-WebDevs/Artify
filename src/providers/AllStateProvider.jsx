@@ -19,8 +19,6 @@ const AllStateProvider = ({ children }) => {
         const data = await getUserByEmail(user?.email);
         setFindUser(data.data);
       })();
-    } else {
-      console.log("no email found");
     }
   }, [user]);
   const value = {

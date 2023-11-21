@@ -4,7 +4,6 @@ import api from "../axios";
 export const saveUser = async (data) => {
   try {
     const res = await api.post("/signup", data);
-    console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -12,10 +11,25 @@ export const saveUser = async (data) => {
 };
 
 // get all users
-export const getUser = async () => {
+export const getUser = async (text) => {
   try {
-    const res = await api.get("/admin/user/all-user");
-    console.log(res);
+    const res = await fetch(
+      `http://localhost:5000/api/v1/auth/admin/user/all-user/?text=${text}`,
+      {
+        next: {
+          revalidate: 10,
+        },
+      }
+    );
+    return res.json();
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const setUserRole = async (_id, role) => {
+  console.log(_id, role);
+  try {
+    const res = await api.patch("/admin/user/change-role", { _id, role });
     return res;
   } catch (error) {
     console.error(error);
@@ -38,7 +52,6 @@ export const getUserByEmail = async (email) => {
 export const addToCart = async (data) => {
   try {
     const res = await api.post("/user/cart", data);
-    console.log(res);
 
     return res;
   } catch (error) {
