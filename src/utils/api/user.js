@@ -4,7 +4,6 @@ import api from "../axios";
 export const saveUser = async (data) => {
   try {
     const res = await api.post("/signup", data);
-    console.log(res);
     return res;
   } catch (error) {
     console.error(error);
@@ -15,7 +14,15 @@ export const saveUser = async (data) => {
 export const getUser = async () => {
   try {
     const res = await api.get("/admin/user/all-user");
-    console.log(res);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const setUserRole = async (_id, role) => {
+  console.log(_id, role);
+  try {
+    const res = await api.patch("/admin/user/change-role", { _id, role });
     return res;
   } catch (error) {
     console.error(error);
@@ -38,7 +45,6 @@ export const getUserByEmail = async (email) => {
 export const addToCart = async (data) => {
   try {
     const res = await api.post("/user/cart", data);
-    console.log(res);
 
     return res;
   } catch (error) {

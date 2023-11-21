@@ -10,7 +10,7 @@ const DelItemsModal = ({ isDelOpen, setDelOpen, path, title }) => {
   const delateTheItem = async () => {
     const res = await delateItem(path);
     console.log("🚀 ~ file: DelItemsModal.jsx:12 ~ delateTheItem ~ res:", res);
-    if (res.status === 200) {
+    if (res?.status === 200) {
       router.refresh();
       toast.success(`${title} is delete`);
     }

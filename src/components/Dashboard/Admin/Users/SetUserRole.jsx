@@ -1,7 +1,22 @@
+import { setUserRole } from "@/utils/api/user";
 import { motion as m, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { MdAdminPanelSettings } from "react-icons/md";
 
-const SetUserRole = ({ isShow, setIsShow }) => {
+const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
+  const router = useRouter();
+
+  const setRole = async (_id, newRole) => {
+    const res = await setUserRole(_id, newRole);
+
+    console.log("🚀 ~ file: SetUserRole.jsx:8 ~ setROle ~ res:", res);
+
+    if (res?.status === 200) {
+      router.refresh();
+      toast.success(`Role is now ${newRole}`);
+    }
+  };
   return (
     <AnimatePresence>
       {isShow && (
@@ -40,6 +55,10 @@ const SetUserRole = ({ isShow, setIsShow }) => {
                   Cancel
                 </button>
                 <button
+                  onClick={() => {
+                    setIsShow(false);
+                    setRole(_id, "admin");
+                  }}
                   className={
                     "w-1/2 bg-green-400 hover:bg-green-500 py-3 rounded font-semibold"
                   }
