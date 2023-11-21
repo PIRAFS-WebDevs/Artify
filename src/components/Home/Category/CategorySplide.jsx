@@ -48,8 +48,8 @@ const CategorySplide = () => {
   };
 
   return (
-    <div className="z-40 bg-dark-500">
-      <div className="relative mt-6">
+    <div className="z-40 bg-dark-500 sticky inset-x-0 top-[72px] border-b border-dark-300">
+      <div className="relative py-6">
         <div className="mx-2">
           <Splide
             options={{

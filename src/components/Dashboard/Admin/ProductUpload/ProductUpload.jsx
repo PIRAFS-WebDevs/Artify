@@ -12,6 +12,8 @@ import UploadButton from "./UploadButton";
 const ProductUpload = () => {
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
 
   const {
     register,
@@ -24,6 +26,8 @@ const ProductUpload = () => {
     const productData = {
       featuredImage,
       galleryImage,
+      categories: selectedCategories,
+      tags: selectedTags,
       ...data,
     };
 
@@ -49,7 +53,13 @@ const ProductUpload = () => {
 
       <form onSubmit={handleSubmit(formHandler)}>
         {/* layout & categories */}
-        <LayoutCategories register={register} />
+        <LayoutCategories
+          register={register}
+          selectedCategories={selectedCategories}
+          setSelectedCategories={setSelectedCategories}
+          selectedTags={selectedTags}
+          setSelectedTags={setSelectedTags}
+        />
 
         {/* description */}
         <Description register={register} errors={errors} />
@@ -66,10 +76,13 @@ const ProductUpload = () => {
 
 export default ProductUpload;
 
-const LayoutCategories = ({ register }) => {
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedTags, setSelectedTags] = useState([]);
-
+const LayoutCategories = ({
+  selectedCategories,
+  setSelectedCategories,
+  selectedTags,
+  setSelectedTags,
+  register,
+}) => {
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
     if (!selectedCategories.includes(selectedCategory)) {
