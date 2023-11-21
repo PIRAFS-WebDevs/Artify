@@ -1,20 +1,21 @@
-import api from "@/utils/axios";
+import { delateItem } from "@/utils/api/shared/itemdel";
 import { motion as m, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const DelItemsModal = ({ isDelOpen, setDelOpen, path }) => {
+const DelItemsModal = ({ isDelOpen, setDelOpen, path, title }) => {
   const router = useRouter();
-  const delateItem = async () => {
-    try {
-      const res = await api.delete(path);
+
+  const delateTheItem = async () => {
+    const res = await delateItem(path);
+    console.log("🚀 ~ file: DelItemsModal.jsx:12 ~ delateTheItem ~ res:", res);
+    if (res.status === 200) {
       router.refresh();
-      console.log(res);
-      return res.data;
-    } catch (error) {
-      console.error(error.message);
+      toast.success(`${title} is delete`);
     }
   };
+
   return (
     <AnimatePresence>
       {isDelOpen && (
@@ -57,7 +58,7 @@ const DelItemsModal = ({ isDelOpen, setDelOpen, path }) => {
                 </button>
                 <button
                   onClick={() => {
-                    setDelOpen(false), delateItem();
+                    setDelOpen(false), delateTheItem();
                   }}
                   className={
                     "w-1/2 bg-red-400 hover:bg-red-500 py-3 rounded font-semibold "

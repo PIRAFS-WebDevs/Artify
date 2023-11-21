@@ -12,10 +12,10 @@ const ProductsTable = ({ product }) => {
     useContext(AllStateContext);
   return (
     <>
-      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto text-center border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
-        <table className="w-full">
+      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto scrollbar text-center border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
+        <table className="w-full ">
           <thead>
-            <tr className="w-auto h-12 text-xs text-center border rounded dark:bg-dark-200 border-dark-300 md:text-base">
+            <tr className="w-auto h-12 text-xs text-center border rounded dark:bg-dark-200 border-dark-300 md:text-base space-x-5">
               <th>Image</th>
               <th className="pl-2 text-start">Name</th>
               <th className="text-center">Layouts</th>
@@ -31,7 +31,7 @@ const ProductsTable = ({ product }) => {
             {product.map((product) => (
               <tr
                 key={product?._id}
-                className="h-20 text-xs text-center md:text-base"
+                className="h-20 text-xs text-center md:text-base space-x-10"
               >
                 <td className="w-20 h-12 ">
                   <div>
@@ -45,8 +45,8 @@ const ProductsTable = ({ product }) => {
                   </div>
                 </td>
 
-                <td className="pl-2 text-start">
-                  <div>
+                <td className="pl-2 text-start ">
+                  <div className="w-[150px] line-clamp-1">
                     <p>{product?.name}</p>
                   </div>
                 </td>
@@ -74,8 +74,8 @@ const ProductsTable = ({ product }) => {
                 <td>
                   <p>{product?.status}</p>
                 </td>
-                <td className="w-12">
-                  <div className="flex items-center justify-between gap-1 p-3 md:gap-5">
+                <td className="w-24 ">
+                  <div className="flex items-center justify-between gap-1 p-3 ">
                     <RiDeleteBin6Line
                       onClick={() => setDelOpen(true)}
                       className="text-red-400 cursor-pointer"
@@ -94,6 +94,7 @@ const ProductsTable = ({ product }) => {
                       setDelOpen={setDelOpen}
                       path={`/admin/product/product-delate/${product?._id}`}
                       _id={product?._id}
+                      title={"Product"}
                     />
                   </>
                   {/* qustion modul */}
