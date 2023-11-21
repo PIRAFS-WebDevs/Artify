@@ -1,13 +1,15 @@
-import Category from "@/components/Home/Category/Category";
 import Card from "@/components/Home/Card/Card";
 import CategorySplide from "@/components/Home/Category/CategorySplide";
+import { getProducts } from "@/utils/api/product";
 
-const Home = () => {
+const Home = async () => {
+  const products = await getProducts();
+
   return (
     <section>
       {/* <Category /> */}
       <CategorySplide />
-      <Card />
+      <Card products={products?.products} />
     </section>
   );
 };

@@ -15,7 +15,8 @@ export const getProducts = async (text) => {
     const res = await fetch(
       text
         ? `http://localhost:5000/api/v1/auth/admin/product/all-product/?text=${text}`
-        : "http://localhost:5000/api/v1/auth/admin/product/all-product/"
+        : "http://localhost:5000/api/v1/auth/admin/product/all-product/",
+      { cache: "no-cache" }
     );
 
     return res.json();
@@ -24,14 +25,14 @@ export const getProducts = async (text) => {
   }
 };
 
-/* export const getProducts = async (text) => {
+export const getProductById = async (id) => {
   try {
-    const res = await fetch(`/admin/product/all-product${text}`, {
-      next: { revalidate: 10 },
+    const res = await fetch(`http://localhost:5000/api/v1/auth/product/${id}`, {
+      cache: "force-cache",
     });
 
     return res.json();
   } catch (error) {
     console.error(error.message);
   }
-}; */
+};

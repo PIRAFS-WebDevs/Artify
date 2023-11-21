@@ -2,13 +2,13 @@ import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
 
-const Card = () => {
+const Card = ({ products }) => {
   return (
     <>
       <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
+        {products?.map((product) => (
           <div
-            key={e}
+            key={product?._id}
             className="w-full col-span-1 space-y-2 min-h-fit dark:text-white"
           >
             <div className="relative flex w-full group">
@@ -21,7 +21,7 @@ const Card = () => {
               <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/50 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/50">
                 <PreviewSvg />
                 <Link
-                  href={`/products/${"111"}`}
+                  href={`/products/${product?._id}`}
                   className="relative z-10 text-xs font-medium text-center text-light"
                 >
                   <div className="flex items-center justify-center mb-2 transition-all rounded-full hover:bg-primary bg-dark-100 text-light backdrop-blur-sm hover:bg-brand h-11 w-11">
@@ -41,13 +41,11 @@ const Card = () => {
               />
 
               <div className="space-y-1 text-sm">
-                <h1 className="font-medium line-clamp-1">
-                  Shoppie UI Kit PSD Ecommerce Design Template
-                </h1>
-                <p className="text-dark-100">Temper studios</p>
+                <h1 className="font-medium line-clamp-1">{product?.name}</h1>
+                <p className="text-dark-100">Waresun</p>
               </div>
               <p className="px-2 py-1 text-xs text-white rounded-full bg-dark-200">
-                $69.00
+                {product?.price}
               </p>
             </div>
           </div>
