@@ -12,7 +12,7 @@ import { getUser } from "@/utils/api/user";
 
 const Users = () => {
   const { isDelOpen, setDelOpen } = useContext(AllStateContext);
-  const [searchText, SetSearchText] = useState(null);
+  const [searchText, SetSearchText] = useState("");
   const [userModals, setUserModals] = useState({});
   const [blockModal, setBlockModal] = useState(false);
   const [users, setUsers] = useState([]);

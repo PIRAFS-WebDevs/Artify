@@ -10,7 +10,7 @@ export const saveProduct = async (data) => {
   }
 };
 
-export const getSearchProduct = async (text) => {
+export const getProducts = async (text) => {
   try {
     const res = await fetch(
       text
@@ -24,7 +24,7 @@ export const getSearchProduct = async (text) => {
   }
 };
 
-export const getProducts = async (text) => {
+/* export const getProducts = async (text) => {
   try {
     const res = await fetch(`/admin/product/all-product${text}`, {
       next: { revalidate: 10 },
@@ -34,4 +34,4 @@ export const getProducts = async (text) => {
   } catch (error) {
     console.error(error.message);
   }
-};
+}; */

@@ -7,7 +7,7 @@ import AnsModal from "../Questions/AnsModal";
 import AllStateContext from "@/context/AllStateContext";
 import { RiCheckboxIndeterminateLine, RiDeleteBin6Line } from "react-icons/ri";
 import SharedComp from "@/components/Shared/admin/SharedComp";
-import { getProduct, getSearchProduct } from "@/utils/api/product";
+import { getProducts } from "@/utils/api/product";
 
 const ProductsTable = () => {
   const { setIsShow, isShow, isDelOpen, setDelOpen } =
@@ -17,7 +17,7 @@ const ProductsTable = () => {
 
   useEffect(() => {
     (async () => {
-      const allProducts = await getSearchProduct(searchText);
+      const allProducts = await getProducts(searchText);
 
       SetProducts(allProducts?.products);
     })();

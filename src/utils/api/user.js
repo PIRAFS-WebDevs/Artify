@@ -14,7 +14,7 @@ export const saveUser = async (data) => {
 export const getUser = async (text) => {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/v1/auth/admin/user/all-user/${text}`,
+      `http://localhost:5000/api/v1/auth/admin/user/all-user/?text=${text}`,
       {
         next: {
           revalidate: 10,
