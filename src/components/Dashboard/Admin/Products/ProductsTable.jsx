@@ -31,6 +31,7 @@ const ProductsTable = () => {
         AddType={"Add Product"}
         SetSearchText={SetSearchText}
         link={"/dashboard/admin/products/upload"}
+        filter={true}
       />
 
       <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto scrollbar text-center border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
