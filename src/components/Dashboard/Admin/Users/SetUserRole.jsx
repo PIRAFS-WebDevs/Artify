@@ -76,7 +76,7 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
                 <button
                   onClick={() => {
                     setIsShow(false);
-                    setRole(_id, "admin");
+                    setRole(_id, preRole === "admin" ? "user" : 'admin' );
                   }}
                   className={
                     "w-1/2 bg-green-400 hover:bg-green-500 py-3 rounded font-semibold"
