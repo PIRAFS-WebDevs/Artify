@@ -9,51 +9,49 @@ const BannerSlider = () => {
 
   return (
     <MotionConfig transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}>
-      <div className="p-8">
-        <div className="relative overflow-hidden flex">
-          <m.div
-            animate={{ x: `-${index * 25}%` }}
-            transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-            className="flex gap-x-8"
-          >
-            {images.map((e, i) => (
-              <img
-                key={i}
-                src={e}
-                alt=""
-                className="w-[600] h-[220px] object-cover"
-              />
-            ))}
-          </m.div>
+      <div className="relative flex py-6 overflow-hidden">
+        <m.div
+          animate={{ x: `-${index * 25}%` }}
+          transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
+          className="flex gap-x-8"
+        >
+          {images.map((e, i) => (
+            <img
+              key={i}
+              src={e}
+              alt=""
+              className="w-[600] h-[220px] object-cover"
+            />
+          ))}
+        </m.div>
 
-          <AnimatePresence initial={false}>
-            {index > 0 && (
-              <button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.7 }}
-                exit={{ opacity: 0, pointerEvents: "none" }}
-                whilehover={{ opacity: 1 }}
-                onClick={() => setIndex(index - 1)}
-              >
-                <AiOutlineLeft className="w-8 h-8 absolute left-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
-              </button>
-            )}
-          </AnimatePresence>
+        <AnimatePresence initial={false}>
+          {index > 0 && (
+            <button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.7 }}
+              exit={{ opacity: 0, pointerEvents: "none" }}
+              whilehover={{ opacity: 1 }}
+              onClick={() => setIndex(index - 1)}
+            >
+              <AiOutlineLeft className="absolute inset-y-0 left-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer bg-dark-400 hover:bg-dark-500" />
+            </button>
+          )}
+        </AnimatePresence>
 
-          <AnimatePresence initial={false}>
-            {index + 1 < images.length && (
-              <m.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.7 }}
-                exit={{ opacity: 0, pointerEvents: "none" }}
-                whilehover={{ opacity: 1 }}
-                onClick={() => setIndex(index + 1)}
-              >
-                <AiOutlineRight className="w-8 h-8 absolute right-0 inset-y-0 my-auto text-white rounded-full bg-dark-400 hover:bg-dark-500 shadow-md cursor-pointer p-2 mx-3" />
-              </m.button>
-            )}
-          </AnimatePresence>
-        </div>
+        <AnimatePresence initial={false}>
+          {index + 1 < images.length && (
+            <m.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.7 }}
+              exit={{ opacity: 0, pointerEvents: "none" }}
+              whilehover={{ opacity: 1 }}
+              onClick={() => setIndex(index + 1)}
+            >
+              <AiOutlineRight className="absolute inset-y-0 right-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer bg-dark-400 hover:bg-dark-500" />
+            </m.button>
+          )}
+        </AnimatePresence>
       </div>
     </MotionConfig>
   );
