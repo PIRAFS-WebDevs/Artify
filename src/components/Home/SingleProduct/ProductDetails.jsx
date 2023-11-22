@@ -2,12 +2,12 @@ import ProductInfo from "./ProductInfo";
 import Ratings from "./Ratings";
 import ShareBtn from "./ShareBtn";
 
-const ProductDetails = () => {
+const ProductDetails = ({description}) => {
   return (
     <section className="w-full xl:flex mb-4 lg:grid">
       <div className="lg:w-[55%] ">
         <p className="mb-8  ">
-          {`Along With Wordpress Themes & Plugins, We always try to use latest trending techs like React, Next Js, Gatsby Js, GraphQl, Shopify etc to make our products special. Our rich tech choice will help you to build high performance applications. We are also known to provide great customer supports to our customers.`}
+          {description}
         </p>
         
         <div className="md:flex gap-5 text-center items-center">

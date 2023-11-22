@@ -7,20 +7,15 @@ import { MdAdminPanelSettings } from "react-icons/md";
 
 const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
   if (isShow) {
-    console.log(
-      "🚀 ~ file: SetUserRole.jsx:9 ~ SetUserRole ~ preRole:",
-      preRole
-    );
   }
   const router = useRouter();
 
   const setRole = async (id, newRole) => {
     const res = await setUserRole(id, newRole);
 
-    console.log("🚀 ~ file: SetUserRole.jsx:8 ~ setROle ~ res:", res);
+    router.refresh();
 
     if (res?.status === 200) {
-      router.refresh();
       toast.success(`Role is now ${newRole}`);
     }
   };
@@ -76,7 +71,7 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
                 <button
                   onClick={() => {
                     setIsShow(false);
-                    setRole(_id, preRole === "admin" ? "user" : 'admin' );
+                    setRole(_id, preRole === "admin" ? "user" : "admin");
                   }}
                   className={
                     "w-1/2 bg-green-400 hover:bg-green-500 py-3 rounded font-semibold"

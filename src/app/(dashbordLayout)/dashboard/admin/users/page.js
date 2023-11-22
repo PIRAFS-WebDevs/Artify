@@ -1,7 +1,7 @@
 import Users from "@/components/Dashboard/Admin/Users/Users";
 import React from "react";
 
-const usersPage = async () => {
+const usersPage = () => {
   return (
     <>
       <Users />
