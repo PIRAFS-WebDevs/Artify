@@ -14,7 +14,7 @@ import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaShoppingBag } from "react-icons/fa";
 import SearchButton from "./SearchButton";
 
-const Navbar = () => {
+const HomeNavbar = () => {
   const [FindUser, setFindUser] = useState([]);
 
   const {
@@ -32,8 +32,6 @@ const Navbar = () => {
         const data = await getUserByEmail(user?.email);
         setFindUser(data.data);
       })();
-    } else {
-      console.log("no email found");
     }
   }, [user]);
 
@@ -90,14 +88,14 @@ const Navbar = () => {
           ) : FindUser?.role === "admin" ? (
             <Link
               href={"/dashboard/admin"}
-              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 text-sm font-medium transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>
           ) : (
             <Link
               href={"/dashboard/user"}
-              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>
@@ -134,4 +132,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default HomeNavbar;

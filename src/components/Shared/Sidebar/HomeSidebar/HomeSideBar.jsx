@@ -1,10 +1,13 @@
 "use client";
-import React, { useContext } from "react";
-import TopSideBar from "./TopSideBar";
+
+import homeSidebarData from "@/data/homeSidebarData";
+import HomeSidebarLink from "./HomeSidebarLink";
+import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
 
-const Sidebar = () => {
+const HomeSideBar = () => {
   const { sideBarOpen, mobileView } = useContext(AllStateContext);
+
   return (
     <>
       <aside
@@ -14,9 +17,20 @@ const Sidebar = () => {
             : "md:w-[240px] hidden md:block min-h-screen z-40 dark:bg-dark-400 fixed"
         } `}
       >
-        <TopSideBar />
+        {homeSidebarData.map((data, index) => (
+          <div key={index}>
+            <HomeSidebarLink
+              href={data.path}
+              icon={data.icon}
+              title={data.title}
+            />
+          </div>
+        ))}
       </aside>
-      <aside
+
+      {/* mobile view */}
+
+      {/* <aside
         className={`${
           mobileView
             ? "right-0 w-[240px] min-h-screen md:hidden z-20 dark:bg-dark-400 fixed"
@@ -24,9 +38,9 @@ const Sidebar = () => {
         }  `}
       >
         <TopSideBar />
-      </aside>
+      </aside> */}
     </>
   );
 };
 
-export default Sidebar;
+export default HomeSideBar;

@@ -4,28 +4,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 
-const SideNavLink = ({
-  href,
-  title,
-  icon,
-  activeClassName,
-  exact = false,
-  ...props
-}) => {
+const HomeSidebarLink = ({ href, title, icon }) => {
   const { sideBarOpen, setSideBarOpen, mobileView } =
     useContext(AllStateContext);
+
   const path = usePathname();
 
-  const active = exact ? path === href : path.startsWith(href);
-  const classes = ClassNames(props.className, active && activeClassName);
-  if (classes) {
-    props.className = classes;
-  }
   return (
-    <div className="dark:hover:text-white dark:hover:bg-dark-200 dark:text-dark-100">
-      <Link href={href} {...props}>
+    <div
+      className={`hover:text-white hover:bg-dark-200 ${
+        path === href ? "text-white bg-dark-200" : "text-dark-100"
+      }`}
+    >
+      <Link href={href}>
         <div
-          className={`w-full py-4 flex xl:pl-6 gap-5 pl-6 group items-center justify-normal  `}
+          className={`w-full py-4 flex gap-5 pl-6 group items-center justify-normal`}
         >
           <span>{icon}</span>
           <span
@@ -48,4 +41,4 @@ const SideNavLink = ({
   );
 };
 
-export default SideNavLink;
+export default HomeSidebarLink;

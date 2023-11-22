@@ -1,6 +1,6 @@
 import SettingsSidebar from "@/components/Settings/SettingsSidebar/SettingsSidebar";
 import Footer from "@/components/Shared/Footer/Footer";
-import Navbar from "@/components/Shared/Navbar/Navbar";
+import Navbar from "@/components/Shared/HomeNavbar/HomeNavbar";
 import React from "react";
 
 const settingLayout = ({ children }) => {

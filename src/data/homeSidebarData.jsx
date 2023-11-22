@@ -1,3 +1,4 @@
+// icons
 import { AiFillHome, AiFillLike, AiFillAppstore } from "react-icons/ai";
 import { MdExplore, MdFeedback } from "react-icons/md";
 import { BsBoxFill, BsCodeSlash, BsChatLeftTextFill } from "react-icons/bs";
@@ -5,7 +6,7 @@ import { BiSolidUserDetail } from "react-icons/bi";
 import { IoHelpOutline, IoSettingsSharp } from "react-icons/io5";
 import { FaOpencart } from "react-icons/fa";
 
-const navData = [
+const homeSidebarData = [
   {
     title: "Home",
     path: "/",
@@ -68,4 +69,4 @@ const navData = [
   },
 ];
 
-export default navData;
+export default homeSidebarData;

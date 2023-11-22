@@ -1,5 +1,5 @@
 import HelpBar from "@/components/Shared/Help/HelpBar";
-import Navbar from "@/components/Shared/Navbar/Navbar";
+import Navbar from "@/components/Shared/HomeNavbar/HomeNavbar";
 
 const layout = ({ children }) => {
   return (

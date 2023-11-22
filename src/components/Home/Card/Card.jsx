@@ -34,19 +34,28 @@ const Card = ({ products }) => {
             </div>
 
             <div className="flex items-center justify-between gap-2">
-              <img
-                src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F98%2Fconversions%2FGroup-14400-thumbnail.jpg&w=640&q=100"
-                alt=""
-                className="w-8 h-8 rounded-full"
-              />
+              <div className="flex items-center gap-2">
+                <img
+                  src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F98%2Fconversions%2FGroup-14400-thumbnail.jpg&w=640&q=100"
+                  alt=""
+                  className="w-8 h-8 rounded-full"
+                />
 
-              <div className="space-y-1 text-sm">
-                <h1 className="font-medium line-clamp-1">{product?.name}</h1>
-                <p className="text-dark-100">Waresun</p>
+                <div className="space-y-1 text-sm">
+                  <h1 className="font-medium line-clamp-1">{product?.name}</h1>
+                  <p className="text-dark-100">Waresun</p>
+                </div>
               </div>
-              <p className="px-2 py-1 text-xs text-white rounded-full bg-dark-200">
-                {product?.price}
-              </p>
+              <div>
+                <p className="px-2 py-1 space-x-0.5 text-xs text-white rounded-full bg-dark-200">
+                  <span className="text-sm">&#2547;</span>
+                  <span>{product?.price}</span>
+                </p>
+                <p className="px-2 py-1 space-x-0.5 text-xs text-white line-through rounded-full">
+                  <span className="text-sm">&#2547;</span>
+                  <span>{product?.price}</span>
+                </p>
+              </div>
             </div>
           </div>
         ))}
@@ -54,7 +63,7 @@ const Card = ({ products }) => {
 
       {/* load more button */}
       <div className="flex justify-center my-12">
-        <button className="px-8 py-4 text-sm font-semibold transition-all rounded-md bg-primary dark:text-white hover:bg-primarySec active:scale-95">
+        <button className="px-6 py-2 font-medium transition-all rounded bg-primary dark:text-white hover:bg-primarySec active:scale-95">
           Load More
         </button>
       </div>
