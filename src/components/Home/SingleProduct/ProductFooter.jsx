@@ -1,15 +1,27 @@
 "use client";
 
+import AllStateContext from "@/context/AllStateContext";
 import { AddToCart, GetDataCart } from "@/utils/addToCart/AddToCart";
 import { addToCart } from "@/utils/api/user";
 import api from "@/utils/axios";
-import React from "react";
+import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { IoMdDownload } from "react-icons/io";
-export default function ProductFooter() {
-  const data = { id: "65505ac851bb3ddefa917875", quantity: 25 };
-
+export default function ProductFooter({ productById }) {
+  const { FindUser } = useContext(AllStateContext);
+  const {
+    name,
+    slug,
+    categories,
+    tags,
+    layout,
+    description,
+    price,
+    status,
+    _id,
+  } = productById;
+  const data = { userId: FindUser?._id, items: [{ id: _id, quantity: 1 }] };
   /* (async () => {
     const cartData = await GetDataCart();
     const data = {
@@ -22,11 +34,11 @@ export default function ProductFooter() {
     );
     addToCart(data);
   })(); */
-
+  
   const handelCart = async (cart) => {
-    await AddToCart(cart);
+    // await AddToCart(cart);
+    await addToCart(cart);
     toast.success("product added on the cart");
-
   };
 
   return (
@@ -34,9 +46,7 @@ export default function ProductFooter() {
       <div className="lg:flex justify-between">
         <div>
           <div className="flex ">
-            <h1 className="dark:text-white font-bold text-lg">
-              Shoppie UI Kit PSD Ecommerce Design Template
-            </h1>
+            <h1 className="dark:text-white font-bold text-lg">{name}</h1>
             <AiOutlineHeart className="text-2xl mt-1 ml-3" />
           </div>
 
@@ -47,17 +57,20 @@ export default function ProductFooter() {
                 alt=""
                 className="w-7 h-7  rounded-full"
               />
-              Qubitron Solutions
+              Waresun
             </div>
             <div className="flex gap-5">
-            <div className="flex items-center gap-2">
-              <AiOutlineShoppingCart className=" text-lg" />0 Sales
+              <div className="flex items-center gap-2">
+                <AiOutlineShoppingCart className=" text-lg" />0 Sales
+              </div>
+              <div className="flex items-center gap-2 ">
+                <IoMdDownload className=" text-lg" />0 Download
+              </div>
+              <div className="flex items-center gap-2 ">
+                <span>&#x9F3; </span>
+                {price} Price
+              </div>
             </div>
-            <div className="flex items-center gap-2 ">
-              <IoMdDownload className=" text-lg" />0 Download
-            </div>
-            </div>
-           
           </div>
         </div>
         <div className="items-center flex gap-1 sm:mt-3 lg:mt-0">

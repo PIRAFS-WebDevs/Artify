@@ -16,7 +16,7 @@ export const getUser = async (text) => {
     const res = await fetch(
       `http://localhost:5000/api/v1/auth/admin/user/all-user/?text=${text}`,
       {
-       cache: 'no-cache'
+        cache: "no-cache",
       }
     );
     return res.json();
@@ -52,6 +52,15 @@ export const addToCart = async (data) => {
     const res = await api.post("/user/cart", data);
 
     return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const getFromCart = async (params) => {
+  try {
+    const res = await api.get(`/user/get-cart/${params}`);
+
+    return res.data.data.item;
   } catch (error) {
     console.error(error);
   }

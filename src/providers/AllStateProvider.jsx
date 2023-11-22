@@ -17,7 +17,7 @@ const AllStateProvider = ({ children }) => {
     if (user?.email) {
       (async () => {
         const data = await getUserByEmail(user?.email);
-        setFindUser(data.data);
+        setFindUser(data?.data);
       })();
     }
   }, [user]);

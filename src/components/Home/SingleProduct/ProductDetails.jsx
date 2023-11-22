@@ -2,12 +2,12 @@ import ProductInfo from "./ProductInfo";
 import Ratings from "./Ratings";
 import ShareBtn from "./ShareBtn";
 
-const ProductDetails = ({description}) => {
+const ProductDetails = ({productById}) => {
   return (
     <section className="w-full xl:flex mb-4 lg:grid">
       <div className="lg:w-[55%] ">
         <p className="mb-8  ">
-          {description}
+          {productById?.description}
         </p>
         
         <div className="md:flex gap-5 text-center items-center">
@@ -17,7 +17,7 @@ const ProductDetails = ({description}) => {
         <Ratings />
       </div>
       <div className="xl:w-[45%] pl-16 ">
-        <ProductInfo />
+        <ProductInfo  productById={productById}/>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ const Navbar = () => {
     if (user?.email) {
       (async () => {
         const data = await getUserByEmail(user?.email);
-        setFindUser(data.data);
+        setFindUser(data?.data);
       })();
     } else {
       console.log("no email found");
