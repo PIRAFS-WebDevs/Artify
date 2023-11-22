@@ -3,7 +3,24 @@ import api from "../axios";
 // save product into database
 export const saveProduct = async (data) => {
   try {
-    const res = await api.post("/admin/product/create-product", data);
+    let formData = new FormData();
+    console.log(data)
+    // Append text data
+   Object.entries(data).forEach(([key, value]) => {
+      if (key === 'images') {
+        console.log("11")
+        // Append each image file
+        value.forEach((image, index) => {
+          formData.append(`images`, image);
+          console.log(formData)
+        });
+      } else {
+        console.log(value)
+        formData.append(key, value);
+      }
+    });
+    console.log("hello ",formData)
+    const res = await api.post("/admin/product/create-product", formData);
     return res;
   } catch (error) {
     console.error(error.message);
