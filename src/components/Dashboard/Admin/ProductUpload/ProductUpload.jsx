@@ -24,8 +24,7 @@ const ProductUpload = () => {
 
   const formHandler = (data) => {
     const productData = {
-      featuredImage,
-      galleryImage,
+      images: [featuredImage, ...galleryImage],
       categories: selectedCategories,
       tags: selectedTags,
       ...data,

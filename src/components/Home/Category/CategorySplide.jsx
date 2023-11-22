@@ -53,7 +53,7 @@ const CategorySplide = () => {
         <div className="mx-2">
           <Splide
             options={{
-              perPage: 10,
+              perPage: 12,
               gap: 8,
               autoWidth: true,
               pagination: false,
