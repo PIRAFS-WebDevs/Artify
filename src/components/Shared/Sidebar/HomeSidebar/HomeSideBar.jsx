@@ -29,8 +29,7 @@ const HomeSideBar = () => {
       </aside>
 
       {/* mobile view */}
-
-      <aside
+      {/* <aside
         className={`${
           mobileView
             ? "right-0 w-[240px] min-h-screen md:hidden z-20 dark:bg-dark-400 fixed"
@@ -46,7 +45,7 @@ const HomeSideBar = () => {
             />
           </div>
         ))}
-      </aside>
+      </aside> */}
     </>
   );
 };

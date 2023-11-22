@@ -13,6 +13,7 @@ import { getUserByEmail } from "@/utils/api/user";
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaShoppingBag } from "react-icons/fa";
 import SearchButton from "./SearchButton";
+import MobileNavbar from "./MobileNavbar";
 
 const HomeNavbar = () => {
   const [FindUser, setFindUser] = useState([]);
@@ -127,6 +128,9 @@ const HomeNavbar = () => {
         >
           <AiOutlineMenu size={"1.5rem"} />
         </button>
+
+        {/* mobile nav */}
+        <MobileNavbar mobileView={mobileView} setMobileView={setMobileView} />
       </div>
     </nav>
   );
