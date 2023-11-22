@@ -48,12 +48,12 @@ const CategorySplide = () => {
   };
 
   return (
-    <div className="z-40 bg-dark-500 sticky inset-x-0 top-[72px] border-y border-dark-300">
+    <div className="sticky inset-x-0 z-40 bg-dark-500 top-20 border-y border-dark-400">
       <div className="relative py-6">
         <div className="mx-2">
           <Splide
             options={{
-              perPage: 12,
+              perPage: 10,
               gap: 8,
               autoWidth: true,
               pagination: false,
