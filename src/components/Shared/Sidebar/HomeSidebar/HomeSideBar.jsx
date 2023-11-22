@@ -13,8 +13,8 @@ const HomeSideBar = () => {
       <aside
         className={`${
           !sideBarOpen
-            ? "md:w-16 hidden md:block min-h-screen z-40 dark:bg-dark-400 fixed"
-            : "md:w-[240px] hidden md:block min-h-screen z-40 dark:bg-dark-400 fixed"
+            ? "md:max-w-fit hidden md:block min-h-screen z-40 dark:bg-dark-400 fixed overflow-y-auto"
+            : "md:w-[240px] hidden md:block min-h-screen z-40 dark:bg-dark-400 fixed overflow-y-auto"
         } `}
       >
         {homeSidebarData.map((data, index) => (
@@ -29,7 +29,6 @@ const HomeSideBar = () => {
       </aside>
 
       {/* mobile view */}
-
       {/* <aside
         className={`${
           mobileView
@@ -37,7 +36,15 @@ const HomeSideBar = () => {
             : "hidden "
         }  `}
       >
-        <TopSideBar />
+        {homeSidebarData.map((data, index) => (
+          <div key={index}>
+            <HomeSidebarLink
+              href={data.path}
+              icon={data.icon}
+              title={data.title}
+            />
+          </div>
+        ))}
       </aside> */}
     </>
   );

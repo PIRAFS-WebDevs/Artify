@@ -1,13 +1,10 @@
 import AllStateContext from "@/context/AllStateContext";
-import ClassNames from "@/utils/ClassNames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 
 const HomeSidebarLink = ({ href, title, icon }) => {
-  const { sideBarOpen, setSideBarOpen, mobileView } =
-    useContext(AllStateContext);
-
+  const { sideBarOpen, mobileView } = useContext(AllStateContext);
   const path = usePathname();
 
   return (
@@ -18,9 +15,16 @@ const HomeSidebarLink = ({ href, title, icon }) => {
     >
       <Link href={href}>
         <div
-          className={`w-full py-4 flex gap-5 pl-6 group items-center justify-normal`}
+          className={`w-full py-4 flex gap-4 ${
+            sideBarOpen ? "justify-start" : "justify-center"
+          } items-center px-6`}
         >
           <span>{icon}</span>
+
+          {/* {sideBarOpen && (
+            <span className="hidden text-sm md:inline-block">{title}</span>
+          )} */}
+
           <span
             className={`${
               sideBarOpen ? "text-sm hidden md:inline-block" : "hidden"
@@ -31,7 +35,7 @@ const HomeSidebarLink = ({ href, title, icon }) => {
           <span
             className={`${
               mobileView ? "text-sm inline-block md:hidden" : "hidden"
-            } `}
+            }`}
           >
             {title}
           </span>

@@ -13,6 +13,7 @@ import { getUserByEmail } from "@/utils/api/user";
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
 import { FaMoon, FaShoppingBag } from "react-icons/fa";
 import SearchButton from "./SearchButton";
+import MobileNavbar from "./MobileNavbar";
 
 const HomeNavbar = () => {
   const [FindUser, setFindUser] = useState([]);
@@ -37,7 +38,7 @@ const HomeNavbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">
-      <div className="flex items-center justify-between px-6 py-4">
+      <div className="flex items-center justify-between h-20 px-6">
         <div className="flex items-center md:gap-6">
           <button
             onClick={() => {
@@ -127,6 +128,9 @@ const HomeNavbar = () => {
         >
           <AiOutlineMenu size={"1.5rem"} />
         </button>
+
+        {/* mobile nav */}
+        <MobileNavbar mobileView={mobileView} setMobileView={setMobileView} />
       </div>
     </nav>
   );
