@@ -31,7 +31,7 @@ const ProductUpload = () => {
     };
 
     saveProduct(productData);
-    console.table(productData);
+    //console.table(productData);
   };
 
   return (
