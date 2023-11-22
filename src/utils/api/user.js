@@ -16,9 +16,7 @@ export const getUser = async (text) => {
     const res = await fetch(
       `http://localhost:5000/api/v1/auth/admin/user/all-user/?text=${text}`,
       {
-        next: {
-          revalidate: 10,
-        },
+       cache: 'no-cache'
       }
     );
     return res.json();
