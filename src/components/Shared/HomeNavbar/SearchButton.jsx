@@ -12,7 +12,7 @@ const SearchButton = () => {
       <button onClick={() => setSearchShow(true)}>
         <AiOutlineSearch
           size={"1.5rem"}
-          className="hidden cursor-pointer md:block"
+          className="hidden cursor-pointer md:block hover:text-white"
         />
       </button>
 

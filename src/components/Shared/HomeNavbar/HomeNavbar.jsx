@@ -11,12 +11,16 @@ import { getUserByEmail } from "@/utils/api/user";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
-import { FaMoon, FaShoppingBag } from "react-icons/fa";
+import { FaMoon, FaShoppingBag, FaSun } from "react-icons/fa";
 import SearchButton from "./SearchButton";
 import MobileNavbar from "./MobileNavbar";
+import { HiOutlineMenu, HiOutlineMenuAlt1 } from "react-icons/hi";
+import { LuSun } from "react-icons/lu";
+import { BsSunFill } from "react-icons/bs";
 
 const HomeNavbar = () => {
   const [FindUser, setFindUser] = useState([]);
+  const [dark, setDark] = useState(true);
 
   const {
     sideBarOpen,
@@ -45,11 +49,19 @@ const HomeNavbar = () => {
               setSideBarOpen(!sideBarOpen);
             }}
           >
-            <AiOutlineMenu
-              className="hidden cursor-pointer md:block"
-              size={"1.5rem"}
-            />
+            {sideBarOpen ? (
+              <HiOutlineMenu
+                className="hidden cursor-pointer md:block hover:text-white"
+                size={"1.5rem"}
+              />
+            ) : (
+              <HiOutlineMenuAlt1
+                className="hidden cursor-pointer md:block hover:text-white"
+                size={"1.5rem"}
+              />
+            )}
           </button>
+
           <Link href={"/"}>
             <Image
               src="/assets/logo/waresun.png"
@@ -66,13 +78,17 @@ const HomeNavbar = () => {
           {/* search button */}
           <SearchButton />
 
+          <button className="hover:text-white" onClick={() => setDark(!dark)}>
+            {dark ? <FaMoon size={"1.2rem"} /> : <BsSunFill size={"1.2rem"} />}
+          </button>
+
           {/* <button>
-            <FaMoon size={"1.2rem"} />
+            <FaSun size={"1.2rem"} />
           </button> */}
 
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
-              <FaShoppingBag size={"1.2rem"} />
+              <FaShoppingBag size={"1.2rem"} className="hover:text-white" />
               <span className="absolute px-1 text-sm rounded-full dark:text-white -top-2 -right-2 bg-primary">
                 0
               </span>
@@ -82,21 +98,21 @@ const HomeNavbar = () => {
           {!user ? (
             <Link
               href={"/register"}
-              className="hidden px-6 py-2 text-sm transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Register
             </Link>
           ) : FindUser?.role === "admin" ? (
             <Link
               href={"/dashboard/admin"}
-              className="hidden px-6 py-2 text-sm font-medium transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>
           ) : (
             <Link
               href={"/dashboard/user"}
-              className="hidden px-6 py-2 transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>

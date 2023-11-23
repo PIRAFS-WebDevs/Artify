@@ -9,7 +9,7 @@ const Explore = () => {
       {/* <BannerSlider /> */}
       <BannerSplide />
       <CategorySplide />
-      <Card />
+      {/* <Card /> */}
     </>
   );
 };

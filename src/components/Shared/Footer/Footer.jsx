@@ -7,7 +7,7 @@ import { BsYoutube } from "react-icons/bs";
 const Footer = () => {
   return (
     <div className="p-6 text-sm">
-      <div className="grid gap-6 pb-6 border-b lg:grid-cols-2 xl:grid-cols-4 border-dark-200">
+      <div className="grid gap-6 pb-6 lg:grid-cols-2 xl:grid-cols-4">
         {footerData.map((categoryObj, index) => (
           <div key={index} className=" dark:text-dark-100">
             {Object.keys(categoryObj).map((categoryName, categoryIndex) => (
@@ -40,17 +40,16 @@ const Footer = () => {
             <BsYoutube className="cursor-pointer hover:text-red-700" />
           </div>
         </div>
-      </div>
-      <div className="flex flex-col justify-between gap-2 pt-6 text-xs lg:flex-row dark:text-dark-100 mb-[60px] md:mb-0">
-        <div className="flex flex-col gap-2 lg:items-center lg:flex-row">
+        <div className="border-t col-span-full border-dark-400"></div>
+        <div className="flex flex-col col-start-1 gap-2 px-3 xl:col-span-2 text-dark-100 lg:items-center lg:flex-row">
           <img src="/assets/logo/waresun.png" alt="logo" className="w-32" />
           <p>© The waresun Limited. 2017-2023</p>
         </div>
-        <div className="flex items-center gap-2">
-          <button>Refunds</button>
-          <button>Memberships</button>
-          <button>Payment</button>
-          <button>Authorized</button>
+        <div className="flex items-center gap-2 px-3 xl:col-start-4 text-dark-100 mb-[50px] md:mb-0">
+          <button className="hover:text-white">Refunds</button>
+          <button className="hover:text-white">Memberships</button>
+          <button className="hover:text-white">Payment</button>
+          <button className="hover:text-white">Authorized</button>
         </div>
       </div>
     </div>

@@ -2,21 +2,20 @@
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
-import { useState } from "react";
+// import { useState } from "react";
+// import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
 const BannerSplide = () => {
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
 
   return (
     <div className="relative py-6">
-      {/* <div className="flex gap-x-8"> */}
       <Splide
         options={{
           autoWidth: true,
           perPage: 2,
           gap: 16,
-          pagination: true,
+          pagination: false,
           arrows: true,
         }}
       >
@@ -28,7 +27,6 @@ const BannerSplide = () => {
           </SplideSlide>
         ))}
       </Splide>
-      {/* </div> */}
 
       {/* {index > 0 && (
         <button onClick={() => setIndex(index - 1)}>

@@ -12,7 +12,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 grid overflow-y-auto scrollbar place-items-center"
+          className="fixed inset-0 z-50 grid min-h-screen overflow-y-auto scrollbar place-items-center"
         >
           <m.div
             initial={{ scale: 0 }}
