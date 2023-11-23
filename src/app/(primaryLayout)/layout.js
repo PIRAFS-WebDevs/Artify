@@ -10,7 +10,7 @@ import HomeSideBar from "@/components/Shared/Sidebar/HomeSidebar/HomeSideBar";
 const layout = ({ children }) => {
   const { sideBarOpen, isShow, setIsShow } = useContext(AllStateContext);
   return (
-    <main className="relative min-h-screen dark:bg-dark-500 ">
+    <main className="relative min-h-screen scrollbar dark:bg-dark-500 ">
       <HomeNavbar />
       <HomeSideBar />
       <section
@@ -18,7 +18,7 @@ const layout = ({ children }) => {
           !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
         }`}
       >
-        <div className="px-6">{children}</div>
+        <div className="px-6 min-h-min">{children}</div>
         <ProductModal isShow={isShow} setIsShow={setIsShow} />
         <Footer />
         <Cart />

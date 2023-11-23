@@ -3,7 +3,7 @@ import MarketplaceHeader from "@/components/Marketplace/MarketplaceHeader";
 
 const Marketplace = () => {
   return (
-    <div className="p-8 space-y-8">
+    <div className="py-6 space-y-6">
       <MarketplaceHeader />
 
       <MarketplaceCard />

@@ -52,11 +52,9 @@ const UserDropdown = () => {
           </p>
         )
       ) : (
-        <FaUserCircle
-          onClick={() => setOpen((pv) => !pv)}
-          size={"1.5rem"}
-          className="cursor-pointer"
-        />
+        <button className="cursor-pointer hover:text-white">
+          <FaUserCircle onClick={() => setOpen((pv) => !pv)} size={"1.5rem"} />
+        </button>
       )}
 
       <motion.ul

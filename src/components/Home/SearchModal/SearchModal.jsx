@@ -12,28 +12,29 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 grid min-h-screen overflow-y-auto scrollbar place-items-center"
+          className="fixed inset-0 z-50 min-h-screen overflow-y-auto scroll-none"
         >
           <m.div
-            initial={{ scale: 0 }}
+            initial={{ opacity: 0 }}
             animate={{
-              scale: 1,
+              opacity: 1,
               transition: {
                 duration: 0.3,
+                ease: "easeInOut",
               },
             }}
-            exit={{ scale: 0 }}
+            exit={{ opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="min-w-full p-6 rounded-lg shadow-xl cursor-default dark:bg-dark-400 dark:text-white"
+            className="min-w-full p-8 rounded-lg shadow-xl cursor-default dark:bg-dark-400 dark:text-white"
           >
             <div className="space-y-4">
-              <div className="px-8">
-                <button
-                  onClick={() => setSearchShow(false)}
-                  className="grid w-full h-8 text-xl place-items-end"
-                >
-                  <AiOutlineClose className="text-dark-100" />
-                </button>
+              <div className="">
+                <div className="grid w-full h-8 text-xl place-items-end">
+                  <AiOutlineClose
+                    onClick={() => setSearchShow(false)}
+                    className="inline-block cursor-pointer text-dark-100 hover:text-white"
+                  />
+                </div>
                 <div className="w-full pb-4 border-b border-dark-200 focus:border-dark-100">
                   <input
                     autoFocus
@@ -44,9 +45,8 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
                 </div>
               </div>
 
-              <div className="p-2">
-                <Card />
-              </div>
+              {/* card */}
+              <Card />
             </div>
           </m.div>
         </m.div>

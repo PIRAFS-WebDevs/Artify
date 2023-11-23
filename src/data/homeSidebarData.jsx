@@ -44,7 +44,7 @@ const homeSidebarData = [
   },
   {
     title: "Feed",
-    path: "/feed.",
+    path: "/feed",
     icon: <MdFeedback />,
   },
   {

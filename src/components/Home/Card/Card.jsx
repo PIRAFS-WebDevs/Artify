@@ -2,9 +2,9 @@ import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import { getProducts } from "@/utils/api/product";
 import Link from "next/link";
-import products from "@/data/ProductData"
+import products from "@/data/ProductData";
 
-const Card = async () => {
+const Card = () => {
   // const products = await getProducts();
   // console.log(products)
   return (
@@ -67,7 +67,7 @@ const Card = async () => {
 
       {/* load more button */}
       <div className="flex justify-center my-12">
-        <button className="px-6 py-2 font-medium transition-all rounded bg-primary dark:text-white hover:bg-primarySec active:scale-95">
+        <button className="px-6 py-2 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
           Load More
         </button>
       </div>

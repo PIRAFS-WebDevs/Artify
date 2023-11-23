@@ -1,9 +1,9 @@
 const RegisterShape = () => {
   return (
-    <div className="lg:flex flex-col gap-40 hidden">
-      <div className="flex justify-between items-center">
+    <div className="flex-col hidden gap-40 lg:flex">
+      <div className="flex items-center justify-between">
         <svg
-          className="w-40 -ml-32"
+          className="-ml-20 w-28"
           tabIndex=""
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 580 580"
@@ -34,18 +34,18 @@ const RegisterShape = () => {
         />
       </div>
 
-      <div className="flex gap-4 items-center">
+      <div className="flex items-center gap-4">
         <img
           className="w-20 -ml-10"
           src="/assets/images/shape/shape6.png"
           alt=""
         />
-        <h1 className="text-6xl font-extralight dark:text-white tracking-wide">
+        <h1 className="text-5xl tracking-wide font-extralight dark:text-white">
           Great to have you back!
         </h1>
       </div>
 
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <svg
           className="w-20 rotate-45"
           tabIndex=""

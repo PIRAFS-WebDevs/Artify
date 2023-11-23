@@ -3,6 +3,7 @@ import { FaFacebook, FaPinterest } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { BsYoutube } from "react-icons/bs";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -21,7 +22,9 @@ const Footer = () => {
                       key={subIndex}
                       className="cursor-pointer first:mt-2 hover:dark:text-white"
                     >
-                      {subcategory.name}
+                      <Link href={`${subcategory.path}`}>
+                        {subcategory.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -45,7 +48,7 @@ const Footer = () => {
           <img src="/assets/logo/waresun.png" alt="logo" className="w-32" />
           <p>© The waresun Limited. 2017-2023</p>
         </div>
-        <div className="flex items-center gap-2 px-3 xl:col-start-4 text-dark-100 mb-[50px] md:mb-0">
+        <div className="flex flex-wrap items-center gap-2 px-3 xl:col-start-4 text-dark-100 mb-[50px] md:mb-0">
           <button className="hover:text-white">Refunds</button>
           <button className="hover:text-white">Memberships</button>
           <button className="hover:text-white">Payment</button>

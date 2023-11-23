@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scroll-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  /* .scroll-none {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  } */
   .progressGreen::-webkit-progress-value {
     background-color: #999999; /* Change the progress bar color */
   }

@@ -98,21 +98,14 @@ const HomeNavbar = () => {
           {!user ? (
             <Link
               href={"/register"}
-              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Register
             </Link>
-          ) : FindUser?.role === "admin" ? (
-            <Link
-              href={"/dashboard/admin"}
-              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
-            >
-              Dashboard
-            </Link>
           ) : (
             <Link
-              href={"/dashboard/user"}
-              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded-md dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              href={"/dashboard/admin"}
+              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>
