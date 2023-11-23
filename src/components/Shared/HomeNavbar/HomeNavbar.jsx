@@ -8,27 +8,20 @@ import AllStateContext from "@/context/AllStateContext";
 import AuthContext from "@/context/AuthContext";
 import UserDropdown from "./UserDropdown";
 import { getUserByEmail } from "@/utils/api/user";
+import SearchButton from "./SearchButton";
+import MobileNavbar from "./MobileNavbar";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
-import { FaMoon, FaShoppingBag, FaSun } from "react-icons/fa";
-import SearchButton from "./SearchButton";
-import MobileNavbar from "./MobileNavbar";
-import { HiOutlineMenu, HiOutlineMenuAlt1 } from "react-icons/hi";
-import { LuSun } from "react-icons/lu";
+import { FaMoon, FaShoppingBag } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs";
 
 const HomeNavbar = () => {
   const [FindUser, setFindUser] = useState([]);
   const [dark, setDark] = useState(true);
 
-  const {
-    sideBarOpen,
-    setSideBarOpen,
-    mobileView,
-    setMobileView,
-    setCartOpen,
-  } = useContext(AllStateContext);
+  const { mobileView, setMobileView, setCartOpen } =
+    useContext(AllStateContext);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -41,35 +34,17 @@ const HomeNavbar = () => {
   }, [user]);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">
+    <nav className="sticky inset-x-0 top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">
       <div className="flex items-center justify-between h-20 px-6">
         <div className="flex items-center md:gap-6">
-          <button
-            onClick={() => {
-              setSideBarOpen(!sideBarOpen);
-            }}
-          >
-            {sideBarOpen ? (
-              <HiOutlineMenu
-                className="hidden cursor-pointer md:block hover:text-white"
-                size={"1.5rem"}
-              />
-            ) : (
-              <HiOutlineMenuAlt1
-                className="hidden cursor-pointer md:block hover:text-white"
-                size={"1.5rem"}
-              />
-            )}
-          </button>
-
-          <Link href={"/"}>
+          <Link href={"/"} className={`md:ml-10`}>
             <Image
               src="/assets/logo/waresun.png"
               height={50}
               width={80}
               priority={true}
               alt="logo"
-              className="w-auto h-auto"
+              className={`w-28`}
             />
           </Link>
         </div>
@@ -81,10 +56,6 @@ const HomeNavbar = () => {
           <button className="hover:text-white" onClick={() => setDark(!dark)}>
             {dark ? <FaMoon size={"1.2rem"} /> : <BsSunFill size={"1.2rem"} />}
           </button>
-
-          {/* <button>
-            <FaSun size={"1.2rem"} />
-          </button> */}
 
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
@@ -138,7 +109,7 @@ const HomeNavbar = () => {
           <AiOutlineMenu size={"1.5rem"} />
         </button>
 
-        {/* mobile nav */}
+        {/* mobile sidebar */}
         <MobileNavbar mobileView={mobileView} setMobileView={setMobileView} />
       </div>
     </nav>

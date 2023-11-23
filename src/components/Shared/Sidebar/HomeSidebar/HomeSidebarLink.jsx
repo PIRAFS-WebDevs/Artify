@@ -4,7 +4,8 @@ import { usePathname } from "next/navigation";
 import { useContext } from "react";
 
 const HomeSidebarLink = ({ href, title, icon }) => {
-  const { sideBarOpen, mobileView } = useContext(AllStateContext);
+  const { sideBarOpen, mobileView, setMobileView } =
+    useContext(AllStateContext);
   const path = usePathname();
 
   return (
@@ -13,17 +14,13 @@ const HomeSidebarLink = ({ href, title, icon }) => {
         path === href ? "text-white bg-dark-200" : "text-dark-100"
       }`}
     >
-      <Link href={href}>
+      <Link onClick={() => setMobileView(false)} href={href}>
         <div
           className={`w-full py-4 flex gap-4 ${
-            sideBarOpen ? "justify-start" : "justify-center"
+            sideBarOpen && "justify-start"
           } items-center px-6`}
         >
           <span>{icon}</span>
-
-          {/* {sideBarOpen && (
-            <span className="hidden text-sm md:inline-block">{title}</span>
-          )} */}
 
           <span
             className={`${

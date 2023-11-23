@@ -8,11 +8,13 @@ const AllStateProvider = ({ children }) => {
   const [adminBarOpen, setAdminBarOpen] = useState(false);
   const [mobileView, setMobileView] = useState(false);
   const [isShow, setIsShow] = useState(false);
+  const [searchShow, setSearchShow] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
   const [isDelOpen, setDelOpen] = useState(false);
   const [FindUser, setFindUser] = useState([]);
   const { user } = useContext(AuthContext);
+
   useEffect(() => {
     if (user?.email) {
       (async () => {
@@ -21,6 +23,7 @@ const AllStateProvider = ({ children }) => {
       })();
     }
   }, [user]);
+
   const value = {
     sideBarOpen,
     setSideBarOpen,
@@ -35,6 +38,8 @@ const AllStateProvider = ({ children }) => {
     isDelOpen,
     setDelOpen,
     FindUser,
+    searchShow,
+    setSearchShow,
   };
 
   return (

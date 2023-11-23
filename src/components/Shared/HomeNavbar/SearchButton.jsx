@@ -1,11 +1,12 @@
 "use client";
 
 import SearchModal from "@/components/Home/SearchModal/SearchModal";
-import React, { useState } from "react";
+import AllStateContext from "@/context/AllStateContext";
+import React, { useContext } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const SearchButton = () => {
-  const [searchShow, setSearchShow] = useState(false);
+  const { setSearchShow } = useContext(AllStateContext);
 
   return (
     <>
@@ -15,9 +16,6 @@ const SearchButton = () => {
           className="hidden cursor-pointer md:block hover:text-white"
         />
       </button>
-
-      {/* search modal */}
-      <SearchModal setSearchShow={setSearchShow} searchShow={searchShow} />
     </>
   );
 };
