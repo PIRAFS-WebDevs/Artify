@@ -22,12 +22,12 @@ const layout = ({ children }) => {
         }`}
       >
         <div className="px-6 min-h-min">{children}</div>
+
+        {/* product modal */}
         <ProductModal isShow={isShow} setIsShow={setIsShow} />
 
-        <div className="z-[80]">
-          {/* search modal */}
-          <SearchModal setSearchShow={setSearchShow} searchShow={searchShow} />
-        </div>
+        {/* search modal */}
+        <SearchModal setSearchShow={setSearchShow} searchShow={searchShow} />
 
         <Footer />
         <Cart />

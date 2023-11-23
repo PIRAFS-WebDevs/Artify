@@ -15,7 +15,7 @@ const CurrentTags = () => {
         <SharedComp
           type={"Tags"}
           AddType={"Add Tags"}
-          link={"/dashboard/admin/tags/create-tags"}
+          link={"/dashboard/admin/tags/upload"}
         />
         <div className="p-5 mt-5 mb-5 text-center border rounded dark:bg-dark-400 dark:border-dark-300">
           <table className="w-full ">

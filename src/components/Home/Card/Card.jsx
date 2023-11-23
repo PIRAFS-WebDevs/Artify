@@ -13,7 +13,7 @@ const Card = ({ products }) => {
           >
             <div className="relative flex w-full group">
               <img
-                src={product?.image[0]}
+                src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F781%2Fimage30.png&w=2048&q=75"
                 alt=""
                 className="object-fill w-full h-full"
               />

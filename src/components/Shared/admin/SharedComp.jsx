@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
@@ -31,11 +33,11 @@ const SharedComp = ({ type, AddType, link, search, SetSearchText, filter }) => {
   return (
     <div className=" md:min-h-[96px] dark:border-dark-300   rounded  border dark:bg-dark-400 w-full md:mb-0">
       <div className=" md:min-h-[96px]  py-5 md:py-0 md:flex px-5  justify-center items-center ">
-        <div className="md:w-1/2 mb-5 md:mb-0 ">
+        <div className="mb-5 md:w-1/2 md:mb-0 ">
           <p className="text-xl text-center md:text-start">{type && type}</p>
         </div>
-        <form className=" md:w-1/2  ">
-          <div className="md:flex gap-1 items-center justify-between">
+        <form className=" md:w-1/2">
+          <div className="items-center justify-between gap-1 md:flex">
             <div
               className={`${search ? " relative mb-5 md:mb-0" : "invisible"} ${
                 link ? "md:w-8/12" : "md:w-full"
@@ -45,14 +47,14 @@ const SharedComp = ({ type, AddType, link, search, SetSearchText, filter }) => {
               <input
                 type="text"
                 onChange={handelSearchText}
-                className="bg-transparent h-14 w-full px-12 rounded dark:text-white border focus:outline-dark-300 "
+                className="w-full px-12 bg-transparent border rounded h-14 dark:text-white focus:outline-dark-300 "
                 name="search"
                 id="search"
               />
             </div>
 
             <Link className={link || "hidden"} href={link ? link : ""}>
-              <button className="h-14 md:w-auto w-full  px-7 bg-primary rounded font-semibold">
+              <button className="w-full font-semibold rounded h-14 md:w-auto px-7 bg-primary">
                 + {AddType}
               </button>
             </Link>
