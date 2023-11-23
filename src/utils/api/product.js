@@ -27,24 +27,25 @@ export const saveProduct = async (data) => {
   }
 };
 
-// export const getProducts = async (text) => {
-//   try {
-//     const res = await fetch(
-//       text
-//         ? `http://localhost:5000/api/v1/auth/admin/product/all-product/?text=${text}`
-//         : "http://localhost:5000/api/v1/auth/admin/product/all-product/",
-//       { cache: "no-cache" }
-//     );
+export const getProducts = async (text) => {
+  try {
+    const res = await fetch(
+      text
+        ? `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/?text=${text}`
+        : `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/`,
+      { cache: "no-cache" }
+    );
 
-//     return res.json();
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// };
+    return res.json();
+  } catch (error) {
+    console.error(error.message);
+  }
+};
 
 export const getProductById = async (id) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/v1/auth/product/${id}`, {
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_BaseUrl}/product/${id}`, {
+    const res = await fetch(`https://waresun-server.vercel.app/api/v1/auth/product/${id}`, {
       cache: "force-cache",
     });
 

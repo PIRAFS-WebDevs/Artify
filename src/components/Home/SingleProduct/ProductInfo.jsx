@@ -12,8 +12,7 @@ const ProductInfo = ({ productById }) => {
     "Retail",
     " WooCommerce",
   ]; */
-  console.log(productById);
-  const { tags, layout} = productById;
+  const { tags, layout, createdAt, updatedAt } = productById;
  
   return (
     <section className="space-y-4">
@@ -22,14 +21,14 @@ const ProductInfo = ({ productById }) => {
           <span className="flex items-center gap-5 ">
             <RxUpdate className="dark:text-dark-100 h-5 w-5" /> Last Update:
           </span>
-          <span className="font-semibold dark:text-white"></span>
+          <span className="font-semibold dark:text-white">{updatedAt}</span>
         </div>
         <div className="flex gap-14 py-2.5">
           <span className="flex items-center gap-5 ">
             <MdOutlineDateRange className="dark:text-dark-100 h-5 w-5" />
             Published:
           </span>
-          <span className="font-semibold dark:text-white"></span>
+          <span className="font-semibold dark:text-white">{createdAt}</span>
         </div>
         <div className="flex gap-20">
           <span className="flex items-center gap-5 py-2.5 ">

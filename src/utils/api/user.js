@@ -14,7 +14,7 @@ export const saveUser = async (data) => {
 export const getUser = async (text) => {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/v1/auth/admin/user/all-user/?text=${text}`,
+      `${process.env.NEXT_PUBLIC_BaseUrl}/admin/user/all-user/?text=${text}`,
       {
         cache: "no-cache",
       }
@@ -38,9 +38,10 @@ export const setUserRole = async (_id, role) => {
 export const getUserByEmail = async (email) => {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/v1/auth/admin/user/single-user/${email}`,
+      `${process.env.NEXT_PUBLIC_BaseUrl}/admin/user/single-user/${email}`,
       { next: { revalidate: 3 } }
     );
+   
     return res.json();
   } catch (error) {
     console.error(error);
