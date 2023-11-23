@@ -2,21 +2,22 @@ import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import { getProducts } from "@/utils/api/product";
 import Link from "next/link";
+import products from "@/data/ProductData"
 
 const Card = async () => {
-  const products = await getProducts();
-
+  // const products = await getProducts();
+  // console.log(products)
   return (
     <>
       <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6">
-        {products?.products?.map((product) => (
+        {products?.map((product) => (
           <div
             key={product?._id}
             className="w-full col-span-1 space-y-2 min-h-fit dark:text-white"
           >
             <div className="relative flex w-full group">
               <img
-                src={product?.image[0]}
+                src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1905&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
                 className="object-fill w-full h-full"
               />

@@ -27,20 +27,20 @@ export const saveProduct = async (data) => {
   }
 };
 
-export const getProducts = async (text) => {
-  try {
-    const res = await fetch(
-      text
-        ? `http://localhost:5000/api/v1/auth/admin/product/all-product/?text=${text}`
-        : "http://localhost:5000/api/v1/auth/admin/product/all-product/",
-      { cache: "no-cache" }
-    );
+// export const getProducts = async (text) => {
+//   try {
+//     const res = await fetch(
+//       text
+//         ? `http://localhost:5000/api/v1/auth/admin/product/all-product/?text=${text}`
+//         : "http://localhost:5000/api/v1/auth/admin/product/all-product/",
+//       { cache: "no-cache" }
+//     );
 
-    return res.json();
-  } catch (error) {
-    console.error(error.message);
-  }
-};
+//     return res.json();
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// };
 
 export const getProductById = async (id) => {
   try {
