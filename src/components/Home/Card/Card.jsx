@@ -4,12 +4,13 @@ import Link from "next/link";
 import { getProducts } from "@/utils/api/product";
 import productData from "@/data/ProductData";
 
-const Card = () => {
+const Card = ({ products }) => {
   // const products = await getProducts();
+
   return (
     <>
       <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6 px-6">
-        {productData?.map((product) => (
+        {products?.map((product) => (
           <div
             key={product?._id}
             className="w-full col-span-1 space-y-2 min-h-fit dark:text-white"
@@ -66,7 +67,7 @@ const Card = () => {
 
       {/* load more button */}
       <div className="flex justify-center py-8">
-        <button className="px-6 py-2 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
+        <button className="px-6 py-3 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
           Load More
         </button>
       </div>

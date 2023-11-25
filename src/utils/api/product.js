@@ -4,22 +4,22 @@ import api from "../axios";
 export const saveProduct = async (data) => {
   try {
     let formData = new FormData();
-    console.log(data)
+    console.log(data);
     // Append text data
-   Object.entries(data).forEach(([key, value]) => {
-      if (key === 'images') {
-        console.log("11")
+    Object.entries(data).forEach(([key, value]) => {
+      if (key === "images") {
+        console.log("11");
         // Append each image file
         value.forEach((image, index) => {
           formData.append(`images`, image);
-          console.log(formData)
+          console.log(formData);
         });
       } else {
-        console.log(value)
+        console.log(value);
         formData.append(key, value);
       }
     });
-    console.log("hello ",formData)
+    console.log("hello ", formData);
     const res = await api.post("/admin/product/create-product", formData);
     return res;
   } catch (error) {
@@ -45,9 +45,12 @@ export const getProducts = async (text) => {
 export const getProductById = async (id) => {
   try {
     // const res = await fetch(`${process.env.NEXT_PUBLIC_BaseUrl}/product/${id}`, {
-    const res = await fetch(`https://waresun-server.vercel.app/api/v1/auth/product/${id}`, {
-      cache: "force-cache",
-    });
+    const res = await fetch(
+      `https://waresun-server.vercel.app/api/v1/auth/product/${id}`,
+      {
+        cache: "force-cache",
+      }
+    );
 
     return res.json();
   } catch (error) {

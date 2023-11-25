@@ -6,11 +6,10 @@ const Home = async () => {
   const products = await getProducts();
 
   return (
-    <section>
-      {/* <Category /> */}
+    <>
       <CategorySplide />
       <Card products={products?.products} />
-    </section>
+    </>
   );
 };
 

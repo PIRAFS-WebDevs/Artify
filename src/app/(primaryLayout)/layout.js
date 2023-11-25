@@ -13,7 +13,7 @@ const layout = ({ children }) => {
 
   return (
     <>
-      <main className="relative min-h-screen dark:bg-dark-500">
+      <main className="relative min-h-screen dark:bg-dark-500 scrollbar">
         <HomeNavbar />
         <HomeSideBar />
         <section
