@@ -3,42 +3,40 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 // import { useState } from "react";
-// import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
+import "./SplideArrow.css";
 
 const BannerSplide = () => {
   // const [index, setIndex] = useState(0);
 
   return (
-    <div className="relative px-6 py-6">
+    <div className="relative px-6 py-6" id="banner">
       <Splide
         options={{
-          autoWidth: true,
-          perPage: 2,
-          gap: 16,
+          // autoWidth: true,
+          perMove: 1,
+          perPage: 3,
+          gap: 20,
           pagination: false,
           arrows: true,
+          breakpoints: {
+            600: {
+              perPage: 1,
+            },
+            1024: {
+              perPage: 2,
+            },
+          },
         }}
       >
         {images.map((e, i) => (
           <SplideSlide key={i}>
             <div>
-              <img src={e} alt="" className="w-[600] h-[220px] object-cover" />
+              <img src={e} alt="" className="object-fill w-full h-full" />
             </div>
           </SplideSlide>
         ))}
       </Splide>
-
-      {/* {index > 0 && (
-        <button onClick={() => setIndex(index - 1)}>
-          <AiOutlineLeft className="absolute inset-y-0 left-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer bg-dark-400 hover:bg-dark-500" />
-        </button>
-      )}
-
-      {index + 1 < images.length && (
-        <button onClick={() => setIndex(index + 1)}>
-          <AiOutlineRight className="absolute inset-y-0 right-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer bg-dark-400 hover:bg-dark-500" />
-        </button>
-      )} */}
     </div>
   );
 };

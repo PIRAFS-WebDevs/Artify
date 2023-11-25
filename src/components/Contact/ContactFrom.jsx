@@ -11,7 +11,7 @@ const ContactFrom = () => {
   } = useForm();
 
   return (
-    <div className=" w-[60%] p-10 text-xs dark:bg-dark-350">
+    <div className=" w-[60%] p-10 text-xs dark:bg-dark-400">
       <form className="flex flex-col gap-4  ">
         <div className="grid grid-cols-2 gap-4">
           <div>

@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@firebase/app": "^0.9.23",
-    "@firebase/auth": "^1.4.0",
-    "@firebase/storage": "^0.11.2",
     "@splidejs/react-splide": "^0.7.12",
     "axios": "^1.6.0",
     "firebase": "^10.6.0",

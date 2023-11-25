@@ -39,7 +39,7 @@ const Login = ({ isShow, setIsShow }) => {
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="md:p-12 p-4 rounded-lg shadow-xl cursor-default w-full sm:w-[32rem] dark:bg-dark-350 dark:text-white"
+            className="md:p-12 p-4 rounded-lg shadow-xl cursor-default w-full sm:w-[32rem] dark:bg-dark-400 dark:text-white"
           >
             <div className="flex justify-end w-full">
               <CloseButton reset={reset} setIsShow={setIsShow} />

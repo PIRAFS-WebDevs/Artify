@@ -28,7 +28,7 @@ const MobileNavbar = ({ mobileView, setMobileView }) => {
             onClick={(e) => e.stopPropagation()}
             className={`${"w-full min-[400px]:w-[300px] min-h-screen dark:bg-dark-400 fixed right-0 top-0 z-[60] overflow-y-auto"} `}
           >
-            <div className="flex items-center justify-between w-full p-4 mb-2 bg-dark-300">
+            <div className="flex items-center justify-between w-full p-4 mb-1 bg-dark-300">
               {/* logo */}
               <Link href={"/"}>
                 <Image

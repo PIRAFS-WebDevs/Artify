@@ -1,0 +1,31 @@
+#category .splide__arrow svg {
+  fill: #999999;
+}
+
+#category .splide__arrow {
+  width: 2.2em;
+  height: 5em;
+  opacity: 100;
+  padding: 10px;
+  background: #181818;
+  border-radius: 0%;
+  box-shadow: 8px 8px 15px #181818;
+}
+
+#category .splide__arrow svg:hover {
+  fill: white;
+}
+
+#category .splide__arrow:disabled {
+  display: none;
+}
+
+#category .splide__arrow--prev {
+  margin-left: -34px;
+  box-shadow: 15px 0 10px -3px #181818;
+}
+
+#category .splide__arrow--next {
+  margin-right: -34px;
+  box-shadow: -15px 0 10px -3px #181818;
+}
