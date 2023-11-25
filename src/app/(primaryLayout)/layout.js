@@ -2,12 +2,9 @@
 
 import HomeNavbar from "@/components/Shared/HomeNavbar/HomeNavbar";
 import Footer from "@/components/Shared/Footer/Footer";
-import Cart from "@/components/Home/Cart/Cart";
-import ProductModal from "@/components/Home/ProductModal/ProductModal";
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
-import HomeSideBar from "@/components/Shared/Sidebar/HomeSidebar/HomeSideBar";
-import SearchModal from "@/components/Home/SearchModal/SearchModal";
+import HomeSideBar from "@/components/Shared/HomeSidebar/HomeSideBar";
 
 const layout = ({ children }) => {
   const { sideBarOpen } = useContext(AllStateContext);

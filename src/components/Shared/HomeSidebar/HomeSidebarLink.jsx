@@ -10,28 +10,28 @@ const HomeSidebarLink = ({ href, title, icon }) => {
 
   return (
     <div
-      className={`hover:text-white hover:bg-dark-200 ${
-        path === href ? "text-white bg-dark-200" : "text-dark-100"
+      className={`hover:text-white hover:bg-dark-300 ${
+        path === href ? "text-white bg-dark-300" : "text-gray-300"
       }`}
     >
       <Link onClick={() => setMobileView(false)} href={href}>
         <div
-          className={`w-full py-4 flex gap-4 ${
+          className={`w-full py-3 flex gap-4 ${
             sideBarOpen && "justify-start"
           } items-center px-6`}
         >
           <span>{icon}</span>
 
           <span
-            className={`${
-              sideBarOpen ? "text-sm hidden md:inline-block" : "hidden"
+            className={`text-sm ${
+              sideBarOpen ? "hidden md:inline-block" : "hidden"
             } ${mobileView && "inline-block"}`}
           >
             {title}
           </span>
           <span
-            className={`${
-              mobileView ? "text-sm inline-block md:hidden" : "hidden"
+            className={`text-sm ${
+              mobileView ? "inline-block md:hidden" : "hidden"
             }`}
           >
             {title}

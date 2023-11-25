@@ -1,5 +1,5 @@
 import homeSidebarData from "@/data/homeSidebarData";
-import HomeSidebarLink from "../Sidebar/HomeSidebar/HomeSidebarLink";
+import HomeSidebarLink from "../HomeSidebar/HomeSidebarLink";
 import { motion as m, AnimatePresence } from "framer-motion";
 
 const MobileNavbar = ({ mobileView, setMobileView }) => {

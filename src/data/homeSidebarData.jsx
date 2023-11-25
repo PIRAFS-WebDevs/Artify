@@ -1,10 +1,10 @@
 // icons
 import { AiFillHome, AiFillLike, AiFillAppstore } from "react-icons/ai";
 import { MdExplore, MdFeedback } from "react-icons/md";
-import { BsBoxFill, BsCodeSlash, BsChatLeftTextFill } from "react-icons/bs";
+import { BsBoxFill, BsChatLeftTextFill } from "react-icons/bs";
 import { BiSolidUserDetail } from "react-icons/bi";
-import { IoHelpOutline, IoSettingsSharp } from "react-icons/io5";
 import { FaOpencart, FaCode } from "react-icons/fa";
+import { IoMdHelp } from "react-icons/io";
 
 const homeSidebarData = [
   {
@@ -60,12 +60,7 @@ const homeSidebarData = [
   {
     title: "Help",
     path: "/help",
-    icon: <IoHelpOutline />,
-  },
-  {
-    title: "Settings",
-    path: "/profile",
-    icon: <IoSettingsSharp />,
+    icon: <IoMdHelp />,
   },
 ];
 

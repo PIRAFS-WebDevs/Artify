@@ -1,11 +1,9 @@
-import HelpBar from "@/components/Shared/Help/HelpBar";
-import Navbar from "@/components/Shared/HomeNavbar/HomeNavbar";
+import RootNavbar from "@/components/Shared/RootNavbar/RootNavbar";
 
 const layout = ({ children }) => {
   return (
-    <main className="min-h-screen dark:bg-dark-500 relative  text-sm  ">
-      <Navbar />
-
+    <main className="relative min-h-screen text-sm dark:bg-dark-500 ">
+      <RootNavbar />
       <section className="mt-14">{children}</section>
     </main>
   );
