@@ -8,7 +8,7 @@ const Card = () => {
   // const products = await getProducts();
   return (
     <>
-      <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6">
+      <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6 px-6">
         {productData?.map((product) => (
           <div
             key={product?._id}

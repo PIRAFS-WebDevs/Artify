@@ -33,7 +33,7 @@ const Cart = () => {
               <p className="text-base">Shopping Cart</p>
               <button onClick={() => setCartOpen(false)}>
                 <AiOutlineClose
-                  className="dark:text-dark-100"
+                  className="dark:text-dark-100 dark:hover:text-white"
                   size={"1.2rem"}
                 />
               </button>

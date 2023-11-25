@@ -42,7 +42,7 @@ const UserDropdown = ({ logout, user }) => {
         ) : (
           <p
             onClick={() => setOpen((pv) => !pv)}
-            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 hover:bg-white text-dark-500 font-semibold cursor-pointer select-none"
           >
             {user.displayName[0]}
           </p>

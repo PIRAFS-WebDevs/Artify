@@ -8,17 +8,14 @@ import { getFromCart } from "@/utils/api/user";
 import AllStateContext from "@/context/AllStateContext";
 
 const CartItems = () => {
-  const [getCartItems, setCartItems] = useState([1,2]);
+  const [getCartItems, setCartItems] = useState([1, 2]);
 
   const { FindUser } = useContext(AllStateContext);
-
-  
-  
 
   useEffect(() => {
     (async () => {
       const getCart = await getFromCart(FindUser?._id);
-      console.log("🚀 ~ file: CartItems.jsx:24 ~ getCart:", getCart)
+      console.log("🚀 ~ file: CartItems.jsx:24 ~ getCart:", getCart);
       // setCartItems(getCart);
     })();
   }, []);
@@ -26,8 +23,8 @@ const CartItems = () => {
     <>
       {getCartItems?.map((item, index) => (
         <div className="flex items-center gap-3">
-          <button className="text-xl">
-            <AiOutlineClose className="text-sm font-semibold dark:text-dark-100" />
+          <button className="text-xl hover:text-white">
+            <AiOutlineClose className="text-sm font-semibold dark:text-dark-100 dark:hover:text-white" />
           </button>
           <div className="flex h-24 w-26">
             <Image
@@ -55,7 +52,7 @@ const CartItems = () => {
 
       {/* sub total */}
       <div className="absolute right-0 w-full h-32 space-y-8 bottom-8">
-        <div className="border-t border-dark-200"></div>
+        <div className="border-t border-dark-300"></div>
         <p className="flex justify-between w-[90%] mx-auto">
           Subtotal <span>$ 100</span>
         </p>

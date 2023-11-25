@@ -1,6 +1,9 @@
 import homeSidebarData from "@/data/homeSidebarData";
-import HomeSidebarLink from "../HomeSidebar/HomeSidebarLink";
+import HomeSidebarLink from "../Sidebar/HomeSidebar/HomeSidebarLink";
 import { motion as m, AnimatePresence } from "framer-motion";
+import { AiOutlineClose } from "react-icons/ai";
+import Link from "next/link";
+import Image from "next/image";
 
 const MobileNavbar = ({ mobileView, setMobileView }) => {
   return (
@@ -23,8 +26,27 @@ const MobileNavbar = ({ mobileView, setMobileView }) => {
             }}
             exit={{ x: 240 }}
             onClick={(e) => e.stopPropagation()}
-            className={`${"w-full min-[400px]:w-[240px] min-h-screen dark:bg-dark-400 fixed right-0 top-0 z-[60] overflow-y-auto"} `}
+            className={`${"w-full min-[400px]:w-[300px] min-h-screen dark:bg-dark-400 fixed right-0 top-0 z-[60] overflow-y-auto"} `}
           >
+            <div className="flex items-center justify-between w-full p-4 mb-2 bg-dark-300">
+              {/* logo */}
+              <Link href={"/"}>
+                <Image
+                  src="/assets/logo/waresun.png"
+                  height={100}
+                  width={100}
+                  priority={true}
+                  alt="logo"
+                  className={`w-28`}
+                />
+              </Link>
+              <button
+                onClick={() => setMobileView(false)}
+                className="grid w-8 h-8 text-xl place-items-center hover:text-white"
+              >
+                <AiOutlineClose />
+              </button>
+            </div>
             {homeSidebarData.map((data, index) => (
               <div key={index}>
                 <HomeSidebarLink

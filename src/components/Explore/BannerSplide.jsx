@@ -9,7 +9,7 @@ const BannerSplide = () => {
   // const [index, setIndex] = useState(0);
 
   return (
-    <div className="relative py-6">
+    <div className="relative px-6 py-6">
       <Splide
         options={{
           autoWidth: true,

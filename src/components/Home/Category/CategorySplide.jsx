@@ -49,7 +49,7 @@ const CategorySplide = () => {
 
   return (
     <div className="sticky inset-x-0 z-40 bg-dark-500 top-20 border-y border-dark-400">
-      <div className="relative py-6">
+      <div className="relative px-6 py-6">
         <div className="mx-2">
           <Splide
             options={{
@@ -78,7 +78,10 @@ const CategorySplide = () => {
         </div>
 
         <button
-          className={`absolute inset-y-0 left-0 z-40 my-auto bg-dark-500 ${
+          style={{
+            boxShadow: "12px 10px 10px #181818",
+          }}
+          className={`absolute inset-y-0 left-6 z-40 my-auto bg-dark-500 shadow-2xl shadow-black ${
             showPrevArrow ? "visible" : "invisible"
           }`}
           onClick={handlePrev}
@@ -89,7 +92,10 @@ const CategorySplide = () => {
           />
         </button>
         <button
-          className={`absolute inset-y-0 right-0 z-40 my-auto bg-dark-500 ${
+          style={{
+            boxShadow: "-12px 10px 10px #181818",
+          }}
+          className={`absolute inset-y-0 right-6 z-40 my-auto bg-dark-500 ${
             showNextArrow ? "visible" : "invisible"
           }`}
           onClick={handleNext}
