@@ -1,5 +1,3 @@
-"use client";
-
 import { motion as m, AnimatePresence } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 import Card from "../Card/Card";
@@ -27,22 +25,20 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
             onClick={(e) => e.stopPropagation()}
             className="min-w-full p-8 rounded-lg shadow-xl cursor-default dark:bg-dark-400 dark:text-white"
           >
-            <div className="space-y-4">
-              <div className="">
-                <div className="grid w-full h-8 text-xl place-items-end">
-                  <AiOutlineClose
-                    onClick={() => setSearchShow(false)}
-                    className="inline-block cursor-pointer text-dark-100 hover:text-white"
-                  />
-                </div>
-                <div className="w-full pb-4 border-b border-dark-200 focus:border-dark-100">
-                  <input
-                    autoFocus
-                    type="text"
-                    placeholder="Type anything to search..."
-                    className="w-full text-xl text-white bg-transparent outline-none placeholder:text-dark-100 placeholder:text-xl"
-                  />
-                </div>
+            <div>
+              <div className="grid w-full h-8 -mt-4 text-xl place-items-end">
+                <AiOutlineClose
+                  onClick={() => setSearchShow(false)}
+                  className="inline-block cursor-pointer text-dark-100 hover:text-white"
+                />
+              </div>
+              <div className="w-full pb-4 border-b border-dark-200 focus:border-dark-100">
+                <input
+                  autoFocus
+                  type="text"
+                  placeholder="Type anything to search..."
+                  className="w-full text-white bg-transparent outline-none md:text-xl placeholder:text-dark-100 md:placeholder:text-xl"
+                />
               </div>
 
               {/* card */}

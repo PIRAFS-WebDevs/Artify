@@ -32,24 +32,28 @@ const Login = ({ isShow, setIsShow }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsShow(false)}
-          className="fixed inset-0 z-50 grid p-4 cursor-pointer bg-slate-900/20 backdrop-blur place-items-center"
+          className="fixed inset-0 z-50 grid p-2 cursor-pointer bg-slate-900/20 backdrop-blur place-items-center"
         >
           <m.div
             initial={{ scale: 0, rotate: "12.5deg" }}
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="p-12 rounded-lg shadow-xl cursor-default w-[32rem] dark:bg-dark-400 dark:text-white"
+            className="md:p-12 p-4 rounded-lg shadow-xl cursor-default w-full sm:w-[32rem] dark:bg-dark-350 dark:text-white"
           >
             <div className="flex justify-end w-full">
               <CloseButton reset={reset} setIsShow={setIsShow} />
             </div>
-            <form onSubmit={handleSubmit(formHandler)} className="space-y-4">
-              <div className="pb-4 space-y-4 text-center">
-                <h1 className="text-lg font-medium">Welcome Back, Get Login</h1>
-                <p className="text-sm dark:text-dark-100">
-                  Join your account. Don’t have account?{" "}
-                  {/* create account button */}
+            <form
+              onSubmit={handleSubmit(formHandler)}
+              className="space-y-2 md:space-y-4"
+            >
+              <div className="pb-4 space-y-2 text-center md:space-y-4">
+                <h1 className="font-medium md:text-lg">
+                  Welcome Back, Get Login
+                </h1>
+                <p className="text-xs md:text-sm dark:text-dark-100">
+                  Join now. Don’t have account? {/* create account button */}
                   <Link
                     href={"/register"}
                     className="font-medium cursor-pointer text-primary hover:text-primarySec"
@@ -62,7 +66,7 @@ const Login = ({ isShow, setIsShow }) => {
               {/* social button */}
               <SocialButton />
 
-              <div className="space-y-2">
+              <div className="space-y-1 md:space-y-2">
                 <label
                   htmlFor="email"
                   className="text-sm leading-7 dark:text-dark-100"
@@ -80,7 +84,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="email"
                   id="email"
                   name="email"
-                  className={`w-full px-4 py-2 leading-8 dark:text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
                     errors.email && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -90,7 +94,7 @@ const Login = ({ isShow, setIsShow }) => {
                   </p>
                 )}
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1 md:space-y-2">
                 <label
                   htmlFor="password"
                   className="text-sm leading-7 dark:text-dark-100"
@@ -108,7 +112,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="password"
                   id="password"
                   name="password"
-                  className={`w-full px-4 py-2 leading-8 dark:text-white transition-all bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
                     errors.password && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -118,7 +122,7 @@ const Login = ({ isShow, setIsShow }) => {
                   </p>
                 )}
               </div>
-              <div className="flex items-center justify-between py-2">
+              <div className="flex items-center justify-between py-1 md:py-2">
                 <div className="flex items-center">
                   <input
                     id="default-checkbox"
@@ -140,7 +144,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div>
                 <button
                   type="submit"
-                  className="hidden w-full px-8 py-3 text-sm transition-all rounded-md bg-primary dark:text-white md:block hover:bg-primarySec active:scale-95"
+                  className="w-full px-8 py-3 text-sm transition-all duration-300 rounded-md bg-primary dark:text-white md:block hover:bg-primarySec active:scale-95"
                 >
                   Get Login
                 </button>

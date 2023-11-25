@@ -12,42 +12,42 @@ import {
 export const settingsSidebarData = [
   {
     name: "Profile",
-    icon: <FaUserCircle size={"1.25rem"} />,
+    icon: <FaUserCircle />,
     path: "/profile",
   },
   {
     name: "Purchase",
-    icon: <HiShoppingBag size={"1.25rem"} />,
+    icon: <HiShoppingBag />,
     path: "/purchase",
   },
   // {
   //   name: "My Cards",
-  //   icon: <FaWallet size={"1.25rem"} />,
+  //   icon: <FaWallet />,
   //   path: "/my-cards",
   // },
   {
     name: "My Wishlist",
-    icon: <AiFillHeart size={"1.25rem"} />,
+    icon: <AiFillHeart />,
     path: "/wishlist",
   },
   {
     name: "Deposit",
-    icon: <AiFillBank size={"1.25rem"} />,
+    icon: <AiFillBank />,
     path: "/deposit",
   },
   // {
   //   name: "My Reports",
-  //   icon: <BiErrorCircle size={"1.25rem"} />,
+  //   icon: <BiErrorCircle />,
   //   path: "/reports",
   // },
   {
     name: "My Question",
-    icon: <BiMessageRoundedError size={"1.25rem"} />,
+    icon: <BiMessageRoundedError />,
     path: "/question",
   },
   {
     name: "Password",
-    icon: <BiSolidLock size={"1.25rem"} />,
+    icon: <BiSolidLock />,
     path: "/password",
   },
 ];

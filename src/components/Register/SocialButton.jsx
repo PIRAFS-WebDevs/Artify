@@ -11,7 +11,7 @@ const SocialButton = () => {
       <button
         type="button"
         onClick={() => googleSignIn()}
-        className="flex items-center justify-center w-full gap-2 px-8 py-4 text-xs text-center transition-all duration-100 rounded outline-none bg-dark-300 dark:text-white hover:dark:bg-dark-350 md:text-base active:scale-95"
+        className="flex items-center justify-center w-full gap-2 px-8 py-4 text-xs text-center transition-all duration-300 rounded outline-none bg-dark-300 dark:text-white hover:bg-opacity-60 md:text-base active:scale-95"
       >
         <svg
           className="w-6 h-5 shrink-0"

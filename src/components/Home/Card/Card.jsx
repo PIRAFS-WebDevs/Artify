@@ -1,12 +1,15 @@
 import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
+import { getProducts } from "@/utils/api/product";
+import productData from "@/data/ProductData";
 
-const Card = ({ products }) => {
+const Card = () => {
+  // const products = await getProducts();
   return (
     <>
       <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6">
-        {products?.map((product) => (
+        {productData?.map((product) => (
           <div
             key={product?._id}
             className="w-full col-span-1 space-y-2 min-h-fit dark:text-white"

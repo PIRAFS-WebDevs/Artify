@@ -23,7 +23,7 @@ const MobileNavbar = ({ mobileView, setMobileView }) => {
             }}
             exit={{ x: 240 }}
             onClick={(e) => e.stopPropagation()}
-            className={`${"w-[240px] min-h-screen dark:bg-dark-400 fixed right-0 top-0 z-[60] overflow-y-auto"} `}
+            className={`${"w-full min-[400px]:w-[240px] min-h-screen dark:bg-dark-400 fixed right-0 top-0 z-[60] overflow-y-auto"} `}
           >
             {homeSidebarData.map((data, index) => (
               <div key={index}>

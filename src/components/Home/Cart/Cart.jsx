@@ -1,5 +1,3 @@
-"use client";
-
 import { motion as m, AnimatePresence } from "framer-motion";
 import AllStateContext from "@/context/AllStateContext";
 import React, { useContext } from "react";
@@ -8,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const Cart = () => {
   const { cartOpen, setCartOpen } = useContext(AllStateContext);
+
   return (
     <AnimatePresence>
       {cartOpen && (
@@ -28,7 +27,7 @@ const Cart = () => {
             }}
             exit={{ x: 450 }}
             onClick={(e) => e.stopPropagation()}
-            className="fixed right-0 top-0 z-[60] w-[450px] min-h-screen dark:bg-dark-400 dark:text-white text-sm px-6 py-8 space-y-8"
+            className="fixed right-0 top-0 z-[60] w-full sm:w-[450px] min-h-screen dark:bg-dark-400 dark:text-white text-sm px-6 py-8 space-y-8"
           >
             <div className="flex justify-between font-medium">
               <p className="text-base">Shopping Cart</p>

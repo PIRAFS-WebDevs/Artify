@@ -1,18 +1,14 @@
-"use client";
-
 import { FaUserCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
 import { BiLogOut } from "react-icons/bi";
-import AuthContext from "@/context/AuthContext";
 
-const UserDropdown = () => {
+const UserDropdown = ({ logout, user }) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const { logout, user } = useContext(AuthContext);
 
   const dropdownRef = useRef();
 
@@ -53,7 +49,11 @@ const UserDropdown = () => {
         )
       ) : (
         <button className="cursor-pointer hover:text-white">
-          <FaUserCircle onClick={() => setOpen((pv) => !pv)} size={"1.5rem"} />
+          <FaUserCircle
+            className="hover:text-white"
+            onClick={() => setOpen((pv) => !pv)}
+            size={"1.5rem"}
+          />
         </button>
       )}
 
@@ -61,15 +61,15 @@ const UserDropdown = () => {
         initial={wrapperVariants.closed}
         variants={wrapperVariants}
         style={{ originY: "top", translateX: "-50%" }}
-        className="flex flex-col rounded bg-dark-300 text-white shadow absolute top-[150%] left-[-200%] w-48 overflow-hidden"
+        className="flex flex-col rounded bg-dark-400 text-gray-200 shadow absolute top-[130%] left-[-180%] w-48 overflow-hidden"
       >
         {settingsSidebarData.map((e, i) => (
           <Link href={`${e.path}`} key={i}>
             <motion.li
               variants={itemVariants}
               onClick={() => setOpen(false)}
-              className={`flex items-center gap-2 w-full p-4 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
-                pathname === e.path && "text-white bg-dark-200"
+              className={`flex items-center gap-2 w-full py-3 px-4 text-xs whitespace-nowrap hover:bg-dark-200  transition-all cursor-pointer ${
+                pathname === e.path && "bg-dark-200"
               }`}
             >
               <motion.span>{e.icon}</motion.span>
@@ -79,10 +79,10 @@ const UserDropdown = () => {
         ))}
         <button
           onClick={() => logout()}
-          className="flex items-center w-full gap-2 p-4 text-sm font-medium transition-all rounded cursor-pointer select-none whitespace-nowrap hover:bg-dark-200 text-dark-100 hover:text-white"
+          className="flex items-center w-full gap-2 px-4 py-3 text-xs transition-all cursor-pointer select-none whitespace-nowrap hover:bg-dark-200"
         >
-          <BiLogOut size={"1.25rem"} />
-          <p className="text-sm">Logout</p>
+          <BiLogOut />
+          <p className="text-xs">Logout</p>
         </button>
       </motion.ul>
     </motion.div>
