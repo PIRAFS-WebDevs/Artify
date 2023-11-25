@@ -5,23 +5,31 @@ import Footer from "@/components/Shared/Footer/Footer";
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
 import HomeSideBar from "@/components/Shared/Sidebar/HomeSidebar/HomeSideBar";
+import ProductModal from "@/components/Home/ProductModal/ProductModal";
 
 const layout = ({ children }) => {
-  const { sideBarOpen } = useContext(AllStateContext);
+  const { sideBarOpen, showProductModal, setShowProductModal } =
+    useContext(AllStateContext);
 
   return (
-    <main className="relative min-h-screen scrollbar dark:bg-dark-500 ">
-      <HomeNavbar />
-      <HomeSideBar />
-      <section
-        className={`relative ${
-          !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
-        }`}
-      >
-        <div className="min-h-screen">{children}</div>
-        <Footer />
-      </section>
-    </main>
+    <>
+      <main className="relative min-h-screen scrollbar dark:bg-dark-500">
+        <HomeNavbar />
+        <HomeSideBar />
+        <section
+          className={`relative ${
+            !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
+          }`}
+        >
+          <div className="min-h-screen">{children}</div>
+          <Footer />
+        </section>
+      </main>
+      <ProductModal
+        showProductModal={showProductModal}
+        setShowProductModal={setShowProductModal}
+      />
+    </>
   );
 };
 

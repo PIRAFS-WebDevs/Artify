@@ -10,7 +10,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[90] min-h-screen overflow-y-auto scroll-none"
+          className="fixed inset-0 z-[90] min-h-screen overflow-y-auto"
         >
           <m.div
             initial={{ opacity: 0 }}
@@ -23,9 +23,9 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
             }}
             exit={{ opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="min-w-full p-8 rounded-lg shadow-xl cursor-default dark:bg-dark-400 dark:text-white"
+            className="min-w-full rounded-lg shadow-xl cursor-default dark:bg-dark-400 dark:text-white"
           >
-            <div>
+            <div className="px-6 pt-6">
               <div className="grid w-full h-8 -mt-4 text-xl place-items-end">
                 <AiOutlineClose
                   onClick={() => setSearchShow(false)}
@@ -40,10 +40,10 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
                   className="w-full text-white bg-transparent outline-none md:text-xl placeholder:text-dark-100 md:placeholder:text-xl"
                 />
               </div>
-
-              {/* card */}
-              <Card />
             </div>
+
+            {/* card */}
+            <Card />
           </m.div>
         </m.div>
       )}

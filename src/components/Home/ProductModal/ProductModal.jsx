@@ -1,16 +1,16 @@
 import { motion as m, AnimatePresence } from "framer-motion";
 import ProductDetails from "./ProductDetails";
 
-const ProductModal = ({ isShow, setIsShow }) => {
+const ProductModal = ({ showProductModal, setShowProductModal }) => {
   return (
     <AnimatePresence>
-      {isShow && (
+      {showProductModal && (
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={() => setIsShow(false)}
-          className="fixed inset-0 z-[70] grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center p-4 overflow-y-auto scrollbar"
+          onClick={() => setShowProductModal(false)}
+          className="fixed inset-0 z-[70] grid cursor-pointer bg-slate-900/20 backdrop-blur place-items-center md:p-4 overflow-y-auto scrollbar"
         >
           <m.div
             initial={{ scale: 0 }}
@@ -24,7 +24,7 @@ const ProductModal = ({ isShow, setIsShow }) => {
             onClick={(e) => e.stopPropagation()}
             className="rounded-lg shadow-xl cursor-default dark:bg-dark-400 dark:text-white max-w-7xl"
           >
-            <ProductDetails setIsShow={setIsShow} />
+            <ProductDetails setShowProductModal={setShowProductModal} />
           </m.div>
         </m.div>
       )}

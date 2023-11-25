@@ -43,7 +43,7 @@ const HomeNavbar = () => {
   // }, [user]);
 
   return (
-    <nav className="sticky inset-x-0 top-0 z-[80] bg-white dark:bg-dark-400 dark:text-dark-100">
+    <nav className="sticky inset-x-0 top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">
       <div className="flex items-center justify-between h-20 px-6">
         <div className="flex items-center md:gap-6">
           {/* menu button */}
@@ -129,7 +129,7 @@ const HomeNavbar = () => {
       {/* mobile nav */}
       <div
         className={`fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400 ${
-          cartOpen && "hidden"
+          (cartOpen || searchShow) && "hidden"
         }`}
       >
         <AiFillHome size={"1.5rem"} className="hover:text-white" />

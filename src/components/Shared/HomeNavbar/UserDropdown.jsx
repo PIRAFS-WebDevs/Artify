@@ -37,12 +37,12 @@ const UserDropdown = ({ logout, user }) => {
           <img
             src={user.photoURL}
             onClick={() => setOpen((pv) => !pv)}
-            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+            className="flex justify-center items-center rounded-full w-[1.6rem] h-[1.6rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
           />
         ) : (
           <p
             onClick={() => setOpen((pv) => !pv)}
-            className="flex justify-center items-center rounded-full w-[2rem] h-[2rem] bg-dark-100 hover:bg-white text-dark-500 font-semibold cursor-pointer select-none"
+            className="flex justify-center items-center rounded-full w-[1.6rem] h-[1.6rem] bg-dark-100 hover:bg-white text-dark-500 font-semibold cursor-pointer select-none"
           >
             {user.displayName[0]}
           </p>
@@ -61,7 +61,7 @@ const UserDropdown = ({ logout, user }) => {
         initial={wrapperVariants.closed}
         variants={wrapperVariants}
         style={{ originY: "top", translateX: "-50%" }}
-        className="flex flex-col rounded bg-dark-400 text-gray-200 shadow absolute top-[130%] left-[-180%] w-48 overflow-hidden"
+        className="flex flex-col rounded bg-dark-400 text-gray-200 shadow absolute top-[150%] left-[-260%] w-48 overflow-hidden"
       >
         {settingsSidebarData.map((e, i) => (
           <Link href={`${e.path}`} key={i}>

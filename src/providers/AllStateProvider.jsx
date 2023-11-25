@@ -7,7 +7,7 @@ const AllStateProvider = ({ children }) => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
   const [adminBarOpen, setAdminBarOpen] = useState(false);
   const [mobileView, setMobileView] = useState(false);
-  const [isShow, setIsShow] = useState(false);
+  const [showProductModal, setShowProductModal] = useState(false);
   const [searchShow, setSearchShow] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
@@ -29,8 +29,8 @@ const AllStateProvider = ({ children }) => {
     setSideBarOpen,
     mobileView,
     setMobileView,
-    isShow,
-    setIsShow,
+    showProductModal,
+    setShowProductModal,
     cartOpen,
     setCartOpen,
     adminBarOpen,

@@ -65,7 +65,7 @@ const Card = () => {
       </div>
 
       {/* load more button */}
-      <div className="flex justify-center my-12">
+      <div className="flex justify-center py-8">
         <button className="px-6 py-2 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
           Load More
         </button>
