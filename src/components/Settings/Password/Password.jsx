@@ -23,14 +23,14 @@ export default function Password() {
   };
 
   return (
-    <div className="text-dark-100 flex gap-6 flex-col">
+    <div className="flex flex-col gap-6 text-dark-100">
       <p className="text-white">Password</p>
 
       <form
         onSubmit={handleSubmit(formHandler)}
         className="flex flex-col gap-6"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="space-y-2">
             <label htmlFor="currentPassword" className="text-sm">
               Current Password
@@ -53,7 +53,7 @@ export default function Password() {
               />
               <span
                 onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-                className="absolute inset-y-0 right-0 flex items-center px-4 text-dark-200 cursor-pointer"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-200"
               >
                 {isPasswordVisible ? (
                   <LuEye size={"1.5rem"} />
@@ -63,7 +63,7 @@ export default function Password() {
               </span>
             </div>
             {errors.currentPassword && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="mt-1 text-sm text-red-400">
                 *{errors.currentPassword.message}
               </p>
             )}
@@ -90,7 +90,7 @@ export default function Password() {
               />
               <span
                 onClick={() => setIsNewPasswordVisible(!isNewPasswordVisible)}
-                className="absolute inset-y-0 right-0 flex items-center px-4 text-dark-200 cursor-pointer"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-200"
               >
                 {isNewPasswordVisible ? (
                   <LuEye size={"1.5rem"} />
@@ -100,7 +100,7 @@ export default function Password() {
               </span>
             </div>
             {errors.newPassword && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="mt-1 text-sm text-red-400">
                 *{errors.newPassword.message}
               </p>
             )}
@@ -130,7 +130,7 @@ export default function Password() {
                 onClick={() =>
                   setIsConfirmPasswordVisible(!isConfirmPasswordVisible)
                 }
-                className="absolute inset-y-0 right-0 flex items-center px-4 text-dark-200 cursor-pointer"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-200"
               >
                 {isConfirmPasswordVisible ? (
                   <LuEye size={"1.5rem"} />
@@ -140,18 +140,15 @@ export default function Password() {
               </span>
             </div>
             {errors.confirmPassword && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="mt-1 text-sm text-red-400">
                 *{errors.confirmPassword.message}
               </p>
             )}
           </div>
         </div>
 
-        <div className="self-end absolute bottom-8">
-          <button
-            className="bg-primary text-white text-sm font-semibold px-6 py-4 rounded-md hover:bg-primarySec
-           transition-all active:scale-95"
-          >
+        <div className="absolute self-end bottom-8">
+          <button className="px-4 py-2 text-sm font-semibold text-white transition-all duration-200 rounded bg-primary hover:bg-primarySec active:scale-95">
             Save Changes
           </button>
         </div>

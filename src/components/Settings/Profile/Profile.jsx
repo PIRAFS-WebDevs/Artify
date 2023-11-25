@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 const Profile = () => {
@@ -16,7 +17,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="space-y-6 text-dark-100">
+    <div className="mb-20 space-y-6 text-dark-100">
       <p className="text-white">Personal Information</p>
 
       <form
@@ -90,11 +91,38 @@ const Profile = () => {
               </p>
             )}
           </div>
+          <div className="w-full col-span-2">
+            <label
+              htmlFor="bio"
+              className="inline-block mb-2 text-sm dark:text-white"
+            >
+              Bio
+            </label>
+            <textarea
+              {...register("bio")}
+              id="bio"
+              rows={5}
+              className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-100 focus:border-primary dark:text-white resize-none ${
+                errors.bio && "border-red-400 focus:border-red-400"
+              }`}
+            ></textarea>
+          </div>
         </div>
         <div className="absolute self-end bottom-8">
-          <button className="px-6 py-4 text-sm font-semibold text-white transition-all rounded-md bg-primary hover:bg-primarySec active:scale-95">
-            Save Changes
-          </button>
+          <div className="space-x-4">
+            <Link
+              href={"/"}
+              className="px-4 py-3 text-sm font-semibold transition-all duration-200 bg-transparent border rounded text-primary border-dark-200 hover:bg-dark-200 active:scale-95"
+            >
+              Cancel
+            </Link>
+            <button
+              type="submit"
+              className="px-4 py-3 text-sm font-semibold text-white transition-all duration-200 rounded bg-primary hover:bg-primarySec active:scale-95"
+            >
+              Save Changes
+            </button>
+          </div>
         </div>
       </form>
     </div>

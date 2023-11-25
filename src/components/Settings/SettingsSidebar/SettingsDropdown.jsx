@@ -16,9 +16,9 @@ const SettingsDropdown = () => {
       <motion.div animate={open ? "open" : "closed"} className="relative z-10">
         <button
           onClick={() => setDelOpen((pv) => !pv)}
-          className="flex items-center justify-between py-2 px-4 rounded-md text-white bg-transparent border border-dark-100 transition-all w-full"
+          className="flex items-center justify-between w-full px-4 py-2 text-white transition-all bg-transparent border rounded-md border-dark-300"
         >
-          <span className="font-medium text-sm capitalize">
+          <span className="text-sm font-medium capitalize">
             {pathname.slice(1)}
           </span>
           <motion.span variants={iconVariants}>
@@ -30,14 +30,14 @@ const SettingsDropdown = () => {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 p-2 rounded bg-dark-400 text-white border border-dark-100 shadow absolute top-[120%] left-[50%] w-full overflow-hidden"
+          className="flex flex-col gap-2 bg-dark-400 text-white border border-dark-300 shadow absolute rounded top-[120%] left-[50%] w-full overflow-hidden"
         >
           {settingsSidebarData.map((e, i) => (
             <Link href={`${e.path}`} key={i}>
               <motion.li
                 variants={itemVariants}
                 onClick={() => setDelOpen(false)}
-                className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded hover:bg-dark-200 text-dark-100 hover:text-white transition-all cursor-pointer ${
+                className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap hover:bg-dark-200 text-gray-300 hover:text-white transition-all cursor-pointer ${
                   pathname === e.path && "text-white bg-dark-200"
                 }`}
               >
