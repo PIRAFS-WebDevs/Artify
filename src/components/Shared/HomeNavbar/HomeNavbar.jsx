@@ -27,6 +27,8 @@ const HomeNavbar = () => {
     setMobileView,
     cartOpen,
     setCartOpen,
+    totalCartItem,
+    setCartUpdated
   } = useContext(AllStateContext);
 
   const { user, logout } = useContext(AuthContext);
@@ -93,7 +95,7 @@ const HomeNavbar = () => {
             <button onClick={() => setCartOpen(true)}>
               <FaShoppingBag size={"1.2rem"} className="hover:text-white" />
               <span className="absolute px-1 text-sm rounded-full dark:text-white -top-2 -right-2 bg-primary">
-                0
+                {totalCartItem?.length}
               </span>
             </button>
           </div>

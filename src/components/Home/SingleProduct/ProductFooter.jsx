@@ -10,7 +10,7 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { IoMdDownload } from "react-icons/io";
 
 export default function ProductFooter({ productById }) {
-  const { FindUser } = useContext(AllStateContext);
+  const { FindUser , setCartUpdated, cartUpdated} = useContext(AllStateContext);
   const {
     name,
     slug,
@@ -41,6 +41,7 @@ export default function ProductFooter({ productById }) {
     // await AddToCart(cart);
     // await addToCart(cart);
     await AddToCart(cart);
+    setCartUpdated(!cartUpdated)
     toast.success("product added on the cart");
   };
 

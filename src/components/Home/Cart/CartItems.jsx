@@ -7,11 +7,15 @@ import { useContext, useEffect, useState } from "react";
 import { getFromCart } from "@/utils/api/user";
 import AllStateContext from "@/context/AllStateContext";
 import { getProductById, getProducts } from "@/utils/api/product";
+import AllProductContext from "@/context/AllProductContext";
 
 const CartItems = () => {
-  const [getCartItems, setCartItems] = useState([1, 2]);
+  const [getCartItems, setCartItems] = useState([]);
+  console.log(getCartItems);
 
-  const { FindUser } = useContext(AllStateContext);
+  const { FindUser, setTotalCartItem } = useContext(AllStateContext);
+  const {  products } = useContext(AllProductContext);
+  console.log(products)
   
 
   useEffect(() => {
@@ -19,18 +23,16 @@ const CartItems = () => {
       
       // const getCart = await getFromCart(FindUser?._id);
      const cartItemId = await GetDataCart()
+     console.log({"cartItemId": cartItemId});
     
      
-     const fold = cartItemId.map( cart => {
-      const ss = async () => {
-        const finaldata = await getProductById(cart?.id)
-        return finaldata
-      }
+     const filterData = products?.filter( cart =>  cartItemId?.find(p => p.id  === cart?._id) )
       
       
-      return finaldata})
      
-     console.log({'fold': fold})
+     
+     setCartItems(filterData)
+    //  setTotalCartItem(filterData)
 
     //  const filter = data.filter(cart => cart?._id === )
     //  console.log(cartItemId)
@@ -38,7 +40,7 @@ const CartItems = () => {
       
       // setCartItems(getCart);
     })();
-  }, []);
+  }, [products]);
   return (
     <>
       {getCartItems?.map((item, index) => (
@@ -57,9 +59,9 @@ const CartItems = () => {
           </div>
           <div className="w-1/2 space-y-3">
             <p className="line-clamp-1">
-              Temprador WooCommerce Landing Page Theme
+              {item?.name}
             </p>
-            <p className="dark:text-dark-100">Imagineco</p>
+            <p className="dark:text-dark-100">{item?.layout}</p>
             <p className="font-semibold dark:text-dark-100">
               <span className="px-2 py-1 dark:bg-dark-200 rounded-3xl text-primarySec ">
                 {"59.00"}
