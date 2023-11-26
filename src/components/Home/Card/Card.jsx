@@ -5,8 +5,7 @@ import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
 import { useContext } from "react";
 import AllProductContext from "@/context/AllProductContext";
-import CardSkeleton from "@/components/Shared/skeletons/cardSkeleton";
-import { BiCart } from "react-icons/bi";
+import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Card = () => {
