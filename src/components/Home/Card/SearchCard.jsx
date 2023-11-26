@@ -2,6 +2,7 @@ import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
 import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
+import { FaShoppingCart } from "react-icons/fa";
 
 const SearchCard = ({ products, isLoading }) => {
   return (
@@ -11,14 +12,14 @@ const SearchCard = ({ products, isLoading }) => {
       ) : products == undefined ? (
         <div className="grid min-h-screen pb-20 place-items-center">
           <img
-            className="w-60"
+            className="opacity-75 w-60 brightness-75"
             src="/assets/images/not-found/no-data.png"
             alt=""
           />
         </div>
       ) : (
-        <>
-          <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6 px-6">
+        <div>
+          <div className="grid gap-6 min-[540px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6 px-6">
             {products?.map((product) => (
               <div
                 key={product?._id}
@@ -46,30 +47,34 @@ const SearchCard = ({ products, isLoading }) => {
                   <div></div>
                 </div>
 
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <img
-                      src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F98%2Fconversions%2FGroup-14400-thumbnail.jpg&w=640&q=100"
-                      alt=""
-                      className="w-8 h-8 rounded-full"
-                    />
-
-                    <div className="space-y-1 text-sm">
-                      <h1 className="font-medium line-clamp-1">
-                        {product?.name}
-                      </h1>
-                      <p className="text-dark-100">Waresun</p>
+                <div className="flex flex-col justify-between gap-4">
+                  <h1 className="font-medium line-clamp-1">{product?.name}</h1>
+                  <div className="flex items-end justify-between gap-2">
+                    <div className="space-y-1">
+                      <div className="flex gap-1">
+                        <p className="text-sm text-white line-through">
+                          <span className="text-sm">$</span>
+                          <span>{product?.price}</span>
+                        </p>
+                        <p className="text-sm text-primary ">
+                          <span className="text-sm">$</span>
+                          <span>{product?.price}</span>
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs">987 Sales</p>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <p className="px-2 py-1 space-x-0.5 text-xs text-white rounded-full bg-dark-200">
-                      <span className="text-sm">&#2547;</span>
-                      <span>{product?.price}</span>
-                    </p>
-                    <p className="px-2 py-1 space-x-0.5 text-xs text-white line-through rounded-full">
-                      <span className="text-sm">&#2547;</span>
-                      <span>{product?.price}</span>
-                    </p>
+                    <div>
+                      <div className="flex gap-2">
+                        <button className="inline px-3 py-2 transition-all duration-200 bg-transparent border rounded text-primary hover:bg-dark-200 border-dark-200 active:scale-95">
+                          <FaShoppingCart />
+                        </button>
+                        <button className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded bg-primary hover:bg-primarySec active:scale-95">
+                          Live Preview
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -77,12 +82,14 @@ const SearchCard = ({ products, isLoading }) => {
           </div>
 
           {/* load more button */}
-          <div className="flex justify-center py-8">
-            <button className="px-6 py-3 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
-              Load More
-            </button>
-          </div>
-        </>
+          {products.length > 10 && (
+            <div className="flex justify-center py-8">
+              <button className="px-6 py-3 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
+                Load More
+              </button>
+            </div>
+          )}
+        </div>
       )}
     </>
   );

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AiTwotoneHeart, AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
 
-const ModalHeader = ({ setShowProductModal }) => {
+const ModalHeader = ({ setShowProductModal, name }) => {
   const [like, setLike] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ const ModalHeader = ({ setShowProductModal }) => {
           className="cursor-pointer md:text-xl hover:text-primary line-clamp-1"
           title=""
         >
-          Temprador WooCommerce Landing Page Theme
+          {name}
         </h1>
         <div className="flex items-center gap-2">
           <img

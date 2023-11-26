@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
 const AllProductProvider = ({ children }) => {
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState("");
 
   const {
     data: products = [],
@@ -18,7 +18,12 @@ const AllProductProvider = ({ children }) => {
     queryFn: () => getProducts(category),
   });
 
-  const value = { products: products?.products, setCategory, isLoading };
+  const value = {
+    products: products?.products,
+    category,
+    setCategory,
+    isLoading,
+  };
   return (
     <AllProductContext.Provider value={value}>
       {children}

@@ -6,7 +6,7 @@ import { GrLinkedinOption } from "react-icons/gr";
 
 const ShareBtn = () => {
   const path = usePathname();
-  const copy = `http://localhost:3000/${path}`;
+  const copy = `process.env.NEXT_PUBLIC_hostUrl/${path}`;
 
   return (
     <div className="flex items-center justify-between gap-10 ">
@@ -24,9 +24,9 @@ const ShareBtn = () => {
           navigator.clipboard.writeText(copy),
             toast.success("Copied successfully");
         }}
-        className="w-auto h-10  px-5 group hover:dark:bg-dark-200 border border-dark-400 flex justify-center items-center rounded-full"
+        className="flex items-center justify-center w-auto h-10 px-5 border rounded-full group hover:dark:bg-dark-200 border-dark-400"
       >
-        <BiLink className="h-5 w-5  mr-2 " />
+        <BiLink className="w-5 h-5 mr-2 " />
         <span className="group-hover:dark:text-white">Copy link</span>
       </button>
     </div>
