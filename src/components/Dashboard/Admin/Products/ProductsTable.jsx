@@ -8,20 +8,39 @@ import AllStateContext from "@/context/AllStateContext";
 import { RiCheckboxIndeterminateLine, RiDeleteBin6Line } from "react-icons/ri";
 import SharedComp from "@/components/Shared/admin/SharedComp";
 import { getProducts } from "@/utils/api/product";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
 const ProductsTable = () => {
   const { setIsShow, isShow, isDelOpen, setDelOpen } =
     useContext(AllStateContext);
   const [searchText, SetSearchText] = useState("");
   const [products, SetProducts] = useState([]);
+  const [sortByPrice, SetSortByPrice] = useState('default');
+  
 
   useEffect(() => {
     (async () => {
       const allProducts = await getProducts(searchText);
+    const data = allProducts?.products
 
-      SetProducts(allProducts?.products);
+
+      
+      if(sortByPrice === "default"){
+        SetProducts(data);
+      }else if (sortByPrice === "high"){
+        
+        const sortedProductsDis = products.slice().sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+        SetProducts(sortedProductsDis);
+      }else if (sortByPrice === "low"){
+        const sortedProductsAsc = products.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        SetProducts(sortedProductsAsc);
+      }
+
+     
+
     })();
-  }, [searchText]);
+  }, [searchText,sortByPrice]);
 
   return (
     <>
@@ -42,7 +61,12 @@ const ProductsTable = () => {
               <th className="pl-2 text-start">Name</th>
               <th className="text-center">Layouts</th>
               <th>Slug</th>
-              <th>Price</th>
+              <th className="flex justify-center h-12 items-center">Price <span className="flex">
+              <MdOutlineArrowDropUp  className="cursor-pointer active:text-dark-400 lg:text-3xl text-7xl" onClick={()=> SetSortByPrice("high")}/>
+
+              <MdOutlineArrowDropDown  className="cursor-pointer active:text-dark-400 lg:text-3xl text-7xl " onClick={()=> SetSortByPrice("low")}/>
+              
+</span></th>
               <th>Date</th>
               <th>Status</th>
               <th>Actions</th>

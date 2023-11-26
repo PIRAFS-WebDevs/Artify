@@ -11,10 +11,10 @@ const ContactFrom = () => {
   } = useForm();
 
   return (
-    <div className=" w-[60%] p-10 text-xs dark:bg-dark-400">
-      <form className="flex flex-col gap-4  ">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
+    <div className=" xl:w-[60%] w-full p-10 text-xs dark:bg-dark-400">
+      <form className="flex flex-col lg:gap-4  gap-2">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+          <div >
             <label
               htmlFor="name"
               className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
@@ -28,7 +28,7 @@ const ContactFrom = () => {
               id="name"
               className={`w-full rounded border ${
                 errors.name && "border-red-400 focus:border-red-400"
-              } focus:border-primary bg-transparent border-dark-200 px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
+              } focus:border-primary bg-transparent border-dark-200 px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
             />
             {errors.name && (
               <p className="text-red-400 text-sm mt-1">
@@ -55,7 +55,7 @@ const ContactFrom = () => {
               type="email"
               className={`w-full ${
                 errors.email && "border-red-400 focus:border-red-400"
-              } rounded border focus:border-primary  border-dark-200 bg-transparent px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
+              } rounded border focus:border-primary  border-dark-200 bg-transparent px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
             />
             {errors.email && (
               <p className="text-red-400 text-sm mt-1">
@@ -79,7 +79,7 @@ const ContactFrom = () => {
             type="subject"
             className={`w-full ${
               errors.subject && "border-red-400 focus:border-red-400"
-            } rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
+            } rounded border border-dark-200 focus:border-primary bg-transparent px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
           />
           {errors.subject && (
             <p className="text-red-400 text-sm mt-1">

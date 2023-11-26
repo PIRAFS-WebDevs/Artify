@@ -6,16 +6,36 @@ import { GetDataCart } from "@/utils/addToCart/AddToCart";
 import { useContext, useEffect, useState } from "react";
 import { getFromCart } from "@/utils/api/user";
 import AllStateContext from "@/context/AllStateContext";
+import { getProductById, getProducts } from "@/utils/api/product";
 
 const CartItems = () => {
   const [getCartItems, setCartItems] = useState([1, 2]);
 
   const { FindUser } = useContext(AllStateContext);
+  
 
   useEffect(() => {
     (async () => {
-      const getCart = await getFromCart(FindUser?._id);
-      console.log("🚀 ~ file: CartItems.jsx:24 ~ getCart:", getCart);
+      
+      // const getCart = await getFromCart(FindUser?._id);
+     const cartItemId = await GetDataCart()
+    
+     
+     const fold = cartItemId.map( cart => {
+      const ss = async () => {
+        const finaldata = await getProductById(cart?.id)
+        return finaldata
+      }
+      
+      
+      return finaldata})
+     
+     console.log({'fold': fold})
+
+    //  const filter = data.filter(cart => cart?._id === )
+    //  console.log(cartItemId)
+
+      
       // setCartItems(getCart);
     })();
   }, []);
