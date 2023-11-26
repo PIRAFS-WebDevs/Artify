@@ -43,7 +43,7 @@ const HomeNavbar = () => {
   // }, [user]);
 
   return (
-    <nav className="inset-x-0 top-0 z-50 p-0 m-0 bg-white outline-none sm:sticky dark:bg-dark-400 dark:text-dark-100">
+    <nav className="inset-x-0 -top-[.1px] z-50 bg-white sticky dark:bg-dark-400 dark:text-dark-100">
       <div className="flex items-center justify-between h-20 px-6">
         <div className="flex items-center md:gap-6">
           {/* menu button */}

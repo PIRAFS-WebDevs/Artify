@@ -2,13 +2,17 @@
 
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
+import SingleProductContext from "@/context/SingleProductContext";
 
-const PreviewSvg = () => {
+const PreviewSvg = ({ id }) => {
   const { setShowProductModal } = useContext(AllStateContext);
+  const { setProductId } = useContext(SingleProductContext);
 
   return (
     <button
-      onClick={() => setShowProductModal(true)}
+      onClick={() => {
+        setShowProductModal(true), setProductId(id);
+      }}
       className="text-xs font-medium text-center text-light"
     >
       <div className="flex items-center justify-center mb-2 transition-all rounded-full hover:bg-primary bg-dark-100 text-light backdrop-blur-sm hover:bg-brand h-11 w-11">

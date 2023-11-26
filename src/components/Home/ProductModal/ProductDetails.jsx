@@ -2,8 +2,12 @@
 import ImageCarousel from "./ImageCarousel";
 import ProductInfo from "./ProductInfo";
 import ModalHeader from "./ModalHeader";
+import { useContext } from "react";
+import SingleProductContext from "@/context/SingleProductContext";
 
 const ProductDetails = ({ setShowProductModal }) => {
+  const { singleProductData } = useContext(SingleProductContext);
+  console.log("singleProductData:", singleProductData);
   return (
     <div className="text-sm dark:text-white">
       {/* product title */}

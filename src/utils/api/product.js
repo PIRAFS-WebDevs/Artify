@@ -33,7 +33,7 @@ export const getProducts = async (text) => {
       text
         ? `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/?text=${text}`
         : `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/`,
-      { cache: "no-cache" }
+      { next: { revalidate: "3600" } }
     );
 
     return res.json();

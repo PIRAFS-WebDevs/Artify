@@ -8,7 +8,7 @@ import "./SplideArrow.css";
 const CategorySplide = () => {
   return (
     <div
-      className="sticky inset-x-0 -top-[.1px] z-40 p-0 m-0 bg-dark-500 outline-0 sm:top-20 border-y border-dark-400"
+      className="sticky inset-x-0 z-40 bg-dark-500 top-[79.9px] border-y border-dark-400"
       id="category"
     >
       <div className="relative px-6 py-6">
@@ -32,8 +32,11 @@ const CategorySplide = () => {
                 1024: {
                   perPage: 7,
                 },
-                1440: {
+                1200: {
                   perPage: 10,
+                },
+                1440: {
+                  perPage: 12,
                 },
               },
             }}

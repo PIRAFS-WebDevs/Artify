@@ -1,15 +1,9 @@
-"use client";
-
 import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
-import { useContext } from "react";
-import AllProductContext from "@/context/AllProductContext";
 import CardSkeleton from "@/components/Shared/skeletons/cardSkeleton";
 
-const Card = () => {
-  const { products, isLoading } = useContext(AllProductContext);
-
+const SearchCard = ({ products, isLoading }) => {
   return (
     <>
       {isLoading ? (
@@ -88,4 +82,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default SearchCard;

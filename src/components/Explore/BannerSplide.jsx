@@ -2,18 +2,13 @@
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-// import { useState } from "react";
-import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import "./SplideArrow.css";
 
 const BannerSplide = () => {
-  // const [index, setIndex] = useState(0);
-
   return (
     <div className="relative px-6 py-6" id="banner">
       <Splide
         options={{
-          // autoWidth: true,
           perMove: 1,
           perPage: 3,
           gap: 20,
