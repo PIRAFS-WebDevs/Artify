@@ -10,3 +10,14 @@ export const saveCategory = async (data) => {
     console.error(error.message);
   }
 };
+
+// save category into database
+export const getCategory = async () => {
+  try {
+    const res = await api.get("/admin/category/all-category");
+    console.log(res);
+    return res.data.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};

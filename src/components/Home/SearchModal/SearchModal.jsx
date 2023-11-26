@@ -1,18 +1,21 @@
 import { motion as m, AnimatePresence } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
-import Card from "../Card/Card";
-import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import SearchCard from "../Card/SearchCard";
 import { getProducts } from "@/utils/api/product";
+import { useQuery } from "@tanstack/react-query";
 
 const SearchModal = ({ searchShow, setSearchShow }) => {
+  const [searchText, setSearchText] = useState(null);
+
   const {
     data: products = [],
     isLoading,
     refetch,
     isError,
   } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => getProducts(),
+    queryKey: ["products", searchText],
+    queryFn: async () => await getProducts(searchText),
   });
 
   return (
@@ -40,12 +43,15 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
             <div className="px-6 pt-6">
               <div className="grid w-full h-8 -mt-4 text-xl place-items-end">
                 <AiOutlineClose
-                  onClick={() => setSearchShow(false)}
+                  onClick={() => {
+                    setSearchShow(false), setSearchText(null);
+                  }}
                   className="inline-block cursor-pointer text-dark-100 hover:text-white"
                 />
               </div>
               <div className="w-full pb-4 border-b border-dark-200 focus:border-dark-100">
                 <input
+                  onChange={(e) => setSearchText(e.target.value)}
                   autoFocus
                   type="text"
                   placeholder="Type anything to search..."
@@ -54,39 +60,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
               </div>
             </div>
 
-            {products.length < 0 ? (
-              <Card />
-            ) : (
-              <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 p-6">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
-                  <div className="w-full col-span-1 space-y-2 min-h-fit dark:text-white animate-pulse">
-                    <div className="w-full h-40 bg-gray-300"></div>
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        {/* Loading skeleton for the profile image */}
-                        <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-
-                        <div className="space-y-1 text-sm">
-                          {/* Loading skeleton for the product name */}
-                          <div className="w-32 h-4 bg-gray-300"></div>
-
-                          {/* Loading skeleton for the product brand */}
-                          <div className="w-20 h-3 bg-gray-300"></div>
-                        </div>
-                      </div>
-
-                      <div className="space-y-1">
-                        {/* Loading skeleton for the price */}
-                        <div className="w-16 h-4 bg-gray-300"></div>
-
-                        {/* Loading skeleton for the discounted price */}
-                        <div className="w-16 h-4 bg-gray-300"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+            <SearchCard products={products?.products} isLoading={isLoading} />
           </m.div>
         </m.div>
       )}

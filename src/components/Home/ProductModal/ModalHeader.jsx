@@ -1,4 +1,4 @@
-"use state";
+"use client";
 
 import { useState } from "react";
 import { AiTwotoneHeart, AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
@@ -21,9 +21,7 @@ const ModalHeader = ({ setShowProductModal }) => {
             alt=""
             className="w-4 h-4 rounded-full md:w-6 md:h-6"
           />
-          <p className="text-xs md:text-sm dark:text-dark-100">
-            Qubitron Solutions
-          </p>
+          <p className="text-xs md:text-sm dark:text-dark-100">Waresun</p>
 
           {like ? (
             <button onClick={() => setLike(false)}>
