@@ -1,5 +1,6 @@
 import AllStateContext from "@/context/AllStateContext";
 import AuthContext from "@/context/AuthContext";
+import { GetDataCart } from "@/utils/addToCart/AddToCart";
 import { getUserByEmail } from "@/utils/api/user";
 import { useContext, useEffect, useState } from "react";
 
@@ -14,6 +15,20 @@ const AllStateProvider = ({ children }) => {
   const [isDelOpen, setDelOpen] = useState(false);
   const [FindUser, setFindUser] = useState([]);
   const { user } = useContext(AuthContext);
+  const [totalCartItem , setTotalCartItem] = useState([])
+  const [cartUpdated, setCartUpdated] = useState(false)
+  
+
+    useEffect(()=> {
+        (async() => {
+            const cart = await GetDataCart()
+            
+            setTotalCartItem(cart)
+
+        })();
+        
+    },[cartUpdated])
+    
 
   useEffect(() => {
     if (user?.email) {
@@ -32,7 +47,11 @@ const AllStateProvider = ({ children }) => {
     showProductModal,
     setShowProductModal,
     cartOpen,
+    totalCartItem , 
+    setTotalCartItem,
+    setCartUpdated,
     setCartOpen,
+    cartUpdated,
     adminBarOpen,
     setAdminBarOpen,
     isDelOpen,

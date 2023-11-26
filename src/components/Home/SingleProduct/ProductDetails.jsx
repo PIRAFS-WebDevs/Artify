@@ -5,7 +5,7 @@ import ShareBtn from "./ShareBtn";
 const ProductDetails = ({productById}) => {
   return (
     <section className="w-full xl:flex mb-4 lg:grid">
-      <div className="lg:w-[55%] ">
+      <div className="xl:w-[55%] md:w-full">
         <p className="mb-8  ">
           {productById?.description}
         </p>
@@ -16,7 +16,7 @@ const ProductDetails = ({productById}) => {
         </div>
         <Ratings />
       </div>
-      <div className="xl:w-[45%] pl-16 ">
+      <div className="xl:w-[45%] xl:pl-16 items-center ">
         <ProductInfo  productById={productById}/>
       </div>
     </section>
