@@ -6,18 +6,19 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
 const AllProductProvider = ({ children }) => {
-  const [searchText, setSearchText] = useState("");
+  const [category, setCategory] = useState(null);
+
   const {
     data: products = [],
     isLoading,
     refetch,
     isError,
   } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => getProducts(),
+    queryKey: ["products", category],
+    queryFn: () => getProducts(category),
   });
 
-  const value = { products: products?.products, setSearchText, isLoading };
+  const value = { products: products?.products, setCategory, isLoading };
   return (
     <AllProductContext.Provider value={value}>
       {children}

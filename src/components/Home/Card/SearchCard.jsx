@@ -1,7 +1,7 @@
 import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
-import CardSkeleton from "@/components/Shared/skeletons/cardSkeleton";
+import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
 
 const SearchCard = ({ products, isLoading }) => {
   return (
@@ -9,7 +9,13 @@ const SearchCard = ({ products, isLoading }) => {
       {isLoading ? (
         <CardSkeleton />
       ) : products == undefined ? (
-        <div>Product Not Found</div>
+        <div className="grid min-h-screen pb-20 place-items-center">
+          <img
+            className="w-60"
+            src="/assets/images/not-found/no-data.png"
+            alt=""
+          />
+        </div>
       ) : (
         <>
           <div className="grid gap-6 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[2000px]:grid-cols-5 py-6 px-6">
