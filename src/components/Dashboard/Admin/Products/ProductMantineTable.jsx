@@ -1,7 +1,7 @@
 "use client";
 
-import { MantineReactTable } from "mantine-react-table";
-import { MantineProvider } from "@mantine/core";
+import { MantineReactTable, useMantineReactTable } from "mantine-react-table";
+import { BackgroundImage, MantineProvider } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/utils/api/product";
 import "./ProductTable.css";
@@ -36,6 +36,31 @@ const ProductMantineTable = () => {
     queryFn: () => getProducts(),
   });
 
+  // const table = useMantineReactTable({
+  //   columns,
+  //   data,
+  //   enableColumnActions: false,
+  //   enableColumnFilters: false,
+  //   enablePagination: false,
+  //   enableSorting: false,
+  //   mantineTableProps: {
+  //     highlightOnHover: false,
+  //     withColumnBorders: true,
+  //     withBorder: colorScheme === "light",
+  //     style: {
+  //       "thead > tr": {
+  //         backgroundColor: "inherit",
+  //       },
+  //       "thead > tr > th": {
+  //         backgroundColor: "inherit",
+  //       },
+  //       "tbody > tr > td": {
+  //         backgroundColor: "inherit",
+  //       },
+  //     },
+  //   },
+  // });
+
   return (
     <MantineProvider
       theme={{
@@ -46,6 +71,19 @@ const ProductMantineTable = () => {
       }}
     >
       <MantineReactTable
+        mantineTableProps={{
+          style: {
+            "thead > tr": {
+              backgroundColor: "red",
+            },
+            "thead > tr > th": {
+              backgroundColor: "red",
+            },
+            "tbody > tr > td": {
+              backgroundColor: "red",
+            },
+          },
+        }}
         columns={columns}
         data={products?.products || []}
         enableRowSelection
