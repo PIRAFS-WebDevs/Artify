@@ -35,7 +35,6 @@ export const getProducts = async (text) => {
         : `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/`,
       { next: { revalidate: "3600" } }
     );
-
     return res.json();
   } catch (error) {
     console.error(error.message);

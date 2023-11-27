@@ -13,7 +13,7 @@ const PreviewSvg = ({ id }) => {
       onClick={() => {
         setShowProductModal(true), setProductId(id);
       }}
-      className="text-xs font-medium text-center text-light"
+      className="text-xs text-center"
     >
       <div className="flex items-center justify-center mb-2 transition-all rounded-full hover:bg-primary bg-dark-100 text-light backdrop-blur-sm hover:bg-brand h-11 w-11">
         <svg

@@ -1,9 +1,16 @@
+import Card from "@/components/Home/Card/Card";
+import CategorySplide from "@/components/Home/Category/CategorySplide";
+import AdBanner from "@/components/Software/AdBanner";
+import Software from "@/components/Software/Software";
 import React from "react";
 
 const SoftWarePage = () => {
   return (
-    <div className="grid min-h-screen text-2xl text-white place-items-center">
-      Software
+    <div className="">
+      <Software />
+      <CategorySplide />
+      <AdBanner />
+      <Card />
     </div>
   );
 };
