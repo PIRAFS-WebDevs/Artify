@@ -1,10 +1,4 @@
-import {
-  AiOutlineTags,
-  AiOutlinePushpin,
-  AiOutlineLink,
-  AiOutlineRight,
-  AiOutlineLeft,
-} from "react-icons/ai";
+import { AiOutlineTags, AiOutlinePushpin, AiOutlineLink } from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
 import {
   BiSolidDownload,
@@ -15,25 +9,26 @@ import {
 } from "react-icons/bi";
 import { HiOutlineRefresh } from "react-icons/hi";
 import toast from "react-hot-toast";
-import { usePathname } from "next/navigation";
 
-const ProductInfo = () => {
-  const path = usePathname();
-
+const ProductInfo = ({
+  tags,
+  layout,
+  price,
+  description,
+  updatedAt,
+  createdAt,
+  _id,
+}) => {
   const onCopy = () => {
-    navigator.clipboard.writeText(path);
+    navigator.clipboard.writeText(
+      process.env.NEXT_PUBLIC_hostUrl + "products/" + _id
+    );
     toast.success("Copied successfully");
   };
 
   return (
     <div className="space-y-4">
-      <p className="dark:text-dark-100 line-clamp-5">
-        Along With Wordpress Themes & Plugins, We always try to use latest
-        trending techs like React, Next Js, Gatsby Js, GraphQl, Shopify etc to
-        make our products special. Our rich tech choice will help you to build
-        high performance applications. We are also known to provide great
-        customer supports to our customers.
-      </p>
+      <p className="dark:text-dark-100 line-clamp-5">{description}</p>
 
       <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 border-y border-[#3e3e3e] py-4">
         <p className="flex items-center gap-2">
@@ -52,7 +47,7 @@ const ProductInfo = () => {
             <HiOutlineRefresh className="w-4 h-4" />
             Last Update:
           </p>{" "}
-          <p>Mar 8, 2022</p>
+          <p>{updatedAt.slice(0, 10)}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
@@ -60,7 +55,7 @@ const ProductInfo = () => {
             <BiCalendar className="w-4 h-4" />
             Published:
           </p>{" "}
-          <p>Jan 22, 2022</p>
+          <p>{createdAt.slice(0, 10)}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
@@ -68,7 +63,7 @@ const ProductInfo = () => {
             <AiOutlinePushpin className="w-4 h-4" />
             Layout:
           </p>{" "}
-          <p>Fixed</p>
+          <p>{layout}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
@@ -77,12 +72,14 @@ const ProductInfo = () => {
             Tags:
           </p>{" "}
           <div className="flex flex-wrap col-span-1 gap-2 xl:col-span-3">
-            <button className="px-2 py-1 text-xs border rounded dark:text-white border-dark-300 hover:dark:bg-dark-500">
-              E-commerce
-            </button>
-            <button className="px-2 py-1 text-xs border rounded dark:text-white border-dark-300 hover:dark:bg-dark-500">
-              Retail
-            </button>
+            {tags.map((tag, i) => (
+              <button
+                key={i}
+                className="px-2 py-1 text-xs border rounded dark:text-white border-dark-300 hover:dark:bg-dark-500"
+              >
+                {tag}
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -108,7 +105,7 @@ const ProductInfo = () => {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <button className="py-4 font-semibold transition-all rounded-md bg-primary dark:text-white hover:bg-primarySec active:scale-95">
-            Add to Cart $77.99
+            Add to Cart ${price}
           </button>
           <button className="py-4 font-semibold transition-all bg-transparent border rounded-md dark:text-white border-dark-100 hover:dark:bg-dark-500 active:scale-95">
             Live Preview

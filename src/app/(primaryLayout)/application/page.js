@@ -1,9 +1,10 @@
+import Application from "@/components/Application/Application";
 import React from "react";
 
 const ApplicationPage = () => {
   return (
-    <div className="grid min-h-screen text-2xl text-white place-items-center">
-      Application
+    <div className="p-6">
+      <Application />
     </div>
   );
 };
