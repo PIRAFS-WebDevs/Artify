@@ -15,7 +15,7 @@ const ArticlesCategory = () => {
         <div className="py-4 space-y-3">
           <h1 className="flex items-center gap-2 text-lg text-gray-200">
             <AiFillFolder /> React Problem{" "}
-            <span className="text-sm text-dark-100">(123)</span>
+            <span className="text-sm text-dark-100">(12)</span>
           </h1>
           <ul className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
@@ -28,7 +28,7 @@ const ArticlesCategory = () => {
         <div className="py-4 space-y-3">
           <h1 className="flex items-center gap-2 text-lg text-gray-200">
             <AiFillFolder /> React Problem{" "}
-            <span className="text-sm text-dark-100">(123)</span>
+            <span className="text-sm text-dark-100">(12)</span>
           </h1>
           <ul className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
@@ -43,7 +43,7 @@ const ArticlesCategory = () => {
         <div className="py-4 space-y-3">
           <h1 className="flex items-center gap-2 text-lg text-gray-200">
             <AiFillFolder /> React Problem{" "}
-            <span className="text-sm text-dark-100">(123)</span>
+            <span className="text-sm text-dark-100">(12)</span>
           </h1>
           <ul className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
@@ -56,7 +56,7 @@ const ArticlesCategory = () => {
         <div className="py-4 space-y-3">
           <h1 className="flex items-center gap-2 text-lg text-gray-200">
             <AiFillFolder /> React Problem{" "}
-            <span className="text-sm text-dark-100">(123)</span>
+            <span className="text-sm text-dark-100">(12)</span>
           </h1>
           <ul className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
