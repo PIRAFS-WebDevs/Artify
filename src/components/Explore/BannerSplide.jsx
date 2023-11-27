@@ -6,7 +6,7 @@ import "./SplideArrow.css";
 
 const BannerSplide = () => {
   return (
-    <div className="relative px-6 py-6" id="banner">
+    <div className="relative px-6 py-6" id="explore">
       <Splide
         options={{
           perMove: 1,
