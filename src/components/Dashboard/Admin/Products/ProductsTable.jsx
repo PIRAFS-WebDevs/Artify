@@ -50,15 +50,15 @@ const ProductsTable = () => {
         filter={true}
       />
 
-      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto scrollbar text-center border rounded-sm dark:bg-dark-400 dark:border-dark-300 scrollbar">
+      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto text-center border rounded-sm scrollbar dark:bg-dark-400 dark:border-dark-300">
         <table className="w-full ">
           <thead>
-            <tr className="w-auto h-12 text-xs text-center border rounded-sm dark:bg-dark-200 border-dark-300 md:text-base space-x-5">
+            <tr className="w-auto h-12 space-x-5 text-xs text-center border rounded-sm dark:bg-dark-200 border-dark-300 md:text-base">
               <th>Image</th>
               <th className="pl-2 text-start">Name</th>
               <th className="text-center">Layouts</th>
               <th>Slug</th>
-              <th className="flex justify-center h-12 items-center">
+              <th className="flex items-center justify-center h-12">
                 Price{" "}
                 <span className="flex">
                   <MdOutlineArrowDropUp
@@ -82,7 +82,7 @@ const ProductsTable = () => {
             {products?.map((product) => (
               <tr
                 key={product?._id}
-                className="h-20 text-xs text-center md:text-base space-x-10"
+                className="h-20 space-x-10 text-xs text-center md:text-base"
               >
                 <td className="w-20 h-12 ">
                   <div>

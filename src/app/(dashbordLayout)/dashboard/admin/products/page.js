@@ -1,6 +1,6 @@
 import ProductsTable from "@/components/Dashboard/Admin/Products/ProductsTable";
-import ProductMantineTable from "@/components/Dashboard/Admin/Products/ProductMantineTable";
 import SharedComp from "@/components/Shared/admin/SharedComp";
+import ProductsUITable from "@/components/Dashboard/Admin/Products/ProductUITable";
 
 const Products = async () => {
   return (
@@ -8,12 +8,10 @@ const Products = async () => {
       {/* <ProductsTable /> */}
       <SharedComp
         type={"Products"}
-        // search
         AddType={"Add Product"}
         link={"/dashboard/admin/products/upload"}
       />
-      <div className="mt-5"> <ProductMantineTable /></div>
-     
+      <ProductsUITable />
     </>
   );
 };
