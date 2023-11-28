@@ -9,31 +9,28 @@ import AllStateContext from "@/context/AllStateContext";
 import { useContext } from "react";
 
 const SearchCard = ({ products, isLoading }) => {
-  const { setCartUpdated} = useContext(AllStateContext);
+  const { setCartUpdated } = useContext(AllStateContext);
   const handleCart = async (cart, _id) => {
     const checking = async () => {
       try {
         const precart = await GetDataCart();
-    
+
         if (precart) {
-          const check = precart.some(pre => pre.id === _id);
-          return check
+          const check = precart.some((pre) => pre.id === _id);
+          return check;
         }
-        
       } catch (error) {
         console.error("Error fetching cart data:", error);
       }
-    }
-    const checked = await checking()
+    };
+    const checked = await checking();
     if (!checked) {
-          await AddToCart(cart);
-          setCartUpdated(prevState => !prevState);
-          toast.success("Product added to the cart"); 
-    }
-    else {
+      await AddToCart(cart);
+      setCartUpdated((prevState) => !prevState);
+      toast.success("Product added to the cart");
+    } else {
       toast.error("Product already added to the cart");
-  } 
-    
+    }
   };
   return (
     <>
@@ -43,7 +40,7 @@ const SearchCard = ({ products, isLoading }) => {
         <div className="grid min-h-screen pb-20 place-items-center">
           <img
             className="opacity-75 w-60 brightness-75"
-            src="/assets/images/not-found/no-data.png"
+            src="/assets/images/not_found/no_data.png"
             alt=""
           />
         </div>
@@ -97,12 +94,22 @@ const SearchCard = ({ products, isLoading }) => {
                     </div>
                     <div>
                       <div className="flex gap-2">
-                        <button className="inline px-3 py-2 transition-all duration-200 bg-transparent border rounded text-primary hover:bg-dark-200 border-dark-200 active:scale-95" onClick={() =>
-                        { 
-                          handleCart({  id: product?._id, quantity: 1 }, product?._id)}}>
+                        <button
+                          className="inline px-3 py-2 transition-all duration-200 bg-transparent border rounded text-primary hover:bg-dark-200 border-dark-200 active:scale-95"
+                          onClick={() => {
+                            handleCart(
+                              { id: product?._id, quantity: 1 },
+                              product?._id
+                            );
+                          }}
+                        >
                           <FaShoppingCart />
                         </button>
-                        <Link href={'https://pixer.redq.io/'} target="_blank" className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95">
+                        <Link
+                          href={"https://pixer.redq.io/"}
+                          target="_blank"
+                          className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95"
+                        >
                           Live Preview
                         </Link>
                       </div>

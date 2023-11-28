@@ -33,27 +33,13 @@ module.exports = {
   plugins: [
     nextui({
       themes: {
-        light: {
-          extend: {
-            colors: {
-              white: "#ffffff", // Customize as needed
-              primary: "#00b482",
-              primarySec: "#00997d",
-              // Add more light mode colors as needed
-            },
-          },
-        },
         dark: {
-          extend: {
-            colors: {
-              black: "#000000", // Customize as needed
-              "dark-100": "#999999",
-              "dark-200": "#3e3e3e",
-              "dark-300": "#323232",
-              "dark-400": "#212121",
-              "dark-500": "#181818",
-              // Add more dark mode colors as needed
+          colors: {
+            primary: {
+              DEFAULT: "#00b482",
+              // foreground: "#000000",
             },
+            // focus: "#BEF264",
           },
         },
       },

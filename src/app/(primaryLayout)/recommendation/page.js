@@ -1,9 +1,10 @@
+import Recommendation from "@/components/Recommendation/Recomendation";
 import React from "react";
 
 const RecommendationPage = () => {
   return (
-    <div className="grid min-h-screen text-2xl text-white place-items-center">
-      Recommendation
+    <div className="p-6">
+      <Recommendation />
     </div>
   );
 };

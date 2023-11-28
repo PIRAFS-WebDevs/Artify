@@ -7,7 +7,6 @@ const HomeSidebarLink = ({ href, title, icon }) => {
   const { sideBarOpen, mobileView, setMobileView } =
     useContext(AllStateContext);
   const path = usePathname();
-  console.log( href);
 
   return (
     <div
