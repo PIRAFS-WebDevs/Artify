@@ -33,10 +33,10 @@ const Purchase = () => {
             </div>
 
             <div className="flex self-end gap-4">
-              <button className="p-2 text-xs transition-all bg-transparent border rounded text-primary border-dark-200 hover:bg-dark-200 active:scale-95">
+              <button className="p-2 text-xs transition-all bg-transparent border rounded-sm text-primary border-dark-200 hover:bg-dark-200 active:scale-95">
                 Update Preview
               </button>
-              <button className="flex items-center gap-2 p-2 text-xs text-white transition-all rounded bg-primary hover:bg-primarySec active:scale-95">
+              <button className="flex items-center gap-2 p-2 text-xs text-white transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95">
                 <BiSolidDownload className="w-4 h-4" />
                 Download
               </button>

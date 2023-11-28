@@ -33,31 +33,31 @@ const AboutUs = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           <h1 className="text-white grid place-items-center gap-2">
-            <span className="bg-dark-300 rounded text-primary w-full h-[12rem] grid place-items-center">
+            <span className="bg-dark-300 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
               <AiOutlineAppstoreAdd size={"4rem"} />
             </span>
             App Development
           </h1>
           <h1 className="text-white grid place-items-center gap-2">
-            <span className="bg-dark-300 rounded text-primary w-full h-[12rem] grid place-items-center">
+            <span className="bg-dark-300 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
               <GiExpense size={"4rem"} />
             </span>
             Design & Research
           </h1>
           <h1 className="text-white grid place-items-center gap-2">
-            <span className="bg-dark-300 rounded text-primary w-full h-[12rem] grid place-items-center">
+            <span className="bg-dark-300 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
               <HiOutlineLightBulb size={"4rem"} />
             </span>
             Research & Development
           </h1>
           <h1 className="text-white grid place-items-center gap-2">
-            <span className="bg-dark-300 rounded text-primary w-full h-[12rem] grid place-items-center">
+            <span className="bg-dark-300 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
               <BsTools size={"4rem"} />
             </span>
             Custom Management
           </h1>
           <h1 className="text-white grid place-items-center gap-2">
-            <span className="bg-dark-300 rounded text-primary w-full h-[12rem] grid place-items-center">
+            <span className="bg-dark-300 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
               <AiOutlineGlobal size={"4rem"} />
             </span>
             Global Support

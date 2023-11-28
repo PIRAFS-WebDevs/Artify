@@ -31,7 +31,7 @@ const SharedComp = ({ type, AddType, link, search, SetSearchText, filter }) => {
     }
   };
   return (
-    <div className=" md:min-h-[96px] dark:border-dark-300   rounded  border dark:bg-dark-400 w-full md:mb-0">
+    <div className=" md:min-h-[96px] dark:border-dark-300   rounded-sm  border dark:bg-dark-400 w-full md:mb-0">
       <div className=" md:min-h-[96px]  py-5 md:py-0 md:flex px-5  justify-center items-center ">
         <div className="mb-5 md:w-1/2 md:mb-0 ">
           <p className="text-xl text-center md:text-start">{type && type}</p>
@@ -47,14 +47,14 @@ const SharedComp = ({ type, AddType, link, search, SetSearchText, filter }) => {
               <input
                 type="text"
                 onChange={handelSearchText}
-                className="w-full px-12 bg-transparent border rounded h-14 dark:text-white focus:outline-dark-300 "
+                className="w-full px-12 bg-transparent border rounded-sm h-14 dark:text-white focus:outline-dark-300 "
                 name="search"
                 id="search"
               />
             </div>
 
             <Link className={link || "hidden"} href={link ? link : ""}>
-              <button className="w-full font-semibold rounded h-14 md:w-auto px-7 bg-primary">
+              <button className="w-full font-semibold rounded-sm h-14 md:w-auto px-7 bg-primary">
                 + {AddType}
               </button>
             </Link>
@@ -76,7 +76,7 @@ const SharedComp = ({ type, AddType, link, search, SetSearchText, filter }) => {
             <select
               onChange={filterByLayout}
               id="layout"
-              className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
+              className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
             >
               {layouts.map((layout, i) => (
                 <option
@@ -98,7 +98,7 @@ const SharedComp = ({ type, AddType, link, search, SetSearchText, filter }) => {
             <select
               onChange={filterByCategories}
               id="category"
-              className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
+              className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
             >
               {categories.map((category, i) => (
                 <option

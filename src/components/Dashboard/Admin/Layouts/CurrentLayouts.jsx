@@ -17,10 +17,10 @@ const CurrentLayouts = () => {
         search={true}
         link={"/dashboard/admin/layouts/upload"}
       />
-      <div className="p-5 mt-5 mb-5 text-center border rounded dark:bg-dark-400 dark:border-dark-300">
+      <div className="p-5 mt-5 mb-5 text-center border rounded-sm dark:bg-dark-400 dark:border-dark-300">
         <table className="w-full ">
           <thead>
-            <tr className="h-12 text-xs border rounded dark:bg-dark-200 border-dark-300 md:text-base text-start">
+            <tr className="h-12 text-xs border rounded-sm dark:bg-dark-200 border-dark-300 md:text-base text-start">
               <th>id</th>
               <th className="text-start">Name</th>
               <th className="text-start">Icon</th>

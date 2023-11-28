@@ -18,10 +18,10 @@ const FeatureImage = ({ featuredImage, setFeaturedImage }) => {
         </p>
       </div>
 
-      <div className="md:col-span-2 w-full dark:bg-dark-400 rounded p-8 space-y-4">
+      <div className="md:col-span-2 w-full dark:bg-dark-400 rounded-sm p-8 space-y-4">
         <label
           htmlFor="dropzone-file"
-          className="grid place-items-center gap-2 px-8 py-16 text-center border border-dark-100 border-dashed rounded cursor-pointer"
+          className="grid place-items-center gap-2 px-8 py-16 text-center border border-dark-100 border-dashed rounded-sm cursor-pointer"
         >
           <FaCloudUploadAlt className="w-8 h-8 text-dark-200" />
 

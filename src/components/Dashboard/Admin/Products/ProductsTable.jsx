@@ -16,31 +16,28 @@ const ProductsTable = () => {
     useContext(AllStateContext);
   const [searchText, SetSearchText] = useState("");
   const [products, SetProducts] = useState([]);
-  const [sortByPrice, SetSortByPrice] = useState('default');
-  
+  const [sortByPrice, SetSortByPrice] = useState("default");
 
   useEffect(() => {
     (async () => {
       const allProducts = await getProducts(searchText);
-    const data = allProducts?.products
+      const data = allProducts?.products;
 
-
-      
-      if(sortByPrice === "default"){
+      if (sortByPrice === "default") {
         SetProducts(data);
-      }else if (sortByPrice === "high"){
-        
-        const sortedProductsDis = products.slice().sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      } else if (sortByPrice === "high") {
+        const sortedProductsDis = products
+          .slice()
+          .sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         SetProducts(sortedProductsDis);
-      }else if (sortByPrice === "low"){
-        const sortedProductsAsc = products.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      } else if (sortByPrice === "low") {
+        const sortedProductsAsc = products
+          .slice()
+          .sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         SetProducts(sortedProductsAsc);
       }
-
-     
-
     })();
-  }, [searchText,sortByPrice]);
+  }, [searchText, sortByPrice]);
 
   return (
     <>
@@ -53,20 +50,28 @@ const ProductsTable = () => {
         filter={true}
       />
 
-      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto scrollbar text-center border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
+      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto scrollbar text-center border rounded-sm dark:bg-dark-400 dark:border-dark-300 scrollbar">
         <table className="w-full ">
           <thead>
-            <tr className="w-auto h-12 text-xs text-center border rounded dark:bg-dark-200 border-dark-300 md:text-base space-x-5">
+            <tr className="w-auto h-12 text-xs text-center border rounded-sm dark:bg-dark-200 border-dark-300 md:text-base space-x-5">
               <th>Image</th>
               <th className="pl-2 text-start">Name</th>
               <th className="text-center">Layouts</th>
               <th>Slug</th>
-              <th className="flex justify-center h-12 items-center">Price <span className="flex">
-              <MdOutlineArrowDropUp  className="cursor-pointer active:text-dark-400 lg:text-3xl text-7xl" onClick={()=> SetSortByPrice("high")}/>
+              <th className="flex justify-center h-12 items-center">
+                Price{" "}
+                <span className="flex">
+                  <MdOutlineArrowDropUp
+                    className="cursor-pointer active:text-dark-400 lg:text-3xl text-7xl"
+                    onClick={() => SetSortByPrice("high")}
+                  />
 
-              <MdOutlineArrowDropDown  className="cursor-pointer active:text-dark-400 lg:text-3xl text-7xl " onClick={()=> SetSortByPrice("low")}/>
-              
-</span></th>
+                  <MdOutlineArrowDropDown
+                    className="cursor-pointer active:text-dark-400 lg:text-3xl text-7xl "
+                    onClick={() => SetSortByPrice("low")}
+                  />
+                </span>
+              </th>
               <th>Date</th>
               <th>Status</th>
               <th>Actions</th>

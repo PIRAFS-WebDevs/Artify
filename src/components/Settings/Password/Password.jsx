@@ -49,7 +49,7 @@ export default function Password() {
                 className={`w-full ${
                   errors.currentPassword &&
                   "border-red-400 focus:border-red-400"
-                } rounded border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
+                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
               />
               <span
                 onClick={() => setIsPasswordVisible(!isPasswordVisible)}
@@ -86,7 +86,7 @@ export default function Password() {
                 type={isNewPasswordVisible ? "text" : "password"}
                 className={`w-full ${
                   errors.newPassword && "border-red-400 focus:border-red-400"
-                } rounded border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
+                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
               />
               <span
                 onClick={() => setIsNewPasswordVisible(!isNewPasswordVisible)}
@@ -124,7 +124,7 @@ export default function Password() {
                 className={`w-full ${
                   errors.confirmPassword &&
                   "border-red-400 focus:border-red-400"
-                } rounded border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
+                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
               />
               <span
                 onClick={() =>
@@ -148,7 +148,7 @@ export default function Password() {
         </div>
 
         <div className="absolute self-end bottom-8">
-          <button className="px-4 py-2 text-sm font-semibold text-white transition-all duration-200 rounded bg-primary hover:bg-primarySec active:scale-95">
+          <button className="px-4 py-2 text-sm font-semibold text-white transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95">
             Save Changes
           </button>
         </div>

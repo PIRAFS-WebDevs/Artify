@@ -39,7 +39,7 @@ const Login = ({ isShow, setIsShow }) => {
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="md:p-12 p-4 rounded-lg shadow-xl cursor-default w-full sm:w-[32rem] dark:bg-dark-400 dark:text-white"
+            className="md:p-12 p-4 rounded-sm shadow-xl cursor-default w-full sm:w-[32rem] dark:bg-dark-400 dark:text-white"
           >
             <div className="flex justify-end w-full">
               <CloseButton reset={reset} setIsShow={setIsShow} />
@@ -84,7 +84,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="email"
                   id="email"
                   name="email"
-                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded-sm outline-none focus:border-primary ${
                     errors.email && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -112,7 +112,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="password"
                   id="password"
                   name="password"
-                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded outline-none focus:border-primary ${
+                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded-sm outline-none focus:border-primary ${
                     errors.password && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -144,7 +144,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div>
                 <button
                   type="submit"
-                  className="w-full px-8 py-3 text-sm transition-all duration-300 rounded-md bg-primary dark:text-white md:block hover:bg-primarySec active:scale-95"
+                  className="w-full px-8 py-3 text-sm transition-all duration-300 rounded-sm bg-primary dark:text-white md:block hover:bg-primarySec active:scale-95"
                 >
                   Get Login
                 </button>

@@ -24,7 +24,7 @@ const AnsModal = ({ isShow, setIsShow }) => {
             }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="rounded-lg shadow-xl  w-1/2 col-span-1 cursor-default min-h-[300px] relative h-auto p-5 dark:bg-dark-400 border dark:border-dark-300"
+            className="rounded-sm shadow-xl  w-1/2 col-span-1 cursor-default min-h-[300px] relative h-auto p-5 dark:bg-dark-400 border dark:border-dark-300"
           >
             <>
               {/* productinfo */}
@@ -54,7 +54,7 @@ const AnsModal = ({ isShow, setIsShow }) => {
                   cols="30"
                   rows="7"
                   placeholder="Write me an answer"
-                  className="dark:bg-dark-400 border dark:border-dark-300 rounded mt-5 w-full resize-none p-2"
+                  className="dark:bg-dark-400 border dark:border-dark-300 rounded-sm mt-5 w-full resize-none p-2"
                 ></textarea>
                 <div className="h-full w-full flex justify-end mt-5">
                   <button className="px-3 py-2 bg-primary rounded">

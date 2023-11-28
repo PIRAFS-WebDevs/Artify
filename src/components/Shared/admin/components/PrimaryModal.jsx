@@ -22,7 +22,7 @@ const SetUserRole = ({ isShow, setIsShow }) => {
             }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="rounded-lg shadow-xl  w-1/2 col-span-1 cursor-default min-h-[300px] relative h-auto p-5 dark:bg-dark-400 border dark:border-dark-300"
+            className="rounded-sm shadow-xl  w-1/2 col-span-1 cursor-default min-h-[300px] relative h-auto p-5 dark:bg-dark-400 border dark:border-dark-300"
           >
             <>
               {/* info */}

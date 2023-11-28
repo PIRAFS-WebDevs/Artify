@@ -23,7 +23,7 @@ const CategorySplide = () => {
 
   return (
     <div
-      className="sticky inset-x-0 z-40 dark:bg-dark-500 top-[79.9px] border-y border-dark-400 "
+      className="sticky inset-x-0 z-40 dark:bg-dark-500 bg-light-200 top-[63.9px] border-y dark:border-dark-400 border-light-300"
       id="category"
     >
       <div className="relative px-6 py-6 ">
@@ -71,9 +71,9 @@ const CategorySplide = () => {
                   onClick={() => setCategory("")}
                   className={`${
                     category === ""
-                      ? "bg-white text-dark-500"
-                      : "text-white hover:bg-dark-200"
-                  } px-4 py-2 text-xs font-medium border rounded-full outline-none bg-dark-300 border-dark-300 whitespace-nowrap`}
+                      ? "dark:bg-white dark:text-dark-500 bg-dark-500 text-white"
+                      : "dark:text-white dark:hover:bg-dark-200 bg-light-300"
+                  } px-4 py-2 text-xs font-medium border rounded-full outline-none dark:bg-dark-300 dark:border-dark-300 border-light-300 whitespace-nowrap`}
                 >
                   All
                 </button>
@@ -84,9 +84,9 @@ const CategorySplide = () => {
                     onClick={() => setCategory(data.name)}
                     className={`${
                       data.name === category
-                        ? "bg-white text-dark-500"
-                        : "text-white hover:bg-dark-200"
-                    } px-4 py-2 text-xs font-medium border rounded-full outline-none bg-dark-300 border-dark-300 whitespace-nowrap`}
+                        ? "dark:bg-white dark:text-dark-500 bg-dark-500 text-white"
+                        : "dark:text-white dark:hover:bg-dark-200 bg-light-300"
+                    } px-4 py-2 text-xs font-medium border rounded-full outline-none dark:bg-dark-300 dark:border-dark-300 border-light-300 whitespace-nowrap`}
                   >
                     {data.name}
                   </button>

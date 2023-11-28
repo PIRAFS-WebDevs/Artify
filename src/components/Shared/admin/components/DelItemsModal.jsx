@@ -36,7 +36,7 @@ const DelItemsModal = ({ isDelOpen, setDelOpen, path, title }) => {
             }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="rounded-lg shadow-xl  lg:w-1/4 md:2/4 4/3 col-span-1 cursor-default min-h-[300px] h-auto p-5 dark:bg-dark-400 border dark:border-dark-300 flex flex-col justify-between"
+            className="rounded-sm shadow-xl  lg:w-1/4 md:2/4 4/3 col-span-1 cursor-default min-h-[300px] h-auto p-5 dark:bg-dark-400 border dark:border-dark-300 flex flex-col justify-between"
           >
             <>
               {/* productinfo */}
@@ -52,7 +52,7 @@ const DelItemsModal = ({ isDelOpen, setDelOpen, path, title }) => {
               <div className="flex gap-5">
                 <button
                   onClick={() => setDelOpen(false)}
-                  className="w-1/2 py-3 font-semibold rounded bg-primary hover:bg-primarySec"
+                  className="w-1/2 py-3 font-semibold rounded-sm bg-primary hover:bg-primarySec"
                 >
                   Cancel
                 </button>
@@ -61,7 +61,7 @@ const DelItemsModal = ({ isDelOpen, setDelOpen, path, title }) => {
                     setDelOpen(false), delateTheItem();
                   }}
                   className={
-                    "w-1/2 bg-red-400 hover:bg-red-500 py-3 rounded font-semibold "
+                    "w-1/2 bg-red-400 hover:bg-red-500 py-3 rounded-sm font-semibold "
                   }
                 >
                   Delete

@@ -11,7 +11,7 @@ const HomeSideBar = () => {
   return (
     <>
       <aside
-        className={`hidden md:block min-h-screen bg-light-200 dark:bg-dark-400 fixed overflow-y-auto ${
+        className={`hidden md:block min-h-screen bg-light-200 dark:bg-dark-400 fixed overflow-y-auto border-t border-r border-light-300 dark:border-dark-400 ${
           !sideBarOpen ? "md:max-w-fit" : "md:w-[240px]"
         } `}
       >

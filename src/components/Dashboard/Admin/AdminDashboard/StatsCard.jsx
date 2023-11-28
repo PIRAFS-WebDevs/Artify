@@ -3,7 +3,7 @@ import { BiDollar } from "react-icons/bi";
 
 const StatsCard = ({ title, days, income }) => {
   return (
-    <div className="col-span-1 h-36 p-5 flex flex-col justify-between border dark:border-dark-300 dark:bg-dark-400 rounded text-xs md:text-base">
+    <div className="col-span-1 h-36 p-5 flex flex-col justify-between border dark:border-dark-300 dark:bg-dark-400 rounded-sm text-xs md:text-base">
       <div className="flex justify-between ">
         <p>
           {title} <br />

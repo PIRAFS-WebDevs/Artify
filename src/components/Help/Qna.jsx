@@ -11,7 +11,7 @@ const Qna = () => {
             className="group [&_summary::-webkit-details-marker]:hidden "
           >
             <summary
-              className={`flex cursor-pointer items-center justify-between gap-1.5  p-4 t dark:text-white font-semibold px-3 py-5 border border-dark-200 rounded dark:active:bg-dark-200`}
+              className={`flex cursor-pointer items-center justify-between gap-1.5  p-4 t dark:text-white font-semibold px-3 py-5 border border-dark-200 rounded-sm dark:active:bg-dark-200`}
             >
               <h2 className="font-medium">{qus}</h2>
 

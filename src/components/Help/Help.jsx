@@ -9,7 +9,7 @@ const Help = () => {
           <h4 className="text-2xl font-semibold dark:dark:text-white">Help</h4>
           <p className="dark:text-dark-100">Frequentlydsdss asked question</p>
         </div>
-        <section className="w-[80%] mx-auto md:flex p-5  rounded ">
+        <section className="w-[80%] mx-auto md:flex p-5  rounded-sm ">
           <div className="w-[30%] dark:bg-dark-400 px-5 py-10 dark:text-dark-100 text-sm space-y-8">
             <p className="cursor-pointer hover:dark:text-white">
               Licensing Agreement

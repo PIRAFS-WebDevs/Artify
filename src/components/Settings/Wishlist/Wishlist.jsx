@@ -32,10 +32,10 @@ const Wishlist = () => {
             </div>
 
             <div className="flex self-end gap-4">
-              <button className="p-2 text-sm font-medium text-white transition-all duration-200 rounded md:p-3 bg-primary hover:bg-primarySec active:scale-95">
+              <button className="p-2 text-sm font-medium text-white transition-all duration-200 rounded-sm md:p-3 bg-primary hover:bg-primarySec active:scale-95">
                 Add to cart
               </button>
-              <button className="flex items-center gap-2 p-2 text-sm font-medium transition-all duration-200 bg-transparent border rounded md:p-3 text-primary hover:bg-dark-200 border-dark-200 active:scale-95">
+              <button className="flex items-center gap-2 p-2 text-sm font-medium transition-all duration-200 bg-transparent border rounded-sm md:p-3 text-primary hover:bg-dark-200 border-dark-200 active:scale-95">
                 <AiFillHeart className="w-4 h-4" />
               </button>
             </div>

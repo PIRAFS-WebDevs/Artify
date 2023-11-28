@@ -6,13 +6,13 @@ const RecentActivity = () => {
       className="lg:flex gap-5  mb-5 space-y-5 lg:space-y-0
      "
     >
-      <div className="lg:w-1/2 dark:bg-dark-400 p-5 overflow-x-auto rounded border dark:border-dark-300 ">
+      <div className="lg:w-1/2 dark:bg-dark-400 p-5 overflow-x-auto rounded-sm border dark:border-dark-300 ">
         <p className="text-center mb-5">Recent Orders</p>
 
         <div>
           <table className="w-full text-center ">
             <thead>
-              <tr className="h-12 dark:bg-dark-200 rounded border-dark-300 border text-xs md:text-base">
+              <tr className="h-12 dark:bg-dark-200 rounded-sm border-dark-300 border text-xs md:text-base">
                 <th>Tracking Number</th>
                 <th>Total</th>
                 <th>Order</th>
@@ -42,13 +42,13 @@ const RecentActivity = () => {
           </table>
         </div>
       </div>
-      <div className="lg:w-1/2 dark:bg-dark-400 overflow-x-auto p-5 rounded border dark:border-dark-300 ">
+      <div className="lg:w-1/2 dark:bg-dark-400 overflow-x-auto p-5 rounded-sm border dark:border-dark-300 ">
         <p className="text-center mb-5">Recent Withdrawals</p>
 
         <div>
           <table className="w-full text-center">
             <thead>
-              <tr className="h-12 dark:bg-dark-200 rounded border-dark-300 border text-xs md:text-base">
+              <tr className="h-12 dark:bg-dark-200 rounded-sm border-dark-300 border text-xs md:text-base">
                 <th>Tracking Number</th>
                 <th>Total</th>
                 <th>Order</th>

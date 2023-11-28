@@ -13,37 +13,30 @@ import toast from "react-hot-toast";
 
 const Card = () => {
   const { products, isLoading } = useContext(AllProductContext);
-  const { setCartUpdated} = useContext(AllStateContext);
-  
-  
- 
+  const { setCartUpdated } = useContext(AllStateContext);
 
   const handleCart = async (cart, _id) => {
     const checking = async () => {
       try {
         const precart = await GetDataCart();
-    
+
         if (precart) {
-          const check = precart.some(pre => pre.id === _id);
-          return check
+          const check = precart.some((pre) => pre.id === _id);
+          return check;
         }
-        
       } catch (error) {
         console.error("Error fetching cart data:", error);
       }
-    }
-    const checked = await checking()
+    };
+    const checked = await checking();
     if (!checked) {
-          await AddToCart(cart);
-          setCartUpdated(prevState => !prevState);
-          toast.success("Product added to the cart"); 
-    }
-    else {
+      await AddToCart(cart);
+      setCartUpdated((prevState) => !prevState);
+      toast.success("Product added to the cart");
+    } else {
       toast.error("Product already added to the cart");
-  } 
-    
+    }
   };
-  
 
   return (
     <>
@@ -59,7 +52,7 @@ const Card = () => {
         </div>
       ) : (
         <div>
-          <div className="grid gap-6 min-[540px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 min-[2200px]:grid-cols-6 py-6 px-6">
+          <div className="grid gap-4 min-[540px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 min-[2200px]:grid-cols-6 py-6 px-6">
             {products?.map((product) => (
               <div
                 key={product?._id}
@@ -109,12 +102,22 @@ const Card = () => {
                     </div>
                     <div>
                       <div className="flex gap-2">
-                        <button className="inline px-3 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-gray-100 border-dark-200 active:scale-95" onClick={() =>
-                        { 
-                          handleCart({  id: product?._id, quantity: 1 }, product?._id)}}>
+                        <button
+                          className="inline px-3 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-gray-100 border-dark-200 active:scale-95"
+                          onClick={() => {
+                            handleCart(
+                              { id: product?._id, quantity: 1 },
+                              product?._id
+                            );
+                          }}
+                        >
                           <FaShoppingCart />
                         </button>
-                        <Link href={'https://pixer.redq.io/'} target="_blank" className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95">
+                        <Link
+                          href={"https://pixer.redq.io/"}
+                          target="_blank"
+                          className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95"
+                        >
                           Live Preview
                         </Link>
                       </div>
@@ -128,7 +131,7 @@ const Card = () => {
           {/* load more button */}
           {products.length > 10 && (
             <div className="flex justify-center py-8">
-              <button className="px-6 py-3 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
+              <button className="px-6 py-3 text-sm font-semibold transition-all rounded-sm dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
                 Load More
               </button>
             </div>

@@ -115,7 +115,7 @@ const LayoutCategories = ({
         </p>
       </div>
 
-      <div className="w-full p-8 space-y-4 rounded md:col-span-2 dark:bg-dark-400">
+      <div className="w-full p-8 space-y-4 rounded-sm md:col-span-2 dark:bg-dark-400">
         {/* layout */}
         <div className="w-full">
           <label
@@ -127,7 +127,7 @@ const LayoutCategories = ({
           <select
             {...register("layout")}
             id="layout"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
           >
             {layouts.map((layout, i) => (
               <option key={i} value={layout} className="text-white bg-dark-300">
@@ -144,7 +144,7 @@ const LayoutCategories = ({
           <div className="flex flex-wrap gap-2">
             {selectedCategories.map((category, i) => (
               <div key={i} className="relative">
-                <span className="px-2 py-1 text-white rounded bg-dark-300">
+                <span className="px-2 py-1 text-white rounded-sm bg-dark-300">
                   {category}
                 </span>
                 <span
@@ -158,7 +158,7 @@ const LayoutCategories = ({
           </div>
           <select
             id="category"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
             onChange={handleCategoryChange}
           >
             <option value="" disabled selected>
@@ -183,7 +183,7 @@ const LayoutCategories = ({
           <div className="flex flex-wrap gap-2">
             {selectedTags.map((tag, i) => (
               <div key={i} className="relative">
-                <span className="px-2 py-1 text-white rounded bg-dark-300">
+                <span className="px-2 py-1 text-white rounded-sm bg-dark-300">
                   {tag}
                 </span>
                 <span
@@ -197,7 +197,7 @@ const LayoutCategories = ({
           </div>
           <select
             id="tags"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
             onChange={handleTagChange}
           >
             <option value="" disabled selected>

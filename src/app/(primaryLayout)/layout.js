@@ -21,7 +21,9 @@ const layout = ({ children }) => {
             !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
           }`}
         >
-          <div className="min-h-screen">{children}</div>
+          <div className="min-h-screen bg-light-300 dark:bg-dark-500">
+            {children}
+          </div>
           <Footer />
         </section>
       </main>

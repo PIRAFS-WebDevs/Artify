@@ -17,12 +17,12 @@ const TicTacToe = () => {
           <AiOutlineClose
             onClick={() => setTos("tic")}
             size={"4rem"}
-            className={`rounded ${tos === "tic" && "bg-slate-800"}`}
+            className={`rounded-sm ${tos === "tic" && "bg-slate-800"}`}
           />
           <BiCircle
             onClick={() => setTos("tac")}
             size={"4rem"}
-            className={`rounded ${tos === "tac" && "bg-slate-800"}`}
+            className={`rounded-sm ${tos === "tac" && "bg-slate-800"}`}
           />
         </div>
         <div className="grid grid-cols-3 grid-rows-3">

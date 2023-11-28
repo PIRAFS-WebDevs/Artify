@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { AiOutlineTags, AiOutlinePushpin, AiOutlineLink } from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
 import {
@@ -22,45 +22,38 @@ const ProductInfo = ({
   updatedAt,
   createdAt,
   _id,
-}) => 
-{
+}) => {
   const onCopy = () => {
     navigator.clipboard.writeText(
       process.env.NEXT_PUBLIC_hostUrl + "products/" + _id
     );
     toast.success("Copied successfully");
   };
-  const {  setCartUpdated, } = useContext(AllStateContext);
- 
-  
-  const data = {  id: _id, quantity: 1 } ;
+  const { setCartUpdated } = useContext(AllStateContext);
 
-   
+  const data = { id: _id, quantity: 1 };
 
-   const handleCart = async (cart, _id) => {
+  const handleCart = async (cart, _id) => {
     const checking = async () => {
       try {
         const precart = await GetDataCart();
-    
+
         if (precart) {
-          const check = precart.some(pre => pre.id === _id);
-          return check
+          const check = precart.some((pre) => pre.id === _id);
+          return check;
         }
-        
       } catch (error) {
         console.error("Error fetching cart data:", error);
       }
-    }
-    const checked = await checking()
+    };
+    const checked = await checking();
     if (!checked) {
-          await AddToCart(cart);
-          setCartUpdated(prevState => !prevState);
-          toast.success("Product added to the cart"); 
-    }
-    else {
+      await AddToCart(cart);
+      setCartUpdated((prevState) => !prevState);
+      toast.success("Product added to the cart");
+    } else {
       toast.error("Product already added to the cart");
-  } 
-    
+    }
   };
   return (
     <div className="space-y-4">
@@ -111,7 +104,7 @@ const ProductInfo = ({
             {tags.map((tag, i) => (
               <button
                 key={i}
-                className="px-2 py-1 text-xs border rounded dark:text-white border-dark-300 hover:dark:bg-dark-500"
+                className="px-2 py-1 text-xs border rounded-sm dark:text-white border-dark-300 hover:dark:bg-dark-500"
               >
                 {tag}
               </button>
@@ -140,12 +133,14 @@ const ProductInfo = ({
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <button className="py-4 font-semibold transition-all rounded-md bg-primary dark:text-white hover:bg-primarySec active:scale-95"onClick={() => handleCart(data, _id)}
+          <button
+            className="py-4 font-semibold transition-all rounded-sm bg-primary dark:text-white hover:bg-primarySec active:scale-95"
+            onClick={() => handleCart(data, _id)}
           >
             Add to Cart <span>$ </span>
-                {price}
+            {price}
           </button>
-          <button className="py-4 font-semibold transition-all bg-transparent border rounded-md dark:text-white border-dark-100 hover:dark:bg-dark-500 active:scale-95">
+          <button className="py-4 font-semibold transition-all bg-transparent border rounded-sm dark:text-white border-dark-100 hover:dark:bg-dark-500 active:scale-95">
             Live Preview
           </button>
         </div>

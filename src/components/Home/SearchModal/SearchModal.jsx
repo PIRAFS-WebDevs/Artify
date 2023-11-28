@@ -38,7 +38,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
             }}
             exit={{ opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="min-h-screen rounded-lg shadow-xl cursor-default dark:bg-dark-400 dark:text-white"
+            className="min-h-screen rounded-sm shadow-xl cursor-default dark:bg-dark-400 dark:text-white"
           >
             <div className="px-6 pt-6">
               <div className="grid w-full h-8 -mt-4 text-xl place-items-end">

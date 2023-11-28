@@ -7,7 +7,7 @@ const MarketplaceCard1 = () => {
         <div>
           <div
             key={e.id}
-            className="flex flex-col items-center w-full transition-all duration-300 rounded cursor-pointer hover:scale-105"
+            className="flex flex-col items-center w-full transition-all duration-300 rounded-sm cursor-pointer hover:scale-105"
           >
             <img
               src={e.image}

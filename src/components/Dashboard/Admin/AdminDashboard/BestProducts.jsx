@@ -2,12 +2,12 @@ import React from "react";
 
 const BestProducts = () => {
   return (
-    <div className=" dark:bg-dark-400 overflow-x-auto p-5 mb-5 rounded border text-center dark:border-dark-300  ">
+    <div className=" dark:bg-dark-400 overflow-x-auto p-5 mb-5 rounded-sm border text-center dark:border-dark-300  ">
       <p className="text-center mb-5">Popular Products</p>
 
       <table className="w-full text-xs md:text-base ">
         <thead>
-          <tr className="h-12 dark:bg-dark-200 rounded border-dark-300 border text-xs md:text-base ">
+          <tr className="h-12 dark:bg-dark-200 rounded-sm border-dark-300 border text-xs md:text-base ">
             <th>id</th>
             <th className="text-start">Name</th>
 

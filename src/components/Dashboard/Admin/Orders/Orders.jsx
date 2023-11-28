@@ -13,10 +13,10 @@ const Orders = () => {
     <>
       {" "}
       <SharedComp type={"Orders"} search />
-      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded dark:bg-dark-400 dark:border-dark-300 scrollbar">
+      <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded-sm dark:bg-dark-400 dark:border-dark-300 scrollbar">
         <table className="w-full text-center">
           <thead>
-            <tr className="w-auto h-12 text-xs border rounded dark:bg-dark-200 border-dark-300 md:text-base ">
+            <tr className="w-auto h-12 text-xs border rounded-sm dark:bg-dark-200 border-dark-300 md:text-base ">
               <th>Tracking Number </th>
               <th className="">Price</th>
               <th className="">Fee</th>

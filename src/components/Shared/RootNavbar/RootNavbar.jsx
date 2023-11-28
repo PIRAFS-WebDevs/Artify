@@ -31,7 +31,7 @@ const HomeNavbar = () => {
 
   return (
     <nav className="inset-x-0 -top-[.1px] z-50 bg-white sticky dark:bg-dark-400 text-dark-100">
-      <div className="flex items-center justify-between h-20 px-6">
+      <div className="flex items-center justify-between h-16 px-6">
         {/* logo */}
         <Link href={"/"}>
           <Image
@@ -78,14 +78,14 @@ const HomeNavbar = () => {
           {!user ? (
             <Link
               href={"/register"}
-              className="hidden px-6 py-2 text-sm font-semibold text-white transition-all rounded bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-5 py-1.5 text-sm font-semibold text-white transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Register
             </Link>
           ) : (
             <Link
               href={"/dashboard/admin"}
-              className="hidden px-6 py-2 text-sm font-semibold text-white transition-all rounded bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-5 py-1.5 text-sm font-semibold text-white transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>

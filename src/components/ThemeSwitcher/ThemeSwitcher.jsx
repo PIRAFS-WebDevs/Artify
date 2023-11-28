@@ -22,11 +22,11 @@ export function ThemeSwitcher() {
     <>
       {theme === "dark" ? (
         <button onClick={() => setTheme("light")}>
-          <BsSunFill size={"1.2rem"} />
+          <FaMoon size={"1.2rem"} />
         </button>
       ) : (
         <button onClick={() => setTheme("dark")}>
-          <FaMoon size={"1.2rem"} />
+          <BsSunFill size={"1.2rem"} />
         </button>
       )}
     </>

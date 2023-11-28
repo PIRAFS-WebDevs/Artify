@@ -7,7 +7,7 @@ const Description = ({ register, errors }) => {
           Edit your category description and necessary information from here
         </p>
       </div>
-      <div className="w-full p-8 space-y-4 rounded md:col-span-2 dark:bg-dark-400">
+      <div className="w-full p-8 space-y-4 rounded-sm md:col-span-2 dark:bg-dark-400">
         {/* name */}
         <div className="w-full">
           <label
@@ -20,7 +20,7 @@ const Description = ({ register, errors }) => {
             {...register("name", { required: "name is required" })}
             type="text"
             id="name"
-            className={`w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 ${
+            className={`w-full rounded-sm border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 ${
               errors.name && "border-red-400 focus:border-red-400"
             }`}
           />
@@ -41,7 +41,7 @@ const Description = ({ register, errors }) => {
             {...register("slug", { required: "slug is required" })}
             type="text"
             id="slug"
-            className={`w-full rounded border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 block ${
+            className={`w-full rounded-sm border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 block ${
               errors.slug && "border-red-400 focus:border-red-400"
             }`}
           />
@@ -64,7 +64,7 @@ const Description = ({ register, errors }) => {
             })}
             id="details"
             rows={5}
-            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded outline-none border-dark-200 focus:border-primary dark:text-white resize-none ${
+            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white resize-none ${
               errors.details && "border-red-400 focus:border-red-400"
             }`}
           ></textarea>

@@ -16,7 +16,7 @@ const SettingsDropdown = () => {
       <motion.div animate={open ? "open" : "closed"} className="relative z-10">
         <button
           onClick={() => setDelOpen((pv) => !pv)}
-          className="flex items-center justify-between w-full px-4 py-2 text-white transition-all bg-transparent border rounded-md border-dark-300"
+          className="flex items-center justify-between w-full px-4 py-2 text-white transition-all bg-transparent border rounded-sm border-dark-300"
         >
           <span className="text-sm font-medium capitalize">
             {pathname.slice(1)}
@@ -30,7 +30,7 @@ const SettingsDropdown = () => {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 dark:bg-dark-400 text-white border border-dark-300 shadow absolute rounded top-[120%] left-[50%] w-full overflow-hidden"
+          className="flex flex-col gap-2 dark:bg-dark-400 text-white border border-dark-300 shadow absolute rounded-sm top-[120%] left-[50%] w-full overflow-hidden"
         >
           {settingsSidebarData.map((e, i) => (
             <Link href={`${e.path}`} key={i}>

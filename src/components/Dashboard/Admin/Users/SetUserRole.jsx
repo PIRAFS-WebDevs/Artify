@@ -40,7 +40,7 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
             }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="rounded-lg shadow-xl  w-1/4 col-span-1 cursor-default min-h-[300px] h-auto p-5 dark:bg-dark-400 border dark:border-dark-300 flex flex-col justify-between"
+            className="rounded-sm shadow-xl  w-1/4 col-span-1 cursor-default min-h-[300px] h-auto p-5 dark:bg-dark-400 border dark:border-dark-300 flex flex-col justify-between"
           >
             <>
               {/*make admin and user*/}
@@ -65,7 +65,7 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
               )}
               {/*make admin and user*/}
               <div className="flex gap-5">
-                <button className="w-1/2 py-3 font-semibold rounded bg-primary hover:bg-primarySec">
+                <button className="w-1/2 py-3 font-semibold rounded-sm bg-primary hover:bg-primarySec">
                   Cancel
                 </button>
                 <button
@@ -74,7 +74,7 @@ const SetUserRole = ({ isShow, setIsShow, _id, preRole }) => {
                     setRole(_id, preRole === "admin" ? "user" : "admin");
                   }}
                   className={
-                    "w-1/2 bg-green-400 hover:bg-green-500 py-3 rounded font-semibold"
+                    "w-1/2 bg-green-400 hover:bg-green-500 py-3 rounded-sm font-semibold"
                   }
                 >
                   Confirm
