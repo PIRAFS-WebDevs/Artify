@@ -30,7 +30,7 @@ const Category = () => {
             className={` ${
               !isLeft
                 ? "invisible z-10 w-10 h-8 sticky left-0"
-                : "z-10 w-10 h-8 sticky left-5 bg-dark-500"
+                : "z-10 w-10 h-8 sticky left-5 dark:bg-dark-500"
             }`}
           >
             <MdKeyboardArrowLeft className="text-2xl dark:text-white" />
@@ -57,7 +57,7 @@ const Category = () => {
 
           <button
             onClick={scrollRight}
-            className="sticky z-10 w-10 h-8 right-4 bg-dark-500"
+            className="sticky z-10 w-10 h-8 right-4 dark:bg-dark-500"
           >
             <MdKeyboardArrowRight className="text-2xl dark:text-white" />
           </button>

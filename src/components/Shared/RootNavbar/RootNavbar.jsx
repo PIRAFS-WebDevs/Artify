@@ -7,16 +7,16 @@ import AllStateContext from "@/context/AllStateContext";
 import AuthContext from "@/context/AuthContext";
 import SearchModal from "@/components/Home/SearchModal/SearchModal";
 import Cart from "@/components/Home/Cart/Cart";
-import UserDropdown from "../HomeNavbar/UserDropdown";
-import LoginButton from "../HomeNavbar/LoginButton";
-import MobileNavbar from "../HomeNavbar/MobileNavbar";
 
 // icons
 import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
-import { FaMoon, FaShoppingBag } from "react-icons/fa";
-import { BsSunFill } from "react-icons/bs";
+import { FaShoppingBag } from "react-icons/fa";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher/ThemeSwitcher";
+import LoginButton from "../HomeNavbar/LoginButton";
+import UserDropdown from "../HomeNavbar/UserDropdown";
+import MobileNavbar from "../HomeNavbar/MobileNavbar";
 
-const RootNavbar = () => {
+const HomeNavbar = () => {
   const {
     searchShow,
     setSearchShow,
@@ -26,22 +26,11 @@ const RootNavbar = () => {
     setCartOpen,
     totalCartItem,
   } = useContext(AllStateContext);
- 
+
   const { user, logout } = useContext(AuthContext);
 
-  const dark = true;
-
-  // useEffect(() => {
-  //   if (user?.email) {
-  //     (async () => {
-  //       const data = await getUserByEmail(user?.email);
-  //       setFindUser(data?.data);
-  //     })();
-  //   }
-  // }, [user]);
-
   return (
-    <nav className="sticky inset-x-0 top-0 z-[80] bg-white dark:bg-dark-400 dark:text-dark-100">
+    <nav className="inset-x-0 -top-[.1px] z-50 bg-white sticky dark:bg-dark-400 text-dark-100">
       <div className="flex items-center justify-between h-20 px-6">
         {/* logo */}
         <Link href={"/"}>
@@ -60,7 +49,7 @@ const RootNavbar = () => {
           <button onClick={() => setSearchShow(true)}>
             <AiOutlineSearch
               size={"1.5rem"}
-              className="hidden cursor-pointer md:block hover:text-white"
+              className="hidden cursor-pointer md:block hover:text-gray-400 dark:hover:text-white"
             />
           </button>
 
@@ -68,15 +57,16 @@ const RootNavbar = () => {
           <SearchModal searchShow={searchShow} setSearchShow={setSearchShow} />
 
           {/* theme button */}
-          <button className="hover:text-white">
-            {dark ? <FaMoon size={"1.2rem"} /> : <BsSunFill size={"1.2rem"} />}
-          </button>
+          <ThemeSwitcher />
 
           {/* cart button */}
           <div className="relative hidden md:block">
             <button onClick={() => setCartOpen(true)}>
-              <FaShoppingBag size={"1.2rem"} className="hover:text-white" />
-              <span className="absolute w-5 h-5 text-sm rounded-full dark:text-white -top-2 -right-2 bg-primary">
+              <FaShoppingBag
+                size={"1.2rem"}
+                className="hover:text-gray-400 dark:hover:text-white"
+              />
+              <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
                 <span>{totalCartItem?.length}</span>
               </span>
             </button>
@@ -88,14 +78,14 @@ const RootNavbar = () => {
           {!user ? (
             <Link
               href={"/register"}
-              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 text-sm font-semibold text-white transition-all rounded bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Register
             </Link>
           ) : (
             <Link
               href={"/dashboard/admin"}
-              className="hidden px-6 py-2 text-sm font-semibold transition-all rounded dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-6 py-2 text-sm font-semibold text-white transition-all rounded bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>
@@ -113,24 +103,27 @@ const RootNavbar = () => {
       {/* mobile nav */}
       <div
         className={`fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400 ${
-          cartOpen && "hidden"
+          (cartOpen || searchShow) && "hidden"
         }`}
       >
-        <AiFillHome size={"1.5rem"} className="hover:text-white" />
+        <AiFillHome
+          size={"1.5rem"}
+          className="hover:text-gray-400 dark:hover:text-white"
+        />
         <AiOutlineSearch
           onClick={() => setSearchShow(true)}
           size={"1.5rem"}
-          className="hover:text-white"
+          className="hover:text-gray-400 dark:hover:text-white"
         />
 
         <div className="relative">
           <button
             onClick={() => setCartOpen(true)}
-            className="hover:text-white"
+            className="hover:text-gray-400 dark:hover:text-white"
           >
             <FaShoppingBag size={"1.2rem"} />
-            <span className="absolute px-1 text-sm rounded-full select-none dark:text-white -top-2 -right-2 bg-primary">
-              0
+            <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
+              <span>{totalCartItem?.length}</span>
             </span>
           </button>
         </div>
@@ -140,7 +133,10 @@ const RootNavbar = () => {
             setMobileView(!mobileView);
           }}
         >
-          <AiOutlineMenu size={"1.5rem"} className="hover:text-white" />
+          <AiOutlineMenu
+            size={"1.5rem"}
+            className="hover:text-gray-400 dark:hover:text-white"
+          />
         </button>
 
         {/* mobile sidebar */}
@@ -150,4 +146,4 @@ const RootNavbar = () => {
   );
 };
 
-export default RootNavbar;
+export default HomeNavbar;

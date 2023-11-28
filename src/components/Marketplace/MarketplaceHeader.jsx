@@ -11,7 +11,7 @@ const MarketplaceHeader = () => {
           className="w-full bg-transparent outline-none text-dark-100 placeholder:text-dark-100 placeholder:text-sm"
         />
       </div>
-      <div className="flex gap-1 p-2 rounded-full bg-dark-400">
+      <div className="flex gap-1 p-2 rounded-full dark:bg-dark-400">
         <button className="px-3 py-1 text-sm text-white rounded-full focus:text-dark-500 focus:bg-white">
           Weekly
         </button>

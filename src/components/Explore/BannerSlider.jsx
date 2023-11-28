@@ -34,7 +34,7 @@ const BannerSlider = () => {
               whilehover={{ opacity: 1 }}
               onClick={() => setIndex(index - 1)}
             >
-              <AiOutlineLeft className="absolute inset-y-0 left-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer bg-dark-400 hover:bg-dark-500" />
+              <AiOutlineLeft className="absolute inset-y-0 left-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer dark:bg-dark-400 hover:bg-dark-500" />
             </button>
           )}
         </AnimatePresence>
@@ -48,7 +48,7 @@ const BannerSlider = () => {
               whilehover={{ opacity: 1 }}
               onClick={() => setIndex(index + 1)}
             >
-              <AiOutlineRight className="absolute inset-y-0 right-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer bg-dark-400 hover:bg-dark-500" />
+              <AiOutlineRight className="absolute inset-y-0 right-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer dark:bg-dark-400 hover:bg-dark-500" />
             </m.button>
           )}
         </AnimatePresence>

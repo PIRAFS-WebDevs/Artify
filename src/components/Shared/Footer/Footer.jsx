@@ -13,7 +13,7 @@ const Footer = () => {
           <div key={index} className=" dark:text-dark-100">
             {Object.keys(categoryObj).map((categoryName, categoryIndex) => (
               <div key={categoryIndex}>
-                <h2 className="px-3 py-3 text-base font-semibold bg-dark-400">
+                <h2 className="px-3 py-3 text-base font-semibold dark:bg-dark-400">
                   {categoryName}
                 </h2>
                 <ul className="px-3 space-y-2">

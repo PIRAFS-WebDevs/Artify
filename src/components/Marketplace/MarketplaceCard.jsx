@@ -6,7 +6,7 @@ const MarketplaceCard = () => {
       {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
         <div
           key={e}
-          className="flex flex-col items-center w-full gap-2 py-8 transition-all duration-300 rounded-lg cursor-pointer bg-dark-400 group hover:scale-105"
+          className="flex flex-col items-center w-full gap-2 py-8 transition-all duration-300 rounded-lg cursor-pointer dark:bg-dark-400 group hover:scale-105"
         >
           <img
             src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F191%2FGroup-14394.png&w=2048&q=100"

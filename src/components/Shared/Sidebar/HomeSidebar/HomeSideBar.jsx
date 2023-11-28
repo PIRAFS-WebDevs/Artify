@@ -11,11 +11,11 @@ const HomeSideBar = () => {
   return (
     <>
       <aside
-        className={`hidden md:block min-h-screen dark:bg-dark-400 fixed overflow-y-auto ${
+        className={`hidden md:block min-h-screen bg-light-200 dark:bg-dark-400 fixed overflow-y-auto ${
           !sideBarOpen ? "md:max-w-fit" : "md:w-[240px]"
         } `}
       >
-        <div className="">
+        <div className="my-2">
           {homeSidebarData.map((data, index) => (
             <div key={index}>
               <HomeSidebarLink

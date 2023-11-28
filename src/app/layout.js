@@ -4,7 +4,7 @@ import "./globals.css";
 import Providers from "../providers/Providers";
 import Toaster from "@/components/Shared/Toaster/Toaster";
 import QueryProvider from "@/providers/QueryProvider";
-import NextThemeProvider from "@/providers/NextThemeProvider";
+import NextThemeProviders from "@/providers/NextThemeProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +19,10 @@ export default function RootLayout({ children }) {
       <QueryProvider>
         <Providers>
           <body className={`${inter.className} dark:bg-dark-500 scrollbar`}>
-            <NextThemeProvider>
+            <NextThemeProviders>
               {children}
               <Toaster />
-            </NextThemeProvider>
+            </NextThemeProviders>
           </body>
         </Providers>
       </QueryProvider>

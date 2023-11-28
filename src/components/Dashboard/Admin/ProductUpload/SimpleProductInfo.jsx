@@ -10,7 +10,7 @@ const SimpleProductInfo = ({ register, errors }) => {
           here
         </p>
       </div>
-      <div className="w-full p-8 space-y-4 rounded md:col-span-2 bg-dark-400">
+      <div className="w-full p-8 space-y-4 rounded md:col-span-2 dark:bg-dark-400">
         {/* price */}
         <div className="w-full">
           <label

@@ -48,12 +48,8 @@ const UserDropdown = ({ logout, user }) => {
           </p>
         )
       ) : (
-        <button className="cursor-pointer hover:text-white">
-          <FaUserCircle
-            className="hover:text-white"
-            onClick={() => setOpen((pv) => !pv)}
-            size={"1.5rem"}
-          />
+        <button className="cursor-pointer">
+          <FaUserCircle onClick={() => setOpen((pv) => !pv)} size={"1.5rem"} />
         </button>
       )}
 
@@ -61,15 +57,15 @@ const UserDropdown = ({ logout, user }) => {
         initial={wrapperVariants.closed}
         variants={wrapperVariants}
         style={{ originY: "top", translateX: "-50%" }}
-        className="flex flex-col rounded bg-dark-400 text-gray-200 shadow absolute top-[150%] left-[-260%] w-48 overflow-hidden"
+        className="flex flex-col rounded-sm bg-white dark:bg-dark-400 dark:text-gray-200 shadow-2xl absolute top-[160%] left-[-280%] w-52 overflow-hidden"
       >
         {settingsSidebarData.map((e, i) => (
           <Link href={`${e.path}`} key={i}>
             <motion.li
               variants={itemVariants}
               onClick={() => setOpen(false)}
-              className={`flex items-center gap-2 w-full py-3 px-4 text-xs whitespace-nowrap hover:bg-dark-200  transition-all cursor-pointer ${
-                pathname === e.path && "bg-dark-200"
+              className={`flex items-center gap-2 w-full py-3 px-4 text-xs whitespace-nowrap hover:bg-gray-200 dark:hover:bg-dark-200 text-dark-500 dark:text-dark-100  transition-all cursor-pointer ${
+                pathname === e.path && "dark:bg-dark-200 bg-gray-200"
               }`}
             >
               <motion.span>{e.icon}</motion.span>
@@ -79,7 +75,7 @@ const UserDropdown = ({ logout, user }) => {
         ))}
         <button
           onClick={() => logout()}
-          className="flex items-center w-full gap-2 px-4 py-3 text-xs transition-all cursor-pointer select-none whitespace-nowrap hover:bg-dark-200"
+          className="flex items-center w-full gap-2 px-4 py-3 text-xs transition-all cursor-pointer whitespace-nowrap hover:bg-gray-200 dark:hover:bg-dark-200 text-dark-500 dark:text-dark-100"
         >
           <BiLogOut />
           <p className="text-xs">Logout</p>

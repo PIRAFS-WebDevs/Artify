@@ -30,7 +30,7 @@ const SettingsDropdown = () => {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 bg-dark-400 text-white border border-dark-300 shadow absolute rounded top-[120%] left-[50%] w-full overflow-hidden"
+          className="flex flex-col gap-2 dark:bg-dark-400 text-white border border-dark-300 shadow absolute rounded top-[120%] left-[50%] w-full overflow-hidden"
         >
           {settingsSidebarData.map((e, i) => (
             <Link href={`${e.path}`} key={i}>

@@ -8,7 +8,7 @@ import "./Marketplace.css";
 const OurMarketplace = () => {
   const isLoading = false;
   return (
-    <div className="relative bg-dark-500" id="our_marketplace">
+    <div className="relative dark:bg-dark-500" id="our_marketplace">
       <div className="space-y-4">
         <h1 className="inline text-2xl font-medium text-white border-b border-white ">
           Our Marketplace

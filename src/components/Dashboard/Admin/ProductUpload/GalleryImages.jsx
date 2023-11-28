@@ -33,7 +33,7 @@ const GalleryImages = ({ galleryImage, setGalleryImage }) => {
         </p>
       </div>
 
-      <div className="md:col-span-2 w-full bg-dark-400 rounded p-8 space-y-4">
+      <div className="md:col-span-2 w-full dark:bg-dark-400 rounded p-8 space-y-4">
         <label
           htmlFor="gallery-image"
           className="grid place-items-center gap-2 px-8 py-16 text-center border border-dark-100 border-dashed rounded cursor-pointer"

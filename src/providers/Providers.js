@@ -4,7 +4,7 @@ import AllStateProvider from "./AllStateProvider";
 import AuthProvider from "./AuthProvider";
 import SingleProductProvider from "./SingleProductProvider";
 import AllProductProvider from "./AllProductProvider";
-import NextUIProviders, { NextThemeProvider } from "./NextThemeProvider";
+import NextUIProviders, { NextThemeProvider } from "./NextThemeProviders";
 
 const Providers = ({ children }) => {
   return (

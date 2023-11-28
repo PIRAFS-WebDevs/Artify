@@ -17,17 +17,16 @@ module.exports = {
       "dark-300": "#323232",
       "dark-400": "#212121",
       "dark-500": "#181818",
+      "light-100": "#ffffff",
+      "light-200": "#f9f9f9",
+      "light-300": "#ededed",
+      "light-400": "#d2d2d2",
+      "light-500": "#e6e6e6",
 
       primary: "#00b482",
       primarySec: "#00997d",
     },
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
   darkMode: "class",
   plugins: [
@@ -37,9 +36,14 @@ module.exports = {
           colors: {
             primary: {
               DEFAULT: "#00b482",
-              // foreground: "#000000",
             },
-            // focus: "#BEF264",
+          },
+        },
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: "#00b482",
+            },
           },
         },
       },

@@ -23,7 +23,7 @@ const CategorySplide = () => {
 
   return (
     <div
-      className="sticky inset-x-0 z-40 bg-dark-500 top-[79.9px] border-y border-dark-400 "
+      className="sticky inset-x-0 z-40 dark:bg-dark-500 top-[79.9px] border-y border-dark-400 "
       id="category"
     >
       <div className="relative px-6 py-6 ">
