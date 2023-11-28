@@ -44,7 +44,7 @@ const OurMarketplace = () => {
                       alt=""
                     />
                     <p>{data.name}</p>
-                    <MdOutlineArrowRightAlt size={"1.5srem"} className="w-8" />
+                    <MdOutlineArrowRightAlt size={"1.5rem"} className="w-8" />
                   </div>
                 </SplideSlide>
               ))}

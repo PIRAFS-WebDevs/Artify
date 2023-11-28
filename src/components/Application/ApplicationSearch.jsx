@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
-const ApplicatonSearch = () => {
+const ApplicationSearch = () => {
   return (
     <div className="relative grid px-4 py-6 border-b place-items-center border-dark-300">
       <label htmlFor="Search" className="sr-only">
@@ -28,4 +28,4 @@ const ApplicatonSearch = () => {
   );
 };
 
-export default ApplicatonSearch;
+export default ApplicationSearch;

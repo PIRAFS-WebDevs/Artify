@@ -4,13 +4,17 @@ import AllStateProvider from "./AllStateProvider";
 import AuthProvider from "./AuthProvider";
 import SingleProductProvider from "./SingleProductProvider";
 import AllProductProvider from "./AllProductProvider";
+import NextUIProviders, { NextThemeProvider } from "./NextThemeProvider";
 
 const Providers = ({ children }) => {
   return (
     <AuthProvider>
       <AllStateProvider>
         <AllProductProvider>
-          <SingleProductProvider>{children}</SingleProductProvider>
+          <SingleProductProvider>
+            {/* <NextThemeProvider>{children}</NextThemeProvider> */}
+            {children}
+          </SingleProductProvider>
         </AllProductProvider>
       </AllStateProvider>
     </AuthProvider>

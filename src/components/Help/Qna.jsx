@@ -17,15 +17,15 @@ const Qna = () => {
 
               <p>
                 <svg
-                  className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
+                  className="w-5 h-5 transition duration-300 shrink-0 group-open:-rotate-180"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     strokeWidth="2"
                     d="M19 9l-7 7-7-7"
                   />
@@ -33,12 +33,7 @@ const Qna = () => {
               </p>
             </summary>
 
-            <p
-              className="
-             leading-relaxed p-3 text-start"
-            >
-              {ans}
-            </p>
+            <p className="p-3 leading-relaxed  text-start">{ans}</p>
           </details>
         ))}
       </div>
