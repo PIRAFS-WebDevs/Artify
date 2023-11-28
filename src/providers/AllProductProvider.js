@@ -19,7 +19,7 @@ const AllProductProvider = ({ children }) => {
   });
 
   const value = {
-    products: products?.products,
+    products,
     category,
     setCategory,
     isLoading,

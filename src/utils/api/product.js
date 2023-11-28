@@ -27,15 +27,30 @@ export const saveProduct = async (data) => {
   }
 };
 
+// export const getProducts = async (text) => {
+//   try {
+//     const res = await fetch(
+//       text
+//         ? `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/?text=${text}`
+//         : `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/`,
+//       { next: { revalidate: "3600" } }
+//     );
+//     return res.json();
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// };
+
 export const getProducts = async (text) => {
   try {
-    const res = await fetch(
+    const res = await api.get(
       text
         ? `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/?text=${text}`
         : `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/`,
       { next: { revalidate: "3600" } }
     );
-    return res.json();
+    // console.log(res.data.products);
+    return res.data.products;
   } catch (error) {
     console.error(error.message);
   }
