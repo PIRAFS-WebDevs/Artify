@@ -6,7 +6,10 @@ import "./SplideArrow.css";
 
 const SoftwareSplide = () => {
   return (
-    <div className="relative px-6 py-6" id="software">
+    <div
+      className="relative px-6 py-6 bg-light-200 dark:bg-dark-500"
+      id="software"
+    >
       <Splide
         options={{
           perMove: 1,

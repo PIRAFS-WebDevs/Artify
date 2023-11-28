@@ -1,5 +1,37 @@
-#software .splide__arrow svg {
+.dark #software .splide__arrow svg {
   fill: #ffffff;
+}
+
+.dark #software .splide__arrow {
+  width: 2.2em;
+  height: 2.2em;
+  opacity: 100;
+  padding: 10px;
+  background: #323232;
+  @apply shadow-2xl;
+}
+
+.dark #software .splide__arrow:hover {
+  background: #212121;
+}
+
+.dark #software .splide__arrow:disabled {
+  display: none;
+}
+
+.dark #software .splide__arrow--prev {
+  margin-left: -30px;
+}
+
+.dark #software .splide__arrow--next {
+  @media (max-width: 600px) {
+    margin-right: -30px;
+  }
+}
+
+/* for white mode */
+#software .splide__arrow svg {
+  fill: #212121;
 }
 
 #software .splide__arrow {
@@ -7,11 +39,11 @@
   height: 2.2em;
   opacity: 100;
   padding: 10px;
-  background: #323232;
+  background: #ededed;
 }
 
 #software .splide__arrow:hover {
-  background: #212121;
+  background: #d2d2d2;
 }
 
 #software .splide__arrow:disabled {

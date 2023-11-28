@@ -56,7 +56,7 @@ const Card = () => {
             {products?.map((product) => (
               <div
                 key={product?._id}
-                className="w-full col-span-1 space-y-2 bg-white rounded-sm min-h-fit dark:text-white"
+                className="w-full col-span-1 space-y-2 text-white bg-white rounded-sm min-h-fit"
               >
                 <div className="relative flex w-full group">
                   <img
@@ -71,7 +71,7 @@ const Card = () => {
                       href={`/products/${product?._id}`}
                       className="relative z-10 text-xs text-center"
                     >
-                      <div className="flex items-center justify-center mb-2 transition-all rounded-full hover:bg-primary bg-dark-100 backdrop-blur-sm hover:bg-brand h-11 w-11">
+                      <div className="flex items-center justify-center mb-2 transition-all rounded-full dark:text-white hover:bg-primary bg-dark-100 backdrop-blur-sm hover:bg-brand h-11 w-11">
                         <DetailsSvg />
                       </div>
                       Details
