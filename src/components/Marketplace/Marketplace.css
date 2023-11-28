@@ -1,27 +1,57 @@
-#our_marketplace .splide__arrow svg {
-  fill: #212121;
+/* marketplace banner arrow */
+.dark #marketplace .splide__arrow svg {
+  fill: #ffffff;
 }
 
-#our_marketplace .splide__arrow {
+.dark #marketplace .splide__arrow {
   width: 2.2em;
   height: 2.2em;
   opacity: 100;
   padding: 10px;
-  background: #ffffff;
+  background: #323232;
 }
 
-#our_marketplace .splide__arrow:hover {
-  opacity: 80;
+.dark #marketplace .splide__arrow:hover {
+  background: #212121;
 }
 
-#our_marketplace .splide__arrow:disabled {
+.dark #marketplace .splide__arrow:disabled {
   display: none;
 }
 
-#our_marketplace .splide__arrow--prev {
+.dark #marketplace .splide__arrow--prev {
   margin-left: -30px;
 }
 
-#our_marketplace .splide__arrow--next {
+.dark #marketplace .splide__arrow--next {
+  margin-right: -30px;
+}
+
+/* for white mode */
+#marketplace .splide__arrow svg {
+  fill: #212121;
+}
+
+#marketplace .splide__arrow {
+  width: 2.2em;
+  height: 2.2em;
+  opacity: 100;
+  padding: 10px;
+  background: #ededed;
+}
+
+#marketplace .splide__arrow:hover {
+  background: #d2d2d2;
+}
+
+#marketplace .splide__arrow:disabled {
+  display: none;
+}
+
+#marketplace .splide__arrow--prev {
+  margin-left: -30px;
+}
+
+#marketplace .splide__arrow--next {
   margin-right: -30px;
 }

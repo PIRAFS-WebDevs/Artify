@@ -2,7 +2,7 @@ import React from "react";
 
 const MarketplaceCard1 = () => {
   return (
-    <div className="grid grid-cols-1 gap-6 min-[500px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 place-items-center py-4">
+    <div className="grid grid-cols-1 gap-6 min-[500px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 place-items-center py-4 px-6 bg-light-300 dark:bg-dark-500">
       {data.map((e) => (
         <div>
           <div
@@ -15,7 +15,9 @@ const MarketplaceCard1 = () => {
               className="object-fill w-full h-full rounded"
             />
           </div>
-          <p className="py-2 text-lg text-white cursor-pointer">{e.name}</p>
+          <p className="py-2 text-lg cursor-pointer dark:text-white">
+            {e.name}
+          </p>
         </div>
       ))}
     </div>
@@ -45,6 +47,30 @@ const data = [
   },
   {
     id: 4,
+    image:
+      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F513%2Fimage07.png&w=2048&q=75",
+    name: "App Design",
+  },
+  {
+    id: 5,
+    image:
+      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F513%2Fimage07.png&w=2048&q=75",
+    name: "App Design",
+  },
+  {
+    id: 6,
+    image:
+      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F513%2Fimage07.png&w=2048&q=75",
+    name: "App Design",
+  },
+  {
+    id: 7,
+    image:
+      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F513%2Fimage07.png&w=2048&q=75",
+    name: "App Design",
+  },
+  {
+    id: 8,
     image:
       "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F513%2Fimage07.png&w=2048&q=75",
     name: "App Design",

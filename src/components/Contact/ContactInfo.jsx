@@ -7,7 +7,7 @@ const ContactInfo = () => {
     <div className="xl:w-[40%] w-full px-5 py-10 dark:dark:text-white space-y-10 dark:bg-dark-400 ">
       <div className="space-y-5">
         <h4 className="text-lg font-semibold">Contact Information</h4>
-        <p className=" dark:text-dark-100 text-sm">
+        <p className="text-sm  dark:text-dark-100">
           <span>Fill out the form and our team will get back to</span>
           <br />
           <span>you within 24 hours.</span>
@@ -19,7 +19,7 @@ const ContactInfo = () => {
           <LocationSvg />
           <p>
             Office Location <br />
-            <span className="dark:text-dark-100 text-sm">
+            <span className="text-sm dark:text-dark-100">
               Urban-Loritz-Platz, 1070 Wien, Austria
             </span>
           </p>
@@ -29,7 +29,7 @@ const ContactInfo = () => {
           <ContactSvg />
           <p>
             Call us anytime <br />
-            <span className="dark:text-dark-100 text-sm">
+            <span className="text-sm dark:text-dark-100">
               +161649646591, +5454645431
             </span>
           </p>
@@ -39,7 +39,7 @@ const ContactInfo = () => {
           <WebSvg />
           <p>
             Visit Website <br />
-            <span className="dark:text-dark-100 text-sm">
+            <span className="text-sm dark:text-dark-100">
               https://warnsun.com
             </span>
           </p>

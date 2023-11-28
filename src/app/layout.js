@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <QueryProvider>
         <Providers>
-          <body className={`${inter.className} dark:bg-dark-500 scrollbar`}>
+          <body
+            className={`${inter.className} dark:bg-dark-500 bg-light-300 scrollbar`}
+          >
             <NextThemeProviders>
               {children}
               <Toaster />

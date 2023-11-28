@@ -2,10 +2,14 @@
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import "./Marketplace.css";
 
 const MarketplaceBanner = () => {
   return (
-    <div className="relative" id="marketplace_banner">
+    <div
+      className="relative px-6 bg-light-200 dark:bg-dark-500"
+      id="marketplace"
+    >
       <Splide
         options={{
           gap: 16,

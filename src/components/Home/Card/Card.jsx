@@ -56,11 +56,11 @@ const Card = () => {
             {products?.map((product) => (
               <div
                 key={product?._id}
-                className="w-full col-span-1 space-y-2 text-white bg-white rounded-sm min-h-fit"
+                className="w-full col-span-1 space-y-2 text-white rounded-sm shadow dark:bg-light-200 bg-light-100 min-h-fit"
               >
                 <div className="relative flex w-full group">
                   <img
-                    src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F781%2Fimage30.png&w=2048&q=75"
+                    src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F799%2Fimage03.png&w=2048&q=75"
                     alt=""
                     className="object-fill w-full h-full"
                   />
@@ -103,7 +103,7 @@ const Card = () => {
                     <div>
                       <div className="flex gap-2">
                         <button
-                          className="inline px-3 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-gray-100 border-dark-200 active:scale-95"
+                          className="inline px-3 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-gray-100 border-dark-100 active:scale-95"
                           onClick={() => {
                             handleCart(
                               { id: product?._id, quantity: 1 },
@@ -131,7 +131,7 @@ const Card = () => {
           {/* load more button */}
           {products.length > 10 && (
             <div className="flex justify-center py-8">
-              <button className="px-6 py-3 text-sm font-semibold transition-all rounded-sm dark:text-white bg-primary md:block hover:bg-primarySec active:scale-95">
+              <button className="px-5 py-2 text-sm font-semibold text-white transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95">
                 Load More
               </button>
             </div>

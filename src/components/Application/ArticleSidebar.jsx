@@ -13,7 +13,7 @@ const ArticleSidebar = () => {
         <div className="space-y-2 text-dark-100">
           {[1, 2, 3, 4, 5].map((e) => (
             <Link href={"#"} className="flex gap-2" key={e}>
-              <span className="flex items-center justify-center w-6 h-6 text-xs rounded-full dark:text-gray-200 text-dark-500 bg-primary">
+              <span className="flex items-center justify-center w-6 h-6 text-xs text-white rounded-full bg-primary">
                 21
               </span>{" "}
               Web Apps
