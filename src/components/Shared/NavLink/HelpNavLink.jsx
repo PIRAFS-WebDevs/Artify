@@ -26,7 +26,7 @@ const HelpNavLink = ({
           <span className={`${active ? "visible" : "invisible"} `}>
             <BsDot className="text-primary text-2xl" />
           </span>
-          <span className="col-span-4">{title}</span>
+          <span className="col-span-4 text-dark-500 dark:text-white">{title}</span>
         </p>
       </Link>
     </div>

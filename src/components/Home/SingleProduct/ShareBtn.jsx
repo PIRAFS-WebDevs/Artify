@@ -10,13 +10,13 @@ const ShareBtn = () => {
 
   return (
     <div className="flex items-center justify-between gap-10 ">
-      <button className="flex items-center justify-center w-10 h-10 text-black border rounded-full hover:dark:bg-dark-200 border-dark-400">
+      <button className="flex items-center justify-center w-10 h-10 text-black border rounded-full hover:dark:bg-dark-200 hover:bg-light-500 dark:border-dark-400 border-light-500">
         <BiLogoFacebook className="w-5 h-5 dark:text-white " />
       </button>
-      <button className="flex items-center justify-center w-10 h-10 text-black border rounded-full hover:dark:bg-dark-200 border-dark-400">
+      <button className="flex items-center justify-center w-10 h-10 text-black border rounded-full hover:dark:bg-dark-200 hover:bg-light-500 dark:border-dark-400 border-light-500">
         <BiLogoTwitter className="w-5 h-5 dark:text-white " />
       </button>
-      <button className="flex items-center justify-center w-10 h-10 text-black border rounded-full hover:dark:bg-dark-200 border-dark-400">
+      <button className="flex items-center justify-center w-10 h-10 text-black border rounded-full hover:dark:bg-dark-200 hover:bg-light-500 dark:border-dark-400 border-light-500">
         <GrLinkedinOption className="w-5 h-5 dark:text-white " />
       </button>
       <button
@@ -24,7 +24,7 @@ const ShareBtn = () => {
           navigator.clipboard.writeText(copy),
             toast.success("Copied successfully");
         }}
-        className="flex items-center justify-center w-auto h-10 px-5 border rounded-full group hover:dark:bg-dark-200 border-dark-400"
+        className="flex items-center justify-center w-auto h-10 px-5 border rounded-full group hover:dark:bg-dark-200 hover:bg-light-500 dark:border-dark-400 border-light-500"
       >
         <BiLink className="w-5 h-5 mr-2 " />
         <span className="group-hover:dark:text-white">Copy link</span>

@@ -11,7 +11,7 @@ export const saveCategory = async (data) => {
   }
 };
 
-// save category into database
+// get category into database
 export const getCategory = async () => {
   try {
     const res = await api.get("/admin/category/all-category");

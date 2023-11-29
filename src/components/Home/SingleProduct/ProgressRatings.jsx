@@ -10,12 +10,12 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             5 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
+          <div className="w-[40%] h-1 relative bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
               }}
-              className="h-1 absolute top-0 w-7 dark:bg-primary rounded-3xl"
+              className="h-1 absolute top-0 w-7 bg-primary rounded-3xl"
             ></p>
           </div>
           <p>0</p>
@@ -25,12 +25,12 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             4 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
+          <div className="w-[40%] h-1 relative bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
               }}
-              className="h-1 absolute top-0 w-7 dark:bg-primary rounded-3xl"
+              className="h-1 absolute top-0 w-7 bg-primary rounded-3xl"
             ></p>
           </div>
           <p>0</p>
@@ -40,12 +40,12 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             3 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
+          <div className="w-[40%] h-1 relative bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
               }}
-              className="h-1 absolute top-0 w-7 dark:bg-primary rounded-3xl"
+              className="h-1 absolute top-0 w-7 bg-primary rounded-3xl"
             ></p>
           </div>
           <p>0</p>
@@ -55,12 +55,12 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             2 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
+          <div className="w-[40%] h-1 relative bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
               }}
-              className="h-1 absolute top-0 w-7 dark:bg-primary rounded-3xl"
+              className="h-1 absolute top-0 w-7 bg-primary rounded-3xl"
             ></p>
           </div>
           <p>0</p>
@@ -70,12 +70,12 @@ const ProgressRatings = () => {
           <p className={"flex items-center gap-2 justify-center"}>
             1 <AiFillStar />
           </p>
-          <div className="w-[40%] h-1 relative dark:bg-dark-100 rounded-3xl">
+          <div className="w-[40%] h-1 relative bg-dark-100 rounded-3xl">
             <p
               style={{
                 width: dynamicWidth,
               }}
-              className="h-1 absolute top-0 w-7 dark:bg-primary rounded-3xl"
+              className="h-1 absolute top-0 w-7 bg-primary rounded-3xl"
             ></p>
           </div>
           <p>0</p>

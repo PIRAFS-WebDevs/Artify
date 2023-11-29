@@ -1,4 +1,4 @@
-const categories = [
+const categoriesData = [
   {
     name: "All",
   },
@@ -55,4 +55,4 @@ const categories = [
   },
 ];
 
-export default categories;
+export default categoriesData;
