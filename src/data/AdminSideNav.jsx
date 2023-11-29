@@ -35,11 +35,11 @@ const adminSideNav = [
     path: "/dashboard/admin/layouts",
     icon: <RiLayoutFill />,
   },
-  /* {
+  {
     title: "Categories",
     path: "/dashboard/admin/categories",
     icon: <BsBoxes />,
-  }, */
+  },
   {
     title: "Tags",
     path: "/dashboard/admin/tags",

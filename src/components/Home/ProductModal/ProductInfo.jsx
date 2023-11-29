@@ -104,7 +104,7 @@ const ProductInfo = ({
             {tags.map((tag, i) => (
               <button
                 key={i}
-                className="px-2 py-1 text-xs border rounded-sm dark:text-white border-dark-300 hover:dark:bg-dark-500"
+                className="px-2 py-1 text-xs border rounded-sm dark:text-white border-dark-300 dark:hover:bg-dark-500 hover:bg-light-300"
               >
                 {tag}
               </button>
@@ -117,14 +117,14 @@ const ProductInfo = ({
         <div className="grid gap-4 grid-cols-2 xl:grid-cols-4 items-center border-t border-[#3e3e3e] pt-4">
           <p className="dark:text-dark-100">Share this item:</p>
           <div className="flex flex-wrap items-center col-span-2 gap-2 xl:col-span-3">
-            <BiLogoFacebook className="w-10 h-10 p-2 border rounded-full cursor-pointer border-dark-300 hover:dark:bg-dark-500" />
-            <BiLogoTwitter className="w-10 h-10 p-2 border rounded-full cursor-pointer border-dark-300 hover:dark:bg-dark-500" />
-            <BiLogoLinkedin className="w-10 h-10 p-2 border rounded-full cursor-pointer border-dark-300 hover:dark:bg-dark-500" />
+            <BiLogoFacebook className="w-10 h-10 p-2 border rounded-full cursor-pointer border-dark-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            <BiLogoTwitter className="w-10 h-10 p-2 border rounded-full cursor-pointer border-dark-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            <BiLogoLinkedin className="w-10 h-10 p-2 border rounded-full cursor-pointer border-dark-300 dark:hover:bg-dark-500 hover:bg-light-300" />
 
             {/* copy button */}
             <button
               onClick={onCopy}
-              className="flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer border-dark-300 hover:dark:bg-dark-500"
+              className="flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer border-dark-300 dark:hover:bg-dark-500 hover:bg-light-300"
             >
               <AiOutlineLink className="w-4 h-4" />
               copy link
@@ -134,13 +134,13 @@ const ProductInfo = ({
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <button
-            className="py-4 font-semibold transition-all rounded-sm bg-primary dark:text-white hover:bg-primarySec active:scale-95"
+            className="py-4 font-semibold text-white transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95"
             onClick={() => handleCart(data, _id)}
           >
             Add to Cart <span>$ </span>
             {price}
           </button>
-          <button className="py-4 font-semibold transition-all bg-transparent border rounded-sm dark:text-white border-dark-100 hover:dark:bg-dark-500 active:scale-95">
+          <button className="py-4 font-semibold transition-all bg-transparent border rounded-sm dark:text-white border-dark-100 dark:hover:bg-dark-500 hover:bg-light-200 active:scale-95">
             Live Preview
           </button>
         </div>

@@ -2,13 +2,16 @@
 import SharedComp from "@/components/Shared/admin/SharedComp";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 import AllStateContext from "@/context/AllStateContext";
+import { getLayout } from "@/utils/api/layout";
+import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-const CurrentLayouts = () => {
+const Layouts = () => {
   const { setIsShow, isShow, isDelOpen, setDelOpen } =
     useContext(AllStateContext);
+
   return (
     <>
       <SharedComp
@@ -62,4 +65,4 @@ const CurrentLayouts = () => {
   );
 };
 
-export default CurrentLayouts;
+export default Layouts;

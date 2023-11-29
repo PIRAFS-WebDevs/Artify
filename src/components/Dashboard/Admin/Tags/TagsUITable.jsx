@@ -15,30 +15,43 @@ import {
   DropdownMenu,
   DropdownItem,
   Chip,
-  User,
   Pagination,
 } from "@nextui-org/react";
-import AllProductContext from "@/context/AllProductContext";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
+import { useQuery } from "@tanstack/react-query";
+import { getTags } from "@/utils/api/tags";
 
-const INITIAL_VISIBLE_COLUMNS = [
-  "name",
-  "layout",
-  "price",
-  "status",
-  "actions",
-];
+const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
 
-export default function ProductUITable() {
-  const { products } = useContext(AllProductContext);
+export default function TagsUITable() {
+  const {
+    data: tags = [],
+    isLoading,
+    refetch,
+    isError,
+  } = useQuery({
+    queryKey: ["tags"],
+    queryFn: () => getTags(),
+  });
+
+  const onEdit = (editedTag) => {
+    // Implement the logic to edit the layout
+    // For example, you can open a modal for editing
+    console.log("Edit tags:", editedTag);
+  };
+
+  const onDelete = (deletedTag) => {
+    // Implement the logic to delete the tags
+    // For example, you can show a confirmation dialog and then update the tags array
+    const updatedtags = tags.filter((tags) => tags.slug !== deletedTag.slug);
+    console.log("Delete tags:", deletedTag);
+  };
 
   const [filterValue, setFilterValue] = useState("");
-  const [selectedKeys, setSelectedKeys] = useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
-  const [statusFilter, setStatusFilter] = useState("all");
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [sortDescriptor, setSortDescriptor] = useState({
     column: "name",
@@ -50,40 +63,27 @@ export default function ProductUITable() {
 
   const columns = [
     { uid: "name", name: "Name", sortable: true },
-    { uid: "layout", name: "Layout", sortable: true },
-    { uid: "price", name: "Price", sortable: true },
-    { uid: "status", name: "Status", sortable: true },
-    { uid: "actions", name: "Actions", sortable: false },
+    { uid: "slug", name: "Slug", sortable: true },
+    { uid: "actions", name: "Actions", sortable: false }, // Add this line
   ];
 
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
   const headerColumns = useMemo(() => {
-    if (visibleColumns === "all") return columns;
+    if (visibleColumns.has("all")) return columns;
 
-    return columns.filter((column) =>
-      Array.from(visibleColumns).includes(column.uid)
-    );
-  }, [visibleColumns]);
+    return columns.filter((column) => visibleColumns.has(column.uid));
+  }, [visibleColumns, columns]);
 
   const filteredItems = useMemo(() => {
-    let filteredProducts = [...products];
+    let filteredTags = [...tags];
 
     if (hasSearchFilter) {
-      filteredProducts = filteredProducts.filter((product) =>
-        product.name.toLowerCase().includes(filterValue.toLowerCase())
-      );
-    }
-    if (statusFilter !== "all" && Array.from(statusFilter).length !== 0) {
-      filteredProducts = filteredProducts.filter((product) =>
-        Array.from(statusFilter).includes(product.status)
+      filteredTags = filteredTags.filter((tags) =>
+        tags.name.toLowerCase().includes(filterValue.toLowerCase())
       );
     }
 
-    return filteredProducts;
-  }, [products, filterValue, statusFilter]);
+    return filteredTags;
+  }, [tags, filterValue]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
@@ -104,54 +104,39 @@ export default function ProductUITable() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = useCallback((product, columnKey) => {
-    const cellValue = product[columnKey];
+  const renderCell = useCallback(
+    (tags, columnKey) => {
+      const cellValue = tags[columnKey];
 
-    switch (columnKey) {
-      case "name":
-        return (
-          <User
-            avatarProps={{
-              radius: "lg",
-              src: product.image && product.image[0],
-            }}
-            description={product.name}
-            name={cellValue}
-          >
-            {product.description}
-          </User>
-        );
-      case "layout":
-        return cellValue;
-      case "price":
-        return `$${cellValue}`;
-      case "status":
-        return (
-          <Chip className="capitalize" size="sm" variant="flat">
-            {cellValue}
-          </Chip>
-        );
-      case "actions":
-        return (
-          <div className="relative flex items-center justify-end gap-2">
-            <Dropdown>
-              <DropdownTrigger>
-                <Button isIconOnly size="sm" variant="light">
-                  <HiDotsVertical className="text-default-300" />
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem>View</DropdownItem>
-                <DropdownItem>Edit</DropdownItem>
-                <DropdownItem>Delete</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </div>
-        );
-      default:
-        return cellValue;
-    }
-  }, []);
+      switch (columnKey) {
+        case "name":
+          return cellValue;
+        case "slug":
+          return cellValue;
+        case "actions":
+          return (
+            <div className="relative flex items-center justify-end gap-2">
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button isIconOnly size="sm" variant="light">
+                    <HiDotsVertical className="text-default-300" />
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu>
+                  <DropdownItem onClick={() => onEdit(tags)}>Edit</DropdownItem>
+                  <DropdownItem onClick={() => onDelete(tags)}>
+                    Delete
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+          );
+        default:
+          return cellValue;
+      }
+    },
+    [onEdit, onDelete]
+  );
 
   const onNextPage = useCallback(() => {
     if (page < pages) {
@@ -197,34 +182,10 @@ export default function ProductUITable() {
             onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
-          <Dropdown>
-            <DropdownTrigger className="hidden sm:flex">
-              <Button
-                endContent={<FaChevronDown className="text-small" />}
-                variant="flat"
-              >
-                Columns
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-              disallowEmptySelection
-              aria-label="Table Columns"
-              closeOnSelect={false}
-              selectedKeys={visibleColumns}
-              selectionMode="multiple"
-              onSelectionChange={setVisibleColumns}
-            >
-              {columns.map((column) => (
-                <DropdownItem key={column.uid} className="capitalize">
-                  {capitalize(column.name)}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </Dropdown>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-default-400 text-small">
-            Total {products.length} products
+            Total {tags.length} tags
           </span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
@@ -242,10 +203,9 @@ export default function ProductUITable() {
     );
   }, [
     filterValue,
-    statusFilter,
     visibleColumns,
     onRowsPerPageChange,
-    products.length,
+    tags.length,
     onSearchChange,
     hasSearchFilter,
   ]);
@@ -253,11 +213,6 @@ export default function ProductUITable() {
   const bottomContent = useMemo(() => {
     return (
       <div className="flex items-center justify-between px-2 py-2">
-        <span className="w-[30%] text-small text-default-400">
-          {selectedKeys === "all"
-            ? "All items selected"
-            : `${selectedKeys.size} of ${filteredItems.length} selected`}
-        </span>
         <Pagination
           isCompact
           showControls
@@ -287,11 +242,11 @@ export default function ProductUITable() {
         </div>
       </div>
     );
-  }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
+  }, [items.length, page, pages, hasSearchFilter]);
 
   return (
     <Table
-      aria-label="Example table with custom cells, pagination and sorting"
+      aria-label="Table with custom cells, pagination, and sorting"
       isHeaderSticky
       bottomContent={bottomContent}
       bottomContentPlacement="outside"
@@ -299,28 +254,25 @@ export default function ProductUITable() {
         wrapper: "max-h-[382px]",
       }}
       className="scrollbar"
-      selectedKeys={selectedKeys}
-      selectionMode="multiple"
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"
-      onSelectionChange={setSelectedKeys}
       onSortChange={setSortDescriptor}
     >
       <TableHeader columns={headerColumns}>
         {(column) => (
           <TableColumn
             key={column.uid}
-            align={column.uid === "actions" ? "center" : "start"}
+            align="start"
             allowsSorting={column.sortable}
           >
             {column.name}
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No products found"} items={sortedItems}>
+      <TableBody emptyContent={"No tags found"} items={sortedItems}>
         {(item) => (
-          <TableRow key={item._id}>
+          <TableRow key={item.slug}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}

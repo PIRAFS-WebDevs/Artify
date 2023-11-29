@@ -22,7 +22,7 @@ const ProductModal = ({ showProductModal, setShowProductModal }) => {
             }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="rounded-sm shadow-xl cursor-default dark:bg-dark-400 dark:text-white max-w-7xl"
+            className="bg-white rounded-sm shadow-xl cursor-default dark:bg-dark-400 dark:text-white max-w-7xl"
           >
             <ProductDetails setShowProductModal={setShowProductModal} />
           </m.div>

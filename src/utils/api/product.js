@@ -49,12 +49,7 @@ export const getProducts = async (text) => {
         : `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/`,
       { next: { revalidate: "3600" } }
     );
-    // console.log(res.data.products);
-    if (res.data) {
-      return res.data.products;
-    } else {
-      return res.data;
-    }
+    return res.data.products;
   } catch (error) {
     console.error(error.message);
   }

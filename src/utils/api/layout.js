@@ -10,3 +10,12 @@ export const saveLayout = async (data) => {
     console.error(error.message);
   }
 };
+
+export const getLayout = async () => {
+  try {
+    const res = await api.get("/admin/layout/all-layout");
+    return res.data.data;
+  } catch (error) {
+    console.error(error.message);
+  }
+};

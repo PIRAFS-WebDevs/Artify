@@ -1,10 +1,11 @@
-import CurrentLayouts from "@/components/Dashboard/Admin/Layouts/CurrentLayouts";
-import React from "react";
+import LayoutUITable from "@/components/Dashboard/Admin/Layouts/LayoutUITable";
+import Layouts from "@/components/Dashboard/Admin/Layouts/Layouts";
 
 const page = () => {
   return (
     <>
-      <CurrentLayouts />
+      {/* <Layouts /> */}
+      <LayoutUITable />
     </>
   );
 };
