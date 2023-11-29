@@ -31,7 +31,7 @@ const SharedComp = ({ type, AddType, link, search, SetSearchText, filter }) => {
     }
   };
   return (
-    <div className=" md:min-h-[96px] dark:border-dark-300   rounded-sm  border dark:bg-dark-400 w-full md:mb-0">
+    <div className=" md:min-h-[96px] dark:border-dark-300   rounded-sm  border dark:bg-dark-400 w-full mb-5  ">
       <div className=" md:min-h-[96px]  py-5 md:py-0 md:flex px-5  justify-center items-center ">
         <div className="mb-5 md:w-1/2 md:mb-0 ">
           <p className="text-xl text-center md:text-start">{type && type}</p>
