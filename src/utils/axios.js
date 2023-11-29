@@ -3,7 +3,7 @@ import axios from "axios";
 // Set config defaults when creating the instance
 const api = axios.create({
   // baseURL: "http://localhost:5000/api/v1/auth",
-  baseURL: "https://waresun-server.vercel.app/api/v1/auth",
+  baseURL: `${process.env.NEXT_PUBLIC_BaseUrl}`,
 });
 
 // Add a request interceptor
