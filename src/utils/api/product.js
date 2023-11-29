@@ -4,7 +4,7 @@ import api from "../axios";
 export const saveProduct = async (data) => {
   try {
     let formData = new FormData();
-    console.log(data);
+
     // Append text data
     Object.entries(data).forEach(([key, value]) => {
       if (key === "images") {
@@ -12,7 +12,14 @@ export const saveProduct = async (data) => {
         // Append each image file
         value.forEach((image, index) => {
           formData.append(`images`, image);
-          console.log(formData);
+        });
+      } else if (key === "tags") {
+        value.forEach((tag, index) => {
+          formData.append(`tags`, tag);
+        });
+      } else if (key === "categories") {
+        value.forEach((category, index) => {
+          formData.append(`categories`, category);
         });
       } else {
         console.log(value);

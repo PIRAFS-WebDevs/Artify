@@ -13,7 +13,9 @@ const ProductUpload = () => {
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  console.log("selectedCategories:", selectedCategories);
   const [selectedTags, setSelectedTags] = useState([]);
+  console.log("selectedTags:", selectedTags);
 
   const {
     register,
