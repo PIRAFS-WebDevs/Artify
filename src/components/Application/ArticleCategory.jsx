@@ -19,9 +19,11 @@ const ArticlesCategory = () => {
           </h1>
           <div className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
-              <Link href={"#"} className="flex gap-2 ml-6" key={e}>
-                <FaRegFileAlt /> How async works in react?
-              </Link>
+              <div className="flex gap-2" key={e}>
+                <Link href={"/application/1"} className="flex gap-2 ml-6">
+                  <FaRegFileAlt /> How async works in react?
+                </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -32,9 +34,11 @@ const ArticlesCategory = () => {
           </h1>
           <div className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
-              <Link href={"#"} className="flex gap-2 ml-6" key={e}>
-                <FaRegFileAlt /> How async works in react?
-              </Link>
+              <div className="flex gap-2" key={e}>
+                <Link href={"#"} className="flex gap-2 ml-6">
+                  <FaRegFileAlt /> How async works in react?
+                </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -47,9 +51,11 @@ const ArticlesCategory = () => {
           </h1>
           <div className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
-              <Link href={"#"} className="flex gap-2 ml-6" key={e}>
-                <FaRegFileAlt /> How async works in react?
-              </Link>
+              <div className="flex gap-2" key={e}>
+                <Link href={"#"} className="flex gap-2 ml-6">
+                  <FaRegFileAlt /> How async works in react?
+                </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -60,9 +66,11 @@ const ArticlesCategory = () => {
           </h1>
           <div className="space-y-2 text-dark-100">
             {[1, 2, 3, 4, 5].map((e) => (
-              <Link href={"#"} className="flex gap-2 ml-6" key={e}>
-                <FaRegFileAlt /> How async works in react?
-              </Link>
+              <div className="flex gap-2" key={e}>
+                <Link href={"#"} className="flex gap-2 ml-6">
+                  <FaRegFileAlt /> How async works in react?
+                </Link>
+              </div>
             ))}
           </div>
         </div>
