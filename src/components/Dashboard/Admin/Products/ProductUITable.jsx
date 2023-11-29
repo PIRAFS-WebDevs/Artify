@@ -35,7 +35,7 @@ const INITIAL_VISIBLE_COLUMNS = [
 ];
 
 export default function ProductUITable() {
-  const { products, refetch } = useContext(AllProductContext);
+  const { products, refetch, handelAction } = useContext(AllProductContext);
 
   const [filterValue, setFilterValue] = useState("");
   const [selectedKeys, setSelectedKeys] = useState(new Set([]));
@@ -75,29 +75,27 @@ export default function ProductUITable() {
   }, [visibleColumns]);
   //  action fuction
 
-  const handelAction = async (value, id) => {
-    let api = "/admin/product/product-delate/";
-
+  /*  */
+  /* const handelAction = async (value, id, api, title, viewUrl, editUrl) => {
     if (value === "delete") {
       if (id) {
-        const deleteProduct = await delAnyItem(id, api);
-        if (deleteProduct.status === 200) {
-          toast.success("product is deleted");
+        const deleteItems = await delAnyItem(id, api);
+        if (deleteItems?.status === 200) {
+          toast.success(`${title} is deleted`);
+          refetch;
           router.refresh();
         } else {
-          toast.error("Have some problem to deleted Product ");
+          toast.error(`Have some problem to deleted ${title}`);
         }
-
-        console.log(deleteProduct);
       }
     }
     if (value === "view") {
-      router.replace(`/products/${id}`);
+      router.replace(`${viewUrl}${id}`);
     }
     if (value === "edit") {
-      router.replace(`/dashboard/admin/products/upload/?id=${id}`);
+      router.replace(`${editUrl}?id=${id}`);
     }
-  };
+  }; */
 
   const filteredItems = useMemo(() => {
     let filteredProducts = [...products];
@@ -179,14 +177,45 @@ export default function ProductUITable() {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
-                <DropdownItem onClick={() => handelAction("view", product._id)}>
+                <DropdownItem
+                  onClick={() =>
+                    handelAction(
+                      "view",
+                      product._id,
+                      "/admin/product/product-delate/",
+                      "product",
+                      "/products/",
+                      "/dashboard/admin/products/upload"
+                    )
+                  }
+                >
                   View
                 </DropdownItem>
-                <DropdownItem onClick={() => handelAction("edit", product._id)}>
+                <DropdownItem
+                  onClick={() =>
+                    handelAction(
+                      "edit",
+                      product._id,
+                      "/admin/product/product-delate/",
+                      "product",
+                      "/products/",
+                      "/dashboard/admin/products/upload"
+                    )
+                  }
+                >
                   Edit
                 </DropdownItem>
                 <DropdownItem
-                  onClick={() => handelAction("delete", product._id)}
+                  onClick={() =>
+                    handelAction(
+                      "delete",
+                      product._id,
+                      "/admin/product/product-delate/",
+                      "product",
+                      "/products/",
+                      "/dashboard/admin/products/upload/"
+                    )
+                  }
                 >
                   Delete
                 </DropdownItem>

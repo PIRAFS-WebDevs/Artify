@@ -21,10 +21,12 @@ import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 import { useQuery } from "@tanstack/react-query";
 import { getTags } from "@/utils/api/tags";
+import AllProductContext from "@/context/AllProductContext";
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
 
 export default function TagsUITable() {
+  const { handelAction } = useContext(AllProductContext);
   const {
     data: tags = [],
     isLoading,
@@ -34,19 +36,6 @@ export default function TagsUITable() {
     queryKey: ["tags"],
     queryFn: () => getTags(),
   });
-
-  const onEdit = (editedTag) => {
-    // Implement the logic to edit the layout
-    // For example, you can open a modal for editing
-    console.log("Edit tags:", editedTag);
-  };
-
-  const onDelete = (deletedTag) => {
-    // Implement the logic to delete the tags
-    // For example, you can show a confirmation dialog and then update the tags array
-    const updatedtags = tags.filter((tags) => tags.slug !== deletedTag.slug);
-    console.log("Delete tags:", deletedTag);
-  };
 
   const [filterValue, setFilterValue] = useState("");
   const [visibleColumns, setVisibleColumns] = useState(
@@ -104,39 +93,60 @@ export default function TagsUITable() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = useCallback(
-    (tags, columnKey) => {
-      const cellValue = tags[columnKey];
+  const renderCell = useCallback((tags, columnKey) => {
+    const cellValue = tags[columnKey];
 
-      switch (columnKey) {
-        case "name":
-          return cellValue;
-        case "slug":
-          return cellValue;
-        case "actions":
-          return (
-            <div className="relative flex items-center justify-end gap-2">
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button isIconOnly size="sm" variant="light">
-                    <HiDotsVertical className="text-default-300" />
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  <DropdownItem onClick={() => onEdit(tags)}>Edit</DropdownItem>
-                  <DropdownItem onClick={() => onDelete(tags)}>
-                    Delete
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
-          );
-        default:
-          return cellValue;
-      }
-    },
-    [onEdit, onDelete]
-  );
+    switch (columnKey) {
+      case "name":
+        return cellValue;
+      case "slug":
+        return cellValue;
+      case "actions":
+        return (
+          <div className="relative flex items-center justify-end gap-2">
+            <Dropdown>
+              <DropdownTrigger>
+                <Button isIconOnly size="sm" variant="light">
+                  <HiDotsVertical className="text-default-300" />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem
+                  onClick={() =>
+                    handelAction(
+                      "edit",
+                      tags?._id,
+                      "/admin/tags/tags-delate/",
+                      "Tag",
+                      "/tag/",
+                      "/dashboard/admin/tags/upload/"
+                    )
+                  }
+                >
+                  Edit
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() =>
+                    handelAction(
+                      "delete",
+                      tags?._id,
+                      "/admin/tags/tags-delate/",
+                      "Tag",
+                      "/tag/",
+                      "/dashboard/admin/tags/upload/"
+                    )
+                  }
+                >
+                  Delete
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+        );
+      default:
+        return cellValue;
+    }
+  }, []);
 
   const onNextPage = useCallback(() => {
     if (page < pages) {

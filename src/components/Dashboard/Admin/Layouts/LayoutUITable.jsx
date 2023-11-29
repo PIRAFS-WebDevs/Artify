@@ -24,10 +24,12 @@ import { useQuery } from "@tanstack/react-query";
 import { delAnyItem } from "@/utils/api/product";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import AllProductContext from "@/context/AllProductContext";
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
 
 export default function LayoutUITable() {
+  const { handelAction } = useContext(AllProductContext);
   const {
     data: layouts = [],
     isLoading,
@@ -39,7 +41,7 @@ export default function LayoutUITable() {
   });
   const router = useRouter();
 
-  const handelAction = async (value, id) => {
+  /* const handelAction = async (value, id) => {
     let api = "/admin/layout/layout-delate/";
 
     console.log({ id: id, api: api, value });
@@ -58,7 +60,7 @@ export default function LayoutUITable() {
         console.log(deleteLayout);
       }
     }
-  };
+  }; */
 
   const [filterValue, setFilterValue] = useState("");
   const [visibleColumns, setVisibleColumns] = useState(
@@ -134,11 +136,31 @@ export default function LayoutUITable() {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
-                <DropdownItem onClick={() => handelAction("edit", layout?._id)}>
+                <DropdownItem
+                  onClick={() =>
+                    handelAction(
+                      "edit",
+                      layout?._id,
+                      "/admin/layout/layout-delate/",
+                      "Layout",
+                      "/layout/",
+                      "/dashboard/admin/layouts/upload/"
+                    )
+                  }
+                >
                   Edit
                 </DropdownItem>
                 <DropdownItem
-                  onClick={() => handelAction("delete", layout?._id)}
+                  onClick={() =>
+                    handelAction(
+                      "delete",
+                      layout?._id,
+                      "/admin/layout/layout-delate/",
+                      "Layout",
+                      "/layout/",
+                      "/dashboard/admin/layouts/upload/"
+                    )
+                  }
                 >
                   Delete
                 </DropdownItem>

@@ -21,10 +21,15 @@ import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 import { useQuery } from "@tanstack/react-query";
 import { getCategory } from "@/utils/api/category";
+import { delAnyItem } from "@/utils/api/product";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import AllProductContext from "@/context/AllProductContext";
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
 
 export default function CategoryUITable() {
+  const { handelAction } = useContext(AllProductContext);
   const {
     data: category = [],
     isLoading,
@@ -34,21 +39,24 @@ export default function CategoryUITable() {
     queryKey: ["category"],
     queryFn: () => getCategory(),
   });
+  const router = useRouter();
+  /* const handelAction = async (value, id, api, title, viewUrl, editUrl) => {
+    if (value === "delete") {
+      if (id) {
+        const deleteLayout = await delAnyItem(id, api);
+        console.log(deleteLayout);
+        if (deleteLayout?.status === 200) {
+          toast.success(`${title} is deleted`);
+          refetch;
+          router.refresh();
+        } else {
+          toast.error(`Have some problem to deleted ${title}`);
+        }
 
-  const onEdit = (editedCategory) => {
-    // Implement the logic to edit the layout
-    // For example, you can open a modal for editing
-    console.log("Edit category:", editedCategory);
-  };
-
-  const onDelete = (deletedCategory) => {
-    // Implement the logic to delete the category
-    // For example, you can show a confirmation dialog and then update the category array
-    const updatedCategory = category.filter(
-      (category) => category.slug !== deletedCategory.slug
-    );
-    console.log("Delete category:", deletedCategory);
-  };
+        console.log(deleteLayout);
+      }
+    }
+  }; */
 
   const [filterValue, setFilterValue] = useState("");
   const [visibleColumns, setVisibleColumns] = useState(
@@ -125,10 +133,31 @@ export default function CategoryUITable() {
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu>
-                  <DropdownItem onClick={() => onEdit(category)}>
+                  <DropdownItem
+                    onClick={() =>
+                      handelAction(
+                        "edit",
+                        category?._id,
+                        "/admin/category/category-delate/",
+                        "Category",
+                        "category",
+                        "/dashboard/admin/categories/upload"
+                      )
+                    }
+                  >
                     Edit
                   </DropdownItem>
-                  <DropdownItem onClick={() => onDelete(category)}>
+                  <DropdownItem
+                    onClick={() => {
+                      handelAction(
+                        "delete",
+                        category?._id,
+                        "/admin/category/category-delate/",
+                        "Category"
+                      ),
+                        refetch();
+                    }}
+                  >
                     Delete
                   </DropdownItem>
                 </DropdownMenu>
@@ -139,7 +168,7 @@ export default function CategoryUITable() {
           return cellValue;
       }
     },
-    [onEdit, onDelete]
+    [handelAction]
   );
 
   const onNextPage = useCallback(() => {
@@ -276,7 +305,7 @@ export default function CategoryUITable() {
       </TableHeader>
       <TableBody emptyContent={"No category found"} items={sortedItems}>
         {(item) => (
-          <TableRow key={item.slug}>
+          <TableRow key={item.name}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}

@@ -1,13 +1,21 @@
 "use client";
 
 import AllProductContext from "@/context/AllProductContext";
-import { ProductByid, getProductById, getProducts } from "@/utils/api/product";
+import {
+  ProductByid,
+  delAnyItem,
+  getProductById,
+  getProducts,
+} from "@/utils/api/product";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import { stringify } from "postcss";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const AllProductProvider = ({ children }) => {
   const [category, setCategory] = useState("");
+  const router = useRouter();
   const [id, setId] = useState(null);
   const {
     data: products = [],
@@ -24,12 +32,33 @@ const AllProductProvider = ({ children }) => {
     queryFn: () => ProductByid(id),
   });
 
+  const handelAction = async (value, id, api, title, viewUrl, editUrl) => {
+    if (value === "delete") {
+      if (id) {
+        const deleteItems = await delAnyItem(id, api);
+        if (deleteItems?.status === 200) {
+          toast.success(`${title} is deleted`);
+          refetch();
+        } else {
+          toast.error(`Have some problem to deleted ${title}`);
+        }
+      }
+    }
+    if (value === "view") {
+      router.replace(`${viewUrl}${id}`);
+    }
+    if (value === "edit") {
+      router.replace(`${editUrl}?id=${id}`);
+    }
+  };
+
   const value = {
     products,
     category,
     product,
     setId,
     setCategory,
+    handelAction,
     isLoading,
     refetch,
   };
