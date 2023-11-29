@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useCallback, useContext, useMemo, useState } from "react";
 import {
   Table,
   TableHeader,
@@ -18,17 +18,9 @@ import {
   User,
   Pagination,
 } from "@nextui-org/react";
-import { VerticalDotsIcon } from "./VerticalDotsIcon";
-import { SearchIcon } from "./SearchIcon";
-import { ChevronDownIcon } from "./ChevronDownIcon";
-import { capitalize } from "./utils";
 import AllProductContext from "@/context/AllProductContext";
-
-const statusColorMap = {
-  active: "success",
-  paused: "danger",
-  vacation: "warning",
-};
+import { FaChevronDown, FaSearch } from "react-icons/fa";
+import { HiDotsVertical } from "react-icons/hi";
 
 const INITIAL_VISIBLE_COLUMNS = [
   "name",
@@ -36,25 +28,23 @@ const INITIAL_VISIBLE_COLUMNS = [
   "price",
   "status",
   "actions",
-]; // Adjust columns according to your product structure
+];
 
 export default function ProductUITable() {
-  const { products } = useContext(AllProductContext) ?? {
-    products: [],
-  };
+  const { products } = useContext(AllProductContext);
 
-  const [filterValue, setFilterValue] = React.useState("");
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
-  const [visibleColumns, setVisibleColumns] = React.useState(
+  const [filterValue, setFilterValue] = useState("");
+  const [selectedKeys, setSelectedKeys] = useState(new Set([]));
+  const [visibleColumns, setVisibleColumns] = useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
-  const [statusFilter, setStatusFilter] = React.useState("all");
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [sortDescriptor, setSortDescriptor] = React.useState({
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [sortDescriptor, setSortDescriptor] = useState({
     column: "name",
     direction: "ascending",
   });
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = useState(1);
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -66,7 +56,7 @@ export default function ProductUITable() {
     { uid: "actions", name: "Actions", sortable: false },
   ];
 
-  const headerColumns = React.useMemo(() => {
+  const headerColumns = useMemo(() => {
     if (visibleColumns === "all") return columns;
 
     return columns.filter((column) =>
@@ -74,7 +64,7 @@ export default function ProductUITable() {
     );
   }, [visibleColumns]);
 
-  const filteredItems = React.useMemo(() => {
+  const filteredItems = useMemo(() => {
     let filteredProducts = [...products];
 
     if (hasSearchFilter) {
@@ -93,14 +83,14 @@ export default function ProductUITable() {
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
-  const items = React.useMemo(() => {
+  const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
     return filteredItems.slice(start, end);
   }, [page, filteredItems, rowsPerPage]);
 
-  const sortedItems = React.useMemo(() => {
+  const sortedItems = useMemo(() => {
     return [...items].sort((a, b) => {
       const first = a[sortDescriptor.column];
       const second = b[sortDescriptor.column];
@@ -110,7 +100,7 @@ export default function ProductUITable() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = React.useCallback((product, columnKey) => {
+  const renderCell = useCallback((product, columnKey) => {
     const cellValue = product[columnKey];
 
     switch (columnKey) {
@@ -133,12 +123,7 @@ export default function ProductUITable() {
         return `$${cellValue}`;
       case "status":
         return (
-          <Chip
-            className="capitalize"
-            color={statusColorMap[cellValue]}
-            size="sm"
-            variant="flat"
-          >
+          <Chip className="capitalize" size="sm" variant="flat">
             {cellValue}
           </Chip>
         );
@@ -148,7 +133,7 @@ export default function ProductUITable() {
             <Dropdown>
               <DropdownTrigger>
                 <Button isIconOnly size="sm" variant="light">
-                  <VerticalDotsIcon className="text-default-300" />
+                  <HiDotsVertical className="text-default-300" />
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
@@ -164,24 +149,24 @@ export default function ProductUITable() {
     }
   }, []);
 
-  const onNextPage = React.useCallback(() => {
+  const onNextPage = useCallback(() => {
     if (page < pages) {
       setPage(page + 1);
     }
   }, [page, pages]);
 
-  const onPreviousPage = React.useCallback(() => {
+  const onPreviousPage = useCallback(() => {
     if (page > 1) {
       setPage(page - 1);
     }
   }, [page]);
 
-  const onRowsPerPageChange = React.useCallback((e) => {
+  const onRowsPerPageChange = useCallback((e) => {
     setRowsPerPage(Number(e.target.value));
     setPage(1);
   }, []);
 
-  const onSearchChange = React.useCallback((value) => {
+  const onSearchChange = useCallback((value) => {
     if (value) {
       setFilterValue(value);
       setPage(1);
@@ -190,12 +175,12 @@ export default function ProductUITable() {
     }
   }, []);
 
-  const onClear = React.useCallback(() => {
+  const onClear = useCallback(() => {
     setFilterValue("");
     setPage(1);
   }, []);
 
-  const topContent = React.useMemo(() => {
+  const topContent = useMemo(() => {
     return (
       <div className="flex flex-col gap-4">
         <div className="flex items-end justify-between gap-3">
@@ -203,7 +188,7 @@ export default function ProductUITable() {
             isClearable
             className="w-full sm:max-w-[44%]"
             placeholder="Search by name..."
-            startContent={<SearchIcon />}
+            startContent={<FaSearch />}
             value={filterValue}
             onClear={() => onClear()}
             onValueChange={onSearchChange}
@@ -211,7 +196,7 @@ export default function ProductUITable() {
           <Dropdown>
             <DropdownTrigger className="hidden sm:flex">
               <Button
-                endContent={<ChevronDownIcon className="text-small" />}
+                endContent={<FaChevronDown className="text-small" />}
                 variant="flat"
               >
                 Columns
@@ -227,7 +212,7 @@ export default function ProductUITable() {
             >
               {columns.map((column) => (
                 <DropdownItem key={column.uid} className="capitalize">
-                  {capitalize(column.name)}
+                  (column.name)
                 </DropdownItem>
               ))}
             </DropdownMenu>
@@ -261,7 +246,7 @@ export default function ProductUITable() {
     hasSearchFilter,
   ]);
 
-  const bottomContent = React.useMemo(() => {
+  const bottomContent = useMemo(() => {
     return (
       <div className="flex items-center justify-between px-2 py-2">
         <span className="w-[30%] text-small text-default-400">
@@ -309,6 +294,7 @@ export default function ProductUITable() {
       classNames={{
         wrapper: "max-h-[382px]",
       }}
+      className="scrollbar"
       selectedKeys={selectedKeys}
       selectionMode="multiple"
       sortDescriptor={sortDescriptor}
