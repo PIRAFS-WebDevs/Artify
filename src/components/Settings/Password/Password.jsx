@@ -24,7 +24,7 @@ export default function Password() {
 
   return (
     <div className="flex flex-col gap-6 text-dark-100">
-      <p className="text-white">Password</p>
+      <p className="dark:text-white text-dark-500">Password</p>
 
       <form
         onSubmit={handleSubmit(formHandler)}
@@ -49,16 +49,16 @@ export default function Password() {
                 className={`w-full ${
                   errors.currentPassword &&
                   "border-red-400 focus:border-red-400"
-                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
+                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200`}
               />
               <span
                 onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-200"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-100"
               >
                 {isPasswordVisible ? (
-                  <LuEye size={"1.5rem"} />
+                  <LuEye size={"1.2rem"} />
                 ) : (
-                  <LuEyeOff size={"1.5rem"} />
+                  <LuEyeOff size={"1.2rem"} />
                 )}
               </span>
             </div>
@@ -86,16 +86,16 @@ export default function Password() {
                 type={isNewPasswordVisible ? "text" : "password"}
                 className={`w-full ${
                   errors.newPassword && "border-red-400 focus:border-red-400"
-                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
+                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200`}
               />
               <span
                 onClick={() => setIsNewPasswordVisible(!isNewPasswordVisible)}
-                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-200"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-100"
               >
                 {isNewPasswordVisible ? (
-                  <LuEye size={"1.5rem"} />
+                  <LuEye size={"1.2rem"} />
                 ) : (
-                  <LuEyeOff size={"1.5rem"} />
+                  <LuEyeOff size={"1.2rem"} />
                 )}
               </span>
             </div>
@@ -124,18 +124,18 @@ export default function Password() {
                 className={`w-full ${
                   errors.confirmPassword &&
                   "border-red-400 focus:border-red-400"
-                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 text-white outline-none transition-all duration-200`}
+                } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200`}
               />
               <span
                 onClick={() =>
                   setIsConfirmPasswordVisible(!isConfirmPasswordVisible)
                 }
-                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-200"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer text-dark-100"
               >
                 {isConfirmPasswordVisible ? (
-                  <LuEye size={"1.5rem"} />
+                  <LuEye size={"1.2rem"} />
                 ) : (
-                  <LuEyeOff size={"1.5rem"} />
+                  <LuEyeOff size={"1.2rem"} />
                 )}
               </span>
             </div>

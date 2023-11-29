@@ -13,7 +13,7 @@ const SettingsSidebar = () => {
   const { logout } = useContext(AuthContext);
 
   return (
-    <div className="w-full md:w-[280px] md:border-r border-dark-200">
+    <div className="w-full md:w-[280px] md:border-r dark:border-dark-200">
       {settingsSidebarData.map((data, i) => {
         const { name, icon, path } = data;
 
@@ -21,8 +21,9 @@ const SettingsSidebar = () => {
           <Link
             href={`${path}`}
             key={i}
-            className={`hidden md:flex items-center gap-4 py-4 px-6 text-dark-100 hover:text-white cursor-pointer w-full select-none ${
-              pathname === path && "bg-dark-300 text-white"
+            className={`hidden md:flex items-center gap-4 py-4 px-6 dark:text-dark-100 text-dark-100 hover:text-dark-500 dark:hover:text-white cursor-pointer w-full select-none ${
+              pathname === path &&
+              "dark:bg-dark-300 bg-light-500 dark:text-white text-dark-500"
             }`}
           >
             {icon}
@@ -33,13 +34,13 @@ const SettingsSidebar = () => {
 
       <button
         onClick={() => logout()}
-        className="hidden md:flex items-center gap-4 py-4 px-6 text-dark-100 hover:text-white cursor-pointer w-full select-none"
+        className="items-center hidden w-full gap-4 px-6 py-4 cursor-pointer select-none md:flex dark:text-dark-100 text-dark-100 hover:text-dark-500 dark:hover:text-white"
       >
         <BiLogOut size={"1.25rem"} />
         <p className="text-sm">Logout</p>
       </button>
 
-      <div className="md:hidden block">
+      <div className="block md:hidden">
         <SettingsDropdown />
       </div>
     </div>

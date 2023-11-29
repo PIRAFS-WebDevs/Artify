@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 
 const Card = () => {
   const { products, isLoading } = useContext(AllProductContext);
+  console.log("products:", products);
   const { setCartUpdated } = useContext(AllStateContext);
 
   const handleCart = async (cart, _id) => {
@@ -42,7 +43,7 @@ const Card = () => {
     <>
       {isLoading ? (
         <CardSkeleton />
-      ) : products == undefined ? (
+      ) : products.length <= 0 ? (
         <div className="grid min-h-screen pb-40 place-items-center">
           <img
             className="opacity-75 w-60 brightness-75"

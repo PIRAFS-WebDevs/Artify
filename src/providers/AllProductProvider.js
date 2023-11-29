@@ -3,11 +3,11 @@
 import AllProductContext from "@/context/AllProductContext";
 import { getProducts } from "@/utils/api/product";
 import { useQuery } from "@tanstack/react-query";
+import { stringify } from "postcss";
 import React, { useState } from "react";
 
 const AllProductProvider = ({ children }) => {
   const [category, setCategory] = useState("");
-
   const {
     data: products = [],
     isLoading,

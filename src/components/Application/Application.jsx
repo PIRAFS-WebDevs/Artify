@@ -7,7 +7,7 @@ const Application = () => {
   return (
     <div>
       <ApplicationSearch />
-      <div className="grid w-full p-6 mx-auto md:grid-cols-5">
+      <div className="grid w-full p-8 mx-auto md:grid-cols-5">
         <ArticlesCategory />
         <ArticleSidebar />
       </div>

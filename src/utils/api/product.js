@@ -50,7 +50,11 @@ export const getProducts = async (text) => {
       { next: { revalidate: "3600" } }
     );
     // console.log(res.data.products);
-    return res.data.products;
+    if (res.data) {
+      return res.data.products;
+    } else {
+      return res.data;
+    }
   } catch (error) {
     console.error(error.message);
   }

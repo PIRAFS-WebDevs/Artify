@@ -46,7 +46,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
                   onClick={() => {
                     setSearchShow(false), setSearchText(null);
                   }}
-                  className="inline-block cursor-pointer text-dark-100 hover:text-white"
+                  className="inline-block cursor-pointer text-dark-100 dark:hover:text-white hover:text-light-500"
                 />
               </div>
               <div className="w-full pb-4 border-b border-dark-200 focus:border-dark-100">
@@ -55,12 +55,12 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
                   autoFocus
                   type="text"
                   placeholder="Type anything to search..."
-                  className="w-full text-white bg-transparent outline-none md:text-xl placeholder:text-dark-100 md:placeholder:text-xl"
+                  className="w-full bg-transparent outline-none dark:text-white text-dark-500 md:text-xl dark:placeholder:text-dark-100 placeholder:text-dark-300 md:placeholder:text-xl"
                 />
               </div>
             </div>
 
-            <SearchCard products={products?.products} isLoading={isLoading} />
+            <SearchCard products={products} isLoading={isLoading} />
           </m.div>
         </m.div>
       )}

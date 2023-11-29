@@ -3,8 +3,9 @@ import { AiFillHeart } from "react-icons/ai";
 const Wishlist = () => {
   return (
     <div className="space-y-4">
-      <p>
-        My Wishlist <span className="text-dark-100">({10})</span>
+      <p className="dark:text-white text-dark-500">
+        My Wishlist{" "}
+        <span className="dark:text-dark-100 text-dark-300">({10})</span>
       </p>
 
       <div className="flex flex-col divide-y divide-dark-200">
@@ -21,11 +22,11 @@ const Wishlist = () => {
               />
 
               <div className="space-y-1">
-                <p className="text-sm font-medium text-white cursor-pointer hover:text-primary line-clamp-2">
+                <p className="text-sm font-medium cursor-pointer dark:text-white text-dark-500 hover:text-primary line-clamp-2">
                   ShppingPro Joomla Template
                 </p>
                 <p className="text-sm text-dark-100">Omnico Team</p>
-                <p className="inline-block px-2 py-1 text-sm font-semibold rounded-full text-primary bg-dark-200">
+                <p className="inline-block px-2 py-1 text-sm font-semibold rounded-full text-primary dark:bg-dark-200 bg-light-500">
                   $39.00
                 </p>
               </div>

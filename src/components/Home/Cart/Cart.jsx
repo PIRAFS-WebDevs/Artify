@@ -27,13 +27,15 @@ const Cart = () => {
             }}
             exit={{ x: 450 }}
             onClick={(e) => e.stopPropagation()}
-            className="fixed right-0 top-0 z-[60] w-full sm:w-[450px] min-h-screen dark:bg-dark-400 dark:text-white text-sm px-6 py-8 space-y-8"
+            className="fixed right-0 top-0 z-[60] w-full sm:w-[450px] min-h-screen dark:bg-dark-400 bg-white dark:text-white text-sm px-6 py-8 space-y-8 cursor-default"
           >
-            <div className="flex justify-between font-medium ">
-              <p className="text-base">Shopping Cart</p>
+            <div className="flex justify-between font-medium">
+              <p className="text-base dark:text-white text-dark-500">
+                Shopping Cart
+              </p>
               <button onClick={() => setCartOpen(false)}>
                 <AiOutlineClose
-                  className="dark:text-dark-100 dark:hover:text-white"
+                  className="dark:text-dark-100 text-dark-500 dark:hover:text-white hover:text-dark-100"
                   size={"1.2rem"}
                 />
               </button>

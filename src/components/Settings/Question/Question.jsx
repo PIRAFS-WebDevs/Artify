@@ -3,7 +3,7 @@ import { AiFillLike, AiFillDislike } from "react-icons/ai";
 const Question = () => {
   return (
     <div className="space-y-4">
-      <p>My Question</p>
+      <p className="dark:text-white text-dark-500">My Question</p>
 
       <div className="flex flex-col divide-y divide-dark-200">
         {[1, 2, 3, 4, 5, 6].map((e, i) => (
@@ -16,21 +16,21 @@ const Question = () => {
               />
 
               <div className="space-y-1">
-                <p className="text-white text-sm font-medium hover:text-primary cursor-pointer line-clamp-2">
+                <p className="text-sm font-medium cursor-pointer dark:text-white text-dark-500 hover:text-primary line-clamp-2">
                   ShppingPro Joomla Template
                 </p>
-                <p className="text-primary text-sm px-2 py-1 bg-dark-200 font-semibold inline-block rounded-full">
+                <p className="inline-block px-2 py-1 text-sm font-semibold rounded-full text-primary dark:bg-dark-200 bg-light-500">
                   $39.00
                 </p>
               </div>
             </div>
 
-            <div className="space-y-4 text-sm bg-dark-300 p-4 rounded">
-              <div className="space-y-2">
-                <p className="text-white">
+            <div className="p-4 space-y-2 text-xs rounded md:space-y-4 md:text-sm dark:bg-dark-300 bg-light-200">
+              <div className="space-y-1 md:space-y-2">
+                <p className="dark:text-white text-dark-500">
                   Q: Do you have React version of this theme?
                 </p>
-                <p className="text-white">
+                <p className="dark:text-white text-dark-500">
                   A: Yes we do have react version of the theme
                 </p>
               </div>

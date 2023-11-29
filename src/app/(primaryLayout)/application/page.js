@@ -3,7 +3,7 @@ import React from "react";
 
 const ApplicationPage = () => {
   return (
-    <div className="">
+    <div>
       <Application />
     </div>
   );
