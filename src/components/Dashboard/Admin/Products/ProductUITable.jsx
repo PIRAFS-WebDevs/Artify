@@ -21,6 +21,10 @@ import {
 import AllProductContext from "@/context/AllProductContext";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
+import { PiVanLight } from "react-icons/pi";
+import { delProducts } from "@/utils/api/product";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const INITIAL_VISIBLE_COLUMNS = [
   "name",
@@ -31,7 +35,7 @@ const INITIAL_VISIBLE_COLUMNS = [
 ];
 
 export default function ProductUITable() {
-  const { products } = useContext(AllProductContext);
+  const { products, refetch } = useContext(AllProductContext);
 
   const [filterValue, setFilterValue] = useState("");
   const [selectedKeys, setSelectedKeys] = useState(new Set([]));
@@ -39,12 +43,14 @@ export default function ProductUITable() {
     new Set(INITIAL_VISIBLE_COLUMNS)
   );
   const [statusFilter, setStatusFilter] = useState("all");
+  
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [sortDescriptor, setSortDescriptor] = useState({
     column: "name",
     direction: "ascending",
   });
   const [page, setPage] = useState(1);
+  const router = useRouter()
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -67,14 +73,49 @@ export default function ProductUITable() {
       Array.from(visibleColumns).includes(column.uid)
     );
   }, [visibleColumns]);
+  //  action fuction
+
+  const handelAction = async (value, id) => {
+    if(value === "delete") {
+
+      if (id) {
+        const deleteProduct = await delProducts(id)
+        if (deleteProduct.status === 200) {
+          toast.success('product is deleted')
+          router.refresh()
+        }else{
+          toast.error('Have some problem to deleted Product ')
+        }
+        
+        
+        console.log(deleteProduct);
+      } 
+    }
+    if(value === "view") {
+
+     router.replace(`/products/${id}`)
+     
+    }
+    if(value === "edit") {
+
+      router.replace(`/dashboard/admin/products/upload/?id=${id}`)
+      
+     }
+  }
 
   const filteredItems = useMemo(() => {
     let filteredProducts = [...products];
-
     if (hasSearchFilter) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.name.toLowerCase().includes(filterValue.toLowerCase())
-      );
+  product.name.toLowerCase().includes(filterValue.toLowerCase()) ||
+  product.layout.toLowerCase().includes(filterValue.toLowerCase()) ||
+  product.tags.some((tag) =>
+    tag.toLowerCase().includes(filterValue.toLowerCase())
+  ) ||  product.categories.some((category) =>
+  category.toLowerCase().includes(filterValue.toLowerCase())
+) 
+);
+
     }
     if (statusFilter !== "all" && Array.from(statusFilter).length !== 0) {
       filteredProducts = filteredProducts.filter((product) =>
@@ -106,6 +147,7 @@ export default function ProductUITable() {
 
   const renderCell = useCallback((product, columnKey) => {
     const cellValue = product[columnKey];
+    
 
     switch (columnKey) {
       case "name":
@@ -140,10 +182,10 @@ export default function ProductUITable() {
                   <HiDotsVertical className="text-default-300" />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem>View</DropdownItem>
-                <DropdownItem>Edit</DropdownItem>
-                <DropdownItem>Delete</DropdownItem>
+              <DropdownMenu  >
+                <DropdownItem onClick={()=> handelAction('view' ,product._id)}>View</DropdownItem>
+                <DropdownItem onClick={()=> handelAction('edit', product._id)}>Edit</DropdownItem>
+                <DropdownItem onClick={()=> handelAction('delete', product._id)}>Delete</DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </div>
@@ -186,8 +228,8 @@ export default function ProductUITable() {
 
   const topContent = useMemo(() => {
     return (
-      <div className="flex flex-col gap-4">
-        <div className="flex items-end justify-between gap-3">
+      <div className="flex flex-col gap-4 mt-5">
+        <div className="flex items-start justify-between gap-3">
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
@@ -195,6 +237,7 @@ export default function ProductUITable() {
             startContent={<FaSearch />}
             value={filterValue}
             onClear={() => onClear()}
+            // onChange={(e) => setCategory(e.target.value)}
             onValueChange={onSearchChange}
           />
           <Dropdown>

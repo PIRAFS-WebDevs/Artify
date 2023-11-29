@@ -3,19 +3,37 @@
 import FeatureImage from "@/components/Dashboard/Admin/ProductUpload/FeatureImage";
 import GalleryImages from "@/components/Dashboard/Admin/ProductUpload/GalleryImages";
 import SimpleProductInfo from "./SimpleProductInfo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { saveProduct } from "@/utils/api/product";
+import { ProductByid, saveProduct, updateProduct } from "@/utils/api/product";
 import Description from "./Description";
 import UploadButton from "./UploadButton";
+import { useSearchParams } from "next/navigation";
+import toast from "react-hot-toast";
 
 const ProductUpload = () => {
+  const [singleProduct, setSingleProduct] = useState([]);
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   console.log("selectedCategories:", selectedCategories);
   const [selectedTags, setSelectedTags] = useState([]);
-  console.log("selectedTags:", selectedTags);
+  const searchPrames = useSearchParams();
+  const updateId = searchPrames.get("id");
+
+  useEffect(() => {
+    (async () => {
+      if (!updateId) {
+        setSingleProduct([]);
+      }
+      if (updateId) {
+        const product = await ProductByid(updateId);
+        setSingleProduct(product);
+
+        // setSelectedCategories(singleProduct?.categories && singleProduct?.categories )
+      }
+    })();
+  }, [updateId]);
 
   const {
     register,
@@ -31,9 +49,13 @@ const ProductUpload = () => {
       tags: selectedTags,
       ...data,
     };
-
-    saveProduct(productData);
-    //console.table(productData);
+    if (updateId) {
+      updateProduct(productData, updateId);
+      toast.success("product was successfully updated");
+    } else {
+      saveProduct(productData);
+      toast.success("product was successfully uplode");
+    }
   };
 
   return (
@@ -59,14 +81,23 @@ const ProductUpload = () => {
           selectedCategories={selectedCategories}
           setSelectedCategories={setSelectedCategories}
           selectedTags={selectedTags}
+          product={singleProduct}
           setSelectedTags={setSelectedTags}
         />
 
         {/* description */}
-        <Description register={register} errors={errors} />
+        <Description
+          product={singleProduct}
+          register={register}
+          errors={errors}
+        />
 
         {/* product info */}
-        <SimpleProductInfo register={register} errors={errors} />
+        <SimpleProductInfo
+          product={singleProduct}
+          register={register}
+          errors={errors}
+        />
 
         {/* product upload button */}
         <UploadButton />
@@ -83,7 +114,13 @@ const LayoutCategories = ({
   selectedTags,
   setSelectedTags,
   register,
+  product,
 }) => {
+  useEffect(() => {
+    setSelectedCategories([product?.categories]);
+    setSelectedTags([product?.tags]);
+  }, [product]);
+
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
     if (!selectedCategories.includes(selectedCategory)) {
@@ -129,13 +166,38 @@ const LayoutCategories = ({
           <select
             {...register("layout")}
             id="layout"
+            defaultValue={product?.layout && product?.layout}
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
           >
-            {layouts.map((layout, i) => (
-              <option key={i} value={layout} className="text-white bg-dark-300">
-                {layout}
-              </option>
-            ))}
+            {product?.layout ? (
+              <>
+                <option
+                  value={product?.layout}
+                  className="text-white bg-dark-300"
+                >
+                  {product?.layout}
+                </option>
+                {layouts.map((layout, i) => (
+                  <option
+                    key={i}
+                    value={layout}
+                    className="text-white bg-dark-300"
+                  >
+                    {layout}
+                  </option>
+                ))}
+              </>
+            ) : (
+              layouts.map((layout, i) => (
+                <option
+                  key={i}
+                  value={layout}
+                  className="text-white bg-dark-300"
+                >
+                  {layout}
+                </option>
+              ))
+            )}
           </select>
         </div>
         {/* categories */}
