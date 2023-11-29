@@ -19,7 +19,6 @@ const ProductUpload = () => {
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  console.log("selectedCategories:", selectedCategories);
   const [selectedTags, setSelectedTags] = useState([]);
   const searchPrames = useSearchParams();
   const updateId = searchPrames.get("id");
@@ -32,8 +31,6 @@ const ProductUpload = () => {
       if (updateId) {
         const product = await ProductByid(updateId);
         setSingleProduct(product);
-
-        // setSelectedCategories(singleProduct?.categories && singleProduct?.categories )
       }
     })();
   }, [updateId]);
@@ -120,11 +117,10 @@ const LayoutCategories = ({
   product,
 }) => {
   useEffect(() => {
-if (product) {
-  setSelectedCategories(product?.categories ? [product?.categories] : []);
-  setSelectedTags(product?.tags ? [product?.tags] : []);
-}
-  
+    if (product) {
+      setSelectedCategories(product?.categories ? [product?.categories] : []);
+      setSelectedTags(product?.tags ? [product?.tags] : []);
+    }
   }, [product]);
 
   const handleCategoryChange = (event) => {
@@ -150,23 +146,17 @@ if (product) {
     const updatedTags = selectedTags.filter((t) => t !== tag);
     setSelectedTags(updatedTags);
   };
-  const {
-    data: tags = [],
-    isLoading,
-    refetch,
-    isError,
-  } = useQuery({
+
+  const { data: tags = [] } = useQuery({
     queryKey: ["tags"],
     queryFn: () => getTags(),
   });
-  const {
-    data: categories = []
-  } = useQuery({
+
+  const { data: categories = [] } = useQuery({
     queryKey: ["category"],
     queryFn: () => getCategory(),
   });
-  // setSelectedCategories([])
-console.log("asdgsdfsffdd",selectedCategories.length)
+
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
@@ -228,7 +218,7 @@ console.log("asdgsdfsffdd",selectedCategories.length)
             Selected Categories:
           </label>
           <div className="flex flex-wrap gap-2">
-            {  selectedCategories.map((category, i) => (
+            {selectedCategories.map((category, i) => (
               <div key={i} className="relative">
                 <span className="px-2 py-1 text-white rounded-sm bg-dark-300">
                   {category}
@@ -290,7 +280,11 @@ console.log("asdgsdfsffdd",selectedCategories.length)
               Select a tag
             </option>
             {tags.map((tag, i) => (
-              <option key={i} value={tag.name} className="text-white bg-dark-300">
+              <option
+                key={i}
+                value={tag.name}
+                className="text-white bg-dark-300"
+              >
                 {tag.name}
               </option>
             ))}
@@ -302,7 +296,3 @@ console.log("asdgsdfsffdd",selectedCategories.length)
 };
 
 const layouts = ["Fixed", "Responsive", "Fluid", "N/A"];
-
-const categories = ["Shopify", "React Native", "Angular", "Vue", "N/A"];
-
-
