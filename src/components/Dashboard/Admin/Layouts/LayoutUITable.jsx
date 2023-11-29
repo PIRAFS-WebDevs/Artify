@@ -21,6 +21,9 @@ import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 import { getLayout } from "@/utils/api/layout";
 import { useQuery } from "@tanstack/react-query";
+import { delAnyItem } from "@/utils/api/product";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
 
@@ -34,20 +37,27 @@ export default function LayoutUITable() {
     queryKey: ["layouts"],
     queryFn: () => getLayout(),
   });
+  const router = useRouter();
 
-  const onEdit = (editedLayout) => {
-    // Implement the logic to edit the layout
-    // For example, you can open a modal for editing
-    console.log("Edit layout:", editedLayout);
-  };
+  const handelAction = async (value, id) => {
+    let api = "/admin/layout/layout-delate/";
 
-  const onDelete = (deletedLayout) => {
-    // Implement the logic to delete the layout
-    // For example, you can show a confirmation dialog and then update the layouts array
-    const updatedLayouts = layouts.filter(
-      (layout) => layout.slug !== deletedLayout.slug
-    );
-    console.log("Delete layout:", deletedLayout);
+    console.log({ id: id, api: api, value });
+    if (value === "delete") {
+      if (id) {
+        const deleteLayout = await delAnyItem(id, api);
+        console.log(deleteLayout);
+        if (deleteLayout?.status === 200) {
+          toast.success("product is deleted");
+          refetch;
+          router.refresh();
+        } else {
+          toast.error("Have some problem to deleted Product ");
+        }
+
+        console.log(deleteLayout);
+      }
+    }
   };
 
   const [filterValue, setFilterValue] = useState("");
@@ -106,41 +116,40 @@ export default function LayoutUITable() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = useCallback(
-    (layout, columnKey) => {
-      const cellValue = layout[columnKey];
+  const renderCell = useCallback((layout, columnKey) => {
+    const cellValue = layout[columnKey];
 
-      switch (columnKey) {
-        case "name":
-          return cellValue;
-        case "slug":
-          return cellValue;
-        case "actions":
-          return (
-            <div className="relative flex items-center justify-end gap-2">
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button isIconOnly size="sm" variant="light">
-                    <HiDotsVertical className="text-default-300" />
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  <DropdownItem onClick={() => onEdit(layout)}>
-                    Edit
-                  </DropdownItem>
-                  <DropdownItem onClick={() => onDelete(layout)}>
-                    Delete
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
-          );
-        default:
-          return cellValue;
-      }
-    },
-    [onEdit, onDelete]
-  );
+    switch (columnKey) {
+      case "name":
+        return cellValue;
+      case "slug":
+        return cellValue;
+      case "actions":
+        return (
+          <div className="relative flex items-center justify-end gap-2">
+            <Dropdown>
+              <DropdownTrigger>
+                <Button isIconOnly size="sm" variant="light">
+                  <HiDotsVertical className="text-default-300" />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem onClick={() => handelAction("edit", layout?._id)}>
+                  Edit
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => handelAction("delete", layout?._id)}
+                >
+                  Delete
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+        );
+      default:
+        return cellValue;
+    }
+  }, []);
 
   const onNextPage = useCallback(() => {
     if (page < pages) {
@@ -276,7 +285,7 @@ export default function LayoutUITable() {
       </TableHeader>
       <TableBody emptyContent={"No layouts found"} items={sortedItems}>
         {(item) => (
-          <TableRow key={item.slug}>
+          <TableRow key={item.name}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}

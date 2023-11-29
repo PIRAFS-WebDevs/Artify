@@ -52,7 +52,10 @@ export const updateProduct = async (data, id) => {
       }
     });
     console.log("hello ", formData);
-    const res = await api.patch(`/admin/product/product-update/${id}`, formData);
+    const res = await api.patch(
+      `/admin/product/product-update/${id}`,
+      formData
+    );
     return res;
   } catch (error) {
     console.error(error.message);
@@ -93,16 +96,18 @@ export const ProductByid = async (id) => {
       // { next: { revalidate: "3600" } }
     );
     // console.log(res.data.products);
-    return res.data.singleData
+    return res.data.singleData;
   } catch (error) {
     console.error(error.message);
   }
 };
-export const delProducts = async (id) => {
+export const delAnyItem = async (id, apis) => {
+  console.log({ id: id, apis: apis });
   try {
-    const res = await api.delete(`${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/product-delate/${id}`
-      // { next: { revalidate: "3600" } }
+    let res = await api.delete(
+      `${process.env.NEXT_PUBLIC_BaseUrl}${apis}${id}`
     );
+
     console.log(res);
     return res;
   } catch (error) {
