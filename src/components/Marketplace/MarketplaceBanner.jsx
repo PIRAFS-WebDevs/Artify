@@ -1,7 +1,6 @@
 "use client";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { LOOP } from "@splidejs/splide";
 import "@splidejs/react-splide/css";
 import "./Marketplace.css";
 
@@ -18,9 +17,6 @@ const MarketplaceBanner = () => {
           perPage: 1,
           pagination: false,
           arrows: true,
-          autoplay: true,
-          rewind: true,
-          type: LOOP,
         }}
       >
         {images.map((e, i) => (

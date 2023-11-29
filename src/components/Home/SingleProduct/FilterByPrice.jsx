@@ -6,7 +6,7 @@ const FilterByPrice = () => {
   const [isDelOpen, setDelOpen] = useState(false);
   return (
     <>
-      <div className="dark:dark:text-white flex items-center justify-between border-b pb-5 border-dark-300">
+      <div className="dark:dark:text-white flex items-center justify-between border-b pb-5 dark:border-dark-300 border-light-500">
         <p>Product Reviews</p>
         <div
           onClick={() => {

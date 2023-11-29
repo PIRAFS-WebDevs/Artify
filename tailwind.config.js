@@ -20,8 +20,8 @@ module.exports = {
       "light-100": "#ffffff",
       "light-200": "#f9f9f9",
       "light-300": "#ededed",
-      "light-400": "#d2d2d2",
-      "light-500": "#e6e6e6",
+      "light-400": "#e6e6e6",
+      "light-500": "#d2d2d2",
 
       primary: "#00b482",
       primarySec: "#00997d",

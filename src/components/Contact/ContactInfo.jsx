@@ -4,7 +4,7 @@ import WebSvg from "../svg/WebSvg";
 
 const ContactInfo = () => {
   return (
-    <div className="xl:w-[40%] w-full px-5 py-10 dark:dark:text-white space-y-10 dark:bg-dark-400 ">
+    <div className="xl:w-[40%] w-full px-5 py-10 dark:text-white space-y-10 ">
       <div className="space-y-5">
         <h4 className="text-lg font-semibold">Contact Information</h4>
         <p className="text-sm  dark:text-dark-100">

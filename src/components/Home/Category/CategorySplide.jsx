@@ -18,7 +18,7 @@ const CategorySplide = () => {
     isError,
   } = useQuery({
     queryKey: ["categories"],
-    queryFn: async () => await getCategory(),
+    queryFn: () => getCategory(),
   });
 
   return (

@@ -39,23 +39,33 @@ export default function ProductFooter({ productById }) {
   };
 
   return (
-    <div className="md:sticky bottom-0 dark:bg-dark-500 py-4">
+    <div className="md:sticky bottom-0 dark:bg-dark-500 bg-light-300 border-y dark:border-dark-300 border-light-500 mb-3 py-4">
       <div className="lg:flex justify-between">
         <div>
           <div className="flex lg:justify-start justify-start ">
             <h1 className="dark:text-white font-bold text-lg">{name}</h1>
             <AiOutlineHeart className="text-2xl mt-1 ml-3" />
           </div>
+          <div className="flex gap-4 pt-2">
+            <div className="flex gap-1  items-center">
+            <AiOutlineShoppingCart />
+            <span>0 Sales</span>
+            </div>
+            <div className="flex gap-1 items-center">
+            <IoMdDownload />
+            <span>0 Download</span>
+            </div>
+          </div>
         </div>
         <div className="items-center flex gap-1 sm:mt-3 lg:mt-0">
           <button
-            className="lg:w-[200px]   py-3 w-1/2 border rounded-sm border-dark-400 bg-primary dark:text-white"
+            className="lg:w-[200px]   py-3 w-1/2 border rounded-sm dark:border-dark-400 border-light-500 bg-primary text-white"
             onClick={() => handleCart(data, _id)}
           >
             Add to Cart <span>$ </span>
             {price}
           </button>
-          <button className="lg:w-[200px]  py-3 w-1/2 border rounded-sm border-dark-400 bg-primary dark:text-white ">
+          <button className="lg:w-[200px]  py-3 w-1/2 border rounded-sm dark:border-dark-400 border-light-500 bg-primary text-white ">
             Live Preview
           </button>
         </div>

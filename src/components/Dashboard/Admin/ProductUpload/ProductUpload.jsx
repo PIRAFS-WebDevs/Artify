@@ -10,6 +10,9 @@ import Description from "./Description";
 import UploadButton from "./UploadButton";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import { getTags } from "@/utils/api/tags";
+import { useQuery } from "@tanstack/react-query";
+import { getCategory } from "@/utils/api/category";
 
 const ProductUpload = () => {
   const [singleProduct, setSingleProduct] = useState([]);
@@ -117,8 +120,11 @@ const LayoutCategories = ({
   product,
 }) => {
   useEffect(() => {
-    setSelectedCategories([product?.categories]);
-    setSelectedTags([product?.tags]);
+if (product) {
+  setSelectedCategories(product?.categories ? [product?.categories] : []);
+  setSelectedTags(product?.tags ? [product?.tags] : []);
+}
+  
   }, [product]);
 
   const handleCategoryChange = (event) => {
@@ -144,7 +150,23 @@ const LayoutCategories = ({
     const updatedTags = selectedTags.filter((t) => t !== tag);
     setSelectedTags(updatedTags);
   };
-
+  const {
+    data: tags = [],
+    isLoading,
+    refetch,
+    isError,
+  } = useQuery({
+    queryKey: ["tags"],
+    queryFn: () => getTags(),
+  });
+  const {
+    data: categories = []
+  } = useQuery({
+    queryKey: ["category"],
+    queryFn: () => getCategory(),
+  });
+  // setSelectedCategories([])
+console.log("asdgsdfsffdd",selectedCategories.length)
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
@@ -206,7 +228,7 @@ const LayoutCategories = ({
             Selected Categories:
           </label>
           <div className="flex flex-wrap gap-2">
-            {selectedCategories.map((category, i) => (
+            {  selectedCategories.map((category, i) => (
               <div key={i} className="relative">
                 <span className="px-2 py-1 text-white rounded-sm bg-dark-300">
                   {category}
@@ -231,10 +253,10 @@ const LayoutCategories = ({
             {categories.map((category, i) => (
               <option
                 key={i}
-                value={category}
+                value={category.name}
                 className="text-white bg-dark-300"
               >
-                {category}
+                {category.name}
               </option>
             ))}
           </select>
@@ -268,8 +290,8 @@ const LayoutCategories = ({
               Select a tag
             </option>
             {tags.map((tag, i) => (
-              <option key={i} value={tag} className="text-white bg-dark-300">
-                {tag}
+              <option key={i} value={tag.name} className="text-white bg-dark-300">
+                {tag.name}
               </option>
             ))}
           </select>
@@ -283,13 +305,4 @@ const layouts = ["Fixed", "Responsive", "Fluid", "N/A"];
 
 const categories = ["Shopify", "React Native", "Angular", "Vue", "N/A"];
 
-const tags = [
-  "Modern",
-  "E-Commerce",
-  "Dashboard",
-  "Web Design",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-];
+

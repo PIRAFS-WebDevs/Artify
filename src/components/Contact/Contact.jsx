@@ -13,7 +13,7 @@ const Contact = () => {
             Looking for help? Drop your contact details here
           </p>
         </div>
-        <section className="xl:w-[80%] w-full mx-auto flex flex-col lg:flex-row p-5  rounded">
+        <section className="xl:w-[80%] w-full mx-auto flex flex-col lg:flex-row p-5  rounded dark:bg-dark-400 bg-light-400">
           <ContactInfo />
           <ContactFrom />
         </section>
