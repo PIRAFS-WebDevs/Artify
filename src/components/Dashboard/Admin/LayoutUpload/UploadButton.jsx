@@ -9,10 +9,11 @@ const UploadButton = () => {
           <Link
             href={"/dashboard/admin/layouts"}
             type="button"
-            className="px-6 py-4 text-sm font-semibold text-white transition-all bg-transparent border rounded-sm border-dark-200 hover:bg-primarySec active:scale-95"
+            className="px-6 py-4 text-sm font-semibold transition-all bg-transparent border rounded-sm dark:text-white dark:border-dark-200 border-light-500 hover:bg-primarySec active:scale-95 hover:text-white dark:hover:text-dark-400"
           >
             Back
           </Link>
+
           <button
             type="submit"
             className="px-6 py-4 text-sm font-semibold text-white transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95"

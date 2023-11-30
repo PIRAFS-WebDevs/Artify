@@ -5,7 +5,7 @@ import { FaRegFileAlt } from "react-icons/fa";
 
 const ArticlesCategory = () => {
   return (
-    <div className="pr-6 space-y-4 divide-y dark:text-white text-dark-500 md:border-r dark:border-dark-300 border-dark-100 md:col-span-3 dark:divide-dark-300 divide-dark-100">
+    <div className="pr-6 space-y-4 divide-y dark:text-white text-dark-500 md:border-r dark:border-dark-300 border-dark-100 dark:divide-dark-300 divide-dark-100">
       <div>
         <h1 className="py-4 text-xl font-semibold dark:text-gray-200 text-dark-500">
           Article Category
@@ -17,7 +17,7 @@ const ArticlesCategory = () => {
             <AiFillFolder /> React Problem{" "}
             <span className="text-sm text-dark-100">(12)</span>
           </h1>
-          <div className="space-y-2 text-dark-100">
+          <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
                 <Link href={"/application/1"} className="flex gap-2 ml-6">
@@ -32,7 +32,7 @@ const ArticlesCategory = () => {
             <AiFillFolder /> React Problem{" "}
             <span className="text-sm text-dark-100">(12)</span>
           </h1>
-          <div className="space-y-2 text-dark-100">
+          <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
                 <Link href={"#"} className="flex gap-2 ml-6">
@@ -49,7 +49,7 @@ const ArticlesCategory = () => {
             <AiFillFolder /> React Problem{" "}
             <span className="text-sm text-dark-100">(12)</span>
           </h1>
-          <div className="space-y-2 text-dark-100">
+          <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
                 <Link href={"#"} className="flex gap-2 ml-6">
@@ -64,7 +64,7 @@ const ArticlesCategory = () => {
             <AiFillFolder /> React Problem{" "}
             <span className="text-sm text-dark-100">(12)</span>
           </h1>
-          <div className="space-y-2 text-dark-100">
+          <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
                 <Link href={"#"} className="flex gap-2 ml-6">

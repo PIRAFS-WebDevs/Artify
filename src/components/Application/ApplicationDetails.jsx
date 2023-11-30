@@ -5,14 +5,14 @@ import { BiUserCircle } from "react-icons/bi";
 
 const ApplicationDetails = () => {
   return (
-    <div className="space-y-6 md:col-span-3">
+    <div className="space-y-6">
       <div className="flex gap-4">
         <AiOutlineFile size={"2rem"} />
         <div className="space-y-2">
           <h1 className="flex items-center gap-4 text-lg font-medium md:text-2xl text-dark-500 dark:text-white">
             Async Await Why Confusing?
           </h1>
-          <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-dark-100">
+          <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm dark:text-dark-100 text-dark-200">
             <AiOutlineHome /> / <Link href={"#"}>API Questions</Link> /{" "}
             <span>Async Await Why Confusing?</span>
           </div>

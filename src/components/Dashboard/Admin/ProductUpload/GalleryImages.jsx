@@ -26,7 +26,7 @@ const GalleryImages = ({ galleryImage, setGalleryImage }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
       <div className="space-y-2">
-        <h1 className="text-white">Gallery Upload</h1>
+        <h1 className="dark:text-white">Gallery Upload</h1>
         <p className="text-dark-100">
           your product image gallery here Image size should not be more than 2
           MB

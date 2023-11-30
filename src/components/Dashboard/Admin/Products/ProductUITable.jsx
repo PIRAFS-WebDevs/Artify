@@ -266,7 +266,7 @@ export default function ProductUITable() {
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
-            placeholder="Search by name..."
+            placeholder="Search..."
             startContent={<FaSearch />}
             value={filterValue}
             onClear={() => onClear()}

@@ -33,7 +33,7 @@ const RecommendationForm = () => {
               })}
               type="text"
               id="name"
-              className={`w-full rounded-sm border border-dark-300 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200${
+              className={`w-full rounded-sm border dark:border-dark-300 border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200${
                 errors.name && "border-red-400 focus:border-red-400"
               }`}
             />
@@ -59,7 +59,7 @@ const RecommendationForm = () => {
               type="email"
               className={`w-full ${
                 errors.email && "border-red-400 focus:border-red-400"
-              } rounded-sm border border-dark-300 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200`}
+              } rounded-sm border dark:border-dark-300 border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200`}
             />
             {errors.email && (
               <p className="mt-1 text-sm text-red-400">
@@ -78,7 +78,7 @@ const RecommendationForm = () => {
               })}
               type="text"
               id="subject"
-              className={`w-full rounded-sm border border-dark-300 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200${
+              className={`w-full rounded-sm border dark:border-dark-300 border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200${
                 errors.subject && "border-red-400 focus:border-red-400"
               }`}
             />
@@ -99,7 +99,7 @@ const RecommendationForm = () => {
               })}
               type="text"
               id="category"
-              className={`w-full rounded-sm border border-dark-300 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200${
+              className={`w-full rounded-sm border dark:border-dark-300 border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-200${
                 errors.category && "border-red-400 focus:border-red-400"
               }`}
             />
@@ -121,7 +121,7 @@ const RecommendationForm = () => {
               {...register("details")}
               id="details"
               rows={3}
-              className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-300 focus:border-primary dark:dark:text-white resize-none ${
+              className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-300 border-dark-100 focus:border-primary dark:dark:text-white resize-none ${
                 errors.details && "border-red-400 focus:border-red-400"
               }`}
             ></textarea>
