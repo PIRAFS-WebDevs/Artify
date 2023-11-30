@@ -29,9 +29,7 @@ export const saveProduct = async (data) => {
     console.log("formData: ", formData);
     const res = await api.post("/admin/product/create-product", formData);
     console.log("res:", res);
-    if (res.data.success) {
-      toast.success("product was successfully upload");
-    }
+
     return res;
   } catch (error) {
     console.error(error.message);
@@ -68,10 +66,6 @@ export const updateProduct = async (data, id) => {
     );
 
     console.log(res);
-
-    if (res.data.success) {
-      toast.success("Product was successfully updated");
-    }
 
     return res;
   } catch (error) {

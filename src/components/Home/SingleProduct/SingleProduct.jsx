@@ -5,15 +5,13 @@ import ProductImages from "./ProductImages";
 import ProductsReviews from "./ProductsReviews";
 
 const SingleProduct = ({ productById }) => {
-
-  
   return (
-    <section className="px-10 pt-8  dark:text-dark-100 text-sm">
+    <section className="px-10 pt-8 text-sm dark:text-dark-100">
       {
         <>
           <BackBtn />
           <ProductImages />
-          <ProductDetails  productById={productById} />
+          <ProductDetails productById={productById} />
           <ProductFooter productById={productById} />
           <ProductsReviews />
         </>

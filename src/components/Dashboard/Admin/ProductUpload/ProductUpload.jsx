@@ -8,8 +8,9 @@ import { useForm } from "react-hook-form";
 import { ProductByid, saveProduct, updateProduct } from "@/utils/api/product";
 import Description from "./Description";
 import UploadButton from "./UploadButton";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import LayoutCategories from "./LayoutCategories";
+import toast from "react-hot-toast";
 
 const ProductUpload = () => {
   const [singleProduct, setSingleProduct] = useState([]);
@@ -17,6 +18,7 @@ const ProductUpload = () => {
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const router = useRouter();
 
   const [selectedTags, setSelectedTags] = useState([]);
   const searchParams = useSearchParams();
@@ -61,15 +63,25 @@ const ProductUpload = () => {
       ...data,
     };
     if (updateId) {
-      updateProduct(productData, updateId);
+      const res = updateProduct(productData, updateId);
+      if (res.data.success) {
+        toast.success("Product was successfully updated");
+        router.replace("/dashboard/admin/products");
+      }
     } else {
-      saveProduct(productData);
+      const res = saveProduct(productData);
+      if (res.data.success) {
+        toast.success("product was successfully upload");
+        router.replace("/dashboard/admin/products");
+      }
     }
   };
 
   return (
     <div className="divide-y divide-dark-200">
-      <h1 className="pb-6 text-lg font-medium text-white">Product Upload</h1>
+      <h1 className="pb-6 text-lg font-medium dark:text-white">
+        Product Upload
+      </h1>
 
       {/* feature image */}
       <FeatureImage
