@@ -1,11 +1,11 @@
 "use client";
-
-import HomeNavbar from "@/components/Shared/HomeNavbar/HomeNavbar";
+import homeSidebarData from "@/data/homeSidebarData";
 import Footer from "@/components/Shared/Footer/Footer";
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
-import HomeSideBar from "@/components/Shared/Sidebar/HomeSidebar/HomeSideBar";
 import ProductModal from "@/components/Home/ProductModal/ProductModal";
+import Sidebar from "@/components/Shared/Sidebar/Sidebar/Sidebar";
+import Navbar from "@/components/Shared/HomeNavbar/Navbar";
 
 const layout = ({ children }) => {
   const { sideBarOpen, showProductModal, setShowProductModal } =
@@ -14,8 +14,8 @@ const layout = ({ children }) => {
   return (
     <>
       <main className="relative min-h-screen dark:bg-dark-500 scrollbar">
-        <HomeNavbar />
-        <HomeSideBar />
+        <Navbar />
+        <Sidebar sidebarData={homeSidebarData} />
         <section
           className={`relative ${
             !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"

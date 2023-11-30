@@ -1,5 +1,5 @@
 import homeSidebarData from "@/data/homeSidebarData";
-import HomeSidebarLink from "../Sidebar/HomeSidebar/HomeSidebarLink";
+import HomeSidebarLink from "../Sidebar/Sidebar/SidebarLink";
 import { motion as m, AnimatePresence } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";

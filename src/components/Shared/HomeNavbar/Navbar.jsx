@@ -17,7 +17,7 @@ import { FaShoppingBag } from "react-icons/fa";
 import { HiOutlineMenu, HiOutlineMenuAlt1 } from "react-icons/hi";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher/ThemeSwitcher";
 
-const HomeNavbar = () => {
+const Navbar = () => {
   const {
     sideBarOpen,
     setSideBarOpen,
@@ -163,4 +163,4 @@ const HomeNavbar = () => {
   );
 };
 
-export default HomeNavbar;
+export default Navbar;

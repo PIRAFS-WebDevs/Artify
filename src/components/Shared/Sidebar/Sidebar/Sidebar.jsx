@@ -1,11 +1,9 @@
 "use client";
-
-import homeSidebarData from "@/data/homeSidebarData";
-import HomeSidebarLink from "./HomeSidebarLink";
 import { useContext } from "react";
 import AllStateContext from "@/context/AllStateContext";
+import SidebarLink from "./SidebarLink";
 
-const HomeSideBar = () => {
+const Sidebar = ({ sidebarData }) => {
   const { sideBarOpen } = useContext(AllStateContext);
 
   return (
@@ -16,9 +14,9 @@ const HomeSideBar = () => {
         } `}
       >
         <div className="my-2">
-          {homeSidebarData.map((data, index) => (
+          {sidebarData.map((data, index) => (
             <div key={index}>
-              <HomeSidebarLink
+              <SidebarLink
                 href={data.path}
                 icon={data.icon}
                 title={data.title}
@@ -31,4 +29,4 @@ const HomeSideBar = () => {
   );
 };
 
-export default HomeSideBar;
+export default Sidebar;

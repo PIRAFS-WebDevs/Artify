@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 
-const HomeSidebarLink = ({ href, title, icon }) => {
+const SidebarLink = ({ href, title, icon }) => {
   const { sideBarOpen, mobileView, setMobileView } =
     useContext(AllStateContext);
   const path = usePathname();
@@ -44,4 +44,4 @@ const HomeSidebarLink = ({ href, title, icon }) => {
   );
 };
 
-export default HomeSidebarLink;
+export default SidebarLink;
