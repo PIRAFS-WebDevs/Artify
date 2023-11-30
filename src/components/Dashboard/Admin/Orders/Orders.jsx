@@ -12,7 +12,7 @@ const Orders = () => {
   return (
     <>
       {" "}
-      <SharedComp type={"Orders"} search />
+      <SharedComp type={"Orders"} />
       <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded-sm dark:bg-dark-400 dark:border-dark-300 scrollbar">
         <table className="w-full text-center">
           <thead>

@@ -17,7 +17,7 @@ const adminLayout = ({ children }) => {
           !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
         }`}
       >
-        <div className="min-h-screen bg-light-300 dark:bg-dark-500">
+        <div className="min-h-screen p-5 bg-light-300 dark:bg-dark-500">
           {children}
         </div>
       </section>

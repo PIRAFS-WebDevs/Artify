@@ -1,7 +1,5 @@
 import SharedComp from "@/components/Shared/admin/SharedComp";
 import React from "react";
-import { FaRegEdit } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Withdraws = () => {
   return (

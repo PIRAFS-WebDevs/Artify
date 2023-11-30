@@ -42,11 +42,8 @@ const ProductsTable = () => {
     <>
       <SharedComp
         type={"Products"}
-        search
         AddType={"Add Product"}
-        SetSearchText={SetSearchText}
         link={"/dashboard/admin/products/upload"}
-        filter={true}
       />
 
       <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto text-center border rounded-sm scrollbar dark:bg-dark-400 dark:border-dark-300">
