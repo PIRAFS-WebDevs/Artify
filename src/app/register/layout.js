@@ -4,10 +4,12 @@ import React from "react";
 
 const RegisterLayout = ({ children }) => {
   return (
-    <section className="md:w-[80%] mx-auto">
+    <section>
       <RootNavbar />
       {children}
-      <Footer />
+      <div className="container mx-auto">
+        <Footer />
+      </div>
     </section>
   );
 };

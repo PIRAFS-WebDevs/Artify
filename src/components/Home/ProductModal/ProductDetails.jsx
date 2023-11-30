@@ -11,7 +11,7 @@ const ProductDetails = ({ setShowProductModal }) => {
     singleProductData;
 
   return (
-    <div className="text-sm dark:text-white">
+    <div className="text-sm dark:text-white text-dark-200">
       {/* product title */}
       <ModalHeader name={name} setShowProductModal={setShowProductModal} />
 

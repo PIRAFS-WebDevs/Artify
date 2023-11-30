@@ -17,7 +17,6 @@ export function ThemeSwitcher() {
 
   if (!mounted) return null;
 
-  console.log(`The current theme is: ${theme}`);
   return (
     <>
       {theme === "dark" ? (

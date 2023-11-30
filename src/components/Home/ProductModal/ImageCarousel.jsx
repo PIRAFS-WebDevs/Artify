@@ -60,7 +60,7 @@ const ImageCarousel = () => {
               initial={"false"}
               key={i}
               className={`relative group cursor-pointer ${
-                i === index && "border-2 border-primary"
+                i === index && "border border-primary"
               }`}
             >
               <img className="object-cover h-full" src={e} alt="" />

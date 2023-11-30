@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import AuthContext from "@/context/AuthContext";
 import SocialButton from "../Register/SocialButton";
-import { Spinner } from "@nextui-org/react";
+import { Checkbox, Spinner } from "@nextui-org/react";
 
 const Login = ({ isShow, setIsShow }) => {
   const { loginUser, loading } = useContext(AuthContext);
@@ -33,18 +33,18 @@ const Login = ({ isShow, setIsShow }) => {
           className="fixed inset-0 z-50 grid p-2 cursor-pointer bg-slate-900/20 backdrop-blur place-items-center"
         >
           <m.div
-            initial={{ scale: 0, rotate: "12.5deg" }}
-            animate={{ scale: 1, rotate: "0deg" }}
-            exit={{ scale: 0, rotate: "0deg" }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="md:p-12 p-4 rounded-sm shadow-xl cursor-default w-full sm:w-[32rem] dark:bg-dark-400 dark:text-white"
+            className="md:p-8 p-4 rounded-sm shadow-xl cursor-default w-full sm:w-[30rem] dark:bg-dark-400 dark:text-white bg-light-300"
           >
             <div className="flex justify-end w-full">
               <CloseButton reset={reset} setIsShow={setIsShow} />
             </div>
             <form
               onSubmit={handleSubmit(formHandler)}
-              className="space-y-2 md:space-y-4"
+              className="space-y-2 md:space-y-4 dark:text-white text-dark-500"
             >
               <div className="pb-4 space-y-2 text-center md:space-y-4">
                 <h1 className="font-medium md:text-lg">
@@ -122,18 +122,9 @@ const Login = ({ isShow, setIsShow }) => {
               </div>
               <div className="flex items-center justify-between py-1 md:py-2">
                 <div className="flex items-center">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    value=""
-                    className="w-4 h-4 cursor-pointer accent-primary"
-                  />
-                  <label
-                    htmlFor="default-checkbox"
-                    className="ml-2 text-sm cursor-pointer select-none dark:text-dark-100"
-                  >
-                    Remember Me
-                  </label>
+                  <Checkbox defaultSelected size="sm">
+                    Remember me
+                  </Checkbox>
                 </div>
                 <p className="text-sm cursor-pointer text-primary hover:text-primarySec">
                   Forgot Password?
@@ -142,7 +133,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div>
                 <button
                   type="submit"
-                  className="w-full px-8 py-3 text-sm transition-all duration-300 rounded-sm bg-primary dark:text-white md:block hover:bg-primarySec active:scale-95"
+                  className="w-full px-8 py-3 text-sm text-white transition-all duration-300 rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
                 >
                   {loading ? <Spinner size="sm" color="white" /> : "Get Login"}
                 </button>
