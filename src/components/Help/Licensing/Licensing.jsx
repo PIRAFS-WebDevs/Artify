@@ -9,7 +9,7 @@ const Licensing = () => {
           <p className="dark:text-white">{data?.title}</p>
           <p>{data?.details}</p>
 
-          <ul className="list-decimal space-y-2 ml-10">
+          <ul className="ml-10 space-y-2 list-decimal">
             {data?.points?.map((point, index) => (
               <li key={index}>{point}</li>
             ))}

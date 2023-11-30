@@ -17,7 +17,6 @@ const Layouts = () => {
       <SharedComp
         type={"Layouts Type"}
         AddType={"Add Layout"}
-        search={true}
         link={"/dashboard/admin/layouts/upload"}
       />
       <div className="p-5 mt-5 mb-5 text-center border rounded-sm dark:bg-dark-400 dark:border-dark-300">

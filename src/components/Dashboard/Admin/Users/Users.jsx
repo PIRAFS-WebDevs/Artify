@@ -33,7 +33,7 @@ const Users = () => {
 
   return (
     <div className="relative">
-      <SharedComp type={"Customers"} search SetSearchText={SetSearchText} />
+      <SharedComp type={"Customers"} />
       <div className="w-auto p-5 mt-5 mb-5 overflow-x-auto border rounded-sm dark:bg-dark-400 dark:border-dark-300 scrollbar">
         <table className="w-full text-center">
           <thead>
@@ -49,10 +49,10 @@ const Users = () => {
           {/* body */}
           <tbody>
             {users?.map((user, i) => (
-              <tr key={i} className="h-20 text-xs md:text-base text-center">
-                <td className="flex justify-center items-center h-20">
+              <tr key={i} className="h-20 text-xs text-center md:text-base">
+                <td className="flex items-center justify-center h-20">
                   {!user?.imgURL ? (
-                    <div className="flex w-12 h-12 rounded-full justify-center items-center bg-primary text-2xl ">
+                    <div className="flex items-center justify-center w-12 h-12 text-2xl rounded-full bg-primary ">
                       {user?.name[0]}
                     </div>
                   ) : (
