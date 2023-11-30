@@ -6,7 +6,7 @@ const page = () => {
   return (
     <>
       <Title title={"Help"} subTitle={"Frequently asked question"} />
-      <section className="md:w-[80%] mx-auto md:flex p-5 bg-light-200 dark:bg-dark-400  rounded-sm mb-10">
+      <section className="md:w-[80%] mx-auto md:flex p-5 bg-light-200 dark:bg-dark-400  rounded-sm ">
         <HelpBar />
         <section className="md:w-[70%]  px-5 py-10 dark:text-dark-100">
           <Qna></Qna>
