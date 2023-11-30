@@ -16,13 +16,16 @@ import { getCategory } from "@/utils/api/category";
 
 const ProductUpload = () => {
   const [singleProduct, setSingleProduct] = useState([]);
+
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
+
   const [selectedTags, setSelectedTags] = useState([]);
   const searchPrames = useSearchParams();
   const updateId = searchPrames.get("id");
-
+  console.log("singleProduct:", singleProduct);
+  console.log("selectedCategories:", selectedCategories);
   const {
     register,
     setValue,
@@ -127,8 +130,12 @@ const LayoutCategories = ({
 }) => {
   useEffect(() => {
     if (product) {
-      setSelectedCategories(product?.categories ? [product?.categories] : []);
-      setSelectedTags(product?.tags ? [product?.tags] : []);
+      console.log("product:", product);
+
+      setSelectedCategories(
+        product?.categories ? [...product?.categories] : []
+      );
+      setSelectedTags(product?.tags ? [...product?.tags] : []);
     }
   }, [product]);
 
