@@ -16,8 +16,12 @@ const LayoutCategories = ({
 }) => {
   useEffect(() => {
     if (product) {
-      setSelectedCategories(product?.categories ? [product?.categories] : []);
-      setSelectedTags(product?.tags ? [product?.tags] : []);
+      console.log("product:", product);
+
+      setSelectedCategories(
+        product?.categories ? [...product?.categories] : []
+      );
+      setSelectedTags(product?.tags ? [...product?.tags] : []);
     }
   }, [product]);
 
