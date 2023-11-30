@@ -22,6 +22,7 @@ const ProductUpload = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const searchPrames = useSearchParams();
   const updateId = searchPrames.get("id");
+  console.log("updateId:", updateId);
 
   useEffect(() => {
     (async () => {
@@ -49,12 +50,13 @@ const ProductUpload = () => {
       tags: selectedTags,
       ...data,
     };
+    console.log("productData:", productData);
     if (updateId) {
+      console.log("have id");
       updateProduct(productData, updateId);
-      toast.success("product was successfully updated");
     } else {
+      console.log("no id");
       saveProduct(productData);
-      toast.success("product was successfully uplode");
     }
   };
 

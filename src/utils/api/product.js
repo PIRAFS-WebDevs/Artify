@@ -3,13 +3,13 @@ import api from "../axios";
 
 // save product into database
 export const saveProduct = async (data) => {
+  console.log("data:", data);
   try {
     let formData = new FormData();
 
     // Append text data
     Object.entries(data).forEach(([key, value]) => {
       if (key === "images") {
-        console.log("11");
         // Append each image file
         value.forEach((image, index) => {
           formData.append(`images`, image);
@@ -23,45 +23,119 @@ export const saveProduct = async (data) => {
           formData.append(`categories`, category);
         });
       } else {
-        console.log(value);
         formData.append(key, value);
       }
     });
-    console.log("hello ", formData);
+    console.log("formData: ", formData);
     const res = await api.post("/admin/product/create-product", formData);
+    console.log("res:", res);
+    if (res.data.success) {
+      toast.success("product was successfully upload");
+    }
     return res;
   } catch (error) {
     console.error(error.message);
   }
 };
+
 export const updateProduct = async (data, id) => {
   try {
-    let formData = new FormData();
-    console.log(data);
-    // Append text data
-    Object.entries(data).forEach(([key, value]) => {
-      if (key === "images") {
-        console.log("11");
-        // Append each image file
-        value.forEach((image, index) => {
-          formData.append(`images`, image);
-          console.log(formData);
-        });
+    let formData = { ...data };
+    let flatTagsArray = [];
+    let flatCategoriesArray = [];
+
+    formData.tags.forEach((item) => {
+      if (Array.isArray(item)) {
+        flatTagsArray.push(...item);
       } else {
-        console.log(value);
-        formData.append(key, value);
+        flatTagsArray.push(item);
       }
     });
-    console.log("hello ", formData);
+    formData.categories.forEach((item) => {
+      if (Array.isArray(item)) {
+        flatCategoriesArray.push(...item);
+      } else {
+        flatCategoriesArray.push(item);
+      }
+    });
+
+    formData.tags = flatTagsArray;
+    formData.categories = flatCategoriesArray;
+
     const res = await api.patch(
       `/admin/product/product-update/${id}`,
       formData
     );
+
+    console.log(res);
+
+    if (res.data.success) {
+      toast.success("Product was successfully updated");
+    }
+
     return res;
   } catch (error) {
     console.error(error.message);
   }
 };
+
+/* export const updateProduct = async (data, id) => {
+  console.log("data:", data);
+  try {
+    let formData = { ...data };
+    formData?.tags.reduce((flatArray, item) => {
+    if (Array.isArray(item)) {
+      flatArray.push(...item);
+    } else {
+      flatArray.push(item);
+    }
+    console.log(formData);
+
+    // Append text data
+    // Object.entries(data).forEach(([key, value]) => {
+    //   if (key === "images") {
+    //     // Append each image file
+    //     value.forEach((image, index) => {
+    //       if (image !== null && image !== undefined) {
+    //         formData.append(`images[${index}]`, image);
+    //       }
+    //     });
+    //   } else if (key === "tags") {
+    //     // Check if it's an array and append the first item
+    //     if (Array.isArray(value) && value.length > 0) {
+    //       formData.append(`tags`, value[0]);
+    //     } else {
+    //       formData.append(`tags`, value);
+    //     }
+    //   } else if (key === "categories") {
+    //     // Check if it's an array and append the first item
+    //     if (Array.isArray(value) && value.length > 0) {
+    //       formData.append(`categories`, value[0]);
+    //     } else {
+    //       formData.append(`categories`, value);
+    //     }
+    //   } else {
+    //     formData.append(key, value);
+    //   }
+    // });
+
+    console.log("updated ", formData);
+
+    const res = await api.patch(
+      `/admin/product/product-update/${id}`,
+      formData
+    );
+    console.log(res);
+
+    if (res.data.success) {
+      toast.success("product was successfully updated");
+    }
+
+    return res;
+   }}catch (error) {
+    console.error(error.message);
+  }
+} */
 
 // export const getProducts = async (text) => {
 //   try {

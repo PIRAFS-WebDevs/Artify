@@ -22,7 +22,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const registerUser = async (email, password, displayName, reset) => {
@@ -55,10 +55,11 @@ const AuthProvider = ({ children }) => {
         reset();
         router.push("/");
         saveUser(data);
-        console.log(userCredential.user);
+        setLoading(false);
         toast.success("User registered successfully");
       }
     } catch (error) {
+      setLoading(false);
       console.error(error.message);
       toast.error("User registration failed");
     }
@@ -76,16 +77,16 @@ const AuthProvider = ({ children }) => {
 
       reset();
       router.push("/");
-      console.log(userCredential.user);
+      setLoading(false);
       toast.success("User login successfully");
     } catch (error) {
+      setLoading(false);
       console.error(error.message);
       toast.error("User login failed");
     }
   };
 
   const googleSignIn = async () => {
-    setLoading(true);
     const provider = new GoogleAuthProvider();
 
     try {
@@ -96,19 +97,17 @@ const AuthProvider = ({ children }) => {
         email: userCredential.user.email,
         photoURL: userCredential.user.photoURL,
       };
+
       saveUser(data);
       router.push("/");
-      console.log(userCredential.user);
       toast.success("Google signed in successfully");
     } catch (error) {
-      toast.error("Google sign in failed");
+      // toast.error("Google sign in failed");
       console.error(error.message);
     }
   };
 
   const logout = async () => {
-    setLoading(true);
-
     try {
       await signOut(auth);
       router.push("/");

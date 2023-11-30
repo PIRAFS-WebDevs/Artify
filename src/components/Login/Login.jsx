@@ -5,9 +5,10 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import AuthContext from "@/context/AuthContext";
 import SocialButton from "../Register/SocialButton";
+import { Spinner } from "@nextui-org/react";
 
 const Login = ({ isShow, setIsShow }) => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, loading } = useContext(AuthContext);
 
   const {
     register,
@@ -18,10 +19,7 @@ const Login = ({ isShow, setIsShow }) => {
 
   const formHandler = (data) => {
     const { email, password } = data;
-
     loginUser(email, password, reset);
-
-    console.table(data);
   };
 
   return (
@@ -146,7 +144,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="submit"
                   className="w-full px-8 py-3 text-sm transition-all duration-300 rounded-sm bg-primary dark:text-white md:block hover:bg-primarySec active:scale-95"
                 >
-                  Get Login
+                  {loading ? <Spinner size="sm" color="white" /> : "Get Login"}
                 </button>
               </div>
             </form>

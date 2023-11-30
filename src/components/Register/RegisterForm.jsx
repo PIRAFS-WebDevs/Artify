@@ -4,12 +4,13 @@ import AuthContext from "@/context/AuthContext";
 import Link from "next/link";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Spinner } from "@nextui-org/react";
 
 // icons
 import SocialButton from "./SocialButton";
 
 const RegisterForm = () => {
-  const { registerUser } = useContext(AuthContext);
+  const { registerUser, loading } = useContext(AuthContext);
 
   const {
     register,
@@ -32,7 +33,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="max-w-lg border rounded-sm  border-dark-200">
+    <div className="max-w-lg border rounded-sm border-dark-200">
       <div className="flex flex-col gap-4 p-4 md:p-8">
         {/* social login button */}
         <SocialButton />
@@ -142,7 +143,7 @@ const RegisterForm = () => {
             type="submit"
             className="block px-8 py-4 text-sm font-semibold text-center transition-all duration-100 rounded-sm outline-none bg-primary dark:text-white hover:bg-primarySec md:text-base active:scale-95"
           >
-            Register
+            {loading ? <Spinner size="sm" color="white" /> : "Register"}
           </button>
         </form>
       </div>
