@@ -22,7 +22,25 @@ const ProductUpload = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const searchPrames = useSearchParams();
   const updateId = searchPrames.get("id");
-  console.log("updateId:", updateId);
+
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  useEffect(() => {
+    if (singleProduct) {
+      setValue("price", singleProduct.price || 0);
+      setValue("sell_price", singleProduct.sell_price || 0);
+      setValue("preview_url", singleProduct.preview_url || "");
+      setValue("name", singleProduct.name || "");
+      setValue("slug", singleProduct.slug || "");
+      setValue("description", singleProduct.description || "");
+    }
+  }, [singleProduct, setValue]);
 
   useEffect(() => {
     (async () => {
@@ -35,14 +53,6 @@ const ProductUpload = () => {
       }
     })();
   }, [updateId]);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
-
   const formHandler = (data) => {
     const productData = {
       images: [featuredImage, ...galleryImage],
@@ -50,12 +60,9 @@ const ProductUpload = () => {
       tags: selectedTags,
       ...data,
     };
-    console.log("productData:", productData);
     if (updateId) {
-      console.log("have id");
       updateProduct(productData, updateId);
     } else {
-      console.log("no id");
       saveProduct(productData);
     }
   };

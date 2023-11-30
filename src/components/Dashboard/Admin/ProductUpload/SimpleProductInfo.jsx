@@ -1,6 +1,6 @@
 import { FaCloudUploadAlt } from "react-icons/fa";
 
-const SimpleProductInfo = ({ register, errors , product}) => {
+const SimpleProductInfo = ({ register, errors, product }) => {
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
@@ -25,7 +25,7 @@ const SimpleProductInfo = ({ register, errors , product}) => {
             })}
             type="number"
             id="price"
-            defaultValue={product?.price && product?.price}
+            defaultValue={product?.price ? product?.price : 0}
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
           {errors.price && (
@@ -47,7 +47,6 @@ const SimpleProductInfo = ({ register, errors , product}) => {
             })}
             type="number"
             id="sell_price"
-            defaultValue={product?.sell_price && product?.sell_price}
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
           {errors.sell_price && (

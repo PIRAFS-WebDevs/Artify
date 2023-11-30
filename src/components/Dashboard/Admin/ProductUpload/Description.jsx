@@ -20,7 +20,7 @@ const Description = ({ register, errors, product }) => {
             {...register("name", { required: "name is required" })}
             type="text"
             id="name"
-            defaultValue={product?.name && product?.name}
+            defaultValue={product?.name ? product.name : ""}
             className={`w-full rounded-sm border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 ${
               errors.name && "border-red-400 focus:border-red-400"
             }`}
@@ -42,7 +42,7 @@ const Description = ({ register, errors, product }) => {
             {...register("slug", { required: "slug is required" })}
             type="text"
             id="slug"
-            defaultValue={product?.slug && product?.slug}
+            defaultValue={product?.slug ? product?.slug : ""}
             className={`w-full rounded-sm border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 block ${
               errors.slug && "border-red-400 focus:border-red-400"
             }`}
@@ -65,7 +65,7 @@ const Description = ({ register, errors, product }) => {
               required: "description is required",
             })}
             id="description"
-            defaultValue={product?.description && product?.description}
+            defaultValue={product?.description ? product?.description : ""}
             rows={5}
             className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white resize-none ${
               errors.description && "border-red-400 focus:border-red-400"
@@ -88,6 +88,7 @@ const Description = ({ register, errors, product }) => {
               type="radio"
               id="published"
               value="Published"
+              defaultChecked
               // checked={product?.status === "Published"}
             />
             <label htmlFor="published">Published</label>
@@ -99,6 +100,7 @@ const Description = ({ register, errors, product }) => {
               type="radio"
               id="draft"
               value="Draft"
+              // defaultChecked={product?.status === "Draft"}
               // checked={product?.status === "Draft"}
             />
             <label htmlFor="draft">Draft</label>
