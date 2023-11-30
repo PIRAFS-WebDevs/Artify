@@ -1,10 +1,10 @@
-import Application from "@/components/Application/Application";
+import ArticlesCategory from "@/components/Application/ArticleCategory";
 import React from "react";
 
 const ApplicationPage = () => {
   return (
     <div>
-      <Application />
+      <ArticlesCategory />
     </div>
   );
 };

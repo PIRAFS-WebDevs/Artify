@@ -3,17 +3,17 @@
 import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AllProductContext from "@/context/AllProductContext";
 import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
 import { FaShoppingCart } from "react-icons/fa";
 import AllStateContext from "@/context/AllStateContext";
 import { AddToCart, GetDataCart } from "@/utils/addToCart/AddToCart";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 const Card = () => {
   const { products, isLoading } = useContext(AllProductContext);
-  console.log("products:", products);
   const { setCartUpdated } = useContext(AllStateContext);
 
   const handleCart = async (cart, _id) => {
@@ -60,10 +60,12 @@ const Card = () => {
                 className="w-full col-span-1 space-y-2 text-white rounded-sm shadow dark:bg-light-200 bg-light-100 min-h-fit"
               >
                 <div className="relative flex w-full group">
-                  <img
-                    src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F799%2Fimage03.png&w=2048&q=75"
-                    alt=""
-                    className="object-fill w-full h-full"
+                  <Image
+                    width={300}
+                    height={200}
+                    src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F799%2Fimage03.png&w=1920&q=75"
+                    fallbackSrc="https://via.placeholder.com/300x200"
+                    alt="Product Image"
                   />
                   <div className="absolute top-0 hidden w-full h-full opacity-50 group-hover:block group-hover:bg-black Z-10"></div>
                   <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/50 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/50">

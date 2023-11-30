@@ -10,7 +10,7 @@ const ArticleSidebar = () => {
           Categories{" "}
           <span className="w-full h-1 border-y dark:border-dark-300 border-dark-100"></span>
         </h1>
-        <div className="space-y-2 text-dark-100">
+        <div className="space-y-2 dark:text-dark-100 text-dark-200">
           {[1, 2, 3, 4, 5].map((e) => (
             <div className="flex gap-2" key={e}>
               <Link href={"#"} className="flex gap-2">
@@ -29,7 +29,7 @@ const ArticleSidebar = () => {
           <span className="w-full h-1 border-y dark:border-dark-300 border-dark-100"></span>
         </h1>
 
-        <div className="space-y-2 text-dark-100">
+        <div className="space-y-2 dark:text-dark-100 text-dark-200">
           {[1, 2, 3].map((e) => (
             <div className="flex gap-2" key={e}>
               <Link href={"#"} className="flex gap-2">
@@ -44,7 +44,7 @@ const ArticleSidebar = () => {
           Latest Articles{" "}
           <span className="w-full h-1 border-y dark:border-dark-300 border-dark-100"></span>
         </h1>
-        <div className="space-y-2 text-dark-100">
+        <div className="space-y-2 dark:text-dark-100 text-dark-200">
           {[1, 2, 3].map((e) => (
             <div className="flex gap-2" key={e}>
               <Link href={"#"} className="flex gap-2">
