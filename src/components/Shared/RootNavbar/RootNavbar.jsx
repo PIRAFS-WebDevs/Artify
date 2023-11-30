@@ -31,7 +31,7 @@ const HomeNavbar = () => {
 
   return (
     <nav className="inset-x-0 -top-[.1px] z-50 bg-white sticky dark:bg-dark-400 text-dark-100">
-      <div className="flex items-center justify-between h-16 px-6">
+      <div className="container flex items-center justify-between h-16 px-6 mx-auto">
         {/* logo */}
         <Link href={"/"}>
           <Image

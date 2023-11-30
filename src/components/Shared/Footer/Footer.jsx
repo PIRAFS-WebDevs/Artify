@@ -20,7 +20,7 @@ const Footer = () => {
                   {categoryObj[categoryName].map((subcategory, subIndex) => (
                     <li
                       key={subIndex}
-                      className="cursor-pointer first:mt-2 hover:dark:text-white"
+                      className="cursor-pointer first:mt-2 hover:text-black dark:hover:dark:text-white"
                     >
                       <Link href={`${subcategory.path}`}>
                         {subcategory.name}
@@ -44,15 +44,23 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t col-span-full border-dark-400"></div>
-        <div className="flex flex-col col-start-1 gap-2 px-3 xl:col-span-2 text-dark-100 lg:items-center lg:flex-row">
+        <div className="flex flex-col col-start-1 gap-2 px-3 xl:col-span-2 dark:text-dark-100 lg:items-center lg:flex-row">
           <img src="/assets/logo/waresun.png" alt="logo" className="w-32" />
           <p>© The waresun Limited. 2017-2023</p>
         </div>
-        <div className="flex flex-wrap items-center gap-2 px-3 xl:col-start-4 text-dark-100 mb-[50px] md:mb-0">
-          <button className="hover:text-white">Refunds</button>
-          <button className="hover:text-white">Memberships</button>
-          <button className="hover:text-white">Payment</button>
-          <button className="hover:text-white">Authorized</button>
+        <div className="flex flex-wrap items-center gap-2 px-3 xl:col-start-4 dark:text-dark-100 mb-[50px] md:mb-0">
+          <button className="dark:hover:text-white hover:text-black">
+            Refunds
+          </button>
+          <button className="dark:hover:text-white hover:text-black">
+            Memberships
+          </button>
+          <button className="dark:hover:text-white hover:text-black">
+            Payment
+          </button>
+          <button className="dark:hover:text-white hover:text-black">
+            Authorized
+          </button>
         </div>
       </div>
     </div>

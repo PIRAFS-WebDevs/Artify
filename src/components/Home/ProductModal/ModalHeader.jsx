@@ -9,10 +9,7 @@ const ModalHeader = ({ setShowProductModal, name }) => {
   return (
     <div className="flex items-start justify-between gap-4 p-4 md:p-8 lg:items-center dark:bg-dark-500">
       <div className="flex flex-wrap items-center gap-2 md:gap-4">
-        <h1
-          className="cursor-pointer md:text-xl hover:text-primary line-clamp-1"
-          title=""
-        >
+        <h1 className="font-medium cursor-pointer dark:text-white md:text-xl hover:text-primary line-clamp-1 text-dark-500">
           {name}
         </h1>
         <div className="flex items-center gap-2">
@@ -37,7 +34,7 @@ const ModalHeader = ({ setShowProductModal, name }) => {
 
       <div className="w-10">
         <button onClick={() => setShowProductModal(false)}>
-          <AiOutlineClose size={"1.5rem"} />
+          <AiOutlineClose size={"1.5rem"} className="hover:text-dark-100" />
         </button>
       </div>
     </div>

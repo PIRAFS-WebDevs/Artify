@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* menu button */}
           <button
             onClick={() => setSideBarOpen(!sideBarOpen)}
-            className="hidden cursor-pointer hover:text-gray-400 dark:hover:text-white md:block"
+            className="hidden cursor-pointer hover:text-light-500 dark:hover:text-white md:block"
           >
             {sideBarOpen ? (
               <HiOutlineMenu size={"1.5rem"} />
@@ -66,7 +66,7 @@ const Navbar = () => {
           <button onClick={() => setSearchShow(true)}>
             <AiOutlineSearch
               size={"1.5rem"}
-              className="hidden cursor-pointer md:block hover:text-gray-400 dark:hover:text-white"
+              className="hidden cursor-pointer md:block hover:text-light-500 dark:hover:text-white"
             />
           </button>
 
@@ -81,7 +81,7 @@ const Navbar = () => {
             <button onClick={() => setCartOpen(true)}>
               <FaShoppingBag
                 size={"1.2rem"}
-                className="hover:text-gray-400 dark:hover:text-white"
+                className="hover:text-light-500 dark:hover:text-white"
               />
               <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
                 <span>{totalCartItem?.length}</span>
@@ -125,18 +125,18 @@ const Navbar = () => {
       >
         <AiFillHome
           size={"1.5rem"}
-          className="hover:text-gray-400 dark:hover:text-white"
+          className="hover:text-light-500 dark:hover:text-white"
         />
         <AiOutlineSearch
           onClick={() => setSearchShow(true)}
           size={"1.5rem"}
-          className="hover:text-gray-400 dark:hover:text-white"
+          className="hover:text-light-500 dark:hover:text-white"
         />
 
         <div className="relative">
           <button
             onClick={() => setCartOpen(true)}
-            className="hover:text-gray-400 dark:hover:text-white"
+            className="hover:text-light-500 dark:hover:text-white"
           >
             <FaShoppingBag size={"1.2rem"} />
             <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
@@ -152,7 +152,7 @@ const Navbar = () => {
         >
           <AiOutlineMenu
             size={"1.5rem"}
-            className="hover:text-gray-400 dark:hover:text-white"
+            className="hover:text-light-500 dark:hover:text-white"
           />
         </button>
 
