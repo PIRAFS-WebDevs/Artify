@@ -22,8 +22,8 @@ const ProductUpload = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const [selectedTags, setSelectedTags] = useState([]);
-  const searchPrames = useSearchParams();
-  const updateId = searchPrames.get("id");
+  const searchParams = useSearchParams();
+  const updateId = searchParams.get("id");
   console.log("singleProduct:", singleProduct);
   console.log("selectedCategories:", selectedCategories);
   const {
