@@ -8,15 +8,20 @@ import {
   getProducts,
 } from "@/utils/api/product";
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import { stringify } from "postcss";
-import React, { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const AllProductProvider = ({ children }) => {
   const [category, setCategory] = useState("");
   const router = useRouter();
+  const path = usePathname();
   const [id, setId] = useState(null);
+
+  useEffect(() => {
+    setCategory("");
+  }, [path]);
+
   const {
     data: products = [],
     isLoading,

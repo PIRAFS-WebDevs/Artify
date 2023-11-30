@@ -64,7 +64,7 @@ const Card = () => {
                     width={300}
                     height={200}
                     src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F799%2Fimage03.png&w=1920&q=75"
-                    fallbackSrc="https://via.placeholder.com/300x200"
+                    fallbacksrc="https://via.placeholder.com/300x200"
                     alt="Product Image"
                   />
                   <div className="absolute top-0 hidden w-full h-full opacity-50 group-hover:block group-hover:bg-black Z-10"></div>

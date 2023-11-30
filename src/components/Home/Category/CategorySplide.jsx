@@ -7,6 +7,7 @@ import { getCategory } from "@/utils/api/category";
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import AllProductContext from "@/context/AllProductContext";
+import { Skeleton } from "@nextui-org/react";
 
 const CategorySplide = () => {
   const { category, setCategory } = useContext(AllProductContext);
@@ -31,10 +32,10 @@ const CategorySplide = () => {
           {isLoading ? (
             <div className="flex gap-4 ">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
-                <div
+                <Skeleton
                   key={e}
-                  className="h-8 bg-gray-300 rounded-full w-28 animate-pulse"
-                ></div>
+                  className="h-8 bg-gray-300 rounded-full w-28"
+                ></Skeleton>
               ))}
             </div>
           ) : (
