@@ -9,19 +9,19 @@ const FeatureImage = ({ featuredImage, setFeaturedImage }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-8">
+    <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="text-white">Featured Image</h1>
+        <h1 className="dark:text-white">Featured Image</h1>
         <p className="text-dark-100">
           Upload your product featured image here Image size should not be more
           than 2 MB
         </p>
       </div>
 
-      <div className="md:col-span-2 w-full dark:bg-dark-400 rounded-sm p-8 space-y-4">
+      <div className="w-full p-8 space-y-4 rounded-sm md:col-span-2 dark:bg-dark-400">
         <label
           htmlFor="dropzone-file"
-          className="grid place-items-center gap-2 px-8 py-16 text-center border border-dark-100 border-dashed rounded-sm cursor-pointer"
+          className="grid gap-2 px-8 py-16 text-center border border-dashed rounded-sm cursor-pointer place-items-center border-dark-100"
         >
           <FaCloudUploadAlt className="w-8 h-8 text-dark-200" />
 
@@ -37,7 +37,7 @@ const FeatureImage = ({ featuredImage, setFeaturedImage }) => {
             className="hidden w-full"
           />
         </label>
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-3 gap-4 md:grid-cols-5">
           <img
             src={featuredImage ? URL.createObjectURL(featuredImage) : null}
             alt=""

@@ -64,7 +64,9 @@ const CategoryUpload = () => {
   }, [updateId]);
   return (
     <div className="divide-y divide-dark-200">
-      <h1 className="pb-6 text-lg font-medium text-white">Category Upload</h1>
+      <h1 className="pb-6 text-lg font-medium dark:text-white">
+        Category Upload
+      </h1>
 
       <form onSubmit={handleSubmit(formHandler)}>
         {/* description */}

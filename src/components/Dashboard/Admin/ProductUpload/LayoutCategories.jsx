@@ -62,7 +62,7 @@ const LayoutCategories = ({
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="text-white">Layout & Categories</h1>
+        <h1 className="dark:text-white">Layout & Categories</h1>
         <p className="text-dark-100">
           Select product group and categories from here
         </p>
@@ -81,7 +81,7 @@ const LayoutCategories = ({
             {...register("layout")}
             id="layout"
             defaultValue={product?.layout && product?.layout}
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
           >
             {product?.layout ? (
               <>
@@ -122,7 +122,7 @@ const LayoutCategories = ({
           <div className="flex flex-wrap gap-2">
             {selectedCategories.map((category, i) => (
               <div key={i} className="relative">
-                <span className="px-2 py-1 text-white rounded-sm bg-dark-300">
+                <span className="px-2 py-1 rounded-sm dark:text-white text-dark-300 dark:bg-dark-300 bg-light-500">
                   {category.name}
                 </span>
                 <span
@@ -172,7 +172,7 @@ const LayoutCategories = ({
           <div className="flex flex-wrap gap-2">
             {selectedCategories.map((category, i) => (
               <div key={i} className="relative">
-                <span className="px-2 py-1 text-white rounded-sm bg-dark-300">
+                <span className="px-2 py-1 rounded-sm dark:text-white text-dark-300 dark:bg-dark-300 bg-light-500">
                   {category}
                 </span>
                 <span
@@ -186,7 +186,7 @@ const LayoutCategories = ({
           </div>
           <select
             id="category"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
             onChange={handleCategoryChange}
           >
             <option value="" disabled selected>
@@ -212,7 +212,7 @@ const LayoutCategories = ({
           <div className="flex flex-wrap gap-2">
             {selectedTags.map((tag, i) => (
               <div key={i} className="relative">
-                <span className="px-2 py-1 text-white rounded-sm bg-dark-300">
+                <span className="px-2 py-1 rounded-sm dark:text-white text-dark-300 dark:bg-dark-300 bg-light-500">
                   {tag}
                 </span>
                 <span
@@ -226,7 +226,7 @@ const LayoutCategories = ({
           </div>
           <select
             id="tags"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
             onChange={handleTagChange}
           >
             <option value="" disabled selected>

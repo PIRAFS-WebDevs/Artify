@@ -4,7 +4,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="text-white">Simple Product Information</h1>
+        <h1 className="dark:text-white">Simple Product Information</h1>
         <p className="text-dark-100">
           Edit your simple product description and necessary information from
           here
@@ -26,7 +26,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
             type="number"
             id="price"
             defaultValue={product?.price ? product?.price : 0}
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
           {errors.price && (
             <p className="text-sm text-red-400">*{errors.price.message}</p>
@@ -47,7 +47,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
             })}
             type="number"
             id="sell_price"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-white [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
           />
           {errors.sell_price && (
             <p className="text-sm text-red-500 dark:text-red-400">
@@ -69,7 +69,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
             type="text"
             id="preview_url"
             defaultValue={product?.preview_url && product?.preview_url}
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-white"
           />
           {errors.preview_url && (
             <p className="text-xs text-red-500 dark:text-red-400">

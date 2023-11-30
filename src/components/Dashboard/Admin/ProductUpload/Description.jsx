@@ -2,7 +2,7 @@ const Description = ({ register, errors, product }) => {
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="text-white">Description</h1>
+        <h1 className="dark:text-white">Description</h1>
         <p className="text-dark-100">
           Edit your product description and necessary information from here
         </p>
@@ -21,7 +21,7 @@ const Description = ({ register, errors, product }) => {
             type="text"
             id="name"
             defaultValue={product?.name ? product.name : ""}
-            className={`w-full rounded-sm border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 ${
+            className={`w-full rounded-sm border dark:border-dark-200 border-light-500 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 ${
               errors.name && "border-red-400 focus:border-red-400"
             }`}
           />
@@ -43,7 +43,7 @@ const Description = ({ register, errors, product }) => {
             type="text"
             id="slug"
             defaultValue={product?.slug ? product?.slug : ""}
-            className={`w-full rounded-sm border border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 block ${
+            className={`w-full rounded-sm border dark:border-dark-200 border-light-500 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 block ${
               errors.slug && "border-red-400 focus:border-red-400"
             }`}
           />
@@ -67,7 +67,7 @@ const Description = ({ register, errors, product }) => {
             id="description"
             defaultValue={product?.description ? product?.description : ""}
             rows={5}
-            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-200 focus:border-primary dark:text-white resize-none ${
+            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white resize-none ${
               errors.description && "border-red-400 focus:border-red-400"
             }`}
           ></textarea>
