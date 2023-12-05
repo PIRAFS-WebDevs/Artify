@@ -27,7 +27,7 @@ Description
 
 1. Name / name
 2. Slug / slug
-3. Description / description
+3. Details / details
 4. Status / status
 
 Simple Product Information
