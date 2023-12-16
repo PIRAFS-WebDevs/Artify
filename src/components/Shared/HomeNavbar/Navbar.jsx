@@ -119,7 +119,7 @@ const Navbar = () => {
 
       {/* mobile nav */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400 ${
+        className={`fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400 bg-white ${
           (cartOpen || searchShow) && "hidden"
         }`}
       >
