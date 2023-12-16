@@ -3,8 +3,8 @@
 import { getCategory } from "@/utils/api/category";
 import { getTags } from "@/utils/api/tags";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
-import { Chip, Select, SelectItem } from "@nextui-org/react";
+import { useEffect } from "react";
+import { getLayout } from "@/utils/api/layout";
 
 const LayoutCategories = ({
   selectedCategories,
@@ -59,6 +59,12 @@ const LayoutCategories = ({
     queryFn: () => getCategory(),
   });
 
+  const { data: layouts = [] } = useQuery({
+    queryKey: ["layouts"],
+    queryFn: () => getLayout(),
+  });
+  console.log("layouts:", layouts);
+
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
@@ -94,10 +100,10 @@ const LayoutCategories = ({
                 {layouts.map((layout, i) => (
                   <option
                     key={i}
-                    value={layout}
+                    value={layout.name}
                     className="text-white bg-dark-300"
                   >
-                    {layout}
+                    {layout.name}
                   </option>
                 ))}
               </>
@@ -105,10 +111,10 @@ const LayoutCategories = ({
               layouts.map((layout, i) => (
                 <option
                   key={i}
-                  value={layout}
+                  value={layout.name}
                   className="text-white bg-dark-300"
                 >
-                  {layout}
+                  {layout.name}
                 </option>
               ))
             )}
@@ -249,5 +255,3 @@ const LayoutCategories = ({
 };
 
 export default LayoutCategories;
-
-const layouts = ["Fixed", "Responsive", "Fluid", "N/A"];
