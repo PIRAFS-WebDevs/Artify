@@ -24,8 +24,8 @@ module.exports = {
       "light-400": "#e6e6e6",
       "light-500": "#d2d2d2",
 
-      primary: "#00b482",
-      primarySec: "#00997d",
+      primary: "#27963C",
+      primarySec: "#80CC28",
     },
     extend: {},
   },
@@ -36,14 +36,14 @@ module.exports = {
         dark: {
           colors: {
             primary: {
-              DEFAULT: "#00b482",
+              DEFAULT: "#27963C",
             },
           },
         },
         light: {
           colors: {
             primary: {
-              DEFAULT: "#00b482",
+              DEFAULT: "#27963C",
             },
           },
         },
