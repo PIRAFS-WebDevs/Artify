@@ -53,11 +53,11 @@ const Card = () => {
         </div>
       ) : (
         <div>
-          <div className="grid gap-4 min-[540px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 min-[2200px]:grid-cols-6 py-6 px-6">
+          <div className="grid gap-4 min-[540px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  min-[2200px]:grid-cols-6 py-6 px-6 ">
             {products?.map((product) => (
               <div
                 key={product?._id}
-                className="w-full col-span-1 space-y-2 text-white rounded-sm shadow dark:bg-light-200 bg-light-100 min-h-fit"
+                className="w-full col-span-1 space-y-2 text-white rounded-sm shadow dark:shadow-dark-400 dark:bg-transparent bg-light-100 min-h-fit"
               >
                 <div className="relative flex w-full group">
                   <Image
@@ -83,14 +83,15 @@ const Card = () => {
                   <div></div>
                 </div>
 
-                <div className="flex flex-col justify-between gap-4 p-2">
-                  <h1 className="line-clamp-1 text-dark-500">
+                {/* products details */}
+                <div className="flex flex-col justify-between gap-4 p-2 ">
+                  <h1 className="line-clamp-1 text-dark-500 dark:text-white">
                     {product?.name}
                   </h1>
                   <div className="flex items-end justify-between gap-2">
                     <div className="space-y-1">
                       <div className="flex gap-1">
-                        <p className="text-xs line-through text-dark-500">
+                        <p className="text-xs line-through text-dark-500 dark:text-white">
                           <span className="text-xs">$</span>
                           <span>{product?.price}</span>
                         </p>
@@ -100,7 +101,9 @@ const Card = () => {
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs text-dark-500">987 Sales</p>
+                        <p className="text-xs text-dark-500 dark:text-white">
+                          987 Sales
+                        </p>
                       </div>
                     </div>
                     <div>
