@@ -49,14 +49,14 @@ const Navbar = () => {
           </button>
 
           {/* logo */}
-          <Link href={"/"}>
+          <Link href={"/"} className="flex h-16 ">
             <Image
               src="/assets/logo/waresun.png"
               height={100}
               width={100}
               priority={true}
               alt="logo"
-              className={`w-28`}
+              className={`w-full`}
             />
           </Link>
         </div>
