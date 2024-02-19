@@ -15,20 +15,16 @@ const AllStateProvider = ({ children }) => {
   const [isDelOpen, setDelOpen] = useState(false);
   const [FindUser, setFindUser] = useState([]);
   const { user } = useContext(AuthContext);
-  const [totalCartItem , setTotalCartItem] = useState([])
-  const [cartUpdated, setCartUpdated] = useState(false)
-  
+  const [totalCartItem, setTotalCartItem] = useState([]);
+  const [cartUpdated, setCartUpdated] = useState(false);
 
-    useEffect(()=> {
-        (async() => {
-            const cart = await GetDataCart()
-            
-            setTotalCartItem(cart)
+  useEffect(() => {
+    (async () => {
+      const cart = await GetDataCart();
 
-        })();
-        
-    },[cartUpdated])
-    
+      setTotalCartItem(cart);
+    })();
+  }, [cartUpdated]);
 
   useEffect(() => {
     if (user?.email) {
@@ -47,7 +43,7 @@ const AllStateProvider = ({ children }) => {
     showProductModal,
     setShowProductModal,
     cartOpen,
-    totalCartItem , 
+    totalCartItem,
     setTotalCartItem,
     setCartUpdated,
     setCartOpen,

@@ -1,41 +1,37 @@
 "use client";
 
+import { useCategories } from "@/hooks/category/useCategories";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
+import { Skeleton } from "@nextui-org/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { useMemo } from "react";
 import "./SplideArrow.css";
-import { getCategory } from "@/utils/api/category";
-import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import AllProductContext from "@/context/AllProductContext";
-import { Skeleton } from "@nextui-org/react";
 
 const CategorySplide = () => {
-  const { category, setCategory } = useContext(AllProductContext);
+  const { searchValue: category, setSearchValue: setCategory } =
+    useAllValueContext();
+  const { categories, isLoading } = useCategories();
 
-  const {
-    data: categories = [],
-    isLoading,
-    refetch,
-    isError,
-  } = useQuery({
-    queryKey: ["categories"],
-    queryFn: () => getCategory(),
-  });
+  const numSkeletons = useMemo(
+    () => (window.innerWidth >= 768 ? 10 : 5),
+    [window.innerWidth]
+  );
 
   return (
     <div
-      className="sticky inset-x-0 z-40 dark:bg-dark-500 bg-light-200 top-[63.9px] border-y dark:border-dark-400 border-light-300"
       id="category"
+      className="sticky inset-x-0 z-40 dark:bg-dark-500 bg-light-200 top-[63.9px] border-y dark:border-dark-400 border-light-300"
     >
       <div className="relative px-6 py-6 ">
         <div className="mx-2">
           {isLoading ? (
-            <div className="flex gap-4 ">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
+            <div className="flex gap-4 overflow-x-scroll">
+              {Array.from({ length: numSkeletons }).map((_, index) => (
                 <Skeleton
-                  key={e}
+                  key={index}
                   className="h-8 bg-gray-300 rounded-full w-28"
-                ></Skeleton>
+                />
               ))}
             </div>
           ) : (

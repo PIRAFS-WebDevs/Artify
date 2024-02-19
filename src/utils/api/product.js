@@ -1,5 +1,4 @@
-import toast from "react-hot-toast";
-import api from "../axios";
+import api, { instance } from "../axios";
 
 // save product into database
 export const saveProduct = async (data) => {
@@ -147,17 +146,15 @@ export const updateProduct = async (data, id) => {
 
 export const getProducts = async (text) => {
   try {
-    const res = await api.get(
-      text
-        ? `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/?text=${text}`
-        : `${process.env.NEXT_PUBLIC_BaseUrl}/admin/product/all-product/`
-      // { next: { revalidate: "3600" } }
+    const res = await instance.get(
+      text ? `/products?text=${text}` : "/products"
     );
-    return res.data.products;
+    return res.data.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };
+
 export const ProductByid = async (id) => {
   try {
     const res = await api.get(
