@@ -7,7 +7,7 @@ import Sidebar from "@/components/Shared/Sidebar/Sidebar";
 import homeSidebarData from "@/data/homeSidebarData";
 import { useAllValueContext } from "@/hooks/useAllValueContext";
 
-const layout = ({ children }) => {
+const PrimaryLayout = ({ children }) => {
   const { sidebarOpen, showProductModal, setShowProductModal } =
     useAllValueContext();
 
@@ -18,7 +18,7 @@ const layout = ({ children }) => {
         <Sidebar sidebarData={homeSidebarData} />
         <section
           className={`relative ${
-            !sidebarOpen ? "md:ml-[64px]" : "md:ml-[198px]"
+            !sidebarOpen ? "md:ml-[64px]" : "md:ml-[14rem]"
           }`}
         >
           <div className="min-h-screen bg-light-300 dark:bg-dark-500">
@@ -35,4 +35,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default PrimaryLayout;

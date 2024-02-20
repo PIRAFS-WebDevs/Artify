@@ -7,7 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="p-6 text-sm">
+    <div className="p-6 text-sm bg-light-300 dark:bg-dark-500">
       <div className="grid gap-6 pb-6 lg:grid-cols-2 xl:grid-cols-4">
         {footerData.map((categoryObj, index) => (
           <div key={index} className="dark:text-dark-100">

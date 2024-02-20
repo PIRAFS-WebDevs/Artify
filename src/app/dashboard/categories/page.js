@@ -1,5 +1,4 @@
 import CategoryUITable from "@/components/Dashboard/Admin/Categories/CategoryUITable";
-import Category from "@/components/Home/Category/Category";
 import SharedComp from "@/components/Shared/admin/SharedComp";
 
 const Categories = () => {
@@ -10,7 +9,6 @@ const Categories = () => {
         AddType={"Add Category"}
         link={"/dashboard/admin/categories/upload"}
       />
-      {/* <Category /> */}
       <CategoryUITable />
     </>
   );
