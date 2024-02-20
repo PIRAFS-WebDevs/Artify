@@ -26,7 +26,7 @@ const CategorySplide = () => {
       <div className="relative px-6 py-6 ">
         <div className="mx-2">
           {isLoading ? (
-            <div className="flex gap-4 overflow-x-scroll">
+            <div className="flex gap-4">
               {Array.from({ length: numSkeletons }).map((_, index) => (
                 <Skeleton
                   key={index}

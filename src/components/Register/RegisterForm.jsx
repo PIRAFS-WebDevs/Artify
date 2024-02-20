@@ -1,16 +1,13 @@
 "use client";
 
-import AuthContext from "@/context/AuthContext";
-import Link from "next/link";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
+import { useAuthContext } from "@/hooks/useAuthContext";
 import { Spinner } from "@nextui-org/react";
-
-// icons
+import Link from "next/link";
+import { useForm } from "react-hook-form";
 import SocialButton from "./SocialButton";
 
 const RegisterForm = () => {
-  const { registerUser, loading } = useContext(AuthContext);
+  const { registerUser, loading } = useAuthContext();
 
   const {
     register,

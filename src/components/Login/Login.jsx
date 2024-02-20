@@ -1,14 +1,13 @@
-import { motion as m, AnimatePresence } from "framer-motion";
-import CloseButton from "./CloseButton";
+import { useAuthContext } from "@/hooks/useAuthContext";
+import { Checkbox, Spinner } from "@nextui-org/react";
+import { AnimatePresence, motion as m } from "framer-motion";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
-import AuthContext from "@/context/AuthContext";
 import SocialButton from "../Register/SocialButton";
-import { Checkbox, Spinner } from "@nextui-org/react";
+import CloseButton from "./CloseButton";
 
 const Login = ({ isShow, setIsShow }) => {
-  const { loginUser, loading } = useContext(AuthContext);
+  const { loginUser, loading } = useAuthContext();
 
   const {
     register,

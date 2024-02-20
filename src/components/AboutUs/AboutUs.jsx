@@ -1,8 +1,8 @@
+import Link from "next/link";
 import { AiOutlineAppstoreAdd, AiOutlineGlobal } from "react-icons/ai";
+import { BsTools } from "react-icons/bs";
 import { GiExpense } from "react-icons/gi";
 import { HiOutlineLightBulb } from "react-icons/hi";
-import { BsTools } from "react-icons/bs";
-import Link from "next/link";
 
 const AboutUs = () => {
   return (
@@ -126,7 +126,7 @@ const AboutUs = () => {
 
       <div className="grid place-items-center">
         <p className="text-sm text-dark-100">
-          ©2023 Waresun. Copyright © REDQ. All rights reserved worldwide. REDQ
+          ©2025 Artify. Copyright © REDQ. All rights reserved worldwide. REDQ
         </p>
       </div>
     </div>

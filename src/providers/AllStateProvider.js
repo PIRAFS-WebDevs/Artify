@@ -1,8 +1,8 @@
 import AllStateContext from "@/context/AllStateContext";
-import AuthContext from "@/context/AuthContext";
+import { useAuthContext } from "@/hooks/useAuthContext";
 import { GetDataCart } from "@/utils/addToCart/AddToCart";
 import { getUserByEmail } from "@/utils/api/user";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const AllStateProvider = ({ children }) => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
@@ -14,7 +14,7 @@ const AllStateProvider = ({ children }) => {
   const [theme, setTheme] = useState("dark");
   const [isDelOpen, setDelOpen] = useState(false);
   const [FindUser, setFindUser] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthContext();
   const [totalCartItem, setTotalCartItem] = useState([]);
   const [cartUpdated, setCartUpdated] = useState(false);
 

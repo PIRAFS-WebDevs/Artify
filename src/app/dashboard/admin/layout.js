@@ -1,9 +1,9 @@
 "use client";
-import adminSideNav from "@/data/AdminSideNav";
-import React, { useContext } from "react";
-import AllStateContext from "@/context/AllStateContext";
-import Sidebar from "@/components/Shared/Sidebar/Sidebar/Sidebar";
 import Navbar from "@/components/Shared/HomeNavbar/Navbar";
+import Sidebar from "@/components/Shared/Sidebar/Sidebar";
+import AllStateContext from "@/context/AllStateContext";
+import adminSideNav from "@/data/AdminSideNav";
+import { useContext } from "react";
 
 const adminLayout = ({ children }) => {
   const { sideBarOpen } = useContext(AllStateContext);

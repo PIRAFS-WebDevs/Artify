@@ -1,10 +1,10 @@
-import { FaUserCircle } from "react-icons/fa";
+import { settingsSidebarData } from "@/data/SettingsSidebarData";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { settingsSidebarData } from "@/data/SettingsSidebarData";
+import { useEffect, useRef, useState } from "react";
 import { BiLogOut } from "react-icons/bi";
+import { FaUserCircle } from "react-icons/fa";
 
 const UserDropdown = ({ logout, user }) => {
   const [open, setOpen] = useState(false);
@@ -73,13 +73,14 @@ const UserDropdown = ({ logout, user }) => {
             </motion.li>
           </Link>
         ))}
-        <button
+        <motion.button
+          variants={itemVariants}
           onClick={() => logout()}
           className="flex items-center w-full gap-2 px-4 py-3 text-xs transition-all cursor-pointer whitespace-nowrap hover:bg-gray-200 dark:hover:bg-dark-200 text-dark-300 dark:text-light-300"
         >
           <BiLogOut />
-          <p className="text-xs">Logout</p>
-        </button>
+          <motion.p className="text-xs">Logout</motion.p>
+        </motion.button>
       </motion.ul>
     </motion.div>
   );
@@ -90,33 +91,33 @@ export default UserDropdown;
 const wrapperVariants = {
   open: {
     scaleY: 1,
-    // transition: {
-    //   when: "beforeChildren",
-    //   staggerChildren: 0.1,
-    // },
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
   },
   closed: {
     scaleY: 0,
-    // transition: {
-    //   when: "afterChildren",
-    //   staggerChildren: 0.1,
-    // },
+    transition: {
+      when: "afterChildren",
+      staggerChildren: 0.1,
+    },
   },
 };
 
 const itemVariants = {
   open: {
     opacity: 1,
-    // y: 0,
-    // transition: {
-    //   when: "beforeChildren",
-    // },
+    y: 0,
+    transition: {
+      when: "beforeChildren",
+    },
   },
   closed: {
     opacity: 0,
-    // y: -15,
-    // transition: {
-    //   when: "afterChildren",
-    // },
+    y: -15,
+    transition: {
+      when: "afterChildren",
+    },
   },
 };

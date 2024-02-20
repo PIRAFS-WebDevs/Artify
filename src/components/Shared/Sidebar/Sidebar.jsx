@@ -1,10 +1,11 @@
 "use client";
-import { useContext } from "react";
-import AllStateContext from "@/context/AllStateContext";
+
+import homeSidebarData from "@/data/homeSidebarData";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
 import SidebarLink from "./SidebarLink";
 
-const Sidebar = ({ sidebarData }) => {
-  const { sideBarOpen } = useContext(AllStateContext);
+const Sidebar = () => {
+  const { sideBarOpen } = useAllValueContext();
 
   return (
     <>
@@ -14,7 +15,7 @@ const Sidebar = ({ sidebarData }) => {
         } `}
       >
         <div className="my-2">
-          {sidebarData.map((data, index) => (
+          {homeSidebarData.map((data, index) => (
             <div key={index}>
               <SidebarLink
                 href={data.path}

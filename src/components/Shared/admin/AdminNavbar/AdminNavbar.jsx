@@ -5,13 +5,13 @@ import { useContext } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaMoon, FaUserCircle } from "react-icons/fa";
 
-import Link from "next/link";
+import { useAuthContext } from "@/hooks/useAuthContext";
 import Image from "next/image";
-import AuthContext from "@/context/AuthContext";
+import Link from "next/link";
 
 const AdminNavbar = () => {
   const { adminBarOpen, setAdminBarOpen } = useContext(AllStateContext);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthContext();
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-dark-400 dark:text-dark-100">

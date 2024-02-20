@@ -1,12 +1,10 @@
-import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const ApplicationSearch = () => {
   return (
     <div className="relative grid px-4 py-6 border-b place-items-center dark:border-dark-300 border-light-300">
       <label htmlFor="Search" className="sr-only">
-        {" "}
-        Search{" "}
+        Search
       </label>
 
       <div className="relative grid w-full md:w-2/3 place-items-center">

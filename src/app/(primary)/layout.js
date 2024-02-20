@@ -1,15 +1,15 @@
 "use client";
-import homeSidebarData from "@/data/homeSidebarData";
-import Footer from "@/components/Shared/Footer/Footer";
-import { useContext } from "react";
-import AllStateContext from "@/context/AllStateContext";
+
 import ProductModal from "@/components/Home/ProductModal/ProductModal";
-import Sidebar from "@/components/Shared/Sidebar/Sidebar/Sidebar";
+import Footer from "@/components/Shared/Footer/Footer";
 import Navbar from "@/components/Shared/HomeNavbar/Navbar";
+import Sidebar from "@/components/Shared/Sidebar/Sidebar";
+import homeSidebarData from "@/data/homeSidebarData";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
 
 const layout = ({ children }) => {
-  const { sideBarOpen, showProductModal, setShowProductModal } =
-    useContext(AllStateContext);
+  const { sidebarOpen, showProductModal, setShowProductModal } =
+    useAllValueContext();
 
   return (
     <>
@@ -18,7 +18,7 @@ const layout = ({ children }) => {
         <Sidebar sidebarData={homeSidebarData} />
         <section
           className={`relative ${
-            !sideBarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
+            !sidebarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
           }`}
         >
           <div className="min-h-screen bg-light-300 dark:bg-dark-500">

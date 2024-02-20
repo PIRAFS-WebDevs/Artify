@@ -1,11 +1,10 @@
-import AllStateContext from "@/context/AllStateContext";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
 
 const SidebarLink = ({ href, title, icon }) => {
-  const { sideBarOpen, mobileView, setMobileView, setSideBarOpen } =
-    useContext(AllStateContext);
+  const { sidebarOpen, setSidebarOpen, mobileView, setMobileView } =
+    useAllValueContext();
 
   const path = usePathname();
 
@@ -19,14 +18,14 @@ const SidebarLink = ({ href, title, icon }) => {
       <Link onClick={() => setMobileView(false)} href={href}>
         <div
           className={`w-full py-3 flex gap-4 ${
-            sideBarOpen && "justify-start"
+            sidebarOpen && "justify-start"
           } items-center px-6`}
         >
           <span>{icon}</span>
 
           <span
             className={`text-sm ${
-              sideBarOpen ? "hidden md:inline-block" : "hidden"
+              sidebarOpen ? "hidden md:inline-block" : "hidden"
             } ${mobileView && "inline-block"}`}
           >
             {title}
