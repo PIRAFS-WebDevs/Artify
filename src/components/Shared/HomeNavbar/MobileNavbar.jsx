@@ -32,7 +32,7 @@ const MobileNavbar = ({ mobileView, setMobileView }) => {
               {/* logo */}
               <Link href={"/"}>
                 <Image
-                  src="/assets/logo/waresun.png"
+                  src="/assets/logo/artify.png"
                   height={100}
                   width={100}
                   priority={true}

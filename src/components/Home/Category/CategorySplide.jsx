@@ -5,7 +5,6 @@ import { useAllValueContext } from "@/hooks/useAllValueContext";
 import { Skeleton } from "@nextui-org/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { useMemo } from "react";
 import "./SplideArrow.css";
 
 const CategorySplide = () => {
@@ -13,26 +12,23 @@ const CategorySplide = () => {
     useAllValueContext();
   const { categories, isLoading } = useCategories();
 
-  const numSkeletons = useMemo(
-    () => (window.innerWidth >= 768 ? 10 : 5),
-    [window.innerWidth]
-  );
-
   return (
     <div
       id="category"
       className="sticky inset-x-0 z-40 dark:bg-dark-500 bg-light-200 top-[63.9px] border-y dark:border-dark-400 border-light-300"
     >
-      <div className="relative px-6 py-6 ">
+      <div className="relative px-6 py-4">
         <div className="mx-2">
           {isLoading ? (
-            <div className="flex gap-4">
-              {Array.from({ length: numSkeletons }).map((_, index) => (
-                <Skeleton
-                  key={index}
-                  className="h-8 bg-gray-300 rounded-full w-28"
-                />
-              ))}
+            <div className="overflow-hidden overflow-y-auto">
+              <div className="flex gap-4">
+                {Array.from({ length: 15 }).map((_, index) => (
+                  <Skeleton
+                    key={index}
+                    className="h-8 bg-gray-300 rounded-full min-w-[4rem] md:min-w-[6rem]"
+                  />
+                ))}
+              </div>
             </div>
           ) : (
             <Splide

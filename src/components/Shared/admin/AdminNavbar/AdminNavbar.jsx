@@ -29,7 +29,7 @@ const AdminNavbar = () => {
           </button>
           <Link href={"/"}>
             <Image
-              src="/assets/logo/waresun.png"
+              src="/assets/logo/artify.png"
               height={50}
               width={80}
               priority={true}

@@ -18,7 +18,7 @@ const layout = ({ children }) => {
         <Sidebar sidebarData={homeSidebarData} />
         <section
           className={`relative ${
-            !sidebarOpen ? "md:ml-[64px]" : "md:ml-[240px]"
+            !sidebarOpen ? "md:ml-[64px]" : "md:ml-[198px]"
           }`}
         >
           <div className="min-h-screen bg-light-300 dark:bg-dark-500">

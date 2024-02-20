@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AiTwotoneHeart, AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 
 const ModalHeader = ({ setShowProductModal, name }) => {
   const [like, setLike] = useState(false);
@@ -18,7 +18,7 @@ const ModalHeader = ({ setShowProductModal, name }) => {
             alt=""
             className="w-4 h-4 rounded-full md:w-6 md:h-6"
           />
-          <p className="text-xs md:text-sm dark:text-dark-100">Waresun</p>
+          <p className="text-xs md:text-sm dark:text-dark-100">Artify</p>
 
           {like ? (
             <button onClick={() => setLike(false)}>

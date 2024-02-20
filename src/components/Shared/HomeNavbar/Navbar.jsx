@@ -70,7 +70,7 @@ const Navbar = () => {
           {/* logo */}
           <Link href={"/"} className="flex h-16 ">
             <Image
-              src="/assets/logo/waresun.png"
+              src="/assets/logo/artify.png"
               height={100}
               width={100}
               priority={true}

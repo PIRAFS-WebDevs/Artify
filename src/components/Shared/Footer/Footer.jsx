@@ -1,9 +1,9 @@
 import footerData from "@/data/footerData";
-import { FaFacebook, FaPinterest } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { BsYoutube } from "react-icons/bs";
-import Link from "next/link";
+import { FaFacebook, FaPinterest } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -45,8 +45,8 @@ const Footer = () => {
         </div>
         <div className="border-t col-span-full border-dark-400"></div>
         <div className="flex flex-col col-start-1 gap-2 px-3 xl:col-span-2 dark:text-dark-100 lg:items-center lg:flex-row">
-          <img src="/assets/logo/waresun.png" alt="logo" className="w-32" />
-          <p>© The waresun Limited. 2017-2023</p>
+          <img src="/assets/logo/artify.png" alt="logo" className="w-32" />
+          <p>© The Artify Limited. 2017-2025</p>
         </div>
         <div className="flex flex-wrap items-center gap-2 px-3 xl:col-start-4 dark:text-dark-100 mb-[50px] md:mb-0">
           <button className="dark:hover:text-white hover:text-black">

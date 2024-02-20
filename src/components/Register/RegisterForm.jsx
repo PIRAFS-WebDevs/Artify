@@ -147,14 +147,14 @@ const RegisterForm = () => {
 
       <div className="flex items-center justify-center p-4 bg-transparent border-t dark:border-dark-300 border-light-500">
         <p className="text-sm text-center dark:text-white">
-          By creating an account with WareSun, you agree to our{" "}
+          By creating an account with Artify, you agree to our
           <Link
             href="/"
             className="transition duration-100 text-primary hover:primarySec active:text-primary"
           >
             Terms & Conditions
-          </Link>{" "}
-          and our{" "}
+          </Link>
+          and our
           <Link
             href="/"
             className="transition duration-100 text-primary hover:primarySec active:text-primary"
