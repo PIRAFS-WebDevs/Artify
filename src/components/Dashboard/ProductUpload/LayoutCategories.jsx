@@ -1,10 +1,10 @@
 "use client";
 
-import { getCategory } from "@/utils/api/category";
+import { getCategories } from "@/utils/api/category";
+import { getLayout } from "@/utils/api/layout";
 import { getTags } from "@/utils/api/tags";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { getLayout } from "@/utils/api/layout";
 
 const LayoutCategories = ({
   selectedCategories,
@@ -16,8 +16,6 @@ const LayoutCategories = ({
 }) => {
   useEffect(() => {
     if (product) {
-      console.log("product:", product);
-
       setSelectedCategories(
         product?.categories ? [...product?.categories] : []
       );
@@ -56,14 +54,13 @@ const LayoutCategories = ({
 
   const { data: categories = [] } = useQuery({
     queryKey: ["category"],
-    queryFn: () => getCategory(),
+    queryFn: () => getCategories(),
   });
 
   const { data: layouts = [] } = useQuery({
     queryKey: ["layouts"],
     queryFn: () => getLayout(),
   });
-  console.log("layouts:", layouts);
 
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
@@ -121,55 +118,6 @@ const LayoutCategories = ({
           </select>
         </div>
 
-        {/* <div className="flex flex-col w-full gap-2">
-          <label className="inline-block text-sm dark:text-white">
-            Selected Categories:
-          </label>
-          <div className="flex flex-wrap gap-2">
-            {selectedCategories.map((category, i) => (
-              <div key={i} className="relative">
-                <span className="px-2 py-1 rounded-sm dark:text-white text-dark-300 dark:bg-dark-300 bg-light-500">
-                  {category.name}
-                </span>
-                <span
-                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-white -top-2 -right-2 bg-primary"
-                  onClick={() => removeCategory(category.name)}
-                >
-                  x
-                </span>
-              </div>
-            ))}
-          </div>
-          <Select
-            label="Categories"
-            items={selectedCategories}
-            selectionMode="multiple"
-            placeholder="Select an category"
-            selectedKeys={selectedCategories}
-            className="w-full"
-            radius="sm"
-            onSelectionChange={setSelectedCategories}
-            renderValue={(items) => {
-              return (
-                <div className="flex flex-wrap gap-2">
-                  {items.map((item) => (
-                    <Chip key={item.name}>{item.name}</Chip>
-                  ))}
-                </div>
-              );
-            }}
-          >
-            {categories.map((animal) => (
-              <SelectItem key={animal.name} value={animal.name}>
-                {animal.name}
-              </SelectItem>
-            ))}
-          </Select>
-          <p className="text-small text-default-500">
-            Selected: {Array.from(selectedCategories).join(", ")}
-          </p>
-        </div> */}
-
         {/* categories */}
         <div className="w-full space-y-2">
           <label className="inline-block text-sm dark:text-white">
@@ -195,7 +143,7 @@ const LayoutCategories = ({
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
             onChange={handleCategoryChange}
           >
-            <option value="" disabled selected>
+            <option value="" disabled selected hidden>
               Select a category
             </option>
             {categories.map((category, i) => (
@@ -235,7 +183,7 @@ const LayoutCategories = ({
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
             onChange={handleTagChange}
           >
-            <option value="" disabled selected>
+            <option value="" disabled selected hidden>
               Select a tag
             </option>
             {tags.map((tag, i) => (

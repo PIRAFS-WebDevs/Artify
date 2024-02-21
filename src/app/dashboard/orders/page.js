@@ -1,4 +1,4 @@
-import Orders from "@/components/Dashboard/Admin/Orders/Orders";
+import Orders from "@/components/Dashboard/Orders/Orders";
 
 const ordersPage = () => {
   return (

@@ -1,4 +1,4 @@
-import LayoutUpload from "@/components/Dashboard/Admin/LayoutUpload/LayoutUpload";
+import LayoutUpload from "@/components/Dashboard/LayoutUpload/LayoutUpload";
 
 const UploadLayoutPage = () => {
   return (

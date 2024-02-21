@@ -1,4 +1,4 @@
-import ProductsUITable from "@/components/Dashboard/Admin/Products/ProductUITable";
+import ProductsUITable from "@/components/Dashboard/Products/ProductUITable";
 import SharedComp from "@/components/Shared/admin/SharedComp";
 
 const Products = () => {

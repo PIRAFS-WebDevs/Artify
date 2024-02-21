@@ -1,4 +1,4 @@
-import Users from "@/components/Dashboard/Admin/Users/Users";
+import Users from "@/components/Dashboard/Users/Users";
 
 const usersPage = () => {
   return (

@@ -1,4 +1,4 @@
-import ProductUpload from "@/components/Dashboard/Admin/ProductUpload/ProductUpload";
+import ProductUpload from "@/components/Dashboard/ProductUpload/ProductUpload";
 
 const ProductUploadPage = () => {
   return (

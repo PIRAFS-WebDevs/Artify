@@ -1,4 +1,4 @@
-import Reviews from "@/components/Dashboard/Admin/Reviews/Reviews";
+import Reviews from "@/components/Dashboard/Reviews/Reviews";
 
 const reviewsPage = () => {
   return (

@@ -1,4 +1,4 @@
-import LayoutUITable from "@/components/Dashboard/Admin/Layouts/LayoutUITable";
+import LayoutUITable from "@/components/Dashboard/Layouts/LayoutUITable";
 import SharedComp from "@/components/Shared/admin/SharedComp";
 
 const page = () => {

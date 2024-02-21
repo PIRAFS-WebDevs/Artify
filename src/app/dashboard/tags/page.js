@@ -1,4 +1,4 @@
-import TagsUITable from "@/components/Dashboard/Admin/Tags/TagsUITable";
+import TagsUITable from "@/components/Dashboard/Tags/TagsUITable";
 import SharedComp from "@/components/Shared/admin/SharedComp";
 
 const tagsPages = () => {

@@ -161,7 +161,7 @@ export default function ProductUITable() {
                 <DropdownItem>View</DropdownItem>
                 <DropdownItem
                   as={Link}
-                  href={`/dashboard/products/edit/${product._id}`}
+                  href={`/dashboard/products/upload?id=${product._id}`}
                 >
                   Edit
                 </DropdownItem>

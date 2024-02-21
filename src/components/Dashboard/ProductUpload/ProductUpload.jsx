@@ -1,30 +1,34 @@
 "use client";
 
-import FeatureImage from "@/components/Dashboard/Admin/ProductUpload/FeatureImage";
-import GalleryImages from "@/components/Dashboard/Admin/ProductUpload/GalleryImages";
-import SimpleProductInfo from "./SimpleProductInfo";
+import FeatureImage from "@/components/Dashboard/ProductUpload/FeatureImage";
+import GalleryImages from "@/components/Dashboard/ProductUpload/GalleryImages";
+import useAddProduct from "@/hooks/product/useAddProduct";
+import useUpdateProduct from "@/hooks/product/useUpdateProduct";
+import { getProductById } from "@/utils/api/product";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { ProductByid, saveProduct, updateProduct } from "@/utils/api/product";
-import Description from "./Description";
-import UploadButton from "./UploadButton";
-import { useRouter, useSearchParams } from "next/navigation";
-import LayoutCategories from "./LayoutCategories";
 import toast from "react-hot-toast";
+import Description from "./Description";
+import LayoutCategories from "./LayoutCategories";
+import SimpleProductInfo from "./SimpleProductInfo";
+import UploadButton from "./UploadButton";
 
 const ProductUpload = () => {
   const [singleProduct, setSingleProduct] = useState([]);
-
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const router = useRouter();
-
   const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
   const searchParams = useSearchParams();
   const updateId = searchParams.get("id");
-  console.log("singleProduct:", singleProduct);
-  console.log("selectedCategories:", selectedCategories);
+  const router = useRouter();
+
+  const { mutateAsync: addProduct, isSuccess } = useAddProduct();
+  const { mutateAsync: updateProduct, isSuccess: isUpdateSuccess } =
+    useUpdateProduct();
+
   const {
     register,
     setValue,
@@ -50,11 +54,14 @@ const ProductUpload = () => {
         setSingleProduct([]);
       }
       if (updateId) {
-        const product = await ProductByid(updateId);
-        setSingleProduct(product);
+        const response = await getProductById(updateId);
+        response.success
+          ? setSingleProduct(response.data)
+          : setSingleProduct([]);
       }
     })();
   }, [updateId]);
+
   const formHandler = (data) => {
     const productData = {
       images: [featuredImage, ...galleryImage],
@@ -62,17 +69,18 @@ const ProductUpload = () => {
       tags: selectedTags,
       ...data,
     };
+
     if (updateId) {
-      const res = updateProduct(productData, updateId);
-      if (res.data.success) {
-        toast.success("Product was successfully updated");
-        router.replace("/dashboard/admin/products");
+      updateProduct(updateId, productData);
+      if (isUpdateSuccess) {
+        toast.success("Product updated successfully");
+        router.replace("/dashboard/products");
       }
     } else {
-      const res = saveProduct(productData);
-      if (res.data.success) {
-        toast.success("product was successfully upload");
-        router.replace("/dashboard/admin/products");
+      addProduct(productData);
+      if (isSuccess) {
+        toast.success("product added successfully");
+        router.replace("/dashboard/products");
       }
     }
   };

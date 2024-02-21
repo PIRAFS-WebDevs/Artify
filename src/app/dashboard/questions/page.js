@@ -1,4 +1,4 @@
-import Questions from "@/components/Dashboard/Admin/Questions/Questions";
+import Questions from "@/components/Dashboard/Questions/Questions";
 
 const page = () => {
   return (

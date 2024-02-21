@@ -1,4 +1,4 @@
-import TagUpload from "@/components/Dashboard/Admin/TagUpload/TagUpload";
+import TagUpload from "@/components/Dashboard/TagUpload/TagUpload";
 
 const TagUploadPage = () => {
   return (

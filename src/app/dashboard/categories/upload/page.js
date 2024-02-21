@@ -1,4 +1,4 @@
-import CategoryUpload from "@/components/Dashboard/Admin/CategoryUpload/CategoryUpload";
+import CategoryUpload from "@/components/Dashboard/CategoryUpload/CategoryUpload";
 
 const CategoryUploadPage = () => {
   return (
