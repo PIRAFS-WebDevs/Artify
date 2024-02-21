@@ -1,4 +1,4 @@
-import api from "../axios";
+import api, { instance } from "../axios";
 
 // save category into database
 export const saveCategory = async (data) => {
@@ -20,16 +20,16 @@ export const updateCategory = async (data, id) => {
   }
 };
 
-// get category into database
-export const getCategory = async () => {
+// get all the categories from db
+export const getCategories = async () => {
   try {
-    const res = await api.get("/admin/category/all-category");
-    console.log(res);
+    const res = await instance.get("/categories");
     return res.data.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };
+
 export const getCategoryById = async (id) => {
   try {
     const res = await api.get(`/admin/layout/Single-category/${id}`);

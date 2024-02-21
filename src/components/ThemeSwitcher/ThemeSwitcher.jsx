@@ -1,11 +1,10 @@
-// app/components/ThemeSwitcher.tsx
 "use client";
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-import { FaMoon } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs";
+import { FaMoon } from "react-icons/fa";
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);

@@ -1,7 +1,6 @@
 "use client";
 
 import app from "@/config/firebaseConfig";
-import AuthContext from "@/context/AuthContext";
 import { saveUser } from "@/utils/api/user";
 import {
   GoogleAuthProvider,
@@ -15,9 +14,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
 
         reset();
         router.push("/");
-        saveUser(data);
+        await saveUser(data);
         setLoading(false);
         toast.success("User registered successfully");
       }
@@ -98,11 +98,10 @@ const AuthProvider = ({ children }) => {
         photoURL: userCredential.user.photoURL,
       };
 
-      saveUser(data);
+      await saveUser(data);
       router.push("/");
       toast.success("Google signed in successfully");
     } catch (error) {
-      // toast.error("Google sign in failed");
       console.error(error.message);
     }
   };

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { useForm } from "react-hook-form";
 
 const ContactFrom = () => {
@@ -11,13 +11,13 @@ const ContactFrom = () => {
   } = useForm();
 
   return (
-    <div className=" xl:w-[60%] w-full p-10 text-xs ">
-      <form className="flex flex-col lg:gap-4  gap-2">
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+    <div className=" xl:w-[60%] w-full px-4 py-8 text-xs">
+      <form className="flex flex-col gap-2 lg:gap-4">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div>
             <label
               htmlFor="name"
-              className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
+              className="inline-block mb-2 text-sm dark:text-dark-100 sm:text-sm"
             >
               Name
             </label>
@@ -28,10 +28,10 @@ const ContactFrom = () => {
               id="name"
               className={`w-full rounded-sm border ${
                 errors.name && "border-red-400 focus:border-red-400"
-              } focus:border-primary bg-transparent border-dark-200 px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
+              } focus:border-primary bg-transparent dark:border-dark-200 border-light-500 px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
             />
             {errors.name && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="mt-1 text-sm text-red-400">
                 *{errors.name.message}
               </p>
             )}
@@ -39,7 +39,7 @@ const ContactFrom = () => {
           <div>
             <label
               htmlFor="email"
-              className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
+              className="inline-block mb-2 text-sm dark:text-dark-100 sm:text-sm"
             >
               Email
             </label>
@@ -55,10 +55,10 @@ const ContactFrom = () => {
               type="email"
               className={`w-full ${
                 errors.email && "border-red-400 focus:border-red-400"
-              } rounded-sm border focus:border-primary  border-dark-200 bg-transparent px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
+              } rounded-sm border focus:border-primary  dark:border-dark-200 border-light-500 bg-transparent px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
             />
             {errors.email && (
-              <p className="text-red-400 text-sm mt-1">
+              <p className="mt-1 text-sm text-red-400">
                 *{errors.email.message}
               </p>
             )}
@@ -67,7 +67,7 @@ const ContactFrom = () => {
         <div>
           <label
             htmlFor="subject"
-            className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
+            className="inline-block mb-2 text-sm dark:text-dark-100 sm:text-sm"
           >
             Subject
           </label>
@@ -79,10 +79,10 @@ const ContactFrom = () => {
             type="subject"
             className={`w-full ${
               errors.subject && "border-red-400 focus:border-red-400"
-            } rounded-sm border border-dark-200 focus:border-primary bg-transparent px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
+            } rounded-sm border dark:border-dark-200 border-light-500 focus:border-primary bg-transparent px-3 lg:py-4 py-3 dark:text-dark-100 outline-none transition duration-100`}
           />
           {errors.subject && (
-            <p className="text-red-400 text-sm mt-1">
+            <p className="mt-1 text-sm text-red-400">
               *{errors.subject.message}
             </p>
           )}
@@ -90,7 +90,7 @@ const ContactFrom = () => {
         <div>
           <label
             htmlFor="message"
-            className="mb-2 inline-block text-sm dark:text-dark-100 sm:text-sm"
+            className="inline-block mb-2 text-sm dark:text-dark-100 sm:text-sm"
           >
             Message
           </label>
@@ -103,10 +103,10 @@ const ContactFrom = () => {
             type=""
             className={`w-full ${
               errors.message && "border-red-400 focus:border-red-400"
-            } rounded-sm border focus:border-primary border-dark-200 bg-transparent px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
+            } rounded-sm border focus:border-primary dark:border-dark-200 border-light-500 bg-transparent px-3 py-4 dark:text-dark-100 outline-none transition duration-100`}
           />
           {errors.message && (
-            <p className="text-red-400 text-sm mt-1">
+            <p className="mt-1 text-sm text-red-400">
               *{errors.message.message}
             </p>
           )}
@@ -114,7 +114,7 @@ const ContactFrom = () => {
         <div>
           <button
             type="submit"
-            className="block rounded-sm bg-primary px-5 py-3 text-center text-sm font-semibold dark:text-white outline-none transition-all duration-100 hover:bg-primarySec md:text-sm active:scale-95"
+            className="block px-5 py-3 text-sm font-semibold text-center transition-all duration-100 rounded-sm outline-none bg-primary hover:bg-primarySec md:text-sm active:scale-95"
           >
             Contact us
           </button>

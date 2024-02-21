@@ -1,16 +1,13 @@
 "use client";
 
-import AuthContext from "@/context/AuthContext";
-import Link from "next/link";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
+import { useAuthContext } from "@/hooks/useAuthContext";
 import { Spinner } from "@nextui-org/react";
-
-// icons
+import Link from "next/link";
+import { useForm } from "react-hook-form";
 import SocialButton from "./SocialButton";
 
 const RegisterForm = () => {
-  const { registerUser, loading } = useContext(AuthContext);
+  const { registerUser, loading } = useAuthContext();
 
   const {
     register,
@@ -62,8 +59,9 @@ const RegisterForm = () => {
                 })}
                 id="first-name"
                 className={`w-full rounded-sm border dark:border-dark-300 border-light-500 ${
-                  errors.firstName && "border-red-400 focus:border-red-400"
-                } focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+                  errors.firstName &&
+                  "border-red-400 focus:outline-1 focus:outline-red-400"
+                } focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
               />
               {errors.firstName && (
                 <p className="mt-1 text-sm text-red-400">
@@ -81,7 +79,7 @@ const RegisterForm = () => {
               <input
                 {...register("lastName")}
                 id="last-name"
-                className={`w-full rounded-sm border dark:border-dark-300 border-light-500 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+                className={`w-full rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
               />
             </div>
           </div>
@@ -103,8 +101,9 @@ const RegisterForm = () => {
               id="email"
               type="email"
               className={`w-full ${
-                errors.email && "border-red-400 focus:border-red-400"
-              } rounded-sm border dark:border-dark-300 border-light-500 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+                errors.email &&
+                "border-red-400 focus:outline-1 focus:outline-red-400"
+              } rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
             />
             {errors.email && (
               <p className="mt-1 text-sm text-red-400">
@@ -130,8 +129,9 @@ const RegisterForm = () => {
               id="password"
               type="password"
               className={`w-full ${
-                errors.password && "border-red-400 focus:border-red-400"
-              } rounded-sm border dark:border-dark-300 border-light-500 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+                errors.password &&
+                "border-red-400 focus:outline-1 focus:outline-red-400"
+              } rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
             />
             {errors.password && (
               <p className="mt-1 text-sm text-red-400">
@@ -150,14 +150,14 @@ const RegisterForm = () => {
 
       <div className="flex items-center justify-center p-4 bg-transparent border-t dark:border-dark-300 border-light-500">
         <p className="text-sm text-center dark:text-white">
-          By creating an account with WareSun, you agree to our{" "}
+          By creating an account with Artify, you agree to our
           <Link
             href="/"
             className="transition duration-100 text-primary hover:primarySec active:text-primary"
           >
             Terms & Conditions
-          </Link>{" "}
-          and our{" "}
+          </Link>
+          and our
           <Link
             href="/"
             className="transition duration-100 text-primary hover:primarySec active:text-primary"

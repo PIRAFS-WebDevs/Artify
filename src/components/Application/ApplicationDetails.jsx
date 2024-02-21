@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { AiOutlineFile, AiOutlineHome } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 
@@ -13,7 +12,8 @@ const ApplicationDetails = () => {
             Async Await Why Confusing?
           </h1>
           <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm dark:text-dark-100 text-dark-200">
-            <AiOutlineHome /> / <Link href={"#"}>API Questions</Link> /{" "}
+            <AiOutlineHome /> /
+            <Link href={"/application/1"}>API Questions</Link>
             <span>Async Await Why Confusing?</span>
           </div>
         </div>
@@ -22,7 +22,6 @@ const ApplicationDetails = () => {
       <div className="flex flex-wrap items-center gap-4 py-4 text-xs font-medium md:text-sm text-dark-300 dark:text-dark-100 border-y border-dark-100 dark:border-dark-300">
         <p>August 18, 2043</p>
         <p className="flex items-center gap-2">
-          {" "}
           <BiUserCircle /> Chis Morry
         </p>
         <p>API Question</p>

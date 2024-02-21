@@ -1,9 +1,7 @@
-import AuthContext from "@/context/AuthContext";
-import { useContext } from "react";
-import { BsFacebook } from "react-icons/bs";
+import { useAuthContext } from "@/hooks/useAuthContext";
 
 const SocialButton = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn } = useAuthContext();
 
   return (
     <>

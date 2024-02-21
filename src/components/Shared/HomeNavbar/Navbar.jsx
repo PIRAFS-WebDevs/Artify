@@ -1,57 +1,76 @@
 "use client";
 
-import Link from "next/link";
-import LoginButton from "./LoginButton";
-import Image from "next/image";
-import { useContext } from "react";
-import AllStateContext from "@/context/AllStateContext";
-import AuthContext from "@/context/AuthContext";
-import UserDropdown from "./UserDropdown";
-import MobileNavbar from "./MobileNavbar";
-import SearchModal from "@/components/Home/SearchModal/SearchModal";
-import Cart from "@/components/Home/Cart/Cart";
-
 // icons
-import { AiOutlineMenu, AiOutlineSearch, AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { FaShoppingBag } from "react-icons/fa";
 import { HiOutlineMenu, HiOutlineMenuAlt1 } from "react-icons/hi";
+
+import Cart from "@/components/Home/Cart/Cart";
+import SearchModal from "@/components/Home/SearchModal/SearchModal";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher/ThemeSwitcher";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
+import { useAuthContext } from "@/hooks/useAuthContext";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import LoginButton from "./LoginButton";
+import MobileNavbar from "./MobileNavbar";
+import UserDropdown from "./UserDropdown";
 
 const Navbar = () => {
+  const [searchModal, setSearchModal] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+
   const {
-    sideBarOpen,
-    setSideBarOpen,
-    searchShow,
-    setSearchShow,
+    sidebarOpen,
+    setSidebarOpen,
+    setSearchValue,
     mobileView,
     setMobileView,
-    cartOpen,
-    setCartOpen,
-    totalCartItem,
-  } = useContext(AllStateContext);
+  } = useAllValueContext();
+  const { user, logout } = useAuthContext();
+  const pathname = usePathname();
 
-  const { user, logout } = useContext(AuthContext);
+  const hideNavbarRoutes = [
+    "/register",
+    "/about-us",
+    "/help",
+    "/licensing",
+    "/privacy",
+    "/terms",
+    "/profile",
+    "/password",
+    "/profile",
+    "/purchase",
+    "/question",
+    "/wishlist",
+  ];
 
   return (
     <nav className="inset-x-0 -top-[.1px] z-50 bg-white sticky dark:bg-dark-400 text-dark-100">
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center md:gap-6">
           {/* menu button */}
-          <button
-            onClick={() => setSideBarOpen(!sideBarOpen)}
-            className="hidden cursor-pointer hover:text-light-500 dark:hover:text-white md:block"
-          >
-            {sideBarOpen ? (
-              <HiOutlineMenu size={"1.5rem"} />
-            ) : (
-              <HiOutlineMenuAlt1 size={"1.5rem"} />
-            )}
-          </button>
+          {!hideNavbarRoutes.includes(pathname) ? (
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className={`hidden cursor-pointer hover:text-light-500 dark:hover:text-white md:block`}
+            >
+              {sidebarOpen ? (
+                <HiOutlineMenu size={"1.5rem"} />
+              ) : (
+                <HiOutlineMenuAlt1 size={"1.5rem"} />
+              )}
+            </button>
+          ) : (
+            <></>
+          )}
 
           {/* logo */}
           <Link href={"/"} className="flex h-16 ">
             <Image
-              src="/assets/logo/waresun.png"
+              src="/assets/logo/artify.png"
               height={100}
               width={100}
               priority={true}
@@ -63,7 +82,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-6 md:gap-10">
           {/* search button */}
-          <button onClick={() => setSearchShow(true)}>
+          <button onClick={() => setSearchModal(true)}>
             <AiOutlineSearch
               size={"1.5rem"}
               className="hidden cursor-pointer md:block hover:text-light-500 dark:hover:text-white"
@@ -71,7 +90,11 @@ const Navbar = () => {
           </button>
 
           {/* search modal */}
-          <SearchModal searchShow={searchShow} setSearchShow={setSearchShow} />
+          <SearchModal
+            searchModal={searchModal}
+            setSearchModal={setSearchModal}
+            setSearchValue={setSearchValue}
+          />
 
           {/* theme button */}
           <ThemeSwitcher />
@@ -84,12 +107,13 @@ const Navbar = () => {
                 className="hover:text-light-500 dark:hover:text-white"
               />
               <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
-                <span>{totalCartItem?.length}</span>
+                <span>{0}</span>
               </span>
             </button>
           </div>
+
           {/* cart sidebar */}
-          <Cart />
+          <Cart cartOpen={cartOpen} setCartOpen={setCartOpen} />
 
           {/* dashboard button */}
           {!user ? (
@@ -101,7 +125,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <Link
-              href={"/dashboard/admin"}
+              href={"/dashboard"}
               className="hidden px-5 py-1.5 text-sm font-semibold text-white transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
@@ -120,7 +144,7 @@ const Navbar = () => {
       {/* mobile nav */}
       <div
         className={`fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400 bg-white ${
-          (cartOpen || searchShow) && "hidden"
+          (cartOpen || searchModal) && "hidden"
         }`}
       >
         <AiFillHome
@@ -128,7 +152,7 @@ const Navbar = () => {
           className="hover:text-light-500 dark:hover:text-white"
         />
         <AiOutlineSearch
-          onClick={() => setSearchShow(true)}
+          onClick={() => setSearchModal(true)}
           size={"1.5rem"}
           className="hover:text-light-500 dark:hover:text-white"
         />
@@ -140,7 +164,7 @@ const Navbar = () => {
           >
             <FaShoppingBag size={"1.2rem"} />
             <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
-              <span>{totalCartItem?.length}</span>
+              <span>{0}</span>
             </span>
           </button>
         </div>

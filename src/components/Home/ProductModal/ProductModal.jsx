@@ -1,4 +1,4 @@
-import { motion as m, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import ProductDetails from "./ProductDetails";
 
 const ProductModal = ({ showProductModal, setShowProductModal }) => {

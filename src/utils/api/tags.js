@@ -4,7 +4,6 @@ import api from "../axios";
 export const saveTag = async (data) => {
   try {
     const res = await api.post("/admin/tags/create-tags", data);
-    console.log(res);
     return res;
   } catch (error) {
     console.error(error.message);
@@ -13,7 +12,6 @@ export const saveTag = async (data) => {
 export const updateTag = async (data, id) => {
   try {
     const res = await api.patch(`/admin/tags/tags-update/${id}`, data);
-    console.log(res);
     return res;
   } catch (error) {
     console.error(error.message);
@@ -24,7 +22,6 @@ export const updateTag = async (data, id) => {
 export const getTags = async () => {
   try {
     const res = await api.get("/admin/tags/all-tags");
-    console.log(res);
     return res.data.data;
   } catch (error) {
     console.error(error.message);

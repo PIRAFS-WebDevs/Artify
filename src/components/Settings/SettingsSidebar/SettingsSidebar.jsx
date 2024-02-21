@@ -1,16 +1,15 @@
 "use client";
 
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
+import { useAuthContext } from "@/hooks/useAuthContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SettingsDropdown from "./SettingsDropdown";
 import { BiLogOut } from "react-icons/bi";
-import { useContext } from "react";
-import AuthContext from "@/context/AuthContext";
+import SettingsDropdown from "./SettingsDropdown";
 
 const SettingsSidebar = () => {
   const pathname = usePathname();
-  const { logout } = useContext(AuthContext);
+  const { logout } = useAuthContext();
 
   return (
     <div className="w-full md:w-[280px] md:border-r dark:border-dark-200">

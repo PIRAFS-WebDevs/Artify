@@ -1,12 +1,12 @@
 "use client";
 
-import AllProductContext from "@/context/AllProductContext";
 import SingleProductContext from "@/context/SingleProductContext";
-import { useContext, useState } from "react";
+import { useProducts } from "@/hooks/product/useProducts";
+import { useState } from "react";
 
 const SingleProductProvider = ({ children }) => {
   const [productId, setProductId] = useState(null);
-  const { products } = useContext(AllProductContext);
+  const { data: products } = useProducts();
 
   const singleProduct = () => {
     const data = products?.find((product) => product?._id === productId);

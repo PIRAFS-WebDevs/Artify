@@ -1,42 +1,34 @@
 "use client";
 
+import { useCategories } from "@/hooks/category/useCategories";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
+import { Skeleton } from "@nextui-org/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "./SplideArrow.css";
-import { getCategory } from "@/utils/api/category";
-import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import AllProductContext from "@/context/AllProductContext";
-import { Skeleton } from "@nextui-org/react";
 
 const CategorySplide = () => {
-  const { category, setCategory } = useContext(AllProductContext);
-
-  const {
-    data: categories = [],
-    isLoading,
-    refetch,
-    isError,
-  } = useQuery({
-    queryKey: ["categories"],
-    queryFn: () => getCategory(),
-  });
+  const { searchValue: category, setSearchValue: setCategory } =
+    useAllValueContext();
+  const { categories, isLoading } = useCategories();
 
   return (
     <div
-      className="sticky inset-x-0 z-40 dark:bg-dark-500 bg-light-200 top-[63.9px] border-y dark:border-dark-400 border-light-300"
       id="category"
+      className="sticky inset-x-0 z-40 dark:bg-dark-500 bg-light-200 top-[63.9px] border-y dark:border-dark-400 border-light-300"
     >
-      <div className="relative px-6 py-6 ">
+      <div className="relative px-6 py-4">
         <div className="mx-2">
           {isLoading ? (
-            <div className="flex gap-4 ">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
-                <Skeleton
-                  key={e}
-                  className="h-8 bg-gray-300 rounded-full w-28"
-                ></Skeleton>
-              ))}
+            <div className="overflow-hidden overflow-y-auto">
+              <div className="flex gap-4">
+                {Array.from({ length: 15 }).map((_, index) => (
+                  <Skeleton
+                    key={index}
+                    className="h-8 bg-gray-300 rounded-full min-w-[4rem] md:min-w-[6rem]"
+                  />
+                ))}
+              </div>
             </div>
           ) : (
             <Splide

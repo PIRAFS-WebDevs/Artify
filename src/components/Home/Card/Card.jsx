@@ -1,19 +1,19 @@
 "use client";
 
+import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
 import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
+import AllStateContext from "@/context/AllStateContext";
+import { useProducts } from "@/hooks/product/useProducts";
+import { AddToCart, GetDataCart } from "@/utils/addToCart/AddToCart";
+import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
-import AllProductContext from "@/context/AllProductContext";
-import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
-import { FaShoppingCart } from "react-icons/fa";
-import AllStateContext from "@/context/AllStateContext";
-import { AddToCart, GetDataCart } from "@/utils/addToCart/AddToCart";
 import toast from "react-hot-toast";
-import Image from "next/image";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Card = () => {
-  const { products, isLoading } = useContext(AllProductContext);
+  const { data: products, isLoading } = useProducts();
   const { setCartUpdated } = useContext(AllStateContext);
 
   const handleCart = async (cart, _id) => {
@@ -88,7 +88,7 @@ const Card = () => {
                   <h1 className="line-clamp-1 text-dark-500 dark:text-white">
                     {product?.name}
                   </h1>
-                  <div className="flex items-end justify-between gap-2">
+                  <div className="flex items-end justify-between gap-1">
                     <div className="space-y-1">
                       <div className="flex gap-1">
                         <p className="text-xs line-through text-dark-500 dark:text-white">

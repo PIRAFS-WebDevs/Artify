@@ -1,22 +1,21 @@
 "use client";
 
+import AllProductProvider from "./AllProductProvider";
 import AllStateProvider from "./AllStateProvider";
+import AllValueProvider from "./AllValueProvider";
 import AuthProvider from "./AuthProvider";
 import SingleProductProvider from "./SingleProductProvider";
-import AllProductProvider from "./AllProductProvider";
-import NextUIProviders, { NextThemeProvider } from "./NextThemeProviders";
 
 const Providers = ({ children }) => {
   return (
     <AuthProvider>
-      <AllStateProvider>
-        <AllProductProvider>
-          <SingleProductProvider>
-            {/* <NextThemeProvider>{children}</NextThemeProvider> */}
-            {children}
-          </SingleProductProvider>
-        </AllProductProvider>
-      </AllStateProvider>
+      <AllValueProvider>
+        <AllStateProvider>
+          <AllProductProvider>
+            <SingleProductProvider>{children}</SingleProductProvider>
+          </AllProductProvider>
+        </AllStateProvider>
+      </AllValueProvider>
     </AuthProvider>
   );
 };

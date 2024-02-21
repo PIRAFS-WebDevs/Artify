@@ -1,12 +1,8 @@
-import { motion as m, AnimatePresence } from "framer-motion";
-import AllStateContext from "@/context/AllStateContext";
-import React, { useContext } from "react";
-import CartItems from "./CartItems";
+import { AnimatePresence, motion as m } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
+import CartItems from "./CartItems";
 
-const Cart = () => {
-  const { cartOpen, setCartOpen } = useContext(AllStateContext);
-
+const Cart = ({ cartOpen, setCartOpen }) => {
   return (
     <AnimatePresence>
       {cartOpen && (

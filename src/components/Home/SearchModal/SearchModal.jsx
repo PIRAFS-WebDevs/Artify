@@ -1,26 +1,16 @@
-import { motion as m, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
-import SearchCard from "../Card/SearchCard";
-import { getProducts } from "@/utils/api/product";
-import { useQuery } from "@tanstack/react-query";
+import Card from "../Card/Card";
 
-const SearchModal = ({ searchShow, setSearchShow }) => {
-  const [searchText, setSearchText] = useState(null);
-
-  const {
-    data: products = [],
-    isLoading,
-    refetch,
-    isError,
-  } = useQuery({
-    queryKey: ["products", searchText],
-    queryFn: async () => await getProducts(searchText),
-  });
+const SearchModal = ({ searchModal, setSearchModal, setSearchValue }) => {
+  const handleClose = () => {
+    setSearchModal(false);
+    setSearchValue("");
+  };
 
   return (
     <AnimatePresence>
-      {searchShow && (
+      {searchModal && (
         <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -43,15 +33,13 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
             <div className="px-6 pt-6">
               <div className="grid w-full h-8 -mt-4 text-xl place-items-end">
                 <AiOutlineClose
-                  onClick={() => {
-                    setSearchShow(false), setSearchText(null);
-                  }}
+                  onClick={() => handleClose()}
                   className="inline-block cursor-pointer text-dark-100 dark:hover:text-white hover:text-light-500"
                 />
               </div>
               <div className="w-full pb-4 border-b border-dark-200 focus:border-dark-100">
                 <input
-                  onChange={(e) => setSearchText(e.target.value)}
+                  onChange={(e) => setSearchValue(e.target.value)}
                   autoFocus
                   type="text"
                   placeholder="Type anything to search..."
@@ -60,7 +48,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
               </div>
             </div>
 
-            <SearchCard products={products} isLoading={isLoading} />
+            <Card />
           </m.div>
         </m.div>
       )}

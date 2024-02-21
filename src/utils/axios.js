@@ -1,8 +1,11 @@
 import axios from "axios";
 
 // Set config defaults when creating the instance
+export const instance = axios.create({
+  baseURL: `http://localhost:5000/api/v1/auth`,
+});
+
 const api = axios.create({
-  // baseURL: "http://localhost:5000/api/v1/auth",
   baseURL: `${process.env.NEXT_PUBLIC_BaseUrl}`,
 });
 
@@ -10,9 +13,6 @@ const api = axios.create({
 axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
-    config.headers["content-type"] = "application/json";
-    config.headers.Authorization = `Bearer ${localStorage.getItem("Token")}`;
-
     return config;
   },
   function (error) {

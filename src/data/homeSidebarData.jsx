@@ -1,10 +1,10 @@
 // icons
-import { AiFillHome, AiFillLike, AiFillAppstore } from "react-icons/ai";
-import { MdExplore, MdFeedback } from "react-icons/md";
-import { BsBoxFill, BsChatLeftTextFill } from "react-icons/bs";
+import { AiFillAppstore, AiFillHome, AiFillLike } from "react-icons/ai";
 import { BiSolidUserDetail } from "react-icons/bi";
-import { FaOpencart, FaCode } from "react-icons/fa";
+import { BsBoxFill } from "react-icons/bs";
+import { FaCode, FaOpencart } from "react-icons/fa";
 import { IoMdHelp } from "react-icons/io";
+import { MdExplore } from "react-icons/md";
 
 const homeSidebarData = [
   {
@@ -43,19 +43,9 @@ const homeSidebarData = [
     icon: <AiFillLike />,
   },
   {
-    title: "Feed",
-    path: "/feed",
-    icon: <MdFeedback />,
-  },
-  {
     title: "Contact",
     path: "/contact",
     icon: <BiSolidUserDetail />,
-  },
-  {
-    title: "Chat",
-    path: "/chat",
-    icon: <BsChatLeftTextFill />,
   },
   {
     title: "Help",

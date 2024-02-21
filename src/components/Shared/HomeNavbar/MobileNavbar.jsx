@@ -1,9 +1,9 @@
 import homeSidebarData from "@/data/homeSidebarData";
-import HomeSidebarLink from "../Sidebar/Sidebar/SidebarLink";
-import { motion as m, AnimatePresence } from "framer-motion";
-import { AiOutlineClose } from "react-icons/ai";
-import Link from "next/link";
+import { AnimatePresence, motion as m } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { AiOutlineClose } from "react-icons/ai";
+import HomeSidebarLink from "../Sidebar/SidebarLink";
 
 const MobileNavbar = ({ mobileView, setMobileView }) => {
   return (
@@ -32,7 +32,7 @@ const MobileNavbar = ({ mobileView, setMobileView }) => {
               {/* logo */}
               <Link href={"/"}>
                 <Image
-                  src="/assets/logo/waresun.png"
+                  src="/assets/logo/artify.png"
                   height={100}
                   width={100}
                   priority={true}

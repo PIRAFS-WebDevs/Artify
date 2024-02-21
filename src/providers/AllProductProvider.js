@@ -1,15 +1,10 @@
 "use client";
 
 import AllProductContext from "@/context/AllProductContext";
-import {
-  ProductByid,
-  delAnyItem,
-  getProductById,
-  getProducts,
-} from "@/utils/api/product";
+import { ProductByid, delAnyItem, getProducts } from "@/utils/api/product";
 import { useQuery } from "@tanstack/react-query";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const AllProductProvider = ({ children }) => {
