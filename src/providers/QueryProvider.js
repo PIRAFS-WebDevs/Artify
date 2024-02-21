@@ -6,6 +6,7 @@ const QueryProvider = ({ children }) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
+        staleTime: Infinity,
         refetchOnWindowFocus: false,
       },
     },

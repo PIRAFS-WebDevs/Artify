@@ -5,14 +5,11 @@ import { useAllValueContext } from "../useAllValueContext";
 export const useProducts = () => {
   const { searchValue } = useAllValueContext();
 
-  const {
-    data: products = [],
-    isLoading,
-    isError,
-  } = useQuery({
+  return useQuery({
     queryKey: ["products", searchValue],
-    queryFn: () => getProducts(`${searchValue}`),
+    queryFn: async () => {
+      const response = await getProducts(`${searchValue}`);
+      return response.success ? response.data : [];
+    },
   });
-
-  return { products, isLoading, isError };
 };

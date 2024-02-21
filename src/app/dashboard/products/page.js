@@ -1,13 +1,13 @@
 import ProductsUITable from "@/components/Dashboard/Admin/Products/ProductUITable";
 import SharedComp from "@/components/Shared/admin/SharedComp";
 
-const Products = async () => {
+const Products = () => {
   return (
     <>
       <SharedComp
         type={"Products"}
         AddType={"Add Product"}
-        link={"/dashboard/admin/products/upload"}
+        link={"/dashboard/products/upload"}
       />
       <ProductsUITable />
     </>

@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Card = () => {
-  const { products, isLoading } = useProducts();
+  const { data: products, isLoading } = useProducts();
   const { setCartUpdated } = useContext(AllStateContext);
 
   const handleCart = async (cart, _id) => {

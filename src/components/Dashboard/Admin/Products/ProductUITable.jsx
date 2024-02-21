@@ -1,30 +1,30 @@
 "use client";
 
-import React, { useCallback, useContext, useMemo, useState } from "react";
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Input,
-  Button,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  Chip,
-  User,
-  Pagination,
-} from "@nextui-org/react";
 import AllProductContext from "@/context/AllProductContext";
+import { useProducts } from "@/hooks/product/useProducts";
+import useRemoveProduct from "@/hooks/product/useRemoveProduct";
+import {
+  Button,
+  Chip,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Input,
+  Pagination,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
+  User,
+} from "@nextui-org/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback, useContext, useMemo, useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
-import { PiVanLight } from "react-icons/pi";
-import { delAnyItem } from "@/utils/api/product";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
 
 const INITIAL_VISIBLE_COLUMNS = [
   "name",
@@ -35,7 +35,11 @@ const INITIAL_VISIBLE_COLUMNS = [
 ];
 
 export default function ProductUITable() {
-  const { products, refetch, handelAction } = useContext(AllProductContext);
+  const { data: products = [], refetch, isLoading } = useProducts();
+
+  const { handelAction } = useContext(AllProductContext);
+
+  const { mutateAsync: removeProduct } = useRemoveProduct();
 
   const [filterValue, setFilterValue] = useState("");
   const [selectedKeys, setSelectedKeys] = useState(new Set([]));
@@ -73,29 +77,6 @@ export default function ProductUITable() {
       Array.from(visibleColumns).includes(column.uid)
     );
   }, [visibleColumns]);
-  //  action fuction
-
-  /*  */
-  /* const handelAction = async (value, id, api, title, viewUrl, editUrl) => {
-    if (value === "delete") {
-      if (id) {
-        const deleteItems = await delAnyItem(id, api);
-        if (deleteItems?.status === 200) {
-          toast.success(`${title} is deleted`);
-          refetch;
-          router.refresh();
-        } else {
-          toast.error(`Have some problem to deleted ${title}`);
-        }
-      }
-    }
-    if (value === "view") {
-      router.replace(`${viewUrl}${id}`);
-    }
-    if (value === "edit") {
-      router.replace(`${editUrl}?id=${id}`);
-    }
-  }; */
 
   const filteredItems = useMemo(() => {
     let filteredProducts = [...products];
@@ -177,46 +158,14 @@ export default function ProductUITable() {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
+                <DropdownItem>View</DropdownItem>
                 <DropdownItem
-                  onClick={() =>
-                    handelAction(
-                      "view",
-                      product._id,
-                      "/admin/product/product-delate/",
-                      "product",
-                      "/products/",
-                      "/dashboard/admin/products/upload"
-                    )
-                  }
-                >
-                  View
-                </DropdownItem>
-                <DropdownItem
-                  onClick={() =>
-                    handelAction(
-                      "edit",
-                      product._id,
-                      "/admin/product/product-delate/",
-                      "product",
-                      "/products/",
-                      "/dashboard/admin/products/upload"
-                    )
-                  }
+                  as={Link}
+                  href={`/dashboard/products/edit/${product._id}`}
                 >
                   Edit
                 </DropdownItem>
-                <DropdownItem
-                  onClick={() =>
-                    handelAction(
-                      "delete",
-                      product._id,
-                      "/admin/product/product-delate/",
-                      "product",
-                      "/products/",
-                      "/dashboard/admin/products/upload/"
-                    )
-                  }
-                >
+                <DropdownItem onClick={() => removeProduct(product._id)}>
                   Delete
                 </DropdownItem>
               </DropdownMenu>
@@ -270,7 +219,6 @@ export default function ProductUITable() {
             startContent={<FaSearch />}
             value={filterValue}
             onClear={() => onClear()}
-            // onChange={(e) => setCategory(e.target.value)}
             onValueChange={onSearchChange}
           />
           <Dropdown>
@@ -394,7 +342,12 @@ export default function ProductUITable() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No products found"} items={sortedItems}>
+      <TableBody
+        isLoading={isLoading}
+        loadingContent={"Loading..."}
+        emptyContent={"No product found"}
+        items={sortedItems}
+      >
         {(item) => (
           <TableRow key={item._id}>
             {(columnKey) => (
