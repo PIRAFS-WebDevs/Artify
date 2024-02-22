@@ -1,11 +1,10 @@
-import React from "react";
 import Qna from "./Qna";
 
 const Help = () => {
   return (
     <>
-      <section className="my-16  text-sm dark:text-dark-100">
-        <div className="text-center mb-10">
+      <section className="my-16 text-sm dark:text-dark-100">
+        <div className="mb-10 text-center">
           <h4 className="text-2xl font-semibold dark:dark:text-white">Help</h4>
           <p className="dark:text-dark-100">Frequentlydsdss asked question</p>
         </div>
@@ -21,9 +20,9 @@ const Help = () => {
               Privacy Policy
             </p>
           </div>
-          <>
-            <Qna></Qna>
-          </>
+          <div>
+            <Qna />
+          </div>
         </section>
       </section>
     </>

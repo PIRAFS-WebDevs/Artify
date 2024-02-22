@@ -45,7 +45,7 @@ const ProductInfo = ({
         </p>
         <p className="flex items-center gap-2">
           <BiSolidDownload className="w-4 h-4" />
-          <span>45 Downloads</span>
+          <span>365 Downloads</span>
         </p>
       </div>
 
@@ -55,7 +55,7 @@ const ProductInfo = ({
             <HiOutlineRefresh className="w-4 h-4" />
             Last Update:
           </p>{" "}
-          <p>{updatedAt?.slice(0, 10)}</p>
+          <p className="font-medium">{updatedAt?.slice(0, 10)}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
@@ -63,7 +63,7 @@ const ProductInfo = ({
             <BiCalendar className="w-4 h-4" />
             Published:
           </p>{" "}
-          <p>{createdAt?.slice(0, 10)}</p>
+          <p className="font-medium">{createdAt?.slice(0, 10)}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
@@ -71,7 +71,7 @@ const ProductInfo = ({
             <AiOutlinePushpin className="w-4 h-4" />
             Layout:
           </p>{" "}
-          <p>{layout}</p>
+          <p className="font-medium">{layout}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
@@ -83,7 +83,7 @@ const ProductInfo = ({
             {tags?.map((tag, i) => (
               <button
                 key={i}
-                className="px-2 py-1 text-xs border rounded-sm dark:text-white dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300"
+                className="px-2 py-1 text-xs font-medium border rounded-sm dark:text-light-500 dark:border-dark-300 border-light-500 dark:hover:bg-dark-300 hover:bg-light-400"
               >
                 {tag}
               </button>

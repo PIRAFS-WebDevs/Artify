@@ -96,8 +96,8 @@ export default function CategoryUITable() {
     const cellValue = category[columnKey];
 
     switch (columnKey) {
-      case "craetedAt":
-        return cellValue.slice(0, 10);
+      case "createdAt":
+        return cellValue?.slice(0, 10);
       case "name":
         return cellValue;
       case "slug":

@@ -7,7 +7,7 @@ const page = () => {
       <SharedComp
         type={"Layouts"}
         AddType={"Add Layouts"}
-        link={"/dashboard/admin/layouts/upload"}
+        link={"/dashboard/layouts/upload"}
       />
       <LayoutUITable />
     </>

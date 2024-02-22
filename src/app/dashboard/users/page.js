@@ -1,6 +1,6 @@
 import Users from "@/components/Dashboard/Users/Users";
 
-const usersPage = () => {
+const UsersPage = () => {
   return (
     <>
       <Users />
@@ -8,4 +8,4 @@ const usersPage = () => {
   );
 };
 
-export default usersPage;
+export default UsersPage;

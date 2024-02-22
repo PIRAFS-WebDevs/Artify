@@ -1,39 +1,33 @@
 "use client";
 import { usePathname } from "next/navigation";
 import toast from "react-hot-toast";
-import { BiLink, BiLogoFacebook, BiLogoTwitter } from "react-icons/bi";
-import { GrLinkedinOption } from "react-icons/gr";
+import { AiOutlineLink } from "react-icons/ai";
+import { BiLogoFacebook, BiLogoLinkedin, BiLogoTwitter } from "react-icons/bi";
 
 const ShareBtn = () => {
   const path = usePathname();
   const onCopy = () => {
-    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_hostUrl}/${path}`);
+    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_hostUrl}${path}`);
     toast.success("Copied successfully");
   };
 
   return (
-    <div className="flex items-center justify-between gap-10 ">
-      <button className="flex items-center justify-center w-10 h-10 border rounded-full group dark:text-black hover:dark:bg-dark-200 dark:border-dark-400 border-light-500 hover:bg-light-150">
-        <BiLogoFacebook className="w-5 h-5 dark:text-white text-dark-100 group-hover:text-black" />
-      </button>
+    <div className="grid items-center grid-cols-2 gap-4 pt-4 border-t xl:grid-cols-4 dark:border-dark-300 border-light-500">
+      <p className="dark:text-dark-100">Share this item:</p>
+      <div className="flex flex-wrap items-center col-span-2 gap-2 xl:col-span-3">
+        <BiLogoFacebook className="w-10 h-10 p-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-500 dark:hover:bg-dark-400 hover:bg-light-400" />
+        <BiLogoTwitter className="w-10 h-10 p-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-500 dark:hover:bg-dark-400 hover:bg-light-400" />
+        <BiLogoLinkedin className="w-10 h-10 p-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-500 dark:hover:bg-dark-400 hover:bg-light-400" />
 
-      <button className="flex items-center justify-center w-10 h-10 border rounded-full group dark:text-black hover:dark:bg-dark-200 dark:border-dark-400 border-light-500 hover:bg-light-150">
-        <BiLogoTwitter className="w-5 h-5 dark:text-white text-dark-100 group-hover:text-black" />
-      </button>
-
-      <button className="flex items-center justify-center w-10 h-10 border rounded-full group dark:text-black hover:dark:bg-dark-200 dark:border-dark-400 border-light-500 hover:bg-light-150">
-        <GrLinkedinOption className="w-5 h-5 text-dark-100 dark:text-white group-hover:text-black" />
-      </button>
-
-      <button
-        onClick={onCopy}
-        className="flex items-center justify-center w-auto h-10 px-5 border rounded-full group hover:dark:bg-dark-200 dark:border-dark-400 border-light-500 hover:bg-light-150"
-      >
-        <BiLink className="w-5 h-5 mr-2 text-dark-100 group-hover:text-black" />
-        <span className="group-hover:dark:text-white text-dark-100 group-hover:text-black">
-          Copy link
-        </span>
-      </button>
+        {/* copy button */}
+        <button
+          onClick={onCopy}
+          className="flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-500 dark:hover:bg-dark-400 hover:bg-light-400"
+        >
+          <AiOutlineLink className="w-4 h-4" />
+          copy link
+        </button>
+      </div>
     </div>
   );
 };

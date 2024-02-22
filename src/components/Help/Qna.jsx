@@ -1,7 +1,6 @@
 import { qnaData } from "@/data/QnaData";
 
 const Qna = () => {
-  //   const [openAns, setDelOpenAns] = useState(false);
   return (
     <>
       <div className="space-y-4">
@@ -33,7 +32,7 @@ const Qna = () => {
               </p>
             </summary>
 
-            <p className="p-3 leading-relaxed  text-start">{ans}</p>
+            <p className="p-3 leading-relaxed text-start">{ans}</p>
           </details>
         ))}
       </div>

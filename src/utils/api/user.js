@@ -1,34 +1,40 @@
-import api from "../axios";
-
-// save user into database
-export const saveUser = async (data) => {
-  try {
-    const res = await api.post("/signup", data);
-    return res;
-  } catch (error) {
-    console.error(error);
-  }
-};
+import { instance } from "../axios";
 
 // get all users
-export const getUser = async (text) => {
+export const getUsers = async () => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BaseUrl}/admin/user/all-user/?text=${text}`,
-      {
-        cache: "no-cache",
-      }
-    );
-    return res.json();
+    const res = await instance.get("/users");
+    return res.data;
   } catch (error) {
     console.error(error);
   }
 };
-export const setUserRole = async (_id, role) => {
-  console.log(_id, role);
+
+// remove user by id
+export const removeUser = async (id) => {
   try {
-    const res = await api.patch("/admin/user/change-role", { _id, role });
-    return res;
+    const res = await instance.delete(`/users/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// save user in db
+export const saveUser = async (data) => {
+  try {
+    const response = await instance.post("/users", data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// update user
+export const updateUser = async (data) => {
+  try {
+    const response = await instance.patch(`/users/${id}`, data);
+    return response.data;
   } catch (error) {
     console.error(error);
   }
@@ -37,31 +43,18 @@ export const setUserRole = async (_id, role) => {
 // get user by email
 export const getUserByEmail = async (email) => {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BaseUrl}/admin/user/single-user/${email}`,
-      { next: { revalidate: 3 } }
-    );
-   
-    return res.json();
+    const response = await instance.get(`/users/${email}`);
+    return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const addToCart = async (data) => {
+// change user role
+export const changeUserRole = async (data) => {
   try {
-    const res = await api.post("/user/cart", data);
-
-    return res;
-  } catch (error) {
-    console.error(error);
-  }
-};
-export const getFromCart = async (params) => {
-  try {
-    const res = await api.get(`/user/get-cart/${params}`);
-
-    return res.data.data.item;
+    const response = await instance.patch(`/users/change-role`, data);
+    return response.data;
   } catch (error) {
     console.error(error);
   }
