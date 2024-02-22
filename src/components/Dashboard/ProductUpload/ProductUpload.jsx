@@ -3,8 +3,8 @@
 import FeatureImage from "@/components/Dashboard/ProductUpload/FeatureImage";
 import GalleryImages from "@/components/Dashboard/ProductUpload/GalleryImages";
 import useAddProduct from "@/hooks/product/useAddProduct";
+import { useProduct } from "@/hooks/product/useProduct";
 import useUpdateProduct from "@/hooks/product/useUpdateProduct";
-import { getProductById } from "@/utils/api/product";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -15,7 +15,7 @@ import SimpleProductInfo from "./SimpleProductInfo";
 import UploadButton from "./UploadButton";
 
 const ProductUpload = () => {
-  const [singleProduct, setSingleProduct] = useState([]);
+  const [singleProduct, setSingleProduct] = useState({});
   const [featuredImage, setFeaturedImage] = useState();
   const [galleryImage, setGalleryImage] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
@@ -28,6 +28,7 @@ const ProductUpload = () => {
   const { mutateAsync: addProduct, isSuccess } = useAddProduct();
   const { mutateAsync: updateProduct, isSuccess: isUpdateSuccess } =
     useUpdateProduct();
+  const { data: product, isSuccess: isProductSuccess } = useProduct(updateId);
 
   const {
     register,
@@ -38,7 +39,16 @@ const ProductUpload = () => {
   } = useForm();
 
   useEffect(() => {
-    if (singleProduct) {
+    if (!updateId) {
+      setSingleProduct([]);
+    }
+    if (updateId && isProductSuccess) {
+      setSingleProduct(product);
+    }
+  }, [updateId, isProductSuccess]);
+
+  useEffect(() => {
+    if (singleProduct._id) {
       setValue("price", singleProduct.price || 0);
       setValue("sell_price", singleProduct.sell_price || 0);
       setValue("preview_url", singleProduct.preview_url || "");
@@ -49,18 +59,11 @@ const ProductUpload = () => {
   }, [singleProduct, setValue]);
 
   useEffect(() => {
-    (async () => {
-      if (!updateId) {
-        setSingleProduct([]);
-      }
-      if (updateId) {
-        const response = await getProductById(updateId);
-        response.success
-          ? setSingleProduct(response.data)
-          : setSingleProduct([]);
-      }
-    })();
-  }, [updateId]);
+    if (isSuccess || isUpdateSuccess) {
+      toast.success("Product submitted successfully");
+      router.replace("/dashboard/products");
+    }
+  }, [isSuccess, isUpdateSuccess]);
 
   const formHandler = (data) => {
     const productData = {
@@ -71,17 +74,9 @@ const ProductUpload = () => {
     };
 
     if (updateId) {
-      updateProduct(updateId, productData);
-      if (isUpdateSuccess) {
-        toast.success("Product updated successfully");
-        router.replace("/dashboard/products");
-      }
+      updateProduct({ id: updateId, data: productData });
     } else {
       addProduct(productData);
-      if (isSuccess) {
-        toast.success("product added successfully");
-        router.replace("/dashboard/products");
-      }
     }
   };
 

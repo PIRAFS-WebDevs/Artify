@@ -1,8 +1,8 @@
 "use client";
-import SharedComp from "@/components/Shared/admin/SharedComp";
+import SharedComp from "@/components/Shared/Dashboard/SharedComp";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
 import AllStateContext from "@/context/AllStateContext";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 

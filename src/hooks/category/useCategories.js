@@ -2,14 +2,11 @@ import { getCategories } from "@/utils/api/category";
 import { useQuery } from "@tanstack/react-query";
 
 export const useCategories = () => {
-  const {
-    data: categories = [],
-    isLoading,
-    isError,
-  } = useQuery({
+  return useQuery({
     queryKey: ["categories"],
-    queryFn: () => getCategories(),
+    queryFn: async () => {
+      const response = await getCategories();
+      return response.success ? response.data : [];
+    },
   });
-
-  return { categories, isLoading, isError };
 };

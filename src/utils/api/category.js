@@ -1,40 +1,51 @@
-import api, { instance } from "../axios";
+import { instance } from "../axios";
 
-// save category into database
+// save category in db
 export const saveCategory = async (data) => {
   try {
-    const res = await api.post("/admin/category/create-category", data);
-    console.log(res);
-    return res;
+    const response = await instance.post("/categories", data);
+    return response.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };
-export const updateCategory = async (data, id) => {
+
+// update category data
+export const updateCategory = async ({ id, data }) => {
   try {
-    const res = await api.patch(`/admin/category/category-update/${id}`, data);
-    console.log(res);
-    return res;
+    const response = await instance.patch(`/categories/${id}`, data);
+    return response.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };
 
 // get all the categories from db
 export const getCategories = async () => {
   try {
-    const res = await instance.get("/categories");
-    return res.data.data;
+    const response = await instance.get("/categories");
+    return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
+// get category by id
 export const getCategoryById = async (id) => {
   try {
-    const res = await api.get(`/admin/layout/Single-category/${id}`);
-    return res.data.data;
+    const response = await instance.get(`/categories/${id}`);
+    return response.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
+  }
+};
+
+// delete category by id
+export const deleteCategory = async (id) => {
+  try {
+    const response = await instance.delete(`/categories/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
 };

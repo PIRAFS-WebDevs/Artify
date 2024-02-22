@@ -1,5 +1,5 @@
 import LayoutUITable from "@/components/Dashboard/Layouts/LayoutUITable";
-import SharedComp from "@/components/Shared/admin/SharedComp";
+import SharedComp from "@/components/Shared/Dashboard/SharedComp";
 
 const page = () => {
   return (

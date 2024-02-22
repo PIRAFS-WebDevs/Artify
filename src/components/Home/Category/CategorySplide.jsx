@@ -10,7 +10,7 @@ import "./SplideArrow.css";
 const CategorySplide = () => {
   const { searchValue: category, setSearchValue: setCategory } =
     useAllValueContext();
-  const { categories, isLoading } = useCategories();
+  const { data: categories = [], isLoading } = useCategories();
 
   return (
     <div

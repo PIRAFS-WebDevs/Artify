@@ -1,11 +1,10 @@
 "use client";
-import SharedComp from "@/components/Shared/admin/SharedComp";
-import Image from "next/image";
-import { FaRegEdit } from "react-icons/fa";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import AllStateContext from "@/context/AllStateContext";
-import { useContext, useState } from "react";
+import SharedComp from "@/components/Shared/Dashboard/SharedComp";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
+import AllStateContext from "@/context/AllStateContext";
+import Image from "next/image";
+import { useContext } from "react";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Reviews = () => {
   // const [isDelOpen, setDelOpen] = useState(false);

@@ -32,16 +32,17 @@ export const saveProduct = async (data) => {
   }
 };
 
-export const updateProduct = async (id, data) => {
+// update product
+export const updateProduct = async ({ id, data }) => {
   try {
-    console.log("data:", data);
     const response = await instance.patch(`/products/${id}`, data);
     return response.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };
 
+// get product by id
 export const getProductById = async (id) => {
   try {
     const response = await instance.get(`/products/${id}`);

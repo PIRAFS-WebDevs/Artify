@@ -1,5 +1,5 @@
 import CategoryUITable from "@/components/Dashboard/Categories/CategoryUITable";
-import SharedComp from "@/components/Shared/admin/SharedComp";
+import SharedComp from "@/components/Shared/Dashboard/SharedComp";
 
 const Categories = () => {
   return (
