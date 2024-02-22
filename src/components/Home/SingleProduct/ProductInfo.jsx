@@ -1,9 +1,8 @@
-import React from "react";
-import { RxUpdate } from "react-icons/rx";
 import { MdOutlineDateRange } from "react-icons/md";
+import { RxUpdate } from "react-icons/rx";
 
-import { PiDrop } from "react-icons/pi";
 import { AiOutlineTag } from "react-icons/ai";
+import { PiDrop } from "react-icons/pi";
 
 const date = (date) => {
   const dateObject = new Date(date);
@@ -19,13 +18,6 @@ const date = (date) => {
 };
 
 const ProductInfo = ({ productById }) => {
-  /* const tags = [
-    "Dashboard",
-    " E-commerce",
-    "Landing Page",
-    "Retail",
-    " WooCommerce",
-  ]; */
   const { tags, layout, createdAt, updatedAt } = productById;
 
   return (
@@ -33,7 +25,7 @@ const ProductInfo = ({ productById }) => {
       <div>
         <div className="flex gap-10 py-2.5">
           <span className="flex items-center gap-5 ">
-            <RxUpdate className="dark:text-dark-100 h-5 w-5" /> Last Update:
+            <RxUpdate className="w-5 h-5 dark:text-dark-100" /> Last Update:
           </span>
           <span className="font-semibold dark:text-white">
             {date(updatedAt)}
@@ -41,7 +33,7 @@ const ProductInfo = ({ productById }) => {
         </div>
         <div className="flex gap-14 py-2.5">
           <span className="flex items-center gap-5 ">
-            <MdOutlineDateRange className="dark:text-dark-100 h-5 w-5" />
+            <MdOutlineDateRange className="w-5 h-5 dark:text-dark-100" />
             Published:
           </span>
           <span className="font-semibold dark:text-white">
@@ -50,20 +42,20 @@ const ProductInfo = ({ productById }) => {
         </div>
         <div className="flex gap-20 py-2.5">
           <span className="flex items-center gap-5 ">
-            <PiDrop className="dark:text-dark-100 h-5 w-5" />
+            <PiDrop className="w-5 h-5 dark:text-dark-100" />
             Layout:
           </span>
           <span className="font-semibold dark:text-white">{layout}</span>
         </div>
         <div className="flex gap-20  py-2.5">
-          <span className=" w-24 flex items-center gap-5">
-            <AiOutlineTag className="dark:text-dark-100 h-5 w-5" /> Tags:
+          <span className="flex items-center w-24 gap-5 ">
+            <AiOutlineTag className="w-5 h-5 dark:text-dark-100" /> Tags:
           </span>
-          <span className="font-semibold  dark:text-white flex flex-wrap  md:flex-row gap-3 ">
+          <span className="flex flex-wrap gap-3 font-semibold dark:text-white md:flex-row ">
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 rounded-sm text-xs font-medium border border-dark-400 dark:text-dark-100 flex items-center"
+                className="flex items-center px-3 py-1 text-xs font-medium border rounded-sm border-dark-400 dark:text-dark-100"
               >
                 {tag}
               </span>
@@ -71,59 +63,6 @@ const ProductInfo = ({ productById }) => {
           </span>
         </div>
       </div>
-      {/* <div>
-        <p className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-1">
-          <span className="flex items-center gap-5 ">
-            <RxUpdate className="dark:text-dark-100 h-5 w-5" /> Liquid:
-          </span>
-          <span className="font-semibold dark:text-white lg:col-span-3 md:col-span-2 col-span-1">
-            Mar 8, 2022
-          </span>
-        </p>
-      </div>
-      <div>
-        <p className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-1">
-          <span className="flex items-center gap-5 ">
-            <MdOutlineDateRange className="dark:text-dark-100 h-5 w-5" />
-            Published:
-          </span>
-          <span className="font-semibold dark:text-white lg:col-span-3 md:col-span-2 col-span-1">
-            Jan 27, 2022
-          </span>
-        </p>
-      </div>
-      <div>
-        <p className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-1">
-          <span className="flex items-center gap-5 ">
-            {" "}
-            <PiDrop className="dark:text-dark-100 h-5 w-5" />
-            Layout:
-          </span>
-          <span className="font-semibold dark:text-white lg:col-span-3 md:col-span-2 col-span-1">
-            {" "}
-            Liquid
-          </span>
-        </p>
-      </div>
-      <div>
-        <p className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1">
-          <span className="">
-            <span className=" flex items-center gap-5">
-              <AiOutlineTag className="dark:text-dark-100 h-5 w-5" /> Tags:
-            </span>
-          </span>
-          <span className="font-semibold dark:text-white lg:col-span-3 md:col-span-2 col-span-1 flex flex-wrap gap-3 ">
-            {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="inline-block px-3 py-1 rounded-sm text-xs font-medium dark:text-white border border-dark-400 dark:text-dark-100 "
-              >
-                {tag}
-              </span>
-            ))}
-          </span>
-        </p>
-      </div> */}
     </section>
   );
 };

@@ -1,9 +1,8 @@
+import Terms from "@/components/Help/Terms/Terms";
 import HelpBar from "@/components/Shared/Help/HelpBar";
 import Title from "@/components/Shared/Title/Title";
-import Terms from "@/components/Help/Terms/Terms";
-import React from "react";
 
-const termsPage = () => {
+const TermsPage = () => {
   return (
     <>
       <Title
@@ -20,4 +19,4 @@ const termsPage = () => {
   );
 };
 
-export default termsPage;
+export default TermsPage;

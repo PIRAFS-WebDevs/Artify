@@ -1,26 +1,46 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import UploadButton from "./UploadButton";
-import Description from "./Description";
-import { getLayoutById, saveLayout, updateLayout } from "@/utils/api/layout";
+import useAddLayout from "@/hooks/layout/useAddLayout";
+import { useLayout } from "@/hooks/layout/useLayout";
+import useUpdateLayout from "@/hooks/layout/useUpdateLayout";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Description from "./Description";
+import UploadButton from "./UploadButton";
 
 const LayoutUpload = () => {
   const [singleLayout, setSingleLayout] = useState([]);
   const searchParams = useSearchParams();
   const updateId = searchParams.get("id");
+  const router = useRouter();
+
+  const { data: layout, isSuccess: isLayout } = useLayout(updateId);
+  const { mutateAsync: saveLayout, isSuccess } = useAddLayout();
+  const { mutateAsync: updateLayout, isSuccess: isUpdate } = useUpdateLayout();
+
+  useEffect(() => {
+    if (updateId && isLayout) {
+      setSingleLayout(layout);
+    } else {
+      setSingleLayout([]);
+    }
+  }, [updateId, isLayout]);
+
+  useEffect(() => {
+    if (isSuccess || isUpdate) {
+      toast.success("Layout data submitted");
+      router.replace("/dashboard/layouts");
+    }
+  }, [isSuccess, isUpdate]);
 
   const {
     register,
     handleSubmit,
-    reset,
     setValue,
     formState: { errors },
   } = useForm();
-  const router = useRouter();
 
   useEffect(() => {
     if (singleLayout) {
@@ -32,30 +52,11 @@ const LayoutUpload = () => {
 
   const formHandler = async (data) => {
     if (!updateId) {
-      const res = await saveLayout(data);
-      if (res.data.success) {
-        toast.success("layout is uploaded");
-        router.replace("/dashboard/admin/layouts");
-      }
-    } else if (updateId) {
-      const res = await updateLayout(data, updateId);
-      if (res.data.success) {
-        toast.success("layout is updated");
-        router.replace("/dashboard/admin/layouts");
-      }
+      saveLayout(data);
+    } else {
+      updateLayout({ id: updateId, data });
     }
   };
-  useEffect(() => {
-    (async () => {
-      if (!updateId) {
-        setSingleLayout([]);
-      }
-      if (updateId) {
-        const layout = await getLayoutById(updateId);
-        setSingleLayout(layout);
-      }
-    })();
-  }, [updateId]);
 
   return (
     <div className="divide-y divide-dark-200">

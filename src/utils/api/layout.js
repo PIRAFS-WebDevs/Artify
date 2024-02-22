@@ -1,39 +1,51 @@
-import api from "../axios";
+import { instance } from "../axios";
 
-// save tag into database
+// save Layout in db
 export const saveLayout = async (data) => {
   try {
-    const res = await api.post("/admin/layout/create-layout", data);
-    console.log(res);
-    return res;
+    const response = await instance.post("/layouts", data);
+    return response.data;
   } catch (error) {
-    console.error(error.message);
-  }
-};
-export const updateLayout = async (data, id) => {
-  try {
-    const res = await api.patch(`/admin/layout/layout-update/${id}`, data);
-    console.log(res);
-
-    return res;
-  } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };
 
-export const getLayout = async () => {
+// update Layout data
+export const updateLayout = async ({ id, data }) => {
   try {
-    const res = await api.get("/admin/layout/all-layout");
-    return res.data.data;
+    const response = await instance.patch(`/layouts/${id}`, data);
+    return response.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };
+
+// get all the layouts from db
+export const getLayouts = async () => {
+  try {
+    const response = await instance.get("/layouts");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// get Layout by id
 export const getLayoutById = async (id) => {
   try {
-    const res = await api.get(`/admin/layout/Single-layout/${id}`);
-    return res.data.data;
+    const response = await instance.get(`/layouts/${id}`);
+    return response.data;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
+  }
+};
+
+// delete Layout by id
+export const deleteLayout = async (id) => {
+  try {
+    const response = await instance.delete(`/layouts/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
 };

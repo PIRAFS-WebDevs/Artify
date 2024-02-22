@@ -1,9 +1,8 @@
 import Licensing from "@/components/Help/Licensing/Licensing";
 import HelpBar from "@/components/Shared/Help/HelpBar";
 import Title from "@/components/Shared/Title/Title";
-import React from "react";
 
-const page = () => {
+const LicensingPage = () => {
   return (
     <>
       <Title
@@ -20,4 +19,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LicensingPage;

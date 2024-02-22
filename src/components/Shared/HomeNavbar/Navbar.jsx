@@ -5,18 +5,23 @@ import { AiFillHome, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { FaShoppingBag } from "react-icons/fa";
 import { HiOutlineMenu, HiOutlineMenuAlt1 } from "react-icons/hi";
 
+// components
 import Cart from "@/components/Home/Cart/Cart";
 import SearchModal from "@/components/Home/SearchModal/SearchModal";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher/ThemeSwitcher";
+import MobileNavbar from "./MobileNavbar";
+import UserDropdown from "./UserDropdown";
+
+// hooks
 import { useAllValueContext } from "@/hooks/useAllValueContext";
 import { useAuthContext } from "@/hooks/useAuthContext";
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import LoginButton from "./LoginButton";
-import MobileNavbar from "./MobileNavbar";
-import UserDropdown from "./UserDropdown";
+
+// next utils
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [searchModal, setSearchModal] = useState(false);
@@ -28,6 +33,7 @@ const Navbar = () => {
     setSearchValue,
     mobileView,
     setMobileView,
+    totalCartItem,
   } = useAllValueContext();
   const { user, logout } = useAuthContext();
   const pathname = usePathname();
@@ -107,7 +113,7 @@ const Navbar = () => {
                 className="hover:text-light-500 dark:hover:text-white"
               />
               <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
-                <span>{0}</span>
+                <span>{totalCartItem?.length}</span>
               </span>
             </button>
           </div>
@@ -164,7 +170,7 @@ const Navbar = () => {
           >
             <FaShoppingBag size={"1.2rem"} />
             <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
-              <span>{0}</span>
+              <span>{totalCartItem?.length}</span>
             </span>
           </button>
         </div>

@@ -1,12 +1,9 @@
 "use client";
 
-import { useContext } from "react";
-import AllStateContext from "@/context/AllStateContext";
-import SingleProductContext from "@/context/SingleProductContext";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
 
 const PreviewSvg = ({ id }) => {
-  const { setShowProductModal } = useContext(AllStateContext);
-  const { setProductId } = useContext(SingleProductContext);
+  const { setProductId, setShowProductModal } = useAllValueContext();
 
   return (
     <button

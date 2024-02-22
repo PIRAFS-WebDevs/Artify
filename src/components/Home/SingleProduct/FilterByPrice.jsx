@@ -1,9 +1,11 @@
 "use client";
-import React, { useState } from "react";
+
+import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 const FilterByPrice = () => {
   const [isDelOpen, setDelOpen] = useState(false);
+
   return (
     <>
       <div className="flex items-center justify-between border-b h-14 dark:dark:text-white dark:border-dark-300 border-light-500">

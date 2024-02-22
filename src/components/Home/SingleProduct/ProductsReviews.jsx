@@ -1,7 +1,5 @@
-import React from "react";
-import { IoIosArrowDown } from "react-icons/io";
-import FilterByPrice from "./FilterByPrice";
 import { AiFillDislike, AiFillLike, AiFillStar } from "react-icons/ai";
+import FilterByPrice from "./FilterByPrice";
 
 const ProductsReviews = () => {
   return (

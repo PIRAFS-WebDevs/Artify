@@ -1,25 +1,47 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import UploadButton from "./UploadButton";
-import Description from "./Description";
-import { getTagById, saveTag, updateTag } from "@/utils/api/tags";
+import useAddTag from "@/hooks/tag/useAddTag";
+import { useTag } from "@/hooks/tag/useTag";
+import useUpdateTag from "@/hooks/tag/useUpdateTag";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Description from "./Description";
+import UploadButton from "./UploadButton";
 
 const TagUpload = () => {
   const [singleTag, setSingleTag] = useState([]);
   const searchParams = useSearchParams();
   const updateId = searchParams.get("id");
   const router = useRouter();
+
+  const { data: tag, isSuccess: isTag } = useTag(updateId);
+  const { mutateAsync: saveTag, isSuccess } = useAddTag();
+  const { mutateAsync: updateTag, isSuccess: isUpdate } = useUpdateTag();
+
+  useEffect(() => {
+    if (updateId && isTag) {
+      setSingleTag(tag);
+    } else {
+      setSingleTag([]);
+    }
+  }, [updateId, isTag]);
+
+  useEffect(() => {
+    if (isSuccess || isUpdate) {
+      toast.success("Tag data submitted");
+      router.replace("/dashboard/tags");
+    }
+  }, [isSuccess, isUpdate]);
+
   const {
     register,
     handleSubmit,
     setValue,
-    reset,
     formState: { errors },
   } = useForm();
+
   useEffect(() => {
     if (singleTag) {
       setValue("name", singleTag.name || "");
@@ -30,33 +52,11 @@ const TagUpload = () => {
 
   const formHandler = async (data) => {
     if (!updateId) {
-      const res = await saveTag(data);
-      console.log("saveRes:", res);
-      console.table(data);
-      if (res?.data?.success) {
-        toast.success("Tags is uploaded");
-        router.replace("/dashboard/admin/tags");
-      }
-    } else if (updateId) {
-      const res = await updateTag(data, updateId);
-      console.log("updatedRes:", res);
-      if (res?.data?.success) {
-        toast.success("Tags is updated");
-        router.replace("/dashboard/admin/tags");
-      }
+      saveTag(data);
+    } else {
+      updateTag({ id: updateId, data });
     }
   };
-  useEffect(() => {
-    (async () => {
-      if (!updateId) {
-        setSingleTag([]);
-      }
-      if (updateId) {
-        const Category = await getTagById(updateId);
-        setSingleTag(Category);
-      }
-    })();
-  }, [updateId]);
 
   return (
     <div className="divide-y divide-dark-200">

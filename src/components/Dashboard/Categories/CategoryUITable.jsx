@@ -1,6 +1,5 @@
 "use client";
 
-import AllProductContext from "@/context/AllProductContext";
 import { useCategories } from "@/hooks/category/useCategories";
 import useRemoveCategory from "@/hooks/category/useRemoveCategory";
 import {
@@ -19,14 +18,19 @@ import {
   TableRow,
 } from "@nextui-org/react";
 import Link from "next/link";
-import { useCallback, useContext, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "details", "actions"];
+const INITIAL_VISIBLE_COLUMNS = [
+  "createdAt",
+  "name",
+  "slug",
+  "details",
+  "actions",
+];
 
 export default function CategoryUITable() {
-  const { handelAction } = useContext(AllProductContext);
   const { data: categories = [], isLoading } = useCategories();
   const { mutateAsync: deleteCategory } = useRemoveCategory();
 
@@ -44,6 +48,7 @@ export default function CategoryUITable() {
   const hasSearchFilter = Boolean(filterValue);
 
   const columns = [
+    { uid: "createdAt", name: "Date", sortable: true },
     { uid: "name", name: "Name", sortable: true },
     { uid: "slug", name: "Slug", sortable: true },
     { uid: "details", name: "Description", sortable: true },
@@ -87,46 +92,45 @@ export default function CategoryUITable() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = useCallback(
-    (category, columnKey) => {
-      const cellValue = category[columnKey];
+  const renderCell = useCallback((category, columnKey) => {
+    const cellValue = category[columnKey];
 
-      switch (columnKey) {
-        case "name":
-          return cellValue;
-        case "slug":
-          return cellValue;
-        case "details":
-          return cellValue || "-";
-        case "actions":
-          return (
-            <div className="relative flex items-center justify-end gap-2">
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button isIconOnly size="sm" variant="light">
-                    <HiDotsVertical className="text-default-300" />
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu>
-                  <DropdownItem
-                    as={Link}
-                    href={`/dashboard/categories/upload?id=${category._id}`}
-                  >
-                    Edit
-                  </DropdownItem>
-                  <DropdownItem onClick={() => deleteCategory(category._id)}>
-                    Delete
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
-          );
-        default:
-          return cellValue;
-      }
-    },
-    [handelAction]
-  );
+    switch (columnKey) {
+      case "craetedAt":
+        return cellValue.slice(0, 10);
+      case "name":
+        return cellValue;
+      case "slug":
+        return cellValue;
+      case "details":
+        return cellValue || "-";
+      case "actions":
+        return (
+          <div className="relative flex items-center justify-end gap-2">
+            <Dropdown>
+              <DropdownTrigger>
+                <Button isIconOnly size="sm" variant="light">
+                  <HiDotsVertical className="text-default-300" />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem
+                  as={Link}
+                  href={`/dashboard/categories/upload?id=${category._id}`}
+                >
+                  Edit
+                </DropdownItem>
+                <DropdownItem onClick={() => deleteCategory(category._id)}>
+                  Delete
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+        );
+      default:
+        return cellValue;
+    }
+  }, []);
 
   const onNextPage = useCallback(() => {
     if (page < pages) {

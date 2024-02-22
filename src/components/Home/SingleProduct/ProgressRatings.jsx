@@ -1,4 +1,3 @@
-import React from "react";
 import { AiFillStar } from "react-icons/ai";
 
 const ProgressRatings = () => {
@@ -80,7 +79,6 @@ const ProgressRatings = () => {
           </div>
           <p>0</p>
         </div>
-        {/* 5 */}
       </div>
     </div>
   );

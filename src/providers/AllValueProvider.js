@@ -1,4 +1,7 @@
-import { createContext, useState } from "react";
+"use client";
+
+import { GetDataCart } from "@/utils/cart/AddToCart";
+import { createContext, useEffect, useState } from "react";
 
 export const AllValueContext = createContext();
 
@@ -7,6 +10,17 @@ const AllValueProvider = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileView, setMobileView] = useState(false);
   const [showProductModal, setShowProductModal] = useState(false);
+  const [productId, setProductId] = useState();
+  const [cartUpdated, setCartUpdated] = useState(false);
+  const [totalCartItem, setTotalCartItem] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const cart = await GetDataCart();
+
+      setTotalCartItem(cart);
+    })();
+  }, [cartUpdated]);
 
   const value = {
     searchValue,
@@ -17,6 +31,12 @@ const AllValueProvider = ({ children }) => {
     setMobileView,
     showProductModal,
     setShowProductModal,
+    productId,
+    setProductId,
+    cartUpdated,
+    setCartUpdated,
+    totalCartItem,
+    setTotalCartItem,
   };
 
   return (
