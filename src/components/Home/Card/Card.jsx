@@ -68,7 +68,7 @@ const Card = () => {
                       <div className="flex gap-1">
                         <p className="text-xs line-through text-dark-500 dark:text-white">
                           <span className="text-xs">$</span>
-                          <span>{product?.price}</span>
+                          <span>{product?.sale_price || 0}</span>
                         </p>
                         <p className="text-xs text-primary ">
                           <span className="text-xs">$</span>
@@ -84,7 +84,7 @@ const Card = () => {
                     <div>
                       <div className="flex gap-2">
                         <button
-                          className="inline px-2 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-gray-100 dark:border-dark-100 border-light-500 active:scale-95"
+                          className="inline px-2 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-light-300 dark:hover:bg-dark-300 dark:border-dark-100 border-light-500 active:scale-95"
                           onClick={() => {
                             handleCart(
                               { id: product?._id, quantity: 1 },
@@ -96,7 +96,7 @@ const Card = () => {
                           <FaShoppingCart />
                         </button>
                         <Link
-                          href={"https://pixer.redq.io/"}
+                          href={`${product?.live_preview || ""}`}
                           target="_blank"
                           className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded-sm whitespace-nowrap bg-primary hover:bg-primarySec active:scale-95"
                         >

@@ -7,7 +7,7 @@ const Categories = () => {
       <SharedComp
         type={"Categories"}
         AddType={"Add Category"}
-        link={"/dashboard/admin/categories/upload"}
+        link={"/dashboard/categories/upload"}
       />
       <CategoryUITable />
     </>

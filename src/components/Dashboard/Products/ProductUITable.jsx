@@ -129,7 +129,7 @@ export default function ProductUITable() {
 
     switch (columnKey) {
       case "createdAt":
-        return cellValue.slice(0, 10);
+        return cellValue?.slice(0, 10);
       case "name":
         return (
           <User
@@ -224,7 +224,7 @@ export default function ProductUITable() {
           <Input
             isClearable
             className="w-full sm:max-w-[44%]"
-            placeholder="Search..."
+            placeholder="Search by name, layout, tag, category..."
             startContent={<FaSearch />}
             value={filterValue}
             onClear={() => onClear()}

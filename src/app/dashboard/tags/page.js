@@ -7,7 +7,7 @@ const tagsPages = () => {
       <SharedComp
         type={"Tags"}
         AddType={"Add Tags"}
-        link={"/dashboard/admin/tags/upload"}
+        link={"/dashboard/tags/upload"}
       />
       <TagsUITable />
     </>

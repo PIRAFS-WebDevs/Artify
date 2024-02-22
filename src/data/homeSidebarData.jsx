@@ -2,9 +2,9 @@
 import { AiFillAppstore, AiFillHome, AiFillLike } from "react-icons/ai";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { BsBoxFill } from "react-icons/bs";
-import { FaCode, FaOpencart } from "react-icons/fa";
-import { IoMdHelp } from "react-icons/io";
-import { MdExplore } from "react-icons/md";
+import { FaCartShopping } from "react-icons/fa6";
+import { IoMdHelp, IoMdInformationCircleOutline } from "react-icons/io";
+import { MdArticle, MdExplore } from "react-icons/md";
 
 const homeSidebarData = [
   {
@@ -28,14 +28,14 @@ const homeSidebarData = [
     icon: <AiFillAppstore />,
   },
   {
-    title: "Application",
-    path: "/application",
-    icon: <FaCode />,
+    title: "Article",
+    path: "/article",
+    icon: <MdArticle />,
   },
   {
     title: "Marketplace",
     path: "/market-place",
-    icon: <FaOpencart />,
+    icon: <FaCartShopping />,
   },
   {
     title: "Recommendation",
@@ -51,6 +51,11 @@ const homeSidebarData = [
     title: "Help",
     path: "/help",
     icon: <IoMdHelp />,
+  },
+  {
+    title: "About Us",
+    path: "/about-us",
+    icon: <IoMdInformationCircleOutline />,
   },
 ];
 
