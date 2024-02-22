@@ -1,8 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import React from "react";
-import { IoSearchOutline } from "react-icons/io5";
 
 const SharedComp = ({ type, AddType, link }) => {
   return (
@@ -10,7 +6,7 @@ const SharedComp = ({ type, AddType, link }) => {
       <p className="text-xl text-center md:text-start">{type && type}</p>
 
       <Link className={link || "hidden"} href={link ? link : ""}>
-        <button className="w-full font-semibold text-white rounded-sm h-14 md:w-auto px-7 bg-primary">
+        <button className="w-full h-12 font-semibold text-white rounded-sm md:w-auto px-7 bg-primary">
           + {AddType}
         </button>
       </Link>

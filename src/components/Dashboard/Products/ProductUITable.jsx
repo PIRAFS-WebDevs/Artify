@@ -27,9 +27,11 @@ import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 
 const INITIAL_VISIBLE_COLUMNS = [
+  "createdAt",
   "name",
   "layout",
   "price",
+  "sale_price",
   "status",
   "actions",
 ];
@@ -59,9 +61,11 @@ export default function ProductUITable() {
   const hasSearchFilter = Boolean(filterValue);
 
   const columns = [
+    { uid: "createdAt", name: "Date", sortable: true },
     { uid: "name", name: "Name", sortable: true },
     { uid: "layout", name: "Layout", sortable: true },
     { uid: "price", name: "Price", sortable: true },
+    { uid: "sale_price", name: "Sale Price", sortable: true },
     { uid: "status", name: "Status", sortable: true },
     { uid: "actions", name: "Actions", sortable: false },
   ];
@@ -125,12 +129,14 @@ export default function ProductUITable() {
     const cellValue = product[columnKey];
 
     switch (columnKey) {
+      case "createdAt":
+        return cellValue.slice(0, 10);
       case "name":
         return (
           <User
             avatarProps={{
               radius: "lg",
-              src: product.image && product.image[0],
+              src: product.images && product.images[0],
             }}
             description={product.name}
             name={cellValue}
@@ -141,7 +147,9 @@ export default function ProductUITable() {
       case "layout":
         return cellValue;
       case "price":
-        return `$${cellValue}`;
+        return cellValue;
+      case "sale_price":
+        return cellValue;
       case "status":
         return (
           <Chip className="capitalize" size="sm" variant="flat">
@@ -158,7 +166,9 @@ export default function ProductUITable() {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
-                <DropdownItem>View</DropdownItem>
+                <DropdownItem as={Link} href={product.preview_url}>
+                  View
+                </DropdownItem>
                 <DropdownItem
                   as={Link}
                   href={`/dashboard/products/upload?id=${product._id}`}
@@ -277,11 +287,6 @@ export default function ProductUITable() {
   const bottomContent = useMemo(() => {
     return (
       <div className="flex items-center justify-between px-2 py-2">
-        <span className="w-[30%] text-small text-default-400">
-          {selectedKeys === "all"
-            ? "All items selected"
-            : `${selectedKeys.size} of ${filteredItems.length} selected`}
-        </span>
         <Pagination
           isCompact
           showControls
@@ -324,7 +329,6 @@ export default function ProductUITable() {
       }}
       className="scrollbar"
       selectedKeys={selectedKeys}
-      selectionMode="multiple"
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"

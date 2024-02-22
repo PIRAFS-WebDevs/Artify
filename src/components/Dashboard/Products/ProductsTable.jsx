@@ -1,14 +1,14 @@
 "use client";
+import SharedComp from "@/components/Shared/Dashboard/SharedComp";
 import DelItemsModal from "@/components/Shared/admin/components/DelItemsModal";
-import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
-import { FaRegEdit } from "react-icons/fa";
-import AnsModal from "../Questions/AnsModal";
 import AllStateContext from "@/context/AllStateContext";
-import { RiCheckboxIndeterminateLine, RiDeleteBin6Line } from "react-icons/ri";
-import SharedComp from "@/components/Shared/admin/SharedComp";
 import { getProducts } from "@/utils/api/product";
+import Image from "next/image";
+import { useContext, useEffect, useState } from "react";
+import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
+import { RiCheckboxIndeterminateLine, RiDeleteBin6Line } from "react-icons/ri";
+import AnsModal from "../Questions/AnsModal";
 
 const ProductsTable = () => {
   const { setIsShow, isShow, isDelOpen, setDelOpen } =
