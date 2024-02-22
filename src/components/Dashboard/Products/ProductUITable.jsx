@@ -1,6 +1,5 @@
 "use client";
 
-import AllProductContext from "@/context/AllProductContext";
 import { useProducts } from "@/hooks/product/useProducts";
 import useRemoveProduct from "@/hooks/product/useRemoveProduct";
 import {
@@ -21,8 +20,7 @@ import {
   User,
 } from "@nextui-org/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useCallback, useContext, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 
@@ -36,11 +34,13 @@ const INITIAL_VISIBLE_COLUMNS = [
   "actions",
 ];
 
+const statusOptions = [
+  { name: "Published", uid: "Published" },
+  { name: "Draft", uid: "Draft" },
+];
+
 export default function ProductUITable() {
-  const { data: products = [], refetch, isLoading } = useProducts();
-
-  const { handelAction } = useContext(AllProductContext);
-
+  const { data: products = [], isLoading } = useProducts();
   const { mutateAsync: removeProduct } = useRemoveProduct();
 
   const [filterValue, setFilterValue] = useState("");
@@ -56,7 +56,6 @@ export default function ProductUITable() {
     direction: "ascending",
   });
   const [page, setPage] = useState(1);
-  const router = useRouter();
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -231,30 +230,56 @@ export default function ProductUITable() {
             onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
-          <Dropdown>
-            <DropdownTrigger className="hidden sm:flex">
-              <Button
-                endContent={<FaChevronDown className="text-small" />}
-                variant="flat"
+          <div className="flex gap-4">
+            <Dropdown>
+              <DropdownTrigger className="hidden sm:flex">
+                <Button
+                  endContent={<FaChevronDown className="text-small" />}
+                  variant="flat"
+                >
+                  Status
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu
+                disallowEmptySelection
+                aria-label="Table Columns"
+                closeOnSelect={false}
+                selectedKeys={statusFilter}
+                selectionMode="multiple"
+                onSelectionChange={setStatusFilter}
               >
-                Columns
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-              disallowEmptySelection
-              aria-label="Table Columns"
-              closeOnSelect={false}
-              selectedKeys={visibleColumns}
-              selectionMode="multiple"
-              onSelectionChange={setVisibleColumns}
-            >
-              {columns.map((column) => (
-                <DropdownItem key={column.uid} className="capitalize">
-                  {capitalize(column.name)}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </Dropdown>
+                {statusOptions.map((status) => (
+                  <DropdownItem key={status.uid} className="capitalize">
+                    {status.name}
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
+            <Dropdown>
+              <DropdownTrigger className="hidden sm:flex">
+                <Button
+                  endContent={<FaChevronDown className="text-small" />}
+                  variant="flat"
+                >
+                  Columns
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu
+                disallowEmptySelection
+                aria-label="Table Columns"
+                closeOnSelect={false}
+                selectedKeys={visibleColumns}
+                selectionMode="multiple"
+                onSelectionChange={setVisibleColumns}
+              >
+                {columns.map((column) => (
+                  <DropdownItem key={column.uid} className="capitalize">
+                    {capitalize(column.name)}
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
+          </div>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-default-400 text-small">

@@ -1,62 +1,34 @@
 "use client";
 
-import React, { useCallback, useContext, useMemo, useState } from "react";
+import AllProductContext from "@/context/AllProductContext";
+import { useCategories } from "@/hooks/category/useCategories";
+import useRemoveCategory from "@/hooks/category/useRemoveCategory";
 import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Input,
   Button,
-  DropdownTrigger,
   Dropdown,
-  DropdownMenu,
   DropdownItem,
-  Chip,
+  DropdownMenu,
+  DropdownTrigger,
+  Input,
   Pagination,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
 } from "@nextui-org/react";
+import Link from "next/link";
+import { useCallback, useContext, useMemo, useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
-import { useQuery } from "@tanstack/react-query";
-import { getCategory } from "@/utils/api/category";
-import { delAnyItem } from "@/utils/api/product";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import AllProductContext from "@/context/AllProductContext";
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
+const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "details", "actions"];
 
 export default function CategoryUITable() {
   const { handelAction } = useContext(AllProductContext);
-  const {
-    data: category = [],
-    isLoading,
-    refetch,
-    isError,
-  } = useQuery({
-    queryKey: ["category"],
-    queryFn: () => getCategory(),
-  });
-  const router = useRouter();
-  /* const handelAction = async (value, id, api, title, viewUrl, editUrl) => {
-    if (value === "delete") {
-      if (id) {
-        const deleteLayout = await delAnyItem(id, api);
-        console.log(deleteLayout);
-        if (deleteLayout?.status === 200) {
-          toast.success(`${title} is deleted`);
-          refetch;
-          router.refresh();
-        } else {
-          toast.error(`Have some problem to deleted ${title}`);
-        }
-
-        console.log(deleteLayout);
-      }
-    }
-  }; */
+  const { data: categories = [], isLoading } = useCategories();
+  const { mutateAsync: deleteCategory } = useRemoveCategory();
 
   const [filterValue, setFilterValue] = useState("");
   const [visibleColumns, setVisibleColumns] = useState(
@@ -74,7 +46,8 @@ export default function CategoryUITable() {
   const columns = [
     { uid: "name", name: "Name", sortable: true },
     { uid: "slug", name: "Slug", sortable: true },
-    { uid: "actions", name: "Actions", sortable: false }, // Add this line
+    { uid: "details", name: "Description", sortable: true },
+    { uid: "actions", name: "Actions", sortable: false },
   ];
 
   const headerColumns = useMemo(() => {
@@ -84,7 +57,7 @@ export default function CategoryUITable() {
   }, [visibleColumns, columns]);
 
   const filteredItems = useMemo(() => {
-    let filteredCategory = [...category];
+    let filteredCategory = [...categories];
 
     if (hasSearchFilter) {
       filteredCategory = filteredCategory.filter((category) =>
@@ -93,7 +66,7 @@ export default function CategoryUITable() {
     }
 
     return filteredCategory;
-  }, [category, filterValue]);
+  }, [categories, filterValue]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
 
@@ -123,6 +96,8 @@ export default function CategoryUITable() {
           return cellValue;
         case "slug":
           return cellValue;
+        case "details":
+          return cellValue || "-";
         case "actions":
           return (
             <div className="relative flex items-center justify-end gap-2">
@@ -134,30 +109,12 @@ export default function CategoryUITable() {
                 </DropdownTrigger>
                 <DropdownMenu>
                   <DropdownItem
-                    onClick={() =>
-                      handelAction(
-                        "edit",
-                        category?._id,
-                        "/admin/category/category-delate/",
-                        "Category",
-                        "category",
-                        "/dashboard/admin/categories/upload"
-                      )
-                    }
+                    as={Link}
+                    href={`/dashboard/categories/upload?id=${category._id}`}
                   >
                     Edit
                   </DropdownItem>
-                  <DropdownItem
-                    onClick={() => {
-                      handelAction(
-                        "delete",
-                        category?._id,
-                        "/admin/category/category-delate/",
-                        "Category"
-                      ),
-                        refetch();
-                    }}
-                  >
+                  <DropdownItem onClick={() => deleteCategory(category._id)}>
                     Delete
                   </DropdownItem>
                 </DropdownMenu>
@@ -215,10 +172,34 @@ export default function CategoryUITable() {
             onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
+          <Dropdown>
+            <DropdownTrigger className="hidden sm:flex">
+              <Button
+                endContent={<FaChevronDown className="text-small" />}
+                variant="flat"
+              >
+                Columns
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              disallowEmptySelection
+              aria-label="Table Columns"
+              closeOnSelect={false}
+              selectedKeys={visibleColumns}
+              selectionMode="multiple"
+              onSelectionChange={setVisibleColumns}
+            >
+              {columns.map((column) => (
+                <DropdownItem key={column.uid} className="capitalize">
+                  {column.name}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-default-400 text-small">
-            Total {category.length} category
+            Total {categories.length} categories
           </span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
@@ -238,7 +219,7 @@ export default function CategoryUITable() {
     filterValue,
     visibleColumns,
     onRowsPerPageChange,
-    category.length,
+    categories.length,
     onSearchChange,
     hasSearchFilter,
   ]);
@@ -303,7 +284,12 @@ export default function CategoryUITable() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No category found"} items={sortedItems}>
+      <TableBody
+        isLoading={isLoading}
+        loadingContent="Loading..."
+        emptyContent={"No category found"}
+        items={sortedItems}
+      >
         {(item) => (
           <TableRow key={item.name}>
             {(columnKey) => (
