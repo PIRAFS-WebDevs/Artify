@@ -1,66 +1,38 @@
 "use client";
 
-import React, { useCallback, useContext, useMemo, useState } from "react";
+import { useLayouts } from "@/hooks/layout/useLayouts";
+import useRemoveLayout from "@/hooks/layout/useRemoveLayout";
 import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Input,
   Button,
-  DropdownTrigger,
   Dropdown,
-  DropdownMenu,
   DropdownItem,
-  Chip,
+  DropdownMenu,
+  DropdownTrigger,
+  Input,
   Pagination,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
 } from "@nextui-org/react";
+import Link from "next/link";
+import { useCallback, useMemo, useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
-import { getLayout } from "@/utils/api/layout";
-import { useQuery } from "@tanstack/react-query";
-import { delAnyItem } from "@/utils/api/product";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import AllProductContext from "@/context/AllProductContext";
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
+const INITIAL_VISIBLE_COLUMNS = [
+  "createdAt",
+  "name",
+  "slug",
+  "details",
+  "actions",
+];
 
 export default function LayoutUITable() {
-  const { handelAction } = useContext(AllProductContext);
-  const {
-    data: layouts = [],
-    isLoading,
-    refetch,
-    isError,
-  } = useQuery({
-    queryKey: ["layouts"],
-    queryFn: () => getLayout(),
-  });
-  const router = useRouter();
-
-  /* const handelAction = async (value, id) => {
-    let api = "/admin/layout/layout-delate/";
-
-    console.log({ id: id, api: api, value });
-    if (value === "delete") {
-      if (id) {
-        const deleteLayout = await delAnyItem(id, api);
-        console.log(deleteLayout);
-        if (deleteLayout?.status === 200) {
-          toast.success("product is deleted");
-          refetch;
-          router.refresh();
-        } else {
-          toast.error("Have some problem to deleted Product ");
-        }
-
-        console.log(deleteLayout);
-      }
-    }
-  }; */
+  const { data: layouts = [], isLoading } = useLayouts();
+  const { mutateAsync: deleteLayout } = useRemoveLayout();
 
   const [filterValue, setFilterValue] = useState("");
   const [visibleColumns, setVisibleColumns] = useState(
@@ -76,9 +48,11 @@ export default function LayoutUITable() {
   const hasSearchFilter = Boolean(filterValue);
 
   const columns = [
+    { uid: "createdAt", name: "Date", sortable: true },
     { uid: "name", name: "Name", sortable: true },
     { uid: "slug", name: "Slug", sortable: true },
-    { uid: "actions", name: "Actions", sortable: false }, // Add this line
+    { uid: "details", name: "Description", sortable: true },
+    { uid: "actions", name: "Actions", sortable: false },
   ];
 
   const headerColumns = useMemo(() => {
@@ -88,15 +62,15 @@ export default function LayoutUITable() {
   }, [visibleColumns, columns]);
 
   const filteredItems = useMemo(() => {
-    let filteredLayouts = [...layouts];
+    let filteredLayout = [...layouts];
 
     if (hasSearchFilter) {
-      filteredLayouts = filteredLayouts.filter((layout) =>
+      filteredLayout = filteredLayout.filter((layout) =>
         layout.name.toLowerCase().includes(filterValue.toLowerCase())
       );
     }
 
-    return filteredLayouts;
+    return filteredLayout;
   }, [layouts, filterValue]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
@@ -122,10 +96,14 @@ export default function LayoutUITable() {
     const cellValue = layout[columnKey];
 
     switch (columnKey) {
+      case "craetedAt":
+        return cellValue.slice(0, 10);
       case "name":
         return cellValue;
       case "slug":
         return cellValue;
+      case "details":
+        return cellValue || "-";
       case "actions":
         return (
           <div className="relative flex items-center justify-end gap-2">
@@ -137,31 +115,12 @@ export default function LayoutUITable() {
               </DropdownTrigger>
               <DropdownMenu>
                 <DropdownItem
-                  onClick={() =>
-                    handelAction(
-                      "edit",
-                      layout?._id,
-                      "/admin/layout/layout-delate/",
-                      "Layout",
-                      "/layout/",
-                      "/dashboard/admin/layouts/upload/"
-                    )
-                  }
+                  as={Link}
+                  href={`/dashboard/layouts/upload?id=${layout._id}`}
                 >
                   Edit
                 </DropdownItem>
-                <DropdownItem
-                  onClick={() =>
-                    handelAction(
-                      "delete",
-                      layout?._id,
-                      "/admin/layout/layout-delate/",
-                      "Layout",
-                      "/layout/",
-                      "/dashboard/admin/layouts/upload/"
-                    )
-                  }
-                >
+                <DropdownItem onClick={() => deleteLayout(layout._id)}>
                   Delete
                 </DropdownItem>
               </DropdownMenu>
@@ -217,6 +176,30 @@ export default function LayoutUITable() {
             onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
+          <Dropdown>
+            <DropdownTrigger className="hidden sm:flex">
+              <Button
+                endContent={<FaChevronDown className="text-small" />}
+                variant="flat"
+              >
+                Columns
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              disallowEmptySelection
+              aria-label="Table Columns"
+              closeOnSelect={false}
+              selectedKeys={visibleColumns}
+              selectionMode="multiple"
+              onSelectionChange={setVisibleColumns}
+            >
+              {columns.map((column) => (
+                <DropdownItem key={column.uid} className="capitalize">
+                  {column.name}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-default-400 text-small">
@@ -305,7 +288,12 @@ export default function LayoutUITable() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No layouts found"} items={sortedItems}>
+      <TableBody
+        isLoading={isLoading}
+        loadingContent="Loading..."
+        emptyContent={"No layout found"}
+        items={sortedItems}
+      >
         {(item) => (
           <TableRow key={item.name}>
             {(columnKey) => (

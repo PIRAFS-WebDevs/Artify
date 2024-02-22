@@ -2,7 +2,7 @@
 
 import { getCategories } from "@/utils/api/category";
 import { getLayout } from "@/utils/api/layout";
-import { getTags } from "@/utils/api/tags";
+import { getTags } from "@/utils/api/tag";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 

@@ -1,14 +1,16 @@
-// icons
+import { useProduct } from "@/hooks/product/useProduct";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
 import ImageCarousel from "./ImageCarousel";
-import ProductInfo from "./ProductInfo";
 import ModalHeader from "./ModalHeader";
-import { useContext } from "react";
-import SingleProductContext from "@/context/SingleProductContext";
+import ProductInfo from "./ProductInfo";
 
 const ProductDetails = ({ setShowProductModal }) => {
-  const { singleProductData } = useContext(SingleProductContext);
+  const { productId } = useAllValueContext();
+
+  const { data: product = {} } = useProduct(productId);
+
   const { name, price, layout, tags, description, createdAt, updatedAt, _id } =
-    singleProductData;
+    product;
 
   return (
     <div className="text-sm dark:text-white text-dark-200">

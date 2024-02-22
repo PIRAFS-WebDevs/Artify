@@ -3,41 +3,16 @@
 import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
 import DetailsSvg from "@/components/svg/DetailsSvg";
 import PreviewSvg from "@/components/svg/PreviewSvg";
-import AllStateContext from "@/context/AllStateContext";
 import { useProducts } from "@/hooks/product/useProducts";
-import { AddToCart, GetDataCart } from "@/utils/addToCart/AddToCart";
+import { useAllValueContext } from "@/hooks/useAllValueContext";
+import { handleCart } from "@/utils/handleCart";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
-import toast from "react-hot-toast";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Card = () => {
-  const { data: products, isLoading } = useProducts();
-  const { setCartUpdated } = useContext(AllStateContext);
-
-  const handleCart = async (cart, _id) => {
-    const checking = async () => {
-      try {
-        const precart = await GetDataCart();
-
-        if (precart) {
-          const check = precart.some((pre) => pre.id === _id);
-          return check;
-        }
-      } catch (error) {
-        console.error("Error fetching cart data:", error);
-      }
-    };
-    const checked = await checking();
-    if (!checked) {
-      await AddToCart(cart);
-      setCartUpdated((prevState) => !prevState);
-      toast.success("Product added to the cart");
-    } else {
-      toast.error("Product already added to the cart");
-    }
-  };
+  const { data: products = [], isLoading } = useProducts();
+  const { setCartUpdated } = useAllValueContext();
 
   return (
     <>
@@ -113,7 +88,8 @@ const Card = () => {
                           onClick={() => {
                             handleCart(
                               { id: product?._id, quantity: 1 },
-                              product?._id
+                              product?._id,
+                              setCartUpdated
                             );
                           }}
                         >

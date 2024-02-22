@@ -1,9 +1,8 @@
 import Privacy from "@/components/Help/Privacy/Privacy";
 import HelpBar from "@/components/Shared/Help/HelpBar";
 import Title from "@/components/Shared/Title/Title";
-import React from "react";
 
-const privacyPage = () => {
+const PrivacyPage = () => {
   return (
     <>
       <Title
@@ -20,4 +19,4 @@ const privacyPage = () => {
   );
 };
 
-export default privacyPage;
+export default PrivacyPage;

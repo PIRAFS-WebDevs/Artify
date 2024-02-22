@@ -1,41 +1,38 @@
 "use client";
 
-import React, { useCallback, useContext, useMemo, useState } from "react";
+import useRemoveTag from "@/hooks/tag/useRemoveTag";
+import { useTags } from "@/hooks/tag/useTags";
 import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Input,
   Button,
-  DropdownTrigger,
   Dropdown,
-  DropdownMenu,
   DropdownItem,
-  Chip,
+  DropdownMenu,
+  DropdownTrigger,
+  Input,
   Pagination,
+  Table,
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
 } from "@nextui-org/react";
+import Link from "next/link";
+import { useCallback, useMemo, useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
-import { useQuery } from "@tanstack/react-query";
-import { getTags } from "@/utils/api/tags";
-import AllProductContext from "@/context/AllProductContext";
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "slug", "actions"];
+const INITIAL_VISIBLE_COLUMNS = [
+  "createdAt",
+  "name",
+  "slug",
+  "details",
+  "actions",
+];
 
-export default function TagsUITable() {
-  const { handelAction } = useContext(AllProductContext);
-  const {
-    data: tags = [],
-    isLoading,
-    refetch,
-    isError,
-  } = useQuery({
-    queryKey: ["tags"],
-    queryFn: () => getTags(),
-  });
+export default function TagUITable() {
+  const { data: tags = [], isLoading } = useTags();
+  const { mutateAsync: deleteTag } = useRemoveTag();
 
   const [filterValue, setFilterValue] = useState("");
   const [visibleColumns, setVisibleColumns] = useState(
@@ -51,9 +48,11 @@ export default function TagsUITable() {
   const hasSearchFilter = Boolean(filterValue);
 
   const columns = [
+    { uid: "createdAt", name: "Date", sortable: true },
     { uid: "name", name: "Name", sortable: true },
     { uid: "slug", name: "Slug", sortable: true },
-    { uid: "actions", name: "Actions", sortable: false }, // Add this line
+    { uid: "details", name: "Description", sortable: true },
+    { uid: "actions", name: "Actions", sortable: false },
   ];
 
   const headerColumns = useMemo(() => {
@@ -63,15 +62,15 @@ export default function TagsUITable() {
   }, [visibleColumns, columns]);
 
   const filteredItems = useMemo(() => {
-    let filteredTags = [...tags];
+    let filteredTag = [...tags];
 
     if (hasSearchFilter) {
-      filteredTags = filteredTags.filter((tags) =>
-        tags.name.toLowerCase().includes(filterValue.toLowerCase())
+      filteredTag = filteredTag.filter((tag) =>
+        tag.name.toLowerCase().includes(filterValue.toLowerCase())
       );
     }
 
-    return filteredTags;
+    return filteredTag;
   }, [tags, filterValue]);
 
   const pages = Math.ceil(filteredItems.length / rowsPerPage);
@@ -93,14 +92,18 @@ export default function TagsUITable() {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = useCallback((tags, columnKey) => {
-    const cellValue = tags[columnKey];
+  const renderCell = useCallback((tag, columnKey) => {
+    const cellValue = tag[columnKey];
 
     switch (columnKey) {
+      case "craetedAt":
+        return cellValue.slice(0, 10);
       case "name":
         return cellValue;
       case "slug":
         return cellValue;
+      case "details":
+        return cellValue || "-";
       case "actions":
         return (
           <div className="relative flex items-center justify-end gap-2">
@@ -112,31 +115,12 @@ export default function TagsUITable() {
               </DropdownTrigger>
               <DropdownMenu>
                 <DropdownItem
-                  onClick={() =>
-                    handelAction(
-                      "edit",
-                      tags?._id,
-                      "/admin/tags/tags-delate/",
-                      "Tag",
-                      "/tag/",
-                      "/dashboard/admin/tags/upload/"
-                    )
-                  }
+                  as={Link}
+                  href={`/dashboard/tags/upload?id=${tag._id}`}
                 >
                   Edit
                 </DropdownItem>
-                <DropdownItem
-                  onClick={() =>
-                    handelAction(
-                      "delete",
-                      tags?._id,
-                      "/admin/tags/tags-delate/",
-                      "Tag",
-                      "/tag/",
-                      "/dashboard/admin/tags/upload/"
-                    )
-                  }
-                >
+                <DropdownItem onClick={() => deleteTag(tag._id)}>
                   Delete
                 </DropdownItem>
               </DropdownMenu>
@@ -192,6 +176,30 @@ export default function TagsUITable() {
             onClear={() => onClear()}
             onValueChange={onSearchChange}
           />
+          <Dropdown>
+            <DropdownTrigger className="hidden sm:flex">
+              <Button
+                endContent={<FaChevronDown className="text-small" />}
+                variant="flat"
+              >
+                Columns
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              disallowEmptySelection
+              aria-label="Table Columns"
+              closeOnSelect={false}
+              selectedKeys={visibleColumns}
+              selectionMode="multiple"
+              onSelectionChange={setVisibleColumns}
+            >
+              {columns.map((column) => (
+                <DropdownItem key={column.uid} className="capitalize">
+                  {column.name}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-default-400 text-small">
@@ -280,9 +288,14 @@ export default function TagsUITable() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No tags found"} items={sortedItems}>
+      <TableBody
+        isLoading={isLoading}
+        loadingContent="Loading..."
+        emptyContent={"No tag found"}
+        items={sortedItems}
+      >
         {(item) => (
-          <TableRow key={item.slug}>
+          <TableRow key={item.name}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}
