@@ -1,11 +1,10 @@
-import ApplicationSearch from "@/components/Application/ApplicationSearch";
-import ArticleSidebar from "@/components/Application/ArticleSidebar";
-import React from "react";
+import ArticleSearch from "@/components/Article/ArticleSearch";
+import ArticleSidebar from "@/components/Article/ArticleSidebar";
 
-const ApplicationLayout = ({ children }) => {
+const ArticleLayout = ({ children }) => {
   return (
     <div>
-      <ApplicationSearch />
+      <ArticleSearch />
       <div className="grid w-full p-8 mx-auto md:grid-cols-5">
         <div className="md:col-span-3">{children}</div>
         <ArticleSidebar />
@@ -14,4 +13,4 @@ const ApplicationLayout = ({ children }) => {
   );
 };
 
-export default ApplicationLayout;
+export default ArticleLayout;

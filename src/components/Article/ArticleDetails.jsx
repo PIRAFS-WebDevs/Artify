@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AiOutlineFile, AiOutlineHome } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 
-const ApplicationDetails = () => {
+const ArticleDetails = () => {
   return (
     <div className="space-y-6">
       <div className="flex gap-4">
@@ -57,4 +57,4 @@ const ApplicationDetails = () => {
   );
 };
 
-export default ApplicationDetails;
+export default ArticleDetails;

@@ -1,6 +1,6 @@
 import Questions from "@/components/Dashboard/Questions/Questions";
 
-const page = () => {
+const QuestionsPage = () => {
   return (
     <>
       <Questions />
@@ -8,4 +8,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default QuestionsPage;

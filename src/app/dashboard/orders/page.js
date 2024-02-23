@@ -1,6 +1,6 @@
 import Orders from "@/components/Dashboard/Orders/Orders";
 
-const ordersPage = () => {
+const OrdersPage = () => {
   return (
     <>
       <Orders />
@@ -8,4 +8,4 @@ const ordersPage = () => {
   );
 };
 
-export default ordersPage;
+export default OrdersPage;

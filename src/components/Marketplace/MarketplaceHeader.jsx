@@ -5,8 +5,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const MarketplaceHeader = () => {
   return (
-    <div className="flex flex-col items-center justify-between gap-6 px-6 md:flex-row">
-      <div className="flex items-center gap-2 pb-2 border-b w-60 border-dark-200 focus:border-dark-100">
+    <div className="flex flex-col items-center justify-between gap-6 px-6 sm:flex-row">
+      <div className="flex items-center w-full gap-2 pb-2 border-b sm:w-80 border-dark-200 focus:border-dark-100">
         <AiOutlineSearch className="text-dark-100" />
         <input
           type="text"

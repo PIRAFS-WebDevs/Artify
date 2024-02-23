@@ -2,6 +2,7 @@
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import Image from "next/image";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import "./Marketplace.css";
 
@@ -15,7 +16,7 @@ const OurMarketplace = () => {
       <div>
         {isLoading ? (
           <div className="flex gap-4 ">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
+            {[1, 2, 3, 4, 5].map((e) => (
               <div
                 key={e}
                 className="h-8 bg-gray-300 rounded-full w-28 animate-pulse"
@@ -37,8 +38,14 @@ const OurMarketplace = () => {
             {data.map((data, index) => (
               <SplideSlide key={index}>
                 <div className="flex items-center gap-2 px-4 py-2 border rounded-sm shadow outline-none border-light-500 dark:text-white dark:bg-dark-300 dark:border-dark-400 whitespace-nowrap">
-                  <img className="w-12 h-12 rounded" src={data.image} alt="" />
-                  <p>{data.name}</p>
+                  <Image
+                    width={200}
+                    height={200}
+                    className="w-10 h-10 rounded sm:w-12 sm:h-12"
+                    src={data.image}
+                    alt="category"
+                  />
+                  <p className="text-sm sm:text-base">{data.name}</p>
                   <MdOutlineArrowRightAlt size={"1.5rem"} className="w-8" />
                 </div>
               </SplideSlide>
