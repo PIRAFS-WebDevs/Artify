@@ -39,6 +39,7 @@ const UserDropdown = ({ logout, user }) => {
             src={user.photoURL}
             width={200}
             height={200}
+            alt="user"
             onClick={() => setOpen((pv) => !pv)}
             className="flex justify-center items-center rounded-full w-[1.7rem] h-[1.7rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
           />
