@@ -1,6 +1,6 @@
-import ContactSvg from "../svg/ContactSvg";
-import LocationSvg from "../svg/LocationSvg";
-import WebSvg from "../svg/WebSvg";
+import ContactSvg from "../SVG/ContactSvg";
+import LocationSvg from "../SVG/LocationSvg";
+import WebSvg from "../SVG/WebSvg";
 
 const ContactInfo = () => {
   return (

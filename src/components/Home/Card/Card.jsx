@@ -1,8 +1,8 @@
 "use client";
 
 import CardSkeleton from "@/components/Shared/Skeletons/CardSkeleton";
-import DetailsSvg from "@/components/svg/DetailsSvg";
-import PreviewSvg from "@/components/svg/PreviewSvg";
+import DetailsSvg from "@/components/SVG/DetailsSvg";
+import PreviewSvg from "@/components/SVG/PreviewSvg";
 import { useProducts } from "@/hooks/product/useProducts";
 import { useAllValueContext } from "@/hooks/useAllValueContext";
 import { handleCart } from "@/utils/handleCart";

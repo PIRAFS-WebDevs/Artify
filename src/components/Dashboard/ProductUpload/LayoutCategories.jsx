@@ -1,9 +1,8 @@
 "use client";
 
-import { getCategories } from "@/utils/api/category";
-import { getLayout } from "@/utils/api/layout";
-import { getTags } from "@/utils/api/tag";
-import { useQuery } from "@tanstack/react-query";
+import { useCategories } from "@/hooks/category/useCategories";
+import { useLayouts } from "@/hooks/layout/useLayouts";
+import { useTags } from "@/hooks/tag/useTags";
 import { useEffect } from "react";
 
 const LayoutCategories = ({
@@ -14,6 +13,10 @@ const LayoutCategories = ({
   register,
   product,
 }) => {
+  const { data: tags = [] } = useTags();
+  const { data: categories = [] } = useCategories();
+  const { data: layouts = [] } = useLayouts();
+
   useEffect(() => {
     if (product) {
       setSelectedCategories(
@@ -46,21 +49,6 @@ const LayoutCategories = ({
     const updatedTags = selectedTags.filter((t) => t !== tag);
     setSelectedTags(updatedTags);
   };
-
-  const { data: tags = [] } = useQuery({
-    queryKey: ["tags"],
-    queryFn: () => getTags(),
-  });
-
-  const { data: categories = [] } = useQuery({
-    queryKey: ["category"],
-    queryFn: () => getCategories(),
-  });
-
-  const { data: layouts = [] } = useQuery({
-    queryKey: ["layouts"],
-    queryFn: () => getLayout(),
-  });
 
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
