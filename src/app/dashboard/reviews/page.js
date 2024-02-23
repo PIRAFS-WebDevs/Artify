@@ -1,6 +1,6 @@
 import Reviews from "@/components/Dashboard/Reviews/Reviews";
 
-const reviewsPage = () => {
+const ReviewsPage = () => {
   return (
     <>
       <Reviews />
@@ -8,4 +8,4 @@ const reviewsPage = () => {
   );
 };
 
-export default reviewsPage;
+export default ReviewsPage;

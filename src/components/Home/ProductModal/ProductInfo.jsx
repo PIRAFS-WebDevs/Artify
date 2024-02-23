@@ -93,17 +93,17 @@ const ProductInfo = ({
       </div>
 
       <div>
-        <div className="grid items-center grid-cols-2 gap-4 pt-4 border-t xl:grid-cols-4 dark:border-dark-300 border-light-300">
+        <div className="grid items-center grid-cols-2 gap-4 pt-4 border-t lg:grid-cols-4 dark:border-dark-300 border-light-300">
           <p className="dark:text-dark-100">Share this item:</p>
-          <div className="flex flex-wrap items-center col-span-2 gap-2 xl:col-span-3">
-            <BiLogoFacebook className="w-10 h-10 p-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
-            <BiLogoTwitter className="w-10 h-10 p-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
-            <BiLogoLinkedin className="w-10 h-10 p-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+          <div className="flex flex-wrap items-center col-span-1 gap-2 lg:col-span-3">
+            <BiLogoFacebook className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            <BiLogoTwitter className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            <BiLogoLinkedin className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
 
             {/* copy button */}
             <button
               onClick={onCopy}
-              className="flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300"
+              className="flex items-center gap-2 px-2 py-2 border rounded-full cursor-pointer md:px-3 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300 max-sm:text-sm"
             >
               <AiOutlineLink className="w-4 h-4" />
               copy link
@@ -111,7 +111,7 @@ const ProductInfo = ({
           </div>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="static inset-x-0 bottom-0 grid grid-cols-1 gap-4 pt-4 xl:absolute sm:grid-cols-2">
           <button
             className="py-4 font-semibold text-white transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95"
             onClick={() =>

@@ -1,7 +1,6 @@
-import ArticlesCategory from "@/components/Application/ArticleCategory";
-import React from "react";
+import ArticlesCategory from "@/components/Article/ArticleCategory";
 
-const ApplicationPage = () => {
+const ArticlePage = () => {
   return (
     <div>
       <ArticlesCategory />
@@ -9,4 +8,4 @@ const ApplicationPage = () => {
   );
 };
 
-export default ApplicationPage;
+export default ArticlePage;

@@ -1,9 +1,9 @@
 // icons
-import { AiFillAppstore, AiFillHome, AiFillLike } from "react-icons/ai";
+import { AiFillHome, AiFillLike } from "react-icons/ai";
 import { BiSolidUserDetail } from "react-icons/bi";
-import { BsBoxFill } from "react-icons/bs";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdHelp, IoMdInformationCircleOutline } from "react-icons/io";
+import { IoSettingsOutline } from "react-icons/io5";
 import { MdArticle, MdExplore } from "react-icons/md";
 
 const homeSidebarData = [
@@ -16,16 +16,6 @@ const homeSidebarData = [
     title: "Explore",
     path: "/explore",
     icon: <MdExplore />,
-  },
-  {
-    title: "Popular Products",
-    path: "/popular-products",
-    icon: <BsBoxFill />,
-  },
-  {
-    title: "Software",
-    path: "/software",
-    icon: <AiFillAppstore />,
   },
   {
     title: "Article",
@@ -46,6 +36,11 @@ const homeSidebarData = [
     title: "Contact",
     path: "/contact",
     icon: <BiSolidUserDetail />,
+  },
+  {
+    title: "Settings",
+    path: "/profile",
+    icon: <IoSettingsOutline />,
   },
   {
     title: "Help",

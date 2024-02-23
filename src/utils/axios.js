@@ -2,10 +2,6 @@ import axios from "axios";
 
 // Set config defaults when creating the instance
 export const instance = axios.create({
-  baseURL: `http://localhost:5000/api/v1/auth`,
-});
-
-const api = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BaseUrl}`,
 });
 
@@ -34,5 +30,3 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-export default api;

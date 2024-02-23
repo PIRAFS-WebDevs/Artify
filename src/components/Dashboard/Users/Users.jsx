@@ -4,7 +4,6 @@ import useChangeRole from "@/hooks/user/useChangeRole";
 import useRemoveUser from "@/hooks/user/useRemoveUser";
 import { useUsers } from "@/hooks/user/useUsers";
 import {
-  Avatar,
   Button,
   Dropdown,
   DropdownItem,
@@ -26,7 +25,7 @@ import { HiDotsVertical } from "react-icons/hi";
 
 const INITIAL_VISIBLE_COLUMNS = [
   "createdAt",
-  "imgURL",
+  "avatar",
   "name",
   "email",
   "phoneNumber",
@@ -62,7 +61,7 @@ export default function UserUITable() {
 
   const columns = [
     { uid: "createdAt", name: "Date", sortable: true },
-    { uid: "imgURL", name: "Avatar", sortable: true },
+    { uid: "avatar", name: "Avatar", sortable: true },
     { uid: "name", name: "Name", sortable: true },
     { uid: "email", name: "Email", sortable: true },
     { uid: "phoneNumber", name: "Number", sortable: true },
@@ -132,8 +131,12 @@ export default function UserUITable() {
     switch (columnKey) {
       case "createdAt":
         return cellValue?.slice(0, 10);
-      case "imgUrl":
-        return <Avatar name={user.name} />;
+      case "avatar":
+        return (
+          <h1 className="grid w-8 h-8 rounded-full bg-dark-200 text-light-100 place-items-center">
+            <span>{user.name.slice(0, 1).toUpperCase()}</span>
+          </h1>
+        );
       case "name":
         return cellValue;
       case "email":

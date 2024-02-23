@@ -1,12 +1,11 @@
-import ApplicationDetails from "@/components/Application/ApplicationDetails";
-import React from "react";
+import ArticleDetails from "@/components/Article/ArticleDetails";
 
-const ApplicationDetailsPage = ({ params }) => {
+const ArticleDetailsPage = ({ params }) => {
   return (
     <div>
-      <ApplicationDetails />
+      <ArticleDetails />
     </div>
   );
 };
 
-export default ApplicationDetailsPage;
+export default ArticleDetailsPage;

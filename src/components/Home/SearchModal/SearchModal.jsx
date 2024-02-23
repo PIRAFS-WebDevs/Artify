@@ -1,8 +1,17 @@
+import useDebounce from "@/hooks/useDebounce";
 import { AnimatePresence, motion as m } from "framer-motion";
+import { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import Card from "../Card/Card";
 
 const SearchModal = ({ searchModal, setSearchModal, setSearchValue }) => {
+  const [search, setSearch] = useState("");
+  const debounceValue = useDebounce(search);
+
+  useEffect(() => {
+    setSearchValue(debounceValue);
+  }, [debounceValue]);
+
   const handleClose = () => {
     setSearchModal(false);
     setSearchValue("");
@@ -28,7 +37,7 @@ const SearchModal = ({ searchModal, setSearchModal, setSearchValue }) => {
             }}
             exit={{ opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="min-h-screen p-6 rounded-sm shadow-xl cursor-default dark:bg-dark-400 bg-light-200 dark:text-white"
+            className="min-h-screen rounded-sm shadow-xl cursor-default md:p-4 dark:bg-dark-400 bg-light-200 dark:text-white"
           >
             <div className="px-6 pt-6">
               <div className="grid w-full h-8 -mt-4 text-xl place-items-end">
@@ -39,7 +48,7 @@ const SearchModal = ({ searchModal, setSearchModal, setSearchValue }) => {
               </div>
               <div className="w-full pb-4 border-b border-dark-200 focus:border-dark-100">
                 <input
-                  onChange={(e) => setSearchValue(e.target.value)}
+                  onChange={(e) => setSearch(e.target.value)}
                   autoFocus
                   type="text"
                   placeholder="Type anything to search..."

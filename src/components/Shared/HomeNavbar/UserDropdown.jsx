@@ -1,5 +1,6 @@
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -34,22 +35,24 @@ const UserDropdown = ({ logout, user }) => {
     >
       {user ? (
         user.photoURL ? (
-          <img
+          <Image
             src={user.photoURL}
+            width={200}
+            height={200}
             onClick={() => setOpen((pv) => !pv)}
-            className="flex justify-center items-center rounded-full w-[1.6rem] h-[1.6rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
+            className="flex justify-center items-center rounded-full w-[1.7rem] h-[1.7rem] bg-dark-100 text-dark-500 font-semibold cursor-pointer select-none"
           />
         ) : (
-          <p
+          <h1
             onClick={() => setOpen((pv) => !pv)}
-            className="flex justify-center items-center rounded-full w-[1.6rem] h-[1.6rem] bg-dark-100 hover:bg-white text-dark-500 font-semibold cursor-pointer select-none"
+            className="flex justify-center items-center rounded-full w-[1.7rem] h-[1.7rem] bg-dark-100 hover:bg-white text-dark-500 font-semibold cursor-pointer select-none"
           >
             {user.displayName[0]}
-          </p>
+          </h1>
         )
       ) : (
         <button className="cursor-pointer">
-          <FaUserCircle onClick={() => setOpen((pv) => !pv)} size={"1.5rem"} />
+          <FaUserCircle onClick={() => setOpen((pv) => !pv)} size={"1.6rem"} />
         </button>
       )}
 
