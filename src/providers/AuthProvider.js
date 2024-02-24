@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
         const data = {
           name: userCredential.user.displayName,
           email: userCredential.user.email,
-          photoURL: userCredential.user.photoURL,
+          imgUrl: userCredential.user.photoURL,
         };
 
         reset();
@@ -69,11 +69,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
 
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      await signInWithEmailAndPassword(auth, email, password);
 
       reset();
       router.push("/");
@@ -95,7 +91,7 @@ const AuthProvider = ({ children }) => {
       const data = {
         name: userCredential.user.displayName,
         email: userCredential.user.email,
-        photoURL: userCredential.user.photoURL,
+        imgUrl: userCredential.user.photoURL,
       };
 
       await saveUser(data);
