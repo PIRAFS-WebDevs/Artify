@@ -71,7 +71,7 @@ const LayoutCategories = ({
           <select
             {...register("layout")}
             id="layout"
-            defaultValue={product?.layout && product?.layout}
+            defaultValue={product?.layout ? product?.layout : ""}
             className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
           >
             {product?.layout ? (

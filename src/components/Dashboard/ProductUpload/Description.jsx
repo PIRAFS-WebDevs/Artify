@@ -89,7 +89,6 @@ const Description = ({ register, errors, product }) => {
               id="published"
               value="Published"
               defaultChecked
-              // checked={product?.status === "Published"}
             />
             <label htmlFor="published">Published</label>
           </div>
@@ -100,8 +99,6 @@ const Description = ({ register, errors, product }) => {
               type="radio"
               id="draft"
               value="Draft"
-              // defaultChecked={product?.status === "Draft"}
-              // checked={product?.status === "Draft"}
             />
             <label htmlFor="draft">Draft</label>
           </div>

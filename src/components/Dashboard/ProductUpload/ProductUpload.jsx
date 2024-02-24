@@ -34,7 +34,6 @@ const ProductUpload = () => {
     register,
     setValue,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
@@ -50,11 +49,14 @@ const ProductUpload = () => {
   useEffect(() => {
     if (singleProduct._id) {
       setValue("price", singleProduct.price || 0);
-      setValue("sell_price", singleProduct.sell_price || 0);
+      setValue("sale_price", singleProduct.sale_price || 0);
       setValue("preview_url", singleProduct.preview_url || "");
       setValue("name", singleProduct.name || "");
       setValue("slug", singleProduct.slug || "");
       setValue("description", singleProduct.description || "");
+      setValue("layout", singleProduct.layout || "");
+      setFeaturedImage(singleProduct.images[0] || "");
+      setGalleryImage([...singleProduct.images.slice(1)]);
     }
   }, [singleProduct, setValue]);
 

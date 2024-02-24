@@ -159,22 +159,30 @@ export default function ProductUITable() {
         return (
           <div className="relative flex items-center justify-end gap-2">
             <Dropdown>
-              <DropdownTrigger>
+              <DropdownTrigger aria-label="dropdown-trigger">
                 <Button isIconOnly size="sm" variant="light">
                   <HiDotsVertical className="text-default-300" />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem as={Link} href={product.preview_url}>
+              <DropdownMenu aria-label="dropdown-menu">
+                <DropdownItem
+                  aria-label="view"
+                  as={Link}
+                  href={product.preview_url}
+                >
                   View
                 </DropdownItem>
                 <DropdownItem
                   as={Link}
                   href={`/dashboard/products/upload?id=${product._id}`}
+                  aria-label="edit"
                 >
                   Edit
                 </DropdownItem>
-                <DropdownItem onClick={() => removeProduct(product._id)}>
+                <DropdownItem
+                  aria-label="delete"
+                  onClick={() => removeProduct(product._id)}
+                >
                   Delete
                 </DropdownItem>
               </DropdownMenu>
