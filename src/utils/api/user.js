@@ -33,7 +33,7 @@ export const saveUser = async (data) => {
 // update user
 export const updateUser = async (data) => {
   try {
-    const response = await instance.patch(`/users/${id}`, data);
+    const response = await instance.patch(`/users`, data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -43,8 +43,10 @@ export const updateUser = async (data) => {
 // get user by email
 export const getUserByEmail = async (email) => {
   try {
-    const response = await instance.get(`/users/${email}`);
-    return response.data;
+    if (email) {
+      const response = await instance.get(`/users/${email}`);
+      return response.data;
+    }
   } catch (error) {
     console.error(error);
   }

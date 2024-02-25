@@ -1,4 +1,5 @@
 import { settingsSidebarData } from "@/data/SettingsSidebarData";
+import { useUser } from "@/hooks/user/useUser";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +8,10 @@ import { useEffect, useRef, useState } from "react";
 import { BiLogOut } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
 
-const UserDropdown = ({ logout, user }) => {
+const UserDropdown = ({ logout }) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { data: user = {} } = useUser();
 
   const dropdownRef = useRef();
 
@@ -34,9 +36,9 @@ const UserDropdown = ({ logout, user }) => {
       className="relative z-10"
     >
       {user ? (
-        user.photoURL ? (
+        user?.imgUrl ? (
           <Image
-            src={user.photoURL}
+            src={user?.imgUrl}
             width={200}
             height={200}
             alt="user"
@@ -48,7 +50,7 @@ const UserDropdown = ({ logout, user }) => {
             onClick={() => setOpen((pv) => !pv)}
             className="flex justify-center items-center rounded-full w-[1.7rem] h-[1.7rem] bg-dark-100 hover:bg-white text-dark-500 font-semibold cursor-pointer select-none"
           >
-            {user.displayName[0]}
+            {user?.name}
           </h1>
         )
       ) : (

@@ -139,11 +139,7 @@ const Navbar = () => {
           )}
 
           {/* login button */}
-          {user ? (
-            <UserDropdown user={user} logout={logout} />
-          ) : (
-            <LoginButton />
-          )}
+          {user ? <UserDropdown logout={logout} /> : <LoginButton />}
         </div>
       </div>
 

@@ -1,19 +1,57 @@
 "use client";
 
-import Link from "next/link";
+import { storage } from "@/config/firebaseConfig";
+import useUpdateUser from "@/hooks/user/useUpdateUser";
+import { useUser } from "@/hooks/user/useUser";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const Profile = () => {
+  const router = useRouter();
+  const { data: user = {} } = useUser();
+  const { mutateAsync: updateUser, isSuccess } = useUpdateUser();
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
+    setValue,
   } = useForm();
 
+  useEffect(() => {
+    if (user && user._id) {
+      setValue("name", user.name);
+      setValue("phoneNumber", user?.phoneNumber);
+      setValue("bio", user?.bio);
+    }
+  }, [user, setValue]);
+
+  useEffect(() => {
+    toast.success("Update user successfully");
+  }, [isSuccess]);
+
+  const handleImage = async (event) => {
+    const selectedFile = event.target.files?.[0];
+
+    if (selectedFile) {
+      try {
+        const name = `${selectedFile.name}_${new Date().getTime()}`;
+        const imageRef = ref(storage, `avatar/${name}`);
+        const snapshot = await uploadBytes(imageRef, selectedFile);
+        const imgUrl = await getDownloadURL(snapshot.ref);
+
+        updateUser({ ...user, imgUrl });
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    }
+  };
+
   const formHandler = (data) => {
-    reset();
-    console.table(data);
+    updateUser({ ...user, ...data });
   };
 
   return (
@@ -33,7 +71,8 @@ const Profile = () => {
             <p className="text-xs">Upload Your Avatar Image (80 X 80)</p>
 
             <input
-              {...register("avatar")}
+              onChange={handleImage}
+              accept="image/jpeg, image/png"
               id="dropzone-file"
               type="file"
               className="hidden w-full"
@@ -43,26 +82,22 @@ const Profile = () => {
 
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm">
-              Email
+            <label htmlFor="name" className="text-sm">
+              Name
             </label>
             <input
-              {...register("email", {
-                required: "email is required",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "invalid email address",
-                },
+              {...register("name", {
+                required: "name is required",
               })}
-              id="email"
-              type="email"
+              id="name"
+              type="name"
               className={`w-full ${
-                errors.email && "border-red-400 focus:border-red-400"
+                errors.name && "border-red-400 focus:border-red-400"
               } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200`}
             />
-            {errors.email && (
+            {errors.name && (
               <p className="mt-1 text-sm text-red-400">
-                *{errors.email.message}
+                *{errors.name.message}
               </p>
             )}
           </div>
@@ -72,30 +107,29 @@ const Profile = () => {
               Contact
             </label>
             <input
-              {...register("contact", {
+              {...register("phoneNumber", {
                 required: "contact is required",
                 pattern: {
-                  value: "",
+                  value: /^[0-9+\\-]+$/,
                   message: "invalid contact number",
                 },
+                minLength: { value: 7, message: "*invalid contact number" },
+                maxLength: { value: 15, message: "*invalid contact number" },
               })}
-              type="number"
+              type="text"
               id="contact"
-              className={`w-full rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none ${
-                errors.contact && "border-red-400 focus:border-red-400"
+              className={`w-full rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200 ${
+                errors.phoneNumber && "border-red-400 focus:border-red-400"
               }`}
             />
-            {errors.contact && (
+            {errors.phoneNumber && (
               <p className="mt-1 text-sm text-red-400">
-                *{errors.contact.message}
+                *{errors.phoneNumber.message}
               </p>
             )}
           </div>
           <div className="w-full col-span-2">
-            <label
-              htmlFor="bio"
-              className="inline-block mb-2 text-sm dark:text-white"
-            >
+            <label htmlFor="bio" className="inline-block mb-2 text-sm">
               Bio
             </label>
             <textarea
@@ -110,12 +144,12 @@ const Profile = () => {
         </div>
         <div className="absolute self-end bottom-8">
           <div className="space-x-4">
-            <Link
-              href={"/"}
+            <button
+              onClick={() => router.back()}
               className="px-4 py-3 text-sm font-semibold transition-all duration-200 bg-transparent border rounded-sm text-primary border-dark-200 dark:hover:bg-dark-200 hover:bg-light-300 active:scale-95"
             >
-              Cancel
-            </Link>
+              Back
+            </button>
             <button
               type="submit"
               className="px-4 py-3 text-sm font-semibold text-white transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95"
