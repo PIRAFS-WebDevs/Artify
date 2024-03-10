@@ -13,6 +13,7 @@ const AllValueProvider = ({ children }) => {
   const [productId, setProductId] = useState();
   const [cartUpdated, setCartUpdated] = useState(false);
   const [totalCartItem, setTotalCartItem] = useState([]);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -37,6 +38,8 @@ const AllValueProvider = ({ children }) => {
     setCartUpdated,
     totalCartItem,
     setTotalCartItem,
+    showLoginModal,
+    setShowLoginModal,
   };
 
   return (

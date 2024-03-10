@@ -1,9 +1,12 @@
 "use client";
 
+import useCreatePayment from "@/hooks/payment/useCreatePayment";
 import { useProducts } from "@/hooks/product/useProducts";
 import { useAllValueContext } from "@/hooks/useAllValueContext";
+import { useAuthContext } from "@/hooks/useAuthContext";
 import { DeleteDataCart, GetDataCart } from "@/utils/cart/AddToCart";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { AiOutlineClose } from "react-icons/ai";
@@ -11,9 +14,12 @@ import { AiOutlineClose } from "react-icons/ai";
 const CartItems = () => {
   const [getCartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-
-  const { setCartUpdated, cartUpdated } = useAllValueContext();
-  const { data: products } = useProducts();
+  const { setCartUpdated, cartUpdated, setShowLoginModal } =
+    useAllValueContext();
+  const { data: products = [] } = useProducts();
+  const { mutateAsync: createPayment } = useCreatePayment();
+  const { user } = useAuthContext();
+  const router = useRouter();
 
   const deleteCookies = (id) => {
     (async () => {
@@ -54,6 +60,21 @@ const CartItems = () => {
     })();
   }, [products]);
 
+  const handleCreatePayment = async () => {
+    if (user === null) {
+      setShowLoginModal(true);
+      return;
+    }
+
+    const data = {
+      email: user.email,
+      items: getCartItems,
+    };
+
+    const response = await createPayment(data);
+    router.push(response.url);
+  };
+
   return (
     <>
       <div className="h-[65vh] relative overflow-y-auto scrollbar">
@@ -91,8 +112,8 @@ const CartItems = () => {
                   <p className="dark:text-dark-100">{item?.layout}</p>
                   <p className="font-semibold dark:text-dark-100">
                     <span className="px-2 py-1 dark:bg-dark-200 rounded-3xl text-primarySec ">
-                      {item?.price}
-                    </span>
+                      {item?.sale_price}
+                    </span>{" "}
                     X {"1"}
                   </p>
                 </div>
@@ -111,7 +132,10 @@ const CartItems = () => {
             $ {totalPrice}
           </span>
         </p>
-        <div className="w-[90%] mx-auto py-3 bg-primary text-center rounded text-white">
+        <div
+          onClick={handleCreatePayment}
+          className="w-[90%] mx-auto py-3 bg-primary text-center cursor-pointer rounded text-white"
+        >
           <button>Proceed to checkout</button>
         </div>
       </div>
