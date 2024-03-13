@@ -30,7 +30,9 @@ const Profile = () => {
   }, [user, setValue]);
 
   useEffect(() => {
-    toast.success("Update user successfully");
+    if (isSuccess) {
+      toast.success("Update user successfully");
+    }
   }, [isSuccess]);
 
   const handleImage = async (event) => {
@@ -113,8 +115,8 @@ const Profile = () => {
                   value: /^[0-9+\\-]+$/,
                   message: "invalid contact number",
                 },
-                minLength: { value: 7, message: "*invalid contact number" },
-                maxLength: { value: 15, message: "*invalid contact number" },
+                minLength: { value: 7, message: "invalid contact number" },
+                maxLength: { value: 15, message: "invalid contact number" },
               })}
               type="text"
               id="contact"

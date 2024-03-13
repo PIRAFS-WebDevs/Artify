@@ -3,7 +3,7 @@
 import useCreatePayment from "@/hooks/payment/useCreatePayment";
 import { useProducts } from "@/hooks/product/useProducts";
 import { useAllValueContext } from "@/hooks/useAllValueContext";
-import { useAuthContext } from "@/hooks/useAuthContext";
+import { useUser } from "@/hooks/user/useUser";
 import { DeleteDataCart, GetDataCart } from "@/utils/cart/AddToCart";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ const CartItems = () => {
     useAllValueContext();
   const { data: products = [] } = useProducts();
   const { mutateAsync: createPayment } = useCreatePayment();
-  const { user } = useAuthContext();
+  const { data: user } = useUser();
   const router = useRouter();
 
   const deleteCookies = (id) => {
@@ -72,7 +72,9 @@ const CartItems = () => {
     };
 
     const response = await createPayment(data);
-    router.push(response.url);
+    if (response && response.url) {
+      router.push(response.url);
+    }
   };
 
   return (

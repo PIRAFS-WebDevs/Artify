@@ -4,7 +4,7 @@
 
 .dark #category .splide__arrow {
   width: 2.2em;
-  height: 5em;
+  height: 4em;
   opacity: 100;
   padding: 10px;
   background: #181818;
@@ -30,14 +30,14 @@
   box-shadow: -15px 0 10px -3px #181818;
 }
 
-/* for white mode */
+/* for light mode */
 #category .splide__arrow svg {
   fill: #212121;
 }
 
 #category .splide__arrow {
   width: 2.2em;
-  height: 5em;
+  height: 4em;
   opacity: 100;
   padding: 10px;
   background: #f9f9f9;

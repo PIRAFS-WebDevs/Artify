@@ -6,6 +6,7 @@ import PreviewSvg from "@/components/SVG/PreviewSvg";
 import { useProducts } from "@/hooks/product/useProducts";
 import { useAllValueContext } from "@/hooks/useAllValueContext";
 import { handleCart } from "@/utils/handleCart";
+import { Tooltip } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
@@ -28,7 +29,7 @@ const Card = () => {
         </div>
       ) : (
         <div>
-          <div className="grid gap-4 min-[540px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  min-[2200px]:grid-cols-6 py-6 px-6 ">
+          <div className="grid gap-4 min-[540px]:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  min-[2200px]:grid-cols-6 py-6 px-6 ">
             {products?.map((product) => (
               <div
                 key={product?._id}
@@ -38,8 +39,8 @@ const Card = () => {
                   <Image
                     width={300}
                     height={200}
-                    className="w-full"
-                    src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F799%2Fimage03.png&w=1920&q=75"
+                    className="w-full h-[12rem] bg-light-100"
+                    src={product.images[0] || "/assets/images/card_alt.png"}
                     alt="Product Image"
                   />
                   <div className="absolute top-0 hidden w-full h-full opacity-50 group-hover:block group-hover:bg-black Z-10"></div>
@@ -60,9 +61,13 @@ const Card = () => {
 
                 {/* products details */}
                 <div className="flex flex-col justify-between gap-4 p-2 ">
-                  <h1 className="line-clamp-1 text-dark-500 dark:text-white">
+                  <Link
+                    title={product?.name}
+                    href={`products/${product._id}`}
+                    className="line-clamp-1 text-dark-500 dark:text-white"
+                  >
                     {product?.name}
-                  </h1>
+                  </Link>
                   <div className="flex items-end justify-between gap-1">
                     <div className="space-y-1">
                       <div className="flex gap-1">
@@ -83,20 +88,22 @@ const Card = () => {
                     </div>
                     <div>
                       <div className="flex gap-2">
-                        <button
-                          className="inline px-2 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-light-300 dark:hover:bg-dark-300 dark:border-dark-100 border-light-500 active:scale-95"
-                          onClick={() => {
-                            handleCart(
-                              { id: product?._id, quantity: 1 },
-                              product?._id,
-                              setCartUpdated
-                            );
-                          }}
-                        >
-                          <FaShoppingCart />
-                        </button>
+                        <Tooltip content="Add to cart">
+                          <button
+                            className="inline px-2 py-2 text-xs transition-all duration-200 bg-transparent border rounded-sm text-primary hover:bg-light-300 dark:hover:bg-dark-300 dark:border-dark-100 border-light-500 active:scale-95"
+                            onClick={() => {
+                              handleCart(
+                                { id: product?._id, quantity: 1 },
+                                product?._id,
+                                setCartUpdated
+                              );
+                            }}
+                          >
+                            <FaShoppingCart />
+                          </button>
+                        </Tooltip>
                         <Link
-                          href={`${product?.live_preview || ""}`}
+                          href={`${product?.preview_url || ""}`}
                           target="_blank"
                           className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded-sm whitespace-nowrap bg-primary hover:bg-primarySec active:scale-95"
                         >
