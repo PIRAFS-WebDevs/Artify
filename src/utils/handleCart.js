@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { AddToCart } from "./cart/AddToCart";
+import { AddToCart, GetDataCart } from "./cart/AddToCart";
 
 export const handleCart = async (cart, _id, setCartUpdated) => {
   const checking = async () => {
