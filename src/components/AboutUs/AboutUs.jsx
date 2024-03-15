@@ -8,14 +8,14 @@ const AboutUs = () => {
   return (
     <div className="max-w-6xl min-h-screen px-4 py-20 mx-auto space-y-10 md:space-y-16">
       <div className="grid gap-2 place-items-center">
-        <h1 className="text-xl font-semibold dark:text-white">About Us</h1>
+        <h1 className="text-xl font-semibold dark:text-light-100">About Us</h1>
         <p className="text-sm font-semibold text-dark-100">
           Learn in details about us
         </p>
       </div>
 
       <div className="space-y-2">
-        <h1 className="font-semibold dark:text-white">
+        <h1 className="font-semibold dark:text-light-100">
           To help each other is human nature.
         </h1>
         <p className="text-sm leading-6 text-dark-100">
@@ -31,31 +31,31 @@ const AboutUs = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        <h1 className="grid gap-2 dark:text-white place-items-center">
+        <h1 className="grid gap-2 dark:text-light-100 place-items-center">
           <span className="dark:bg-dark-300 bg-light-500 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
             <AiOutlineAppstoreAdd size={"4rem"} />
           </span>
           App Development
         </h1>
-        <h1 className="grid gap-2 dark:text-white place-items-center">
+        <h1 className="grid gap-2 dark:text-light-100 place-items-center">
           <span className="dark:bg-dark-300 bg-light-500 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
             <GiExpense size={"4rem"} />
           </span>
           Design & Research
         </h1>
-        <h1 className="grid gap-2 dark:text-white place-items-center">
+        <h1 className="grid gap-2 dark:text-light-100 place-items-center">
           <span className="dark:bg-dark-300 bg-light-500 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
             <HiOutlineLightBulb size={"4rem"} />
           </span>
           Research & Development
         </h1>
-        <h1 className="grid gap-2 dark:text-white place-items-center">
+        <h1 className="grid gap-2 dark:text-light-100 place-items-center">
           <span className="dark:bg-dark-300 bg-light-500 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
             <BsTools size={"4rem"} />
           </span>
           Custom Management
         </h1>
-        <h1 className="grid gap-2 dark:text-white place-items-center">
+        <h1 className="grid gap-2 dark:text-light-100 place-items-center">
           <span className="dark:bg-dark-300 bg-light-500 rounded-sm text-primary w-full h-[12rem] grid place-items-center">
             <AiOutlineGlobal size={"4rem"} />
           </span>
@@ -64,7 +64,7 @@ const AboutUs = () => {
       </div>
 
       <div className="space-y-2">
-        <h1 className="font-semibold dark:text-white">
+        <h1 className="font-semibold dark:text-light-100">
           Got something to share?
         </h1>
         <p className="text-sm leading-6 text-dark-100">
@@ -82,7 +82,7 @@ const AboutUs = () => {
       </div>
 
       <div className="py-10 border-y border-dark-200">
-        <h1 className="pb-10 text-xl font-semibold dark:text-white">
+        <h1 className="pb-10 text-xl font-semibold dark:text-light-100">
           Meet our team
         </h1>
         <div className="grid grid-cols-2 gap-8 place-items-center md:grid-cols-3">
@@ -99,7 +99,9 @@ const AboutUs = () => {
                 />
               </div>
               <div className="space-y-1 text-center lg:text-start">
-                <h1 className="font-semibold dark:text-white">Elna Maggio</h1>
+                <h1 className="font-semibold dark:text-light-100">
+                  Elna Maggio
+                </h1>
                 <p className="text-sm text-dark-100">
                   User Experience Designer
                 </p>
@@ -110,14 +112,14 @@ const AboutUs = () => {
       </div>
 
       <div className="space-y-2">
-        <h1 className="font-semibold dark:text-white">
+        <h1 className="font-semibold dark:text-light-100">
           To help each other is human nature.
         </h1>
         <p className="text-sm leading-6 text-dark-100">
           We are always happy to chat. A good way to reach us here.{" "}
           <Link
             href={"/contact"}
-            className="underline dark:text-white hover:text-primary"
+            className="underline dark:text-light-100 hover:text-primary"
           >
             Contact Us
           </Link>

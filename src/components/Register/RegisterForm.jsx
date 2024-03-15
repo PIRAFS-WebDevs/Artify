@@ -49,7 +49,7 @@ const RegisterForm = () => {
             <div>
               <label
                 htmlFor="first-name"
-                className="inline-block mb-2 text-sm dark:text-white sm:text-base"
+                className="inline-block mb-2 text-sm dark:text-light-100 sm:text-base"
               >
                 First name
               </label>
@@ -61,7 +61,7 @@ const RegisterForm = () => {
                 className={`w-full rounded-sm border dark:border-dark-300 border-light-500 ${
                   errors.firstName &&
                   "border-red-400 focus:outline-1 focus:outline-red-400"
-                } focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+                } focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-light-100 outline-none transition duration-100`}
               />
               {errors.firstName && (
                 <p className="mt-1 text-sm text-red-400">
@@ -72,21 +72,21 @@ const RegisterForm = () => {
             <div>
               <label
                 htmlFor="last-name"
-                className="inline-block mb-2 text-sm dark:text-white sm:text-base"
+                className="inline-block mb-2 text-sm dark:text-light-100 sm:text-base"
               >
                 Last name
               </label>
               <input
                 {...register("lastName")}
                 id="last-name"
-                className={`w-full rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+                className={`w-full rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-light-100 outline-none transition duration-100`}
               />
             </div>
           </div>
           <div>
             <label
               htmlFor="email"
-              className="inline-block mb-2 text-sm dark:text-white sm:text-base"
+              className="inline-block mb-2 text-sm dark:text-light-100 sm:text-base"
             >
               Email
             </label>
@@ -103,7 +103,7 @@ const RegisterForm = () => {
               className={`w-full ${
                 errors.email &&
                 "border-red-400 focus:outline-1 focus:outline-red-400"
-              } rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+              } rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-light-100 outline-none transition duration-100`}
             />
             {errors.email && (
               <p className="mt-1 text-sm text-red-400">
@@ -114,7 +114,7 @@ const RegisterForm = () => {
           <div>
             <label
               htmlFor="password"
-              className="inline-block mb-2 text-sm dark:text-white sm:text-base"
+              className="inline-block mb-2 text-sm dark:text-light-100 sm:text-base"
             >
               Password
             </label>
@@ -131,7 +131,7 @@ const RegisterForm = () => {
               className={`w-full ${
                 errors.password &&
                 "border-red-400 focus:outline-1 focus:outline-red-400"
-              } rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-white outline-none transition duration-100`}
+              } rounded-sm border dark:border-dark-300 border-light-500 focus:outline-1 focus:outline-primary bg-transparent px-3 py-2 dark:text-light-100 outline-none transition duration-100`}
             />
             {errors.password && (
               <p className="mt-1 text-sm text-red-400">
@@ -141,7 +141,7 @@ const RegisterForm = () => {
           </div>
           <button
             type="submit"
-            className="block px-8 py-4 text-sm font-semibold text-center text-white transition-all duration-100 rounded-sm outline-none bg-primary hover:bg-primarySec md:text-base active:scale-95"
+            className="block px-8 py-4 text-sm font-semibold text-center text-light-100 transition-all duration-100 rounded-sm outline-none bg-primary hover:bg-primarySec md:text-base active:scale-95"
           >
             {loading ? <Spinner size="sm" color="white" /> : "Register"}
           </button>
@@ -149,7 +149,7 @@ const RegisterForm = () => {
       </div>
 
       <div className="flex items-center justify-center p-4 bg-transparent border-t dark:border-dark-300 border-light-500">
-        <p className="text-sm text-center dark:text-white">
+        <p className="text-sm text-center dark:text-light-100">
           By creating an account with Artify, you agree to our
           <Link
             href="/"

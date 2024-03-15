@@ -26,7 +26,7 @@ const MobileNavbar = ({ mobileView, setMobileView }) => {
             }}
             exit={{ x: 240 }}
             onClick={(e) => e.stopPropagation()}
-            className={`${"w-full min-[400px]:w-[300px] min-h-screen bg-white dark:bg-dark-400 fixed right-0 top-0 z-[60] overflow-y-auto"} `}
+            className={`${"w-full min-[400px]:w-[300px] min-h-screen bg-light-100 dark:bg-dark-400 fixed right-0 top-0 z-[60] overflow-y-auto"} `}
           >
             <div className="flex items-center justify-between w-full px-4 py-1 mb-1 bg-light-300 dark:bg-dark-300">
               {/* logo */}
@@ -42,7 +42,7 @@ const MobileNavbar = ({ mobileView, setMobileView }) => {
               </Link>
               <button
                 onClick={() => setMobileView(false)}
-                className="grid w-8 h-8 text-xl place-items-center hover:text-dark-300 dark:hover:text-white"
+                className="grid w-8 h-8 text-xl place-items-center hover:text-dark-300 dark:hover:text-light-100"
               >
                 <AiOutlineClose />
               </button>

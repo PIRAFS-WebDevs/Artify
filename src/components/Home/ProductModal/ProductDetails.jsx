@@ -24,7 +24,7 @@ const ProductDetails = ({ setShowProductModal }) => {
   console.log("images:", images);
 
   return (
-    <div className="text-sm dark:text-white text-dark-200">
+    <div className="text-sm dark:text-light-100 text-dark-200">
       {/* product title */}
       <ModalHeader name={name} setShowProductModal={setShowProductModal} />
 

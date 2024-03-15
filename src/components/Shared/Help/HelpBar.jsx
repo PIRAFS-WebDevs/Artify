@@ -1,5 +1,5 @@
-import HelpNavLink from "../NavLink/HelpNavLink";
 import helpNavData from "@/data/helpNavData";
+import HelpNavLink from "../NavLink/HelpNavLink";
 
 const HelpBar = () => {
   return (
@@ -11,7 +11,7 @@ const HelpBar = () => {
             href={data.path}
             title={data.title}
             exact={data?.path === "/"}
-            activeClassName="text-white"
+            activeClassName="text-light-100"
           />
         ))}
       </div>

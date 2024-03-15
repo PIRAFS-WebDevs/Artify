@@ -4,7 +4,7 @@ import PurchaseDropdown from "./PurchaseDropdown";
 const Purchase = () => {
   return (
     <div className="space-y-4">
-      <p className="dark:text-white text-dark-500">
+      <p className="dark:text-light-100 text-dark-500">
         My Purchase List{" "}
         <span className="dark:text-dark-100 text-dark-300">({10})</span>
       </p>
@@ -26,7 +26,7 @@ const Purchase = () => {
                 <p className="text-xs text-dark-100 whitespace-nowrap">
                   Purchased on Sep 7, 2023
                 </p>
-                <p className="text-sm font-medium cursor-pointer dark:text-white text-dark-500 hover:text-primary line-clamp-2">
+                <p className="text-sm font-medium cursor-pointer dark:text-light-100 text-dark-500 hover:text-primary line-clamp-2">
                   Temprador WooCommerce Landing Page Theme
                 </p>
                 <p className="text-sm cursor-pointer text-primary">Preview</p>
@@ -37,7 +37,7 @@ const Purchase = () => {
               <button className="p-2 text-xs transition-all bg-transparent border rounded-sm text-primary border-dark-200 dark:hover:bg-dark-200 hover:bg-light-300 active:scale-95">
                 Update Preview
               </button>
-              <button className="flex items-center gap-2 p-2 text-xs text-white transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95">
+              <button className="flex items-center gap-2 p-2 text-xs text-light-100 transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95">
                 <BiSolidDownload className="w-4 h-4" />
                 Download
               </button>

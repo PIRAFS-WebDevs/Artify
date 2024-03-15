@@ -33,7 +33,7 @@ const Card = () => {
             {products?.map((product) => (
               <div
                 key={product?._id}
-                className="w-full col-span-1 space-y-2 text-white rounded-sm shadow dark:shadow-dark-400 dark:bg-transparent bg-light-100 min-h-fit"
+                className="w-full col-span-1 space-y-2 rounded-sm shadow text-light-100 dark:shadow-dark-400 dark:bg-transparent bg-light-100 min-h-fit"
               >
                 <div className="relative flex w-full group">
                   <Image
@@ -43,14 +43,14 @@ const Card = () => {
                     src={product.images[0] || "/assets/images/card_alt.png"}
                     alt="Product Image"
                   />
-                  <div className="absolute top-0 hidden w-full h-full opacity-50 group-hover:block group-hover:bg-black Z-10"></div>
+                  <div className="absolute top-0 hidden w-full h-full opacity-50 group-hover:block group-hover:bg-dark-500 Z-10"></div>
                   <div className="absolute top-0 left-0 z-10 flex items-center justify-center w-full h-full gap-10 p-4 transition-all opacity-0 cursor-pointer bg-dark/50 backdrop-blur group-hover:gap-5 group-hover:opacity-100 dark:bg-dark/50">
                     <PreviewSvg id={product?._id} />
                     <Link
                       href={`/products/${product?._id}`}
                       className="relative z-10 text-xs text-center"
                     >
-                      <div className="flex items-center justify-center mb-2 transition-all rounded-full dark:text-white hover:bg-primary bg-dark-100 backdrop-blur-sm hover:bg-brand h-11 w-11">
+                      <div className="flex items-center justify-center mb-2 transition-all rounded-full dark:text-light-100 hover:bg-primary bg-dark-100 backdrop-blur-sm hover:bg-brand h-11 w-11">
                         <DetailsSvg />
                       </div>
                       Details
@@ -64,14 +64,14 @@ const Card = () => {
                   <Link
                     title={product?.name}
                     href={`products/${product._id}`}
-                    className="line-clamp-1 text-dark-500 dark:text-white"
+                    className="line-clamp-1 text-dark-500 dark:text-light-100"
                   >
                     {product?.name}
                   </Link>
                   <div className="flex items-end justify-between gap-1">
                     <div className="space-y-1">
                       <div className="flex gap-1">
-                        <p className="text-xs line-through text-dark-500 dark:text-white">
+                        <p className="text-xs line-through text-dark-500 dark:text-light-100">
                           <span className="text-xs">$</span>
                           <span>{product?.sale_price || 0}</span>
                         </p>
@@ -81,7 +81,7 @@ const Card = () => {
                         </p>
                       </div>
                       <div>
-                        <p className="text-xs text-dark-500 dark:text-white">
+                        <p className="text-xs text-dark-500 dark:text-light-100">
                           987 Sales
                         </p>
                       </div>
@@ -105,7 +105,7 @@ const Card = () => {
                         <Link
                           href={`${product?.preview_url || ""}`}
                           target="_blank"
-                          className="inline px-3 py-2 text-xs text-white transition-all duration-200 rounded-sm whitespace-nowrap bg-primary hover:bg-primarySec active:scale-95"
+                          className="inline px-3 py-2 text-xs transition-all duration-200 rounded-sm text-light-100 whitespace-nowrap bg-primary hover:bg-primarySec active:scale-95"
                         >
                           Live Preview
                         </Link>
@@ -120,7 +120,7 @@ const Card = () => {
           {/* load more button */}
           {products.length > 10 && (
             <div className="flex justify-center py-8">
-              <button className="px-5 py-2 text-sm font-semibold text-white transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95">
+              <button className="px-5 py-2 text-sm font-semibold transition-all rounded-sm text-light-100 bg-primary md:block hover:bg-primarySec active:scale-95">
                 Load More
               </button>
             </div>

@@ -1,11 +1,11 @@
 "use client";
 
-import { FiChevronDown } from "react-icons/fi";
+import { settingsSidebarData } from "@/data/SettingsSidebarData";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { settingsSidebarData } from "@/data/SettingsSidebarData";
+import { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
 const SettingsDropdown = () => {
   const [open, setDelOpen] = useState(false);
@@ -16,7 +16,7 @@ const SettingsDropdown = () => {
       <motion.div animate={open ? "open" : "closed"} className="relative z-10">
         <button
           onClick={() => setDelOpen((pv) => !pv)}
-          className="flex items-center justify-between w-full px-4 py-2 text-white transition-all bg-transparent border rounded-sm border-dark-300"
+          className="flex items-center justify-between w-full px-4 py-2 text-light-100 transition-all bg-transparent border rounded-sm border-dark-300"
         >
           <span className="text-sm font-medium capitalize">
             {pathname.slice(1)}
@@ -30,15 +30,15 @@ const SettingsDropdown = () => {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 dark:bg-dark-400 text-white border border-dark-300 shadow absolute rounded-sm top-[120%] left-[50%] w-full overflow-hidden"
+          className="flex flex-col gap-2 dark:bg-dark-400 text-light-100 border border-dark-300 shadow absolute rounded-sm top-[120%] left-[50%] w-full overflow-hidden"
         >
           {settingsSidebarData.map((e, i) => (
             <Link href={`${e.path}`} key={i}>
               <motion.li
                 variants={itemVariants}
                 onClick={() => setDelOpen(false)}
-                className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap hover:bg-dark-200 text-gray-300 hover:text-white transition-all cursor-pointer ${
-                  pathname === e.path && "text-white bg-dark-200"
+                className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap hover:bg-dark-200 text-gray-300 hover:text-light-100 transition-all cursor-pointer ${
+                  pathname === e.path && "text-light-100 bg-dark-200"
                 }`}
               >
                 <motion.span variants={actionIconVariants}>

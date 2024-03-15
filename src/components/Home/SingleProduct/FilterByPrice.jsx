@@ -8,7 +8,7 @@ const FilterByPrice = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between border-b h-14 dark:dark:text-white dark:border-dark-300 border-light-500">
+      <div className="flex items-center justify-between border-b h-14 dark:dark:text-light-100 dark:border-dark-300 border-light-500">
         <p>Product Reviews</p>
         <div
           onClick={() => {

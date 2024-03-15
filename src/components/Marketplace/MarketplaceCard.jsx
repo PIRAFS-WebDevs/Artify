@@ -11,7 +11,7 @@ const MarketplaceCard = () => {
             alt=""
             className="w-[80px] h-[80px] rounded"
           />
-          <p className="text-sm text-white cursor-pointer group-hover:text-primary">
+          <p className="text-sm text-light-100 cursor-pointer group-hover:text-primary">
             Imagineco
           </p>
           <p className="text-sm text-dark-100">7 Products</p>

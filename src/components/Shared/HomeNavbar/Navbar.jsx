@@ -54,14 +54,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="inset-x-0 -top-[.1px] z-50 bg-white sticky dark:bg-dark-400 text-dark-100">
+    <nav className="inset-x-0 -top-[.1px] z-50 bg-light-100 sticky dark:bg-dark-400 text-dark-100">
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center md:gap-6">
           {/* menu button */}
           {!hideNavbarRoutes.includes(pathname) ? (
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className={`hidden cursor-pointer hover:text-light-500 dark:hover:text-white md:block`}
+              className={`hidden cursor-pointer hover:text-light-500 dark:hover:text-light-100 md:block`}
             >
               {sidebarOpen ? (
                 <HiOutlineMenu size={"1.5rem"} />
@@ -91,7 +91,7 @@ const Navbar = () => {
           <button onClick={() => setSearchModal(true)}>
             <AiOutlineSearch
               size={"1.5rem"}
-              className="hidden cursor-pointer md:block hover:text-light-500 dark:hover:text-white"
+              className="hidden cursor-pointer md:block hover:text-light-500 dark:hover:text-light-100"
             />
           </button>
 
@@ -110,9 +110,9 @@ const Navbar = () => {
             <button onClick={() => setCartOpen(true)}>
               <FaShoppingBag
                 size={"1.2rem"}
-                className="hover:text-light-500 dark:hover:text-white"
+                className="hover:text-light-500 dark:hover:text-light-100"
               />
-              <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
+              <span className="absolute w-5 h-5 text-sm text-light-100 rounded-full -top-2 -right-2 bg-primary">
                 <span>{totalCartItem?.length}</span>
               </span>
             </button>
@@ -125,14 +125,14 @@ const Navbar = () => {
           {!user ? (
             <Link
               href={"/register"}
-              className="hidden px-5 py-1.5 text-sm font-semibold text-white transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-5 py-1.5 text-sm font-semibold text-light-100 transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Register
             </Link>
           ) : (
             <Link
               href={"/dashboard"}
-              className="hidden px-5 py-1.5 text-sm font-semibold text-white transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
+              className="hidden px-5 py-1.5 text-sm font-semibold text-light-100 transition-all rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
             >
               Dashboard
             </Link>
@@ -145,27 +145,27 @@ const Navbar = () => {
 
       {/* mobile nav */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400 bg-white ${
+        className={`fixed bottom-0 left-0 right-0 z-50 flex justify-around py-4 md:hidden dark:bg-dark-400 bg-light-100 ${
           (cartOpen || searchModal) && "hidden"
         }`}
       >
         <AiFillHome
           size={"1.5rem"}
-          className="hover:text-light-500 dark:hover:text-white"
+          className="hover:text-light-500 dark:hover:text-light-100"
         />
         <AiOutlineSearch
           onClick={() => setSearchModal(true)}
           size={"1.5rem"}
-          className="hover:text-light-500 dark:hover:text-white"
+          className="hover:text-light-500 dark:hover:text-light-100"
         />
 
         <div className="relative">
           <button
             onClick={() => setCartOpen(true)}
-            className="hover:text-light-500 dark:hover:text-white"
+            className="hover:text-light-500 dark:hover:text-light-100"
           >
             <FaShoppingBag size={"1.2rem"} />
-            <span className="absolute w-5 h-5 text-sm text-white rounded-full -top-2 -right-2 bg-primary">
+            <span className="absolute w-5 h-5 text-sm text-light-100 rounded-full -top-2 -right-2 bg-primary">
               <span>{totalCartItem?.length}</span>
             </span>
           </button>
@@ -178,7 +178,7 @@ const Navbar = () => {
         >
           <AiOutlineMenu
             size={"1.5rem"}
-            className="hover:text-light-500 dark:hover:text-white"
+            className="hover:text-light-500 dark:hover:text-light-100"
           />
         </button>
 

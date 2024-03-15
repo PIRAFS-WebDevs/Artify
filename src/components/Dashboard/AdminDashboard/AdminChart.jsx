@@ -1,14 +1,13 @@
 "use client";
-import React, { PureComponent } from "react";
 import {
-  LineChart,
+  CartesianGrid,
+  Legend,
   Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
 } from "recharts";
 
 const AdminChart = () => {
@@ -89,7 +88,7 @@ const AdminChart = () => {
 
   return (
     <div
-      className="lg:h-[500px] h-[300px] dark:bg-dark-400 bg-white my-5
+      className="lg:h-[500px] h-[300px] dark:bg-dark-400 bg-light-100 my-5
      rounded-sm border dark:border-dark-300 pt-10 text-xs md:text-base"
     >
       <ResponsiveContainer width="100%" height="100%">

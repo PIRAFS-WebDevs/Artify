@@ -1,7 +1,7 @@
 "use client";
-import React, { useRef, useState } from "react";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import categoriesData from "@/data/categoriesData";
+import { useRef, useState } from "react";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const Category = () => {
   const scrollContainerRef = useRef(null);
@@ -23,7 +23,7 @@ const Category = () => {
 
   return (
     <section className="sticky inset-x-0 py-4 top-[72.5px] border-y border-dark-300 dark:bg-dark-500 z-40">
-      <div className="z-20 flex w-full overflow-hidden dark:text-white">
+      <div className="z-20 flex w-full overflow-hidden dark:text-light-100">
         <div className="flex items-start overflow-hidden">
           <button
             onClick={scrollLeft}
@@ -33,7 +33,7 @@ const Category = () => {
                 : "z-10 w-10 h-8 sticky left-5 dark:bg-dark-500"
             }`}
           >
-            <MdKeyboardArrowLeft className="text-2xl dark:text-white" />
+            <MdKeyboardArrowLeft className="text-2xl dark:text-light-100" />
           </button>
 
           <div
@@ -45,8 +45,8 @@ const Category = () => {
                 <button
                   className={`h-[30px] shrink-0 !rounded-full border border-dark-300 px-3.5 text-xs font-medium outline-none ${
                     index === 0
-                      ? "bg-white text-black "
-                      : "dark:text-white hover:dark:bg-dark-300 py-1.5"
+                      ? "bg-light-100 text-dark-500 "
+                      : "dark:text-light-100 hover:dark:bg-dark-300 py-1.5"
                   }`}
                 >
                   {data.name}
@@ -59,7 +59,7 @@ const Category = () => {
             onClick={scrollRight}
             className="sticky z-10 w-10 h-8 right-4 dark:bg-dark-500"
           >
-            <MdKeyboardArrowRight className="text-2xl dark:text-white" />
+            <MdKeyboardArrowRight className="text-2xl dark:text-light-100" />
           </button>
         </div>
       </div>

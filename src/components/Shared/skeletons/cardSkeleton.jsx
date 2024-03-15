@@ -6,7 +6,7 @@ const CardSkeleton = () => {
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e) => (
         <div
           key={e}
-          className="w-full col-span-1 space-y-2 min-h-fit dark:text-white"
+          className="w-full col-span-1 space-y-2 min-h-fit dark:text-light-100"
         >
           {/* Loading skeleton for the product image */}
           <Skeleton className="w-full h-40 bg-gray-300"></Skeleton>

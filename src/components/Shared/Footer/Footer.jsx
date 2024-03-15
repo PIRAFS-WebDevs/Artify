@@ -20,7 +20,7 @@ const Footer = () => {
                   {categoryObj[categoryName].map((subcategory, subIndex) => (
                     <li
                       key={subIndex}
-                      className="cursor-pointer first:mt-2 hover:text-black dark:hover:dark:text-white"
+                      className="cursor-pointer first:mt-2 hover:text-dark-500 dark:hover:dark:text-light-100"
                     >
                       <Link href={`${subcategory.path}`}>
                         {subcategory.name}
@@ -49,16 +49,16 @@ const Footer = () => {
           <p>© The Artify Limited. 2017-2025</p>
         </div>
         <div className="flex flex-wrap items-center gap-2 px-3 xl:col-start-4 dark:text-dark-100 mb-[50px] md:mb-0">
-          <button className="dark:hover:text-white hover:text-black">
+          <button className="dark:hover:text-light-100 hover:text-dark-500">
             Refunds
           </button>
-          <button className="dark:hover:text-white hover:text-black">
+          <button className="dark:hover:text-light-100 hover:text-dark-500">
             Memberships
           </button>
-          <button className="dark:hover:text-white hover:text-black">
+          <button className="dark:hover:text-light-100 hover:text-dark-500">
             Payment
           </button>
-          <button className="dark:hover:text-white hover:text-black">
+          <button className="dark:hover:text-light-100 hover:text-dark-500">
             Authorized
           </button>
         </div>

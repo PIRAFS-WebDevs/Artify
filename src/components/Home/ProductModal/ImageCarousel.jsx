@@ -59,7 +59,7 @@ const ImageCarousel = ({ images = [] }) => {
                 exit={{ opacity: 0, pointerEvents: "none" }}
                 onClick={() => setIndex(index - 1)}
               >
-                <AiOutlineLeft className="absolute inset-y-0 left-0 p-2 mx-3 my-auto bg-white border rounded-full shadow-2xl cursor-pointer hover:border-primary w-9 h-9 text-dark-500 hover:text-primary" />
+                <AiOutlineLeft className="absolute inset-y-0 left-0 p-2 mx-3 my-auto bg-light-100 border rounded-full shadow-2xl cursor-pointer hover:border-primary w-9 h-9 text-dark-500 hover:text-primary" />
               </button>
             )}
           </AnimatePresence>
@@ -73,7 +73,7 @@ const ImageCarousel = ({ images = [] }) => {
                     exit={{ opacity: 0, pointerEvents: "none" }}
                     onClick={() => setIndex(index + 1)}
                   >
-                    <AiOutlineRight className="absolute inset-y-0 right-0 p-2 mx-3 my-auto bg-white border rounded-full shadow-2xl cursor-pointer hover:border-primary w-9 h-9 text-dark-500 hover:text-primary" />
+                    <AiOutlineRight className="absolute inset-y-0 right-0 p-2 mx-3 my-auto bg-light-100 border rounded-full shadow-2xl cursor-pointer hover:border-primary w-9 h-9 text-dark-500 hover:text-primary" />
                   </m.button>
                 )
               : index + 1 < images.length && (
@@ -83,7 +83,7 @@ const ImageCarousel = ({ images = [] }) => {
                     exit={{ opacity: 0, pointerEvents: "none" }}
                     onClick={() => setIndex(index + 1)}
                   >
-                    <AiOutlineRight className="absolute inset-y-0 right-0 p-2 mx-3 my-auto bg-white border rounded-full shadow-2xl cursor-pointer hover:border-primary w-9 h-9 text-dark-500 hover:text-primary" />
+                    <AiOutlineRight className="absolute inset-y-0 right-0 p-2 mx-3 my-auto bg-light-100 border rounded-full shadow-2xl cursor-pointer hover:border-primary w-9 h-9 text-dark-500 hover:text-primary" />
                   </m.button>
                 )}
           </AnimatePresence>

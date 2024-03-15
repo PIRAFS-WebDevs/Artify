@@ -1,8 +1,8 @@
 "use client";
 
-import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
-import { AnimatePresence, motion as m, MotionConfig } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion as m } from "framer-motion";
 import { useState } from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const BannerSlider = () => {
   const [index, setIndex] = useState(0);
@@ -34,7 +34,7 @@ const BannerSlider = () => {
               whilehover={{ opacity: 1 }}
               onClick={() => setIndex(index - 1)}
             >
-              <AiOutlineLeft className="absolute inset-y-0 left-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer dark:bg-dark-400 hover:bg-dark-500" />
+              <AiOutlineLeft className="absolute inset-y-0 left-0 w-8 h-8 p-2 mx-3 my-auto text-light-100 rounded-full shadow-md cursor-pointer dark:bg-dark-400 hover:bg-dark-500" />
             </button>
           )}
         </AnimatePresence>
@@ -48,7 +48,7 @@ const BannerSlider = () => {
               whilehover={{ opacity: 1 }}
               onClick={() => setIndex(index + 1)}
             >
-              <AiOutlineRight className="absolute inset-y-0 right-0 w-8 h-8 p-2 mx-3 my-auto text-white rounded-full shadow-md cursor-pointer dark:bg-dark-400 hover:bg-dark-500" />
+              <AiOutlineRight className="absolute inset-y-0 right-0 w-8 h-8 p-2 mx-3 my-auto text-light-100 rounded-full shadow-md cursor-pointer dark:bg-dark-400 hover:bg-dark-500" />
             </m.button>
           )}
         </AnimatePresence>

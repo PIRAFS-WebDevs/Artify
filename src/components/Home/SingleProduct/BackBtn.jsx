@@ -9,7 +9,7 @@ const BackBtn = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="flex items-center gap-3 font-medium text-dark-100 hover:dark:text-white"
+      className="flex items-center gap-3 font-medium text-dark-100 hover:dark:text-light-100"
     >
       <IoIosArrowRoundBack size={30} />
       Back

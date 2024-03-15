@@ -37,7 +37,7 @@ const OurMarketplace = () => {
           >
             {data.map((data, index) => (
               <SplideSlide key={index}>
-                <div className="flex items-center gap-2 px-4 py-2 border rounded-sm shadow outline-none border-light-500 dark:text-white dark:bg-dark-300 dark:border-dark-400 whitespace-nowrap">
+                <div className="flex items-center gap-2 px-4 py-2 border rounded-sm shadow outline-none border-light-500 dark:text-light-100 dark:bg-dark-300 dark:border-dark-400 whitespace-nowrap">
                   <Image
                     width={200}
                     height={200}

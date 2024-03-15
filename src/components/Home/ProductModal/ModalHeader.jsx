@@ -9,7 +9,7 @@ const ModalHeader = ({ setShowProductModal, name }) => {
   return (
     <div className="flex items-start justify-between gap-4 p-4 md:p-8 lg:items-center dark:bg-dark-500">
       <div className="flex flex-wrap items-center gap-2 md:gap-4">
-        <h1 className="font-medium cursor-pointer dark:text-white md:text-xl hover:text-primary line-clamp-1 text-dark-500">
+        <h1 className="font-medium cursor-pointer dark:text-light-100 md:text-xl hover:text-primary line-clamp-1 text-dark-500">
           {name}
         </h1>
         <div className="flex items-center gap-2">
@@ -26,7 +26,7 @@ const ModalHeader = ({ setShowProductModal, name }) => {
             </button>
           ) : (
             <button onClick={() => setLike(true)}>
-              <AiOutlineHeart className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-white" />
+              <AiOutlineHeart className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-light-100" />
             </button>
           )}
         </div>

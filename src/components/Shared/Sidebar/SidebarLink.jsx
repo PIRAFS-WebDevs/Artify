@@ -10,9 +10,9 @@ const SidebarLink = ({ href, title, icon }) => {
 
   return (
     <div
-      className={`dark:hover:text-white font-medium text-dark-300 dark:text-dark-100 hover:text-dark-500 dark:hover:bg-dark-300 hover:bg-light-300 ${
+      className={`dark:hover:text-light-100 font-medium text-dark-300 dark:text-dark-100 hover:text-dark-500 dark:hover:bg-dark-300 hover:bg-light-300 ${
         path === href &&
-        "dark:text-white dark:bg-dark-300  text-dark-500 bg-light-400"
+        "dark:text-light-100 dark:bg-dark-300  text-dark-500 bg-light-400"
       }`}
     >
       <Link onClick={() => setMobileView(false)} href={href}>

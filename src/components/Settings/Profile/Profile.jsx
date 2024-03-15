@@ -58,7 +58,7 @@ const Profile = () => {
 
   return (
     <div className="mb-20 space-y-6 text-dark-100">
-      <p className="dark:text-white text-dark-500">Personal Information</p>
+      <p className="dark:text-light-100 text-dark-500">Personal Information</p>
 
       <form
         onSubmit={handleSubmit(formHandler)}
@@ -95,7 +95,7 @@ const Profile = () => {
               type="name"
               className={`w-full ${
                 errors.name && "border-red-400 focus:border-red-400"
-              } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200`}
+              } rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-light-100 text-dark-500 outline-none transition-all duration-200`}
             />
             {errors.name && (
               <p className="mt-1 text-sm text-red-400">
@@ -120,7 +120,7 @@ const Profile = () => {
               })}
               type="text"
               id="contact"
-              className={`w-full rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-white text-dark-500 outline-none transition-all duration-200 ${
+              className={`w-full rounded-sm border border-dark-100 focus:border-primary bg-transparent px-3 py-2 dark:text-light-100 text-dark-500 outline-none transition-all duration-200 ${
                 errors.phoneNumber && "border-red-400 focus:border-red-400"
               }`}
             />
@@ -138,7 +138,7 @@ const Profile = () => {
               {...register("bio")}
               id="bio"
               rows={5}
-              className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-100 focus:border-primary dark:text-white text-dark-500 resize-none ${
+              className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-dark-100 focus:border-primary dark:text-light-100 text-dark-500 resize-none ${
                 errors.bio && "border-red-400 focus:border-red-400"
               }`}
             ></textarea>
@@ -154,7 +154,7 @@ const Profile = () => {
             </button>
             <button
               type="submit"
-              className="px-4 py-3 text-sm font-semibold text-white transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95"
+              className="px-4 py-3 text-sm font-semibold text-light-100 transition-all duration-200 rounded-sm bg-primary hover:bg-primarySec active:scale-95"
             >
               Save Changes
             </button>

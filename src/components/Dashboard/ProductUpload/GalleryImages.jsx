@@ -69,7 +69,7 @@ const GalleryImages = ({ galleryImage, setGalleryImage }) => {
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="dark:text-white">Gallery Upload</h1>
+        <h1 className="dark:text-light-100">Gallery Upload</h1>
         <p className="text-dark-100">
           your product image gallery here Image size should not be more than 2
           MB
@@ -110,7 +110,7 @@ const GalleryImages = ({ galleryImage, setGalleryImage }) => {
                 />
                 <span
                   onClick={() => handleRemoveImage(image)}
-                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-white -top-2 -right-2 bg-primary"
+                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-light-100 -top-2 -right-2 bg-primary"
                 >
                   x
                 </span>
