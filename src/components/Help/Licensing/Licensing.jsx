@@ -1,4 +1,3 @@
-import React from "react";
 import { licensingData } from "@/data/licensingData";
 
 const Licensing = () => {
@@ -6,7 +5,7 @@ const Licensing = () => {
     <div className="space-y-10">
       {licensingData.map((data) => (
         <div key={data?.title} className="space-y-5">
-          <p className="dark:text-white">{data?.title}</p>
+          <p className="dark:text-light-100">{data?.title}</p>
           <p>{data?.details}</p>
 
           <ul className="ml-10 space-y-2 list-decimal">

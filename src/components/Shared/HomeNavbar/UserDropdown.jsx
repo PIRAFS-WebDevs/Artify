@@ -48,7 +48,7 @@ const UserDropdown = ({ logout }) => {
         ) : (
           <h1
             onClick={() => setOpen((pv) => !pv)}
-            className="flex justify-center items-center rounded-full w-[1.7rem] h-[1.7rem] bg-dark-100 hover:bg-white text-dark-500 font-semibold cursor-pointer select-none"
+            className="flex justify-center items-center rounded-full w-[1.7rem] h-[1.7rem] bg-dark-100 hover:bg-light-100 text-dark-500 font-semibold cursor-pointer select-none"
           >
             {user?.name}
           </h1>
@@ -63,7 +63,7 @@ const UserDropdown = ({ logout }) => {
         initial={wrapperVariants.closed}
         variants={wrapperVariants}
         style={{ originY: "top", translateX: "-50%" }}
-        className="flex flex-col rounded-sm bg-white dark:bg-dark-400 dark:text-gray-200 shadow-2xl absolute top-[160%] left-[-280%] w-52 overflow-hidden"
+        className="flex flex-col rounded-sm bg-light-100 dark:bg-dark-400 dark:text-gray-200 shadow-2xl absolute top-[160%] left-[-280%] w-52 overflow-hidden"
       >
         {settingsSidebarData.map((e, i) => (
           <Link href={`${e.path}`} key={i}>

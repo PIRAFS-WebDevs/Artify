@@ -8,7 +8,7 @@ const ArticleDetails = () => {
       <div className="flex gap-4">
         <AiOutlineFile size={"2rem"} />
         <div className="space-y-2">
-          <h1 className="flex items-center gap-4 text-lg font-medium md:text-2xl text-dark-500 dark:text-white">
+          <h1 className="flex items-center gap-4 text-lg font-medium md:text-2xl text-dark-500 dark:text-light-100">
             Async Await Why Confusing?
           </h1>
           <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm dark:text-dark-100 text-dark-200">
@@ -40,7 +40,7 @@ const ArticleDetails = () => {
       </div>
 
       <div className="space-y-4">
-        <h1 className="text-xl font-medium text-dark-500 dark:text-white">
+        <h1 className="text-xl font-medium text-dark-500 dark:text-light-100">
           The Earth
         </h1>
         <p>

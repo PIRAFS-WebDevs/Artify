@@ -36,14 +36,14 @@ const Login = ({ isShow, setIsShow }) => {
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="md:p-8 p-4 rounded-sm shadow-xl cursor-default w-full sm:w-[30rem] dark:bg-dark-400 dark:text-white bg-light-300"
+            className="md:p-8 p-4 rounded-sm shadow-xl cursor-default w-full sm:w-[30rem] dark:bg-dark-400 dark:text-light-100 bg-light-300"
           >
             <div className="flex justify-end w-full">
               <CloseButton reset={reset} setIsShow={setIsShow} />
             </div>
             <form
               onSubmit={handleSubmit(formHandler)}
-              className="space-y-2 md:space-y-4 dark:text-white text-dark-500"
+              className="space-y-2 md:space-y-4 dark:text-light-100 text-dark-500"
             >
               <div className="pb-4 space-y-2 text-center md:space-y-4">
                 <h1 className="font-medium md:text-lg">
@@ -81,7 +81,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="email"
                   id="email"
                   name="email"
-                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded-sm outline-none focus:border-primary ${
+                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-light-100 transition-all duration-300 bg-transparent border border-dark-100 rounded-sm outline-none focus:border-primary ${
                     errors.email && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -109,7 +109,7 @@ const Login = ({ isShow, setIsShow }) => {
                   type="password"
                   id="password"
                   name="password"
-                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-white transition-all duration-300 bg-transparent border border-dark-100 rounded-sm outline-none focus:border-primary ${
+                  className={`w-full px-4 py-1 md:py-2 leading-8 dark:text-light-100 transition-all duration-300 bg-transparent border border-dark-100 rounded-sm outline-none focus:border-primary ${
                     errors.password && "border-red-400 focus:border-red-400"
                   }`}
                 />
@@ -132,7 +132,7 @@ const Login = ({ isShow, setIsShow }) => {
               <div>
                 <button
                   type="submit"
-                  className="w-full px-8 py-3 text-sm text-white transition-all duration-300 rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
+                  className="w-full px-8 py-3 text-sm text-light-100 transition-all duration-300 rounded-sm bg-primary md:block hover:bg-primarySec active:scale-95"
                 >
                   {loading ? <Spinner size="sm" color="white" /> : "Get Login"}
                 </button>

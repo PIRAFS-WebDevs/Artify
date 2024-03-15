@@ -20,9 +20,9 @@ const SettingsSidebar = () => {
           <Link
             href={`${path}`}
             key={i}
-            className={`hidden md:flex items-center gap-4 py-4 px-6 dark:text-dark-100 text-dark-100 hover:text-dark-500 dark:hover:text-white cursor-pointer w-full select-none ${
+            className={`hidden md:flex items-center gap-4 py-4 px-6 dark:text-dark-100 text-dark-100 hover:text-dark-500 dark:hover:text-light-100 cursor-pointer w-full select-none ${
               pathname === path &&
-              "dark:bg-dark-300 bg-light-500 dark:text-white text-dark-500"
+              "dark:bg-dark-300 bg-light-500 dark:text-light-100 text-dark-500"
             }`}
           >
             {icon}
@@ -33,7 +33,7 @@ const SettingsSidebar = () => {
 
       <button
         onClick={() => logout()}
-        className="items-center hidden w-full gap-4 px-6 py-4 cursor-pointer select-none md:flex dark:text-dark-100 text-dark-100 hover:text-dark-500 dark:hover:text-white"
+        className="items-center hidden w-full gap-4 px-6 py-4 cursor-pointer select-none md:flex dark:text-dark-100 text-dark-100 hover:text-dark-500 dark:hover:text-light-100"
       >
         <BiLogOut size={"1.25rem"} />
         <p className="text-sm">Logout</p>

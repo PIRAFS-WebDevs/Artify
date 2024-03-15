@@ -2,7 +2,7 @@ const Description = ({ register, errors }) => {
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="dark:text-white">Description</h1>
+        <h1 className="dark:text-light-100">Description</h1>
         <p className="text-dark-100">
           Edit your tags description and necessary information from here
         </p>
@@ -12,7 +12,7 @@ const Description = ({ register, errors }) => {
         <div className="w-full">
           <label
             htmlFor="name"
-            className="inline-block mb-2 text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-light-100"
           >
             Name
           </label>
@@ -20,7 +20,7 @@ const Description = ({ register, errors }) => {
             {...register("name", { required: "name is required" })}
             type="text"
             id="name"
-            className={`w-full rounded-sm border border-light-500 dark:border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 ${
+            className={`w-full rounded-sm border border-light-500 dark:border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-light-100 outline-none transition-all duration-300 ${
               errors.name && "border-red-400 focus:border-red-400"
             }`}
           />
@@ -33,7 +33,7 @@ const Description = ({ register, errors }) => {
         <div className="w-full">
           <label
             htmlFor="slug"
-            className="inline-block mb-2 text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-light-100"
           >
             Slug
           </label>
@@ -41,7 +41,7 @@ const Description = ({ register, errors }) => {
             {...register("slug", { required: "slug is required" })}
             type="text"
             id="slug"
-            className={`w-full rounded-sm border border-light-500 dark:border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-white outline-none transition-all duration-300 block ${
+            className={`w-full rounded-sm border border-light-500 dark:border-dark-200 focus:border-primary bg-transparent px-3 py-2 dark:text-light-100 outline-none transition-all duration-300 block ${
               errors.slug && "border-red-400 focus:border-red-400"
             }`}
           />
@@ -54,7 +54,7 @@ const Description = ({ register, errors }) => {
         <div className="w-full">
           <label
             htmlFor="details"
-            className="inline-block mb-2 text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-light-100"
           >
             Details
           </label>
@@ -64,7 +64,7 @@ const Description = ({ register, errors }) => {
             })}
             id="details"
             rows={5}
-            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-white resize-none ${
+            className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-light-100 resize-none ${
               errors.details && "border-red-400 focus:border-red-400"
             }`}
           ></textarea>

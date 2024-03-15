@@ -10,7 +10,7 @@ const LoginButton = () => {
       <FaUserCircle
         onClick={() => setShowLoginModal(true)}
         size={"1.5rem"}
-        className="cursor-pointer dark:hover:text-white hover:text-light-500"
+        className="cursor-pointer dark:hover:text-light-100 hover:text-light-500"
       />
 
       {/* modal */}

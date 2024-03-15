@@ -1,8 +1,6 @@
-import React from "react";
-
 const BestProducts = () => {
   return (
-    <div className="p-5 mb-5 overflow-x-auto text-center bg-white border rounded-sm  dark:bg-dark-400 dark:border-dark-300">
+    <div className="p-5 mb-5 overflow-x-auto text-center bg-light-100 border rounded-sm  dark:bg-dark-400 dark:border-dark-300">
       <p className="mb-5 text-center">Popular Products</p>
 
       <table className="w-full text-xs md:text-base ">

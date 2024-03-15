@@ -113,7 +113,7 @@ const ProductInfo = ({
 
         <div className="static inset-x-0 bottom-0 grid grid-cols-1 gap-4 pt-4 xl:absolute sm:grid-cols-2">
           <button
-            className="py-4 font-semibold text-white transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95"
+            className="py-4 font-semibold text-light-100 transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95"
             onClick={() =>
               handleCart({ data: _id, quantity: 1 }, _id, setCartUpdated)
             }
@@ -121,7 +121,7 @@ const ProductInfo = ({
             Add to Cart <span>$ </span>
             {price}
           </button>
-          <button className="py-4 font-semibold transition-all bg-transparent border rounded-sm dark:text-white dark:border-dark-100 border-light-500 dark:hover:bg-dark-500 hover:bg-light-200 active:scale-95">
+          <button className="py-4 font-semibold transition-all bg-transparent border rounded-sm dark:text-light-100 dark:border-dark-100 border-light-500 dark:hover:bg-dark-500 hover:bg-light-200 active:scale-95">
             Live Preview
           </button>
         </div>

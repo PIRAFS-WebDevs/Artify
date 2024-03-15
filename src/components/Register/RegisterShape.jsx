@@ -40,7 +40,7 @@ const RegisterShape = () => {
           src="/assets/images/shape/shape6.png"
           alt=""
         />
-        <h1 className="text-5xl tracking-wide font-extralight dark:text-white">
+        <h1 className="text-5xl tracking-wide font-extralight dark:text-light-100">
           Great to have you back!
         </h1>
       </div>

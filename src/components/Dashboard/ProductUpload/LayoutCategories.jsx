@@ -53,7 +53,7 @@ const LayoutCategories = ({
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="dark:text-white">Layout & Categories</h1>
+        <h1 className="dark:text-light-100">Layout & Categories</h1>
         <p className="text-dark-100">
           Select product group and categories from here
         </p>
@@ -64,7 +64,7 @@ const LayoutCategories = ({
         <div className="w-full">
           <label
             htmlFor="layout"
-            className="inline-block mb-2 text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-light-100"
           >
             Layout
           </label>
@@ -72,13 +72,13 @@ const LayoutCategories = ({
             {...register("layout")}
             id="layout"
             defaultValue={product?.layout ? product?.layout : ""}
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-light-100"
           >
             {product?.layout ? (
               <>
                 <option
                   value={product?.layout}
-                  className="text-white bg-dark-300"
+                  className="text-light-100 bg-dark-300"
                 >
                   {product?.layout}
                 </option>
@@ -86,7 +86,7 @@ const LayoutCategories = ({
                   <option
                     key={i}
                     value={layout.name}
-                    className="text-white bg-dark-300"
+                    className="text-light-100 bg-dark-300"
                   >
                     {layout.name}
                   </option>
@@ -97,7 +97,7 @@ const LayoutCategories = ({
                 <option
                   key={i}
                   value={layout.name}
-                  className="text-white bg-dark-300"
+                  className="text-light-100 bg-dark-300"
                 >
                   {layout.name}
                 </option>
@@ -108,17 +108,17 @@ const LayoutCategories = ({
 
         {/* categories */}
         <div className="w-full space-y-2">
-          <label className="inline-block text-sm dark:text-white">
+          <label className="inline-block text-sm dark:text-light-100">
             Selected Categories:
           </label>
           <div className="flex flex-wrap gap-2">
             {selectedCategories.map((category, i) => (
               <div key={i} className="relative">
-                <span className="px-2 py-1 rounded-sm dark:text-white text-dark-300 dark:bg-dark-300 bg-light-500">
+                <span className="px-2 py-1 rounded-sm dark:text-light-100 text-dark-300 dark:bg-dark-300 bg-light-500">
                   {category}
                 </span>
                 <span
-                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-white -top-2 -right-2 bg-primary"
+                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-light-100 -top-2 -right-2 bg-primary"
                   onClick={() => removeCategory(category)}
                 >
                   x
@@ -128,7 +128,7 @@ const LayoutCategories = ({
           </div>
           <select
             id="category"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-light-100"
             onChange={handleCategoryChange}
           >
             <option value="" disabled selected hidden>
@@ -138,7 +138,7 @@ const LayoutCategories = ({
               <option
                 key={i}
                 value={category.name}
-                className="text-white bg-dark-300"
+                className="text-light-100 bg-dark-300"
               >
                 {category.name}
               </option>
@@ -148,17 +148,17 @@ const LayoutCategories = ({
 
         {/* tags */}
         <div className="w-full space-y-2">
-          <label className="inline-block text-sm dark:text-white">
+          <label className="inline-block text-sm dark:text-light-100">
             Selected Tags:
           </label>
           <div className="flex flex-wrap gap-2">
             {selectedTags.map((tag, i) => (
               <div key={i} className="relative">
-                <span className="px-2 py-1 rounded-sm dark:text-white text-dark-300 dark:bg-dark-300 bg-light-500">
+                <span className="px-2 py-1 rounded-sm dark:text-light-100 text-dark-300 dark:bg-dark-300 bg-light-500">
                   {tag}
                 </span>
                 <span
-                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-white -top-2 -right-2 bg-primary"
+                  className="absolute px-1.5 text-sm rounded-full cursor-pointer dark:text-light-100 -top-2 -right-2 bg-primary"
                   onClick={() => removeTag(tag)}
                 >
                   x
@@ -168,7 +168,7 @@ const LayoutCategories = ({
           </div>
           <select
             id="tags"
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-200 border-light-500 focus:border-primary dark:text-light-100"
             onChange={handleTagChange}
           >
             <option value="" disabled selected hidden>
@@ -178,7 +178,7 @@ const LayoutCategories = ({
               <option
                 key={i}
                 value={tag.name}
-                className="text-white bg-dark-300"
+                className="text-light-100 bg-dark-300"
               >
                 {tag.name}
               </option>

@@ -1,6 +1,6 @@
 "use client";
 
-import { GetDataCart } from "@/utils/cart/AddToCart";
+import { GetDataCart } from "@/utils/api/cart";
 import { createContext, useEffect, useState } from "react";
 
 export const AllValueContext = createContext();

@@ -20,13 +20,13 @@ const HelpNavLink = ({
     props.className = classes;
   }
   return (
-    <div className="block cursor-pointer hover:dark:text-white">
+    <div className="block cursor-pointer hover:dark:text-light-100">
       <Link href={href} {...props}>
         <p className="flex items-center gap-2 ">
           <span className={`${active ? "visible" : "invisible"} `}>
             <BsDot className="text-2xl text-primary" />
           </span>
-          <span className="col-span-4 text-dark-500 dark:text-white">
+          <span className="col-span-4 text-dark-500 dark:text-light-100">
             {title}
           </span>
         </p>

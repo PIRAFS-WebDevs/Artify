@@ -4,7 +4,7 @@ import { FaRegFileAlt } from "react-icons/fa";
 
 const ArticlesCategory = () => {
   return (
-    <div className="pr-6 space-y-4 divide-y dark:text-white text-dark-500 md:border-r dark:border-dark-300 border-dark-100 dark:divide-dark-300 divide-dark-100">
+    <div className="pr-6 space-y-4 divide-y dark:text-light-100 text-dark-500 md:border-r dark:border-dark-300 border-dark-100 dark:divide-dark-300 divide-dark-100">
       <div>
         <h1 className="py-4 text-xl font-semibold dark:text-gray-200 text-dark-500">
           Article Category

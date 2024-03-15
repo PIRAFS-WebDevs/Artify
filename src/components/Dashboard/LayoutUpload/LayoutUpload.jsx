@@ -60,7 +60,7 @@ const LayoutUpload = () => {
 
   return (
     <div className="divide-y divide-dark-200">
-      <h1 className="pb-6 text-lg font-medium dark:text-white">
+      <h1 className="pb-6 text-lg font-medium dark:text-light-100">
         Layout Upload
       </h1>
 

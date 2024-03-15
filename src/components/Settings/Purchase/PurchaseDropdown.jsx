@@ -1,8 +1,8 @@
 "use client";
 
-import { BsThreeDots } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { BsThreeDots } from "react-icons/bs";
 
 const PurchaseDropdown = () => {
   const [open, setDelOpen] = useState(false);
@@ -40,17 +40,17 @@ const PurchaseDropdown = () => {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 py-2 rounded-sm dark:bg-dark-200 bg-white shadow-xl absolute top-[120%] left-[-100%] w-48 overflow-hidden"
+          className="flex flex-col gap-2 py-2 rounded-sm dark:bg-dark-200 bg-light-100 shadow-xl absolute top-[120%] left-[-100%] w-48 overflow-hidden"
         >
           <motion.li
             onClick={() => setDelOpen(false)}
-            className="flex items-center w-full gap-2 p-2 text-xs transition-all rounded-sm cursor-pointer dark:text-white text-dark-500 dark:hover:bg-dark-300 hover:bg-light-300"
+            className="flex items-center w-full gap-2 p-2 text-xs transition-all rounded-sm cursor-pointer dark:text-light-100 text-dark-500 dark:hover:bg-dark-300 hover:bg-light-300"
           >
             <span>Order Details</span>
           </motion.li>
           <motion.li
             onClick={() => setDelOpen(false)}
-            className="flex items-center w-full gap-2 p-2 text-xs transition-all rounded-sm cursor-pointer dark:text-white text-dark-500 dark:hover:bg-dark-300 hover:bg-light-300"
+            className="flex items-center w-full gap-2 p-2 text-xs transition-all rounded-sm cursor-pointer dark:text-light-100 text-dark-500 dark:hover:bg-dark-300 hover:bg-light-300"
           >
             <span>Copy Link</span>
           </motion.li>

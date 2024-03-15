@@ -1,9 +1,7 @@
-import React from "react";
-
 const RecentActivity = () => {
   return (
     <div className="gap-5 mb-5 space-y-5 lg:flex lg:space-y-0 ">
-      <div className="p-5 overflow-x-auto bg-white border rounded-sm lg:w-1/2 dark:bg-dark-400 dark:border-dark-300 ">
+      <div className="p-5 overflow-x-auto bg-light-100 border rounded-sm lg:w-1/2 dark:bg-dark-400 dark:border-dark-300 ">
         <p className="mb-5 text-center">Recent Orders</p>
 
         <div>
@@ -39,7 +37,7 @@ const RecentActivity = () => {
           </table>
         </div>
       </div>
-      <div className="p-5 overflow-x-auto bg-white border rounded-sm lg:w-1/2 dark:bg-dark-400 dark:border-dark-300 ">
+      <div className="p-5 overflow-x-auto bg-light-100 border rounded-sm lg:w-1/2 dark:bg-dark-400 dark:border-dark-300 ">
         <p className="mb-5 text-center">Recent Withdrawals</p>
 
         <div>

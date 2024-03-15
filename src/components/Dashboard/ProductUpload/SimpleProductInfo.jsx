@@ -2,7 +2,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
   return (
     <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-2 md:grid-cols-3">
       <div className="space-y-2">
-        <h1 className="dark:text-white">Simple Product Information</h1>
+        <h1 className="dark:text-light-100">Simple Product Information</h1>
         <p className="text-dark-100">
           Edit your simple product description and necessary information from
           here
@@ -13,7 +13,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
         <div className="w-full">
           <label
             htmlFor="price"
-            className="inline-block mb-2 text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-light-100"
           >
             Price
           </label>
@@ -28,7 +28,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
             type="text"
             id="price"
             defaultValue={product?.price ? product?.price : 0}
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-light-100"
           />
           {errors.price && (
             <p className="text-sm text-red-400">*{errors.price.message}</p>
@@ -39,7 +39,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
         <div className="w-full">
           <label
             htmlFor="sale_price"
-            className="inline-block mb-2 text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-light-100"
           >
             Sell Price
           </label>
@@ -54,7 +54,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
             type="text"
             id="sale_price"
             defaultValue={product?.sale_price ? product?.sale_price : 0}
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-light-100"
           />
           {errors.sale_price && (
             <p className="text-sm text-red-500 dark:text-red-400">
@@ -67,7 +67,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
         <div className="w-full">
           <label
             htmlFor="preview_url"
-            className="inline-block mb-2 text-sm dark:text-white"
+            className="inline-block mb-2 text-sm dark:text-light-100"
           >
             Preview URL
           </label>
@@ -76,7 +76,7 @@ const SimpleProductInfo = ({ register, errors, product }) => {
             type="text"
             id="preview_url"
             defaultValue={product?.preview_url && product?.preview_url}
-            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-white"
+            className="w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none border-light-500 dark:border-dark-200 focus:border-primary dark:text-light-100"
           />
           {errors.preview_url && (
             <p className="text-xs text-red-500 dark:text-red-400">
