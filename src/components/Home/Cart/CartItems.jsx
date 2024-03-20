@@ -29,22 +29,22 @@ const CartItems = () => {
                     className="text-sm font-semibold dark:text-dark-100 text-dark-300 dark:hover:text-light-100 hover:text-dark-100"
                   />
                 </button>
-                <div className="flex h-24 w-26">
+                <div className="flex h-[6rem] w-[8rem]">
                   <Image
-                    src={"/assets/images/branner/productsBanner1.jpg"}
+                    src={item.images[0] || "/assets/images/card_alt.png"}
                     width={300}
                     height={200}
                     alt="banner"
                     className="object-cover w-full"
                   />
                 </div>
-                <div className="w-1/2 space-y-3">
+                <div className="w-1/2 space-y-2">
                   <p className="line-clamp-1 text-dark-500 dark:text-dark-100">
                     {item?.name}
                   </p>
                   <p className="dark:text-dark-100">{item?.layout}</p>
                   <p className="font-semibold dark:text-dark-100">
-                    <span className="px-2 py-1 dark:bg-dark-200 rounded-3xl text-primarySec ">
+                    <span className="px-2 py-1 bg-light-300 dark:bg-dark-200 rounded-3xl text-primarySec ">
                       {item?.sale_price}
                     </span>{" "}
                     X {"1"}

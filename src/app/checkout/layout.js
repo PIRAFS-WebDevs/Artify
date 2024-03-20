@@ -5,9 +5,9 @@ const CheckoutLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col justify-between w-full h-screen">
+      <div className="min-h-screen pt-20">
         {children}
-        <p className="py-10 text-sm text-center text-light-500">
+        <p className="py-10 text-sm text-center dark:text-light-500 text-dark-200">
           ©2025{" "}
           <Link href="/" className="hover:text-primary">
             Artify
