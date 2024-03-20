@@ -51,6 +51,7 @@ const Navbar = () => {
     "/purchase",
     "/question",
     "/wishlist",
+    "/checkout",
   ];
 
   return (
@@ -112,7 +113,7 @@ const Navbar = () => {
                 size={"1.2rem"}
                 className="hover:text-light-500 dark:hover:text-light-100"
               />
-              <span className="absolute w-5 h-5 text-sm text-light-100 rounded-full -top-2 -right-2 bg-primary">
+              <span className="absolute w-5 h-5 text-sm rounded-full text-light-100 -top-2 -right-2 bg-primary">
                 <span>{totalCartItem?.length}</span>
               </span>
             </button>
@@ -165,7 +166,7 @@ const Navbar = () => {
             className="hover:text-light-500 dark:hover:text-light-100"
           >
             <FaShoppingBag size={"1.2rem"} />
-            <span className="absolute w-5 h-5 text-sm text-light-100 rounded-full -top-2 -right-2 bg-primary">
+            <span className="absolute w-5 h-5 text-sm rounded-full text-light-100 -top-2 -right-2 bg-primary">
               <span>{totalCartItem?.length}</span>
             </span>
           </button>
