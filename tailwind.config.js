@@ -25,7 +25,7 @@ module.exports = {
       "light-500": "#d2d2d2",
 
       primary: "#27963C",
-      primarySec: "#80CC28",
+      primarySec: "#46802b",
     },
     extend: {},
   },

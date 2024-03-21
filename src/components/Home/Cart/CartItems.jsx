@@ -44,7 +44,7 @@ const CartItems = () => {
                   </p>
                   <p className="dark:text-dark-100">{item?.layout}</p>
                   <p className="font-semibold dark:text-dark-100">
-                    <span className="px-2 py-1 bg-light-300 dark:bg-dark-200 rounded-3xl text-primarySec ">
+                    <span className="px-2 py-1 bg-light-300 dark:bg-dark-200 rounded-3xl text-primary">
                       {item?.sale_price}
                     </span>{" "}
                     X {"1"}
@@ -67,9 +67,9 @@ const CartItems = () => {
         </p>
         <Link
           href="/checkout"
-          className="w-[90%] mx-auto py-3 bg-primary text-center cursor-pointer rounded text-light-100 block"
+          className="w-[90%] mx-auto py-3 bg-primary text-center cursor-pointer rounded text-light-100 block hover:bg-primarySec active:scale-95 transition-all duration-300"
         >
-          <button>Proceed to checkout</button>
+          Proceed to checkout
         </Link>
       </div>
     </>
