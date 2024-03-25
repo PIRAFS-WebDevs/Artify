@@ -47,3 +47,12 @@ export const DeleteDataCart = async (_id) => {
     cookieStore.set("cart", JSON.stringify(updatedCartItems), { path: "/" });
   }
 };
+
+export const DeleteAllCartData = async () => {
+  const cookieStore = cookies();
+  const existingCartItems = cookieStore.get("cart");
+
+  if (existingCartItems) {
+    cookieStore.delete("cart");
+  }
+};

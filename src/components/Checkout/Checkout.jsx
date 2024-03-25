@@ -4,6 +4,7 @@ import useCreatePayment from "@/hooks/payment/useCreatePayment";
 import { useAllValueContext } from "@/hooks/useAllValueContext";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import useCookies from "@/hooks/useDeleteCookies";
+import { DeleteAllCartData } from "@/utils/api/cart";
 import { Divider } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,6 +33,7 @@ const Checkout = () => {
 
     if (response && response.url) {
       router.push(response.url);
+      await DeleteAllCartData();
     }
   };
 
@@ -93,7 +95,7 @@ const Checkout = () => {
           <div className="pb-2 space-y-2">
             <p className="flex justify-between gap-2">
               Tax
-              <span className="text-dark-100">Included in price</span>
+              <span className="text-dark-100">Included</span>
             </p>
             <p className="flex justify-between gap-2">
               Subtotal
