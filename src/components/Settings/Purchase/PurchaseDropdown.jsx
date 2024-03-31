@@ -40,7 +40,7 @@ const PurchaseDropdown = () => {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 py-2 rounded-sm dark:bg-dark-200 bg-light-100 shadow-xl absolute top-[120%] left-[-100%] w-48 overflow-hidden"
+          className="flex flex-col gap-1 py-2 rounded-sm dark:bg-dark-200 bg-light-100 shadow-xl absolute top-[120%] left-[-100%] w-48 overflow-hidden"
         >
           <motion.li
             onClick={() => setDelOpen(false)}

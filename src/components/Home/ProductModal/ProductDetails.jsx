@@ -7,7 +7,7 @@ import ProductInfo from "./ProductInfo";
 const ProductDetails = ({ setShowProductModal }) => {
   const { productId } = useAllValueContext();
 
-  const { data: product = {} } = useProduct(productId);
+  const { data: product } = useProduct(productId);
 
   const {
     name,
@@ -19,9 +19,7 @@ const ProductDetails = ({ setShowProductModal }) => {
     updatedAt,
     _id,
     images,
-  } = product;
-
-  console.log("images:", images);
+  } = product || {};
 
   return (
     <div className="text-sm dark:text-light-100 text-dark-200">
