@@ -11,7 +11,7 @@ import { FaUserCircle } from "react-icons/fa";
 const UserDropdown = ({ logout }) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const { data: user = {} } = useUser();
+  const { data: user } = useUser();
 
   const dropdownRef = useRef();
 
