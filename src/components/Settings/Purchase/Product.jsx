@@ -3,7 +3,6 @@ import { BiSolidDownload } from "react-icons/bi";
 import PurchaseDropdown from "./PurchaseDropdown";
 
 const Product = ({ id }) => {
-  console.log("id:", id);
   const { data } = useProduct(id);
   console.log("data:", data);
 
