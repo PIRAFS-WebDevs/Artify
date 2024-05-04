@@ -12,7 +12,7 @@ const ArticleSidebar = () => {
         <div className="space-y-2 dark:text-dark-100 text-dark-200">
           {[1, 2, 3, 4, 5].map((e) => (
             <div className="flex gap-2" key={e}>
-              <Link href={"/application/1"} className="flex gap-2">
+              <Link href={"/article/1"} className="flex gap-2">
                 <span className="flex items-center justify-center w-6 h-6 text-xs text-light-100 rounded-full bg-primary">
                   21
                 </span>
@@ -31,7 +31,7 @@ const ArticleSidebar = () => {
         <div className="space-y-2 dark:text-dark-100 text-dark-200">
           {[1, 2, 3].map((e) => (
             <div className="flex gap-2" key={e}>
-              <Link href={"/application/1"} className="flex gap-2">
+              <Link href={"/article/1"} className="flex gap-2">
                 <FaRegFileAlt /> How async works in react?
               </Link>
             </div>
@@ -46,7 +46,7 @@ const ArticleSidebar = () => {
         <div className="space-y-2 dark:text-dark-100 text-dark-200">
           {[1, 2, 3].map((e) => (
             <div className="flex gap-2" key={e}>
-              <Link href={"/application/1"} className="flex gap-2">
+              <Link href={"/article/1"} className="flex gap-2">
                 <FaRegFileAlt /> How async works in react?
               </Link>
             </div>

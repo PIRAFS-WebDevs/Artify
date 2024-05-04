@@ -12,11 +12,11 @@ const ArticleSearch = () => {
           type="text"
           id="Search"
           placeholder="Have a question? Ask or enter a search term."
-          className="w-full px-4 py-2 font-light transition duration-100 bg-light-100 border rounded-full outline-none dark:bg-transparent dark:border-dark-200 border-light-400 focus:border-primary dark:text-light-100 text-dark-500 pe-24 placeholder:text-sm md:text-lg"
+          className="w-full px-4 py-2 font-light transition duration-100 border rounded-full outline-none bg-light-100 dark:bg-transparent dark:border-dark-200 border-light-400 focus:border-primary dark:text-light-100 text-dark-500 pe-24 placeholder:text-sm md:text-lg"
         />
 
         <div className="absolute inset-y-0 grid w-20 end-2 place-content-center">
-          <button className="flex items-center px-3 py-2 text-xs text-light-100 transition-all duration-200 rounded-full bg-primary dark:hover:bg-primarySec active:scale-95 ">
+          <button className="flex items-center gap-1 px-3 py-2 text-xs transition-all duration-200 rounded-full text-light-100 bg-primary dark:hover:bg-primarySec active:scale-95">
             <AiOutlineSearch />
             <span>Search</span>
           </button>

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import banner1 from "/public/assets/images/branner/productsBanner1.jpg";
-import banner2 from "/public/assets/images/branner/productsBanner2.jpg";
-import banner3 from "/public/assets/images/branner/productsBanner3.jpg";
+import product1 from "/public/assets/images/product/product_1.png";
+import product2 from "/public/assets/images/product/product_2.png";
+import product3 from "/public/assets/images/product/product_3.png";
 
 const ProductImages = () => {
-  const images = [banner1, banner2, banner3];
+  const images = [product1, product2, product3];
 
   return (
     <div className="grid w-full grid-cols-1 gap-5 my-8 md:grid-cols-2">

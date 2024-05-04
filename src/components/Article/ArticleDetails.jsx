@@ -12,8 +12,7 @@ const ArticleDetails = () => {
             Async Await Why Confusing?
           </h1>
           <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm dark:text-dark-100 text-dark-200">
-            <AiOutlineHome /> /
-            <Link href={"/application/1"}>API Questions</Link>
+            <AiOutlineHome /> /<Link href={"/article/1"}>API Questions</Link>
             <span>Async Await Why Confusing?</span>
           </div>
         </div>

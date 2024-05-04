@@ -19,7 +19,7 @@ const ArticlesCategory = () => {
           <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
-                <Link href={"/application/1"} className="flex gap-2 ml-6">
+                <Link href={"/article/1"} className="flex gap-2 ml-6">
                   <FaRegFileAlt /> How async works in react?
                 </Link>
               </div>
@@ -34,7 +34,7 @@ const ArticlesCategory = () => {
           <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
-                <Link href={"/application/1"} className="flex gap-2 ml-6">
+                <Link href={"/article/1"} className="flex gap-2 ml-6">
                   <FaRegFileAlt /> How async works in react?
                 </Link>
               </div>
@@ -51,7 +51,7 @@ const ArticlesCategory = () => {
           <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
-                <Link href={"/application/1"} className="flex gap-2 ml-6">
+                <Link href={"/article/1"} className="flex gap-2 ml-6">
                   <FaRegFileAlt /> How async works in react?
                 </Link>
               </div>
@@ -66,7 +66,7 @@ const ArticlesCategory = () => {
           <div className="space-y-2 dark:text-dark-100 text-dark-200">
             {[1, 2, 3, 4, 5].map((e) => (
               <div className="flex gap-2" key={e}>
-                <Link href={"/application/1"} className="flex gap-2 ml-6">
+                <Link href={"/article/1"} className="flex gap-2 ml-6">
                   <FaRegFileAlt /> How async works in react?
                 </Link>
               </div>

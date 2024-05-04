@@ -45,7 +45,6 @@ export const updateProduct = async ({ id, data }) => {
 // get product by id
 export const getProductById = async (id) => {
   try {
-    console.log("id:", id);
     const response = await instance.get(`/products/${id}`);
     return response.data;
   } catch (error) {
