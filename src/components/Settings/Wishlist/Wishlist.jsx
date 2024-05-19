@@ -3,8 +3,13 @@ import { AiFillHeart } from "react-icons/ai";
 const Wishlist = () => {
   return (
     <div className="space-y-4">
+<<<<<<< Updated upstream
       <p className="dark:text-light-100 text-dark-500">
         My Wishlist{" "}
+=======
+      <p className="dark:text-white text-dark-500">
+        My Wishlist
+>>>>>>> Stashed changes
         <span className="dark:text-dark-100 text-dark-300">({10})</span>
       </p>
 

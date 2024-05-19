@@ -12,6 +12,7 @@ const AllValueProvider = ({ children }) => {
   const [showProductModal, setShowProductModal] = useState(false);
   const [productId, setProductId] = useState();
   const [cartUpdated, setCartUpdated] = useState(false);
+  const [wishListUpdated, setWishListUpdated] = useState(false);
   const [totalCartItem, setTotalCartItem] = useState([]);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -35,6 +36,8 @@ const AllValueProvider = ({ children }) => {
     productId,
     setProductId,
     cartUpdated,
+    wishListUpdated,
+    setWishListUpdated,
     setCartUpdated,
     totalCartItem,
     setTotalCartItem,

@@ -1,10 +1,31 @@
 "use client";
 
+import { useAllValueContext } from "@/hooks/useAllValueContext";
+import { GetDataCart } from "@/utils/cart/AddToCart";
+import {
+  addToWishList,
+  deleteWishList,
+  getWishlist,
+  handleWishList,
+} from "@/utils/wish/wishList";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 
-const ModalHeader = ({ setShowProductModal, name }) => {
+const ModalHeader = ({ setShowProductModal, name, _id }) => {
   const [like, setLike] = useState(false);
+
+  const getWishListS = async () => {
+    const data = await getWishlist();
+
+    const result = data.find((item) => item == _id);
+
+    if (result) {
+      setLike(true);
+    } else {
+      setLike(false);
+    }
+  };
+  getWishListS();
 
   return (
     <div className="flex items-start justify-between gap-4 p-4 md:p-8 lg:items-center dark:bg-dark-500">
@@ -22,11 +43,21 @@ const ModalHeader = ({ setShowProductModal, name }) => {
 
           {like ? (
             <button onClick={() => setLike(false)}>
-              <AiTwotoneHeart className="w-4 h-4 cursor-pointer md:w-6 md:h-6 text-primary" />
+              <AiTwotoneHeart
+                onClick={async () => await deleteWishList(_id)}
+                className="w-4 h-4 cursor-pointer md:w-6 md:h-6 text-primary"
+              />
             </button>
           ) : (
             <button onClick={() => setLike(true)}>
+<<<<<<< Updated upstream
               <AiOutlineHeart className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-light-100" />
+=======
+              <AiOutlineHeart
+                onClick={async () => await addToWishList(_id)}
+                className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-white"
+              />
+>>>>>>> Stashed changes
             </button>
           )}
         </div>

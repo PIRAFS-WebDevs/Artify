@@ -24,7 +24,11 @@ const ProductDetails = ({ setShowProductModal }) => {
   return (
     <div className="text-sm dark:text-light-100 text-dark-200">
       {/* product title */}
-      <ModalHeader name={name} setShowProductModal={setShowProductModal} />
+      <ModalHeader
+        name={name}
+        setShowProductModal={setShowProductModal}
+        _id={_id}
+      />
 
       <div
         className={`grid grid-cols-1 gap-4 p-4 md:gap-8 md:p-8 lg:grid-cols-2 dark:bg-dark-400 ${
