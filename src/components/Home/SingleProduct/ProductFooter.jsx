@@ -2,6 +2,11 @@
 
 import { useAllValueContext } from "@/hooks/useAllValueContext";
 import { handleCart } from "@/utils/handleCart";
+import {
+  addToWishList,
+  deleteWishList,
+  getWishlist,
+} from "@/utils/wish/wishList";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -16,6 +21,20 @@ export default function ProductFooter({ productById }) {
   const { name, price, _id, preview_url } = productById || {};
   const [like, setLike] = useState(false);
 
+  const getWishLists = async () => {
+    const data = await getWishlist();
+
+    const result = data.find((item) => item == _id);
+
+    if (result) {
+      setLike(true);
+    } else {
+      setLike(false);
+    }
+  };
+
+  getWishLists();
+
   return (
     <div className="bottom-0 py-4 md:sticky dark:bg-dark-500 bg-light-300 border-y dark:border-dark-300 border-light-500">
       <div className="justify-between space-y-2 lg:flex">
@@ -24,11 +43,17 @@ export default function ProductFooter({ productById }) {
             <h1 className="text-lg font-bold dark:text-light-100 ">{name}</h1>
             {like ? (
               <button onClick={() => setLike(false)}>
-                <AiTwotoneHeart className="w-4 h-4 cursor-pointer md:w-6 md:h-6 text-primary" />
+                <AiTwotoneHeart
+                  onClick={async () => await deleteWishList(_id)}
+                  className="w-4 h-4 cursor-pointer md:w-6 md:h-6 text-primary"
+                />
               </button>
             ) : (
               <button onClick={() => setLike(true)}>
-                <AiOutlineHeart className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-light-100" />
+                <AiOutlineHeart
+                  onClick={async () => await addToWishList(_id)}
+                  className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-white"
+                />
               </button>
             )}
           </div>

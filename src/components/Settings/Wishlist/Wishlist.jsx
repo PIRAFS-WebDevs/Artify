@@ -3,13 +3,8 @@ import { AiFillHeart } from "react-icons/ai";
 const Wishlist = () => {
   return (
     <div className="space-y-4">
-<<<<<<< Updated upstream
-      <p className="dark:text-light-100 text-dark-500">
-        My Wishlist{" "}
-=======
       <p className="dark:text-white text-dark-500">
         My Wishlist
->>>>>>> Stashed changes
         <span className="dark:text-dark-100 text-dark-300">({10})</span>
       </p>
 
@@ -38,7 +33,7 @@ const Wishlist = () => {
             </div>
 
             <div className="flex self-end gap-4">
-              <button className="p-2 text-sm font-medium text-light-100 transition-all duration-200 rounded-sm md:p-3 bg-primary hover:bg-primarySec active:scale-95">
+              <button className="p-2 text-sm font-medium transition-all duration-200 rounded-sm text-light-100 md:p-3 bg-primary hover:bg-primarySec active:scale-95">
                 Add to cart
               </button>
               <button className="flex items-center gap-2 p-2 text-sm font-medium transition-all duration-200 bg-transparent border rounded-sm md:p-3 text-primary hover:bg-dark-200 border-dark-200 active:scale-95">
