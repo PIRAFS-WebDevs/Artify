@@ -12,7 +12,9 @@ const Purchase = () => {
     <div className="space-y-4">
       <p className="dark:text-light-100 text-dark-500">
         My Purchase List{" "}
-        <span className="dark:text-dark-100 text-dark-300">({10})</span>
+        <span className="dark:text-dark-100 text-dark-300">
+          ({products?.length})
+        </span>
       </p>
 
       {isLoading ? (

@@ -5,7 +5,7 @@ const CheckoutLayout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen pt-20">
+      <div className="min-h-screen px-4 pt-20">
         {children}
         <p className="py-10 text-sm text-center dark:text-light-500 text-dark-200">
           ©2025{" "}

@@ -10,16 +10,19 @@ import { FiChevronDown } from "react-icons/fi";
 const SettingsDropdown = () => {
   const [open, setDelOpen] = useState(false);
   const pathname = usePathname();
+  const activeLink = settingsSidebarData.find((link) =>
+    pathname.includes(link.name.toLowerCase())
+  );
 
   return (
     <div className="px-4 py-2">
       <motion.div animate={open ? "open" : "closed"} className="relative z-10">
         <button
           onClick={() => setDelOpen((pv) => !pv)}
-          className="flex items-center justify-between w-full px-4 py-2 text-light-100 transition-all bg-transparent border rounded-sm border-dark-300"
+          className="flex items-center justify-between w-full px-4 py-2 transition-all bg-transparent border rounded-sm text-light-100 border-dark-300"
         >
           <span className="text-sm font-medium capitalize">
-            {pathname.slice(1)}
+            {activeLink.name}
           </span>
           <motion.span variants={iconVariants}>
             <FiChevronDown />
