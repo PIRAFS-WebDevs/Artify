@@ -22,7 +22,7 @@ const SettingsDropdown = () => {
           className="flex items-center justify-between w-full px-4 py-2 transition-all bg-transparent border rounded-sm text-light-100 border-dark-300"
         >
           <span className="text-sm font-medium capitalize">
-            {activeLink.name}
+            {activeLink?.name}
           </span>
           <motion.span variants={iconVariants}>
             <FiChevronDown />

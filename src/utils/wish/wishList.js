@@ -49,27 +49,3 @@ export const deleteWishList = async (_id) => {
     });
   }
 };
-
-export const handleWishList = async (cart, _id, setWishListUpdated) => {
-  const checking = async () => {
-    try {
-      const preCart = await GetDataCart();
-
-      if (preCart) {
-        const check = preCart.some((pre) => pre.id === _id);
-        return check;
-      }
-    } catch (error) {
-      console.error("Error fetching cart data:", error);
-    }
-  };
-  const checked = await checking();
-
-  if (!checked) {
-    await addToWishList(cart);
-    setWishListUpdated((prevState) => !prevState);
-    toast.success("Product added to the cart");
-  } else {
-    toast.error("Product already added to the cart");
-  }
-};

@@ -6,6 +6,7 @@ import {
   getWishlist,
 } from "@/utils/wish/wishList";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { AiOutlineClose, AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 
 const ModalHeader = ({ setShowProductModal, name, _id }) => {
@@ -25,6 +26,16 @@ const ModalHeader = ({ setShowProductModal, name, _id }) => {
 
   getWishLists();
 
+  const handleAddWishList = async () => {
+    await addToWishList(_id);
+    toast.success("Product added to wishlist");
+  };
+
+  const handleDeleteWishList = async () => {
+    await deleteWishList(_id);
+    toast.success("Product removed to wishlist");
+  };
+
   return (
     <div className="flex items-start justify-between gap-4 p-4 md:p-8 lg:items-center dark:bg-dark-500">
       <div className="flex flex-wrap items-center gap-2 md:gap-4">
@@ -33,7 +44,7 @@ const ModalHeader = ({ setShowProductModal, name, _id }) => {
         </h1>
         <div className="flex items-center gap-2">
           <img
-            src="https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F98%2Fconversions%2FGroup-14400-thumbnail.jpg&w=640&q=100"
+            src="/logo.png"
             alt=""
             className="w-4 h-4 rounded-full md:w-6 md:h-6"
           />
@@ -42,14 +53,14 @@ const ModalHeader = ({ setShowProductModal, name, _id }) => {
           {like ? (
             <button onClick={() => setLike(false)}>
               <AiTwotoneHeart
-                onClick={async () => await deleteWishList(_id)}
+                onClick={handleDeleteWishList}
                 className="w-4 h-4 cursor-pointer md:w-6 md:h-6 text-primary"
               />
             </button>
           ) : (
             <button onClick={() => setLike(true)}>
               <AiOutlineHeart
-                onClick={async () => await addToWishList(_id)}
+                onClick={handleAddWishList}
                 className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-white"
               />
             </button>

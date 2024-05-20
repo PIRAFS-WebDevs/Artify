@@ -39,13 +39,13 @@ const ProductInfo = ({
       </p>
 
       <div className="grid grid-cols-2 gap-4 py-4 xl:grid-cols-4 border-y dark:border-dark-300 border-light-300">
-        <p className="flex items-center gap-2">
+        <p className="flex items-center gap-2 whitespace-nowrap">
           <BsCart2 className="w-4 h-4" />
-          <span>365 Sales</span>
+          <span>{price} Sales</span>
         </p>
-        <p className="flex items-center gap-2">
+        <p className="flex items-center gap-2 whitespace-nowrap">
           <BiSolidDownload className="w-4 h-4" />
-          <span>365 Downloads</span>
+          <span>{price} Downloads</span>
         </p>
       </div>
 
@@ -113,7 +113,7 @@ const ProductInfo = ({
 
         <div className="static inset-x-0 bottom-0 grid grid-cols-1 gap-4 pt-4 xl:absolute sm:grid-cols-2">
           <button
-            className="py-4 font-semibold text-light-100 transition-all rounded-sm bg-primary hover:bg-primarySec active:scale-95"
+            className="py-4 font-semibold transition-all rounded-sm text-light-100 bg-primary hover:bg-primarySec active:scale-95"
             onClick={() =>
               handleCart({ data: _id, quantity: 1 }, _id, setCartUpdated)
             }
