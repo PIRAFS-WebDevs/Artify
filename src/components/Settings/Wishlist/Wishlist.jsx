@@ -1,8 +1,18 @@
+"use client";
+
 import { getWishlist } from "@/utils/wish/wishList";
+import { useEffect, useState } from "react";
 import WishProduct from "./WishProduct";
 
-const Wishlist = async () => {
-  const data = await getWishlist();
+const Wishlist = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getWishlist();
+      setData(data);
+    })();
+  }, []);
 
   return (
     <div className="space-y-4">

@@ -12,7 +12,7 @@ import { BiChevronDown } from "react-icons/bi";
 const FilterByPrice = () => {
   return (
     <>
-      <div className="flex items-center justify-between border-b h-14 dark:dark:text-light-100 dark:border-dark-300 border-light-500">
+      <div className="flex items-center justify-between h-16 border-b dark:dark:text-light-100 dark:border-dark-300 border-light-500">
         <p className="text-lg">Product Reviews</p>
 
         <Dropdown>
