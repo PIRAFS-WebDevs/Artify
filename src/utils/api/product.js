@@ -4,7 +4,7 @@ import { instance } from "../axios";
 export const getProducts = async (text) => {
   try {
     const res = await instance.get(
-      text ? `/products?text=${text}` : "/products"
+      text ? `/products/search/${text}` : "/products"
     );
     return res.data;
   } catch (error) {

@@ -38,6 +38,11 @@ const Navbar = () => {
   const { user, logout } = useAuthContext();
   const pathname = usePathname();
 
+  const handleSearch = () => {
+    setSearchModal(true);
+    setSearchValue("");
+  };
+
   const hideNavbarRoutes = [
     "/register",
     "/about-us",
@@ -89,7 +94,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-6 md:gap-10">
           {/* search button */}
-          <button onClick={() => setSearchModal(true)}>
+          <button onClick={handleSearch}>
             <AiOutlineSearch
               size={"1.5rem"}
               className="hidden cursor-pointer md:block hover:text-light-500 dark:hover:text-light-100"
