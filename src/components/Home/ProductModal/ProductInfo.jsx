@@ -2,6 +2,7 @@
 
 import { useAllValueContext } from "@/hooks/useAllValueContext";
 import { handleCart } from "@/utils/handleCart";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import { AiOutlineLink, AiOutlinePushpin, AiOutlineTags } from "react-icons/ai";
 import {
@@ -13,15 +14,22 @@ import {
 } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { HiOutlineRefresh } from "react-icons/hi";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share";
 
 const ProductInfo = ({
   tags,
   layout,
+  name,
   price,
   description,
   updatedAt,
   createdAt,
   _id,
+  preview_url,
 }) => {
   const { setCartUpdated } = useAllValueContext();
 
@@ -96,9 +104,27 @@ const ProductInfo = ({
         <div className="grid items-center grid-cols-2 gap-4 pt-4 border-t lg:grid-cols-4 dark:border-dark-300 border-light-300">
           <p className="dark:text-dark-100">Share this item:</p>
           <div className="flex flex-wrap items-center col-span-1 gap-2 lg:col-span-3">
-            <BiLogoFacebook className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
-            <BiLogoTwitter className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
-            <BiLogoLinkedin className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            <FacebookShareButton
+              url={`${process.env.NEXT_PUBLIC_hostUrl}/products/${_id}`}
+              hashtag="#Artify"
+            >
+              <BiLogoFacebook className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            </FacebookShareButton>
+            <TwitterShareButton
+              title={`${name}`}
+              url={`${process.env.NEXT_PUBLIC_hostUrl}/products/${_id}`}
+              hashtags={["Artify"]}
+            >
+              <BiLogoTwitter className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            </TwitterShareButton>
+            <LinkedinShareButton
+              title={`${name}`}
+              summary={`${description}`}
+              source={`${process.env.NEXT_PUBLIC_hostUrl}/products/${_id}`}
+              url={`${process.env.NEXT_PUBLIC_hostUrl}/products/${_id}`}
+            >
+              <BiLogoLinkedin className="w-8 h-8 p-1 border rounded-full cursor-pointer md:p-2 md:w-10 md:h-10 dark:border-dark-300 border-light-300 dark:hover:bg-dark-500 hover:bg-light-300" />
+            </LinkedinShareButton>
 
             {/* copy button */}
             <button
@@ -121,9 +147,13 @@ const ProductInfo = ({
             Add to Cart <span>$ </span>
             {price}
           </button>
-          <button className="py-4 font-semibold transition-all bg-transparent border rounded-sm dark:text-light-100 dark:border-dark-100 border-light-500 dark:hover:bg-dark-500 hover:bg-light-200 active:scale-95">
+          <Link
+            href={`${preview_url}`}
+            target="_blank"
+            className="py-4 font-semibold text-center transition-all bg-transparent border rounded-sm dark:text-light-100 dark:border-dark-100 border-light-500 dark:hover:bg-dark-500 hover:bg-light-200 active:scale-95"
+          >
             Live Preview
-          </button>
+          </Link>
         </div>
       </div>
     </div>
