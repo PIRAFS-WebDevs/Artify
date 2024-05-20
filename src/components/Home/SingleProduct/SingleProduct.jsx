@@ -3,6 +3,7 @@ import ProductDetails from "./ProductDetails";
 import ProductFooter from "./ProductFooter";
 import ProductImages from "./ProductImages";
 import ProductsReviews from "./ProductsReviews";
+import ReviewForm from "./ReviewForm";
 
 const SingleProduct = ({ productById }) => {
   return (
@@ -14,6 +15,7 @@ const SingleProduct = ({ productById }) => {
           <ProductDetails productById={productById} />
           <ProductFooter productById={productById} />
           <ProductsReviews />
+          <ReviewForm />
         </>
       }
     </section>

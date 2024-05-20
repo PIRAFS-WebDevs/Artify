@@ -3,7 +3,7 @@ import FilterByPrice from "./FilterByPrice";
 
 const ProductsReviews = () => {
   return (
-    <section className="mb-4 ">
+    <section className="py-4">
       <FilterByPrice />
       <div className="py-8 border-b dark:border-dark-300 border-light-500">
         <div className="flex items-center gap-10">

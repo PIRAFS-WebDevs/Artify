@@ -34,7 +34,7 @@ const Product = ({ id }) => {
       <div className="flex self-end gap-4">
         <Link
           href={`/products/${data?._id}`}
-          className="p-2 text-xs transition-all bg-transparent border rounded-sm text-primary border-dark-200 dark:hover:bg-dark-200 hover:bg-light-300 active:scale-95"
+          className="p-2 text-xs transition-all bg-transparent border rounded-sm text-primary border-light-500 dark:border-dark-300 dark:hover:bg-dark-200 hover:bg-light-300 active:scale-95"
         >
           Update Preview
         </Link>
@@ -47,7 +47,7 @@ const Product = ({ id }) => {
         </Link>
 
         {/* dropdown */}
-        <PurchaseDropdown />
+        <PurchaseDropdown _id={data?._id} />
       </div>
     </div>
   );

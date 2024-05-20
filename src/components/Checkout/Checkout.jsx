@@ -89,16 +89,20 @@ const Checkout = () => {
         )}
       </div>
 
-      <div className="absolute bottom-0 h-40 inset-x-10 dark:bg-dark-300 bg-light-100">
+      <div className="absolute bottom-0 h-48 inset-x-10 dark:bg-dark-300 bg-light-100">
         <Divider />
         <div className="py-6 space-y-2">
           <div className="pb-2 space-y-2">
             <p className="flex justify-between gap-2">
-              Tax
-              <span className="text-dark-100">Included</span>
+              Subtotal
+              <span className="text-dark-100">{totalPrice}$</span>
             </p>
             <p className="flex justify-between gap-2">
-              Subtotal
+              Tax
+              <span className="text-dark-100">$00</span>
+            </p>
+            <p className="flex justify-between gap-2">
+              Total
               <span className="text-dark-100">{totalPrice}$</span>
             </p>
           </div>

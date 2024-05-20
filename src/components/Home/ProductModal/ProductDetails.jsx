@@ -19,6 +19,7 @@ const ProductDetails = ({ setShowProductModal }) => {
     updatedAt,
     _id,
     images,
+    preview_url,
   } = product || {};
 
   return (
@@ -41,12 +42,14 @@ const ProductDetails = ({ setShowProductModal }) => {
         {/* product info */}
         <ProductInfo
           _id={_id}
+          name={name}
           price={price}
           layout={layout}
           tags={tags}
           description={description}
           updatedAt={updatedAt}
           createdAt={createdAt}
+          preview_url={preview_url}
         />
       </div>
     </div>

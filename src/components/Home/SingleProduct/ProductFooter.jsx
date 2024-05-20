@@ -9,6 +9,7 @@ import {
 } from "@/utils/wish/wishList";
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
@@ -35,6 +36,16 @@ export default function ProductFooter({ productById }) {
 
   getWishLists();
 
+  const handleAddWishList = async () => {
+    await addToWishList(_id);
+    toast.success("Product added to wishlist");
+  };
+
+  const handleDeleteWishList = async () => {
+    await deleteWishList(_id);
+    toast.success("Product removed to wishlist");
+  };
+
   return (
     <div className="bottom-0 py-4 md:sticky dark:bg-dark-500 bg-light-300 border-y dark:border-dark-300 border-light-500">
       <div className="justify-between space-y-2 lg:flex">
@@ -44,14 +55,14 @@ export default function ProductFooter({ productById }) {
             {like ? (
               <button onClick={() => setLike(false)}>
                 <AiTwotoneHeart
-                  onClick={async () => await deleteWishList(_id)}
+                  onClick={handleDeleteWishList}
                   className="w-4 h-4 cursor-pointer md:w-6 md:h-6 text-primary"
                 />
               </button>
             ) : (
               <button onClick={() => setLike(true)}>
                 <AiOutlineHeart
-                  onClick={async () => await addToWishList(_id)}
+                  onClick={handleAddWishList}
                   className="w-4 h-4 cursor-pointer md:w-6 md:h-6 dark:text-white"
                 />
               </button>

@@ -4,7 +4,7 @@ import { instance } from "../axios";
 export const getProducts = async (text) => {
   try {
     const res = await instance.get(
-      text ? `/products?text=${text}` : "/products"
+      text ? `/products/search/${text}` : "/products"
     );
     return res.data;
   } catch (error) {
@@ -45,8 +45,10 @@ export const updateProduct = async ({ id, data }) => {
 // get product by id
 export const getProductById = async (id) => {
   try {
-    const response = await instance.get(`/products/${id}`);
-    return response.data;
+    if (id) {
+      const response = await instance.get(`/products/${id}`);
+      return response.data;
+    }
   } catch (error) {
     console.error(error);
   }
