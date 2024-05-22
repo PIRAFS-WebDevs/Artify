@@ -1,7 +1,12 @@
+"use client";
+
 import { AiFillDislike, AiFillLike, AiFillStar } from "react-icons/ai";
 import FilterByPrice from "./FilterByPrice";
 
-const ProductsReviews = () => {
+const ProductsReviews = ({ productById }) => {
+  // const { data } = useGetUser(productById.activity.ratings.user_id);
+  // console.log("data:", data);
+
   return (
     <section className="py-4">
       <FilterByPrice />
@@ -9,9 +14,11 @@ const ProductsReviews = () => {
         <div className="flex items-center gap-10">
           <div className="flex items-center gap-2">
             <img
-              src="/assets/images/product/product_1.png"
+              src={
+                productById?.images[0] || "/assets/images/product/product_1.png"
+              }
               className="w-8 h-8 rounded-full"
-            ></img>
+            />
             <p className="font-semibold dark:text-light-100">Mr. Lenin</p>
           </div>
           <p

@@ -42,6 +42,19 @@ export const updateProduct = async ({ id, data }) => {
   }
 };
 
+// update ratings
+export const updateRatings = async ({ id, data }) => {
+  try {
+    const response = await instance.patch(
+      `/products/update-rating/${id}`,
+      data
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 // get product by id
 export const getProductById = async (id) => {
   try {
