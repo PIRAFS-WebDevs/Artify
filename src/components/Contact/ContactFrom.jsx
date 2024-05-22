@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const ContactFrom = () => {
   const {
@@ -10,9 +11,17 @@ const ContactFrom = () => {
     formState: { errors },
   } = useForm();
 
+  function formHandler(data) {
+    reset();
+    toast.success("Your message was sent");
+  }
+
   return (
     <div className=" xl:w-[60%] w-full px-4 py-8 text-xs">
-      <form className="flex flex-col gap-2 lg:gap-4">
+      <form
+        onSubmit={handleSubmit(formHandler)}
+        className="flex flex-col gap-2 lg:gap-4"
+      >
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div>
             <label

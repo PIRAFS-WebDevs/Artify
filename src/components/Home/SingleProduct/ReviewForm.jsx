@@ -28,7 +28,6 @@ const ReviewForm = ({ id }) => {
     }
 
     if (user && user._id && id) {
-      w;
       const reviewData = {
         user_id: user._id,
         number: rating,
