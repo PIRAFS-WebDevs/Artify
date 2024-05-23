@@ -62,74 +62,62 @@ export default OurMarketplace;
 const data = [
   {
     id: 1,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Social Media Design",
   },
   {
     id: 2,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Web App",
   },
   {
     id: 3,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Latest Design",
   },
   {
     id: 4,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Product Design",
   },
   {
     id: 5,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Web Development",
   },
   {
     id: 6,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Web Design",
   },
   {
     id: 7,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Social Media Design",
   },
   {
     id: 8,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Web App",
   },
   {
     id: 9,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Latest Design",
   },
   {
     id: 10,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Product Design",
   },
   {
     id: 11,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Web Development",
   },
   {
     id: 12,
-    image:
-      "https://pixer.redq.io/_next/image?url=https%3A%2F%2Fpixarlaravel.s3.ap-southeast-1.amazonaws.com%2F502%2Fimage04.png&w=2048&q=75",
+    image: "/assets/images/marketplace.png",
     name: "Web Design",
   },
 ];

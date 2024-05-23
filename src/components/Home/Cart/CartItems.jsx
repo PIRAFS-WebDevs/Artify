@@ -15,8 +15,8 @@ const CartItems = () => {
           {cartItems?.length == 0 ? (
             <div className="flex items-center justify-center w-full h-full">
               <img
-                className="w-24"
-                src="/assets/images/not_found/no_data.png"
+                className="w-40"
+                src="/assets/images/not_found/Shopping_bag.png"
                 alt="no_data"
               />
             </div>
