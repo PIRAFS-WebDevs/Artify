@@ -1,6 +1,8 @@
 "use client";
 
+import { useAddRecommended } from "@/hooks/useRecommended";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const RecommendationForm = () => {
   const {
@@ -10,9 +12,15 @@ const RecommendationForm = () => {
     formState: { errors },
   } = useForm();
 
-  const formHandler = (data) => {
-    reset();
-    console.table(data);
+  const { mutateAsync: postRecommended } = useAddRecommended();
+
+  const formHandler = async (data) => {
+    const result = await postRecommended(data);
+
+    if (result?.success) {
+      toast.success("Recommendation successfully");
+      reset();
+    }
   };
 
   return (
@@ -117,15 +125,28 @@ const RecommendationForm = () => {
               Details
             </label>
             <textarea
-              {...register("details")}
+              {...register("details", {
+                required: "details is required",
+              })}
               id="details"
               rows={3}
               className={`w-full px-3 py-2 transition-all duration-300 bg-transparent border rounded-sm outline-none dark:border-dark-300 border-dark-100 focus:border-primary dark:dark:text-light-100 resize-none ${
                 errors.details && "border-red-400 focus:border-red-400"
               }`}
             ></textarea>
+            {errors.details && (
+              <p className="mt-1 text-sm text-red-400">
+                *{errors.details.message}
+              </p>
+            )}
           </div>
         </div>
+        <button
+          type="submit"
+          className="self-end hidden px-5 py-2 text-sm font-semibold transition-all rounded-sm text-light-100 bg-primary md:block hover:bg-primarySec active:scale-95"
+        >
+          Recommended Now
+        </button>
       </form>
     </div>
   );
