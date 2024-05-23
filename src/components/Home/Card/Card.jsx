@@ -68,23 +68,16 @@ const Card = () => {
                   >
                     {product?.name}
                   </Link>
-                  <div className="flex items-end justify-between gap-1">
-                    <div className="space-y-1">
-                      <div className="flex gap-1">
-                        <p className="text-xs line-through text-dark-500 dark:text-light-100">
-                          <span className="text-xs">$</span>
-                          <span>{product?.sale_price || 0}</span>
-                        </p>
-                        <p className="text-xs text-primary ">
-                          <span className="text-xs">$</span>
-                          <span>{product?.price}</span>
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-dark-500 dark:text-light-100">
-                          987 Sales
-                        </p>
-                      </div>
+                  <div className="flex items-center justify-between gap-1">
+                    <div className="flex gap-1">
+                      <p className="line-through text-dark-500 dark:text-light-100">
+                        <span>$</span>
+                        <span>{product?.sale_price || 0}</span>
+                      </p>
+                      <p className="text-primary ">
+                        <span>$</span>
+                        <span>{product?.price}</span>
+                      </p>
                     </div>
                     <div>
                       <div className="flex gap-2">

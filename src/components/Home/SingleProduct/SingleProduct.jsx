@@ -14,8 +14,8 @@ const SingleProduct = ({ productById }) => {
           <ProductImages />
           <ProductDetails productById={productById} />
           <ProductFooter productById={productById} />
-          <ProductsReviews />
-          <ReviewForm />
+          <ProductsReviews productById={productById} />
+          <ReviewForm id={productById?._id} />
         </>
       }
     </section>

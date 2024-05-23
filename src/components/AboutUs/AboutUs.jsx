@@ -85,26 +85,18 @@ const AboutUs = () => {
         <h1 className="pb-10 text-xl font-semibold dark:text-light-100">
           Meet our team
         </h1>
-        <div className="grid grid-cols-2 gap-8 place-items-center md:grid-cols-3">
-          {[1, 2, 3, , 4, 5, 6].map((e, i) => (
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
+          {teams.map((e, i) => (
             <div
               key={i}
               className="flex flex-col items-center gap-4 lg:flex-row"
             >
               <div className="inline-block rounded-full dark:bg-dark-300 bg-light-500">
-                <img
-                  src="https://pixer.redq.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F4.845a3ecb.png&w=2048&q=100"
-                  alt=""
-                  className="w-24"
-                />
+                <img src="/assets/images/user.png" alt="" className="w-24" />
               </div>
               <div className="space-y-1 text-center lg:text-start">
-                <h1 className="font-semibold dark:text-light-100">
-                  Elna Maggio
-                </h1>
-                <p className="text-sm text-dark-100">
-                  User Experience Designer
-                </p>
+                <h1 className="font-semibold dark:text-light-100">{e.name}</h1>
+                <p className="text-sm text-dark-100">{e.role}</p>
               </div>
             </div>
           ))}
@@ -136,3 +128,26 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
+const teams = [
+  {
+    name: "Abu Taher",
+    role: "Artify CEO",
+  },
+  {
+    name: "Sagor Ahmed",
+    role: "Assistance CEO",
+  },
+  {
+    name: "Gazi Fuad Tahsin",
+    role: "Backend Developer",
+  },
+  {
+    name: "Farsi Ahmed",
+    role: "Product Designer",
+  },
+  {
+    name: "Anam Hasan",
+    role: "Project Manager",
+  },
+];

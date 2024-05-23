@@ -1,13 +1,13 @@
-import { updateProduct } from "@/utils/api/product";
+import { updateRatings } from "@/utils/api/product";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const useUpdateProduct = () => {
+const useUpdateProduct = (id) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: updateProduct,
+    mutationFn: updateRatings,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["products"] });
+      queryClient.invalidateQueries({ queryKey: ["product", id] });
     },
   });
 };

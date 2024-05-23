@@ -52,6 +52,18 @@ export const getUserByEmail = async (email) => {
   }
 };
 
+// get user by id
+export const getUserById = async (id) => {
+  try {
+    if (id) {
+      const response = await instance.get(`/users/id/${id}`);
+      return response.data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 // change user role
 export const changeUserRole = async (data) => {
   try {

@@ -52,15 +52,6 @@ const ShareBtn = ({ id }) => {
             copy link
           </button>
         </div>
-
-        {/* copy button */}
-        <button
-          onClick={onCopy}
-          className="flex items-center gap-2 px-3 py-2 border rounded-full cursor-pointer dark:border-dark-300 border-light-500 dark:hover:bg-dark-400 hover:bg-light-400"
-        >
-          <AiOutlineLink className="w-4 h-4" />
-          copy link
-        </button>
       </div>
     </div>
   );

@@ -16,9 +16,9 @@ const MarketplaceHeader = () => {
       </div>
       <div className="flex flex-wrap gap-4">
         <Tabs aria-label="TabsColors" radius="full" color="default">
-          <Tab key="photos" title="Photos" />
-          <Tab key="music" title="Music" />
-          <Tab key="videos" title="Videos" />
+          <Tab key="photos" title="Featured" />
+          <Tab key="music" title="Latest" />
+          <Tab key="videos" title="New" />
         </Tabs>
       </div>
     </div>

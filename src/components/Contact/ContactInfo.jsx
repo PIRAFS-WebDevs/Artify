@@ -40,7 +40,7 @@ const ContactInfo = () => {
           <p>
             Visit Website <br />
             <span className="text-sm dark:text-dark-100">
-              https://warnsun.com
+              https://artify-next.vercel.app
             </span>
           </p>
         </div>

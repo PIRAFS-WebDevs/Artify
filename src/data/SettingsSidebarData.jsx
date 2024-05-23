@@ -1,6 +1,6 @@
 import { AiFillHeart } from "react-icons/ai";
 import { BiMessageRoundedError, BiSolidLock } from "react-icons/bi";
-import { FaUserCircle } from "react-icons/fa";
+import { FaCreditCard, FaUserCircle } from "react-icons/fa";
 import { HiShoppingBag } from "react-icons/hi2";
 
 export const settingsSidebarData = [
@@ -23,6 +23,11 @@ export const settingsSidebarData = [
     name: "My Question",
     icon: <BiMessageRoundedError />,
     path: "/question",
+  },
+  {
+    name: "Deposit",
+    icon: <FaCreditCard />,
+    path: "/deposit",
   },
   {
     name: "Password",

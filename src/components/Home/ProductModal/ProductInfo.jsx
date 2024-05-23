@@ -49,11 +49,11 @@ const ProductInfo = ({
       <div className="grid grid-cols-2 gap-4 py-4 xl:grid-cols-4 border-y dark:border-dark-300 border-light-300">
         <p className="flex items-center gap-2 whitespace-nowrap">
           <BsCart2 className="w-4 h-4" />
-          <span>{price} Sales</span>
+          <span>0 Sales</span>
         </p>
         <p className="flex items-center gap-2 whitespace-nowrap">
           <BiSolidDownload className="w-4 h-4" />
-          <span>{price} Downloads</span>
+          <span>0 Downloads</span>
         </p>
       </div>
 
