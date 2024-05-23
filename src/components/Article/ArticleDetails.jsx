@@ -1,14 +1,11 @@
-import { blogs } from "@/data/blogData";
 import Link from "next/link";
 import { AiOutlineFile, AiOutlineHome } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
 
-const ArticleDetails = ({ id }) => {
-  const blog = blogs.find((blog) => {
-    return blog.id === id;
-  });
-
-  console.log("blog:", blog); // problem to find a single blog with id
+const ArticleDetails = ({ blog }) => {
+  if (!blog) {
+    return <div>Blog post not found</div>;
+  }
 
   return (
     <div className="space-y-6">

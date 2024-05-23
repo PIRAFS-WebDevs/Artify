@@ -1,9 +1,12 @@
 import ArticlesCategory from "@/components/Article/ArticleCategory";
+import { getAllBlogs } from "@/utils/api/article";
 
-const ArticlePage = () => {
+const ArticlePage = async () => {
+  const data = await getAllBlogs();
+
   return (
     <div>
-      <ArticlesCategory />
+      <ArticlesCategory blogs={data} />
     </div>
   );
 };

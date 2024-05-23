@@ -1,9 +1,8 @@
-import { blogs } from "@/data/blogData";
 import Link from "next/link";
 import { AiFillFolder } from "react-icons/ai";
 import { FaRegFileAlt } from "react-icons/fa";
 
-const ArticlesCategory = () => {
+const ArticlesCategory = ({ blogs }) => {
   const getBlogsByCategory = (category) => {
     return blogs.filter((blog) => blog.category === category);
   };

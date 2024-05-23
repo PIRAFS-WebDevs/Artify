@@ -1,9 +1,12 @@
 import ArticleDetails from "@/components/Article/ArticleDetails";
+import { getSingleBlog } from "@/utils/api/article";
 
-const ArticleDetailsPage = ({ params }) => {
+const ArticleDetailsPage = async ({ params }) => {
+  const blog = await getSingleBlog(params.id);
+
   return (
     <div>
-      <ArticleDetails id={params.id} />
+      <ArticleDetails blog={blog} />
     </div>
   );
 };
